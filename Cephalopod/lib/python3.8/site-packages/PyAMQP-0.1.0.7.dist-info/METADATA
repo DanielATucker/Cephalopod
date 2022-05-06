@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: PyAMQP
+Version: 0.1.0.7
+Summary: Python interface for simple usage of AMQP middleware applications.
+Home-page: https://gitlab.com/avanti-open-source/pyamqp
+Author: Avanti FS
+Author-email: alonso6230@gmail.com
+License: MIT
+Download-URL: https://gitlab.com/avanti-open-source/pyamqp.git
+Keywords: message broker queues amqp processing data
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: pika (==0.13)
+Requires-Dist: pytest
+
+Python interface for simple usage of AMQP middleware applications.
+
+
