@@ -86,7 +86,7 @@ async def on_private_message(data):
 async def init():
 
    await sio.connect('http://localhost:3000', auth= {
-       'username': "Daniel"
+       'username': "Brain"
    })
    await sio.wait()
 
