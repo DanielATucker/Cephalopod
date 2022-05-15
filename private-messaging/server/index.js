@@ -74,7 +74,15 @@ worker.register("tasks.start_server", async () =>{
 	});
 
 	io.on("connection", (socket) => {
-	  // persist session
+	
+	socket.on("message", async (message) => {
+		
+		io.emit("private message", message)
+	
+	});
+	
+	
+	// persist session
 	  sessionStore.saveSession(socket.sessionID, {
 	    userID: socket.userID,
 	    username: socket.username,

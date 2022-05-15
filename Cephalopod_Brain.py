@@ -31,7 +31,7 @@ async def connect():
 
     print("Connected to Cephalopod")
 
-    await sio.emit("message", "Hello Cephalopod, im " + sio.sid)
+    await sio.emit("message", "Brain is online @ " + sio.sid)
     print("Sent intro msg to Cephalopod")
 
 
@@ -59,8 +59,13 @@ async def disconnect():
 async def users(data):
 
     users = []
+    
+    x = 0
+    
     for user in data:
-        username = data[0]["username"]
+        username = data[x]["username"]
+        
+        x = x + 1
         
         if username not in users:
             users.append(username)
@@ -77,10 +82,10 @@ async def session(data):
 @sio.on("private message")
 async def on_private_message(data):
 	
-	sender = data["from"]
-	message = data["content"] 
+	#sender = data["from"]
+	#message = data["content"] 
 	
-	print(f"Message from {sender}: {message}")
+	print(f"Message: {data}")
 
 
 async def init():
