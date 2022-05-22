@@ -2,9 +2,10 @@ import os
 import sys
 import inspect
 
+def main(log, graph, journal_title, date_format, sio, sender_id):
 
-async def main(log, graph, journal_title, date_format, username, sio, sender_id):
-
+    username = sio.username
+    
     BUFFER_SIZE = 2048
     
     is_journal_created_today = graph.run(f"MATCH (j: Journal), (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE j.name = '{journal_title}' AND u.name = '{username}' RETURN j.is_journal_created_today ", journal_title=journal_title, username=username).evaluate()
@@ -38,7 +39,7 @@ async def main(log, graph, journal_title, date_format, username, sio, sender_id)
         graph.run(f"MATCH (u: User), (J: JournalMaster), (J)-[s: link]->(u) WHERE u.name = '{username}' CREATE (j: Journal)-[r: Journal_of]->(J) SET j.name = '{journal_title}', j.is_journal_created_today = 1", journal_title=journal_title, username=username)
         
         
-        await sio.emit("message", f"\n Let's create a new Journal entry\n Journal title: {journal_title}\n Journal body?\n")
+        sio.emit("message", f"\n Let's create a new Journal entry\n Journal title: {journal_title}\n Journal body?\n")
         
         send("return "+"Journal body?")
         journal_body = sender_socket.recv(BUFFER_SIZE).decode()

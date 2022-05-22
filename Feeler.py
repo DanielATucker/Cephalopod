@@ -18,12 +18,22 @@ from rich.logging import RichHandler
 app = Celery('tasks',
     broker_url = 'amqp://myuser:mypassword@localhost:5672/myvhost',
 
-    result_backend = 'redis://localhost:6379/1',
-    REDIS_DB=1,
+    result_backend = 'redis://localhost:6379/2',
+    
+    
+    REDIS_DB=2,
     CELERY_DEFAULT_QUEUE = 'Feeler'
 )
 
 
+
+
+class Socket_Users:
+	def __init__(self, username, userID):
+		self.username = username
+		self.userID = userID
+	
+	
 global sio
 sio = socketio.Client()
 
@@ -59,7 +69,7 @@ def prompt():
 		global sio
 		time.sleep(1)
 		response = input(">> ")
-		sio.emit("message", response)
+		sio.emit("message", str(sio.sid) +  " " + response)
 
 
 @app.task
@@ -145,6 +155,20 @@ def users(data):
 
     log.info(f"Users in the room:")
     log.info(', '.join(users))
+    
+    
+    socket_users = {}
+    y = 0
+    for user in data:
+    	socket_user_name = data[y]["username"]
+    	
+    	username = data[y]["username"]
+    	userID = data[y]["userID"]
+    	
+    	y + 1
+    	socket_users[socket_user_name] = Socket_Users(username, userID)
+    	
+    
 
 
 @app.task
@@ -164,8 +188,8 @@ def on_private_message(data):
 	#message = data["content"] 
 	
 	log.info(f"Message: {data}")
-
-
+	
+	
 def main():
 	
 	global log
