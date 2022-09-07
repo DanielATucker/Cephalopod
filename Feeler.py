@@ -1,102 +1,162 @@
-from celery import Celery
-
 import socketio
-import asyncio
 
 import time
+import threading
+import logging
+import jsonpickle
+import getpass
+
+# Modules
+
+from modules.Private_Message import Private_Message
+from modules.Feeler_handlers import handler
+from modules.console1 import console
 
 
-app = Celery('tasks',
-    broker_url = 'amqp://myuser:mypassword@localhost:5672/myvhost',
+User_list = {}
 
-    result_backend = 'redis://localhost:6379/0'
-)
-
-
-@app.task
-def start_server():
-    pass
+sio =  socketio.Client({
+    "headers": {
+        'Cookie': "a",
+        'Content-Type': 'application/json'
+    }
+})
 
 
-@app.task
-def Server_client():
-    pass
+def prompt():
+
+    global username
 
 
-sio = socketio.AsyncClient()
+    response = ""
+
+    while response != "/exit":
+
+        global sio
+
+        time.sleep(1)
+
+        response = input(">> ")
+
+        response = response.split(" ")
+
+        command = response[0]
+
+        recipient = response[1]
+
+        message = response[2:][0]
+
+
+        if command == "/send":
+
+            Private_Message(message, recipient, sio, User_list)
+
+            console.log(f"Sent: {message} To: {recipient}")
+
+
+class decorator:
+
+    def __init__(self):
+
+        self.sio = sio
+
+def username_to_id(username):
+
+    for user in User_list.values():
+
+        print(f"User {user}")
+
+
+        if username == user:
+
+            return user["user_id"]
 
 
 @sio.event
-async def connect():
+def connect():
 
-    print("Connected to Cephalopod")
+    time.sleep(.5)
 
-    await sio.emit("message", "Hello Cephalopod, im " + sio.sid)
-    print("Sent intro msg to Cephalopod")
+    console.log("Enter your username to continue")
+
+    global username
+
+    username = input(">> ")
+    sio.emit("username", username)
 
 
 @sio.event
-async def message(msg):
-    print("New Message: " + msg)
+def auth_successful():
+
+    time.sleep(.5)
+    console.log("Orders?")
+    prompt()
+
+
+@sio.event
+def req_password():
+
+    console.log("Enter Password")
+    password = getpass.getpass(">> ")
+
+    sio.emit("user_password", password)
+
+    console.log("pass")
+
+@sio.event
+def message(msg):
+    console.log("New Message: " + msg)
 
 
 @sio.event
 def connect_error(data):
-    try:
-        print("The connection failed!")
-        print(data)
-    except KeyboardInterrupt:
-        print("Bye!")
 
-@sio.event
-async def disconnect():
-    print("Disconnected!")
-
-    await sio.disconnect()
+    console.log("The connection failed!")
+    console.log(data)
+    console.log("Bye!")
+    exit
 
 
 @sio.event
-async def users(data):
+def disconnect():
 
-    users = []
-    for user in data:
-        username = data[0]["username"]
-        
-        if username not in users:
-            users.append(username)
-
-    print(f"Users in the room:")
-    print(', '.join(users))
+    console.log("Disconnected!")
 
 
 @sio.event
-async def session(data):
-    pass
+def users(Users):
+
+    for user in Users.values():
+
+        if user not in User_list.values():
+
+            User_list[user["username"]] = user
 
 
-async def init():
+@sio.event
+def private_message(Message):
 
-   await sio.connect('http://localhost:3000', auth= {
-       'username': "Daniel"
-   })
-   await sio.wait()
-
-
-if __name__ == '__main__':
-
-    #print("Starting Cephlopod")
+    if isinstance(Message, str):
+        console.log(Message)
+    elif isinstance(Message, dict):
+        console.log(Message["message"])
+    else:
+        console.log(Message.message)
 
 
-    #start_server.apply_async()
+    if "handler" in Message:
 
-    print("Starting Cephlopod client connection")
+        handler.main(Message)
 
-    #Server_client.apply_async() 
+def main():
 
-    time.sleep(1)
+    console.log("Starting Cephlopod client connection")
 
-    try:
-       asyncio.run(init())
-    except KeyboardInterrupt:
-        print("Bye!")
+    sio.connect('http://localhost:3000')
 
+    sio.wait()
+
+
+if __name__ == "__main__":
+
+    main()

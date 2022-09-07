@@ -1,113 +1,217 @@
-// Imports
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
 
-import { Server } from 'socket.io'; 
-import * as celery_client from 'celery-node';
-import * as celery from 'celery-node';
+const SerAny = require('serialize-anything');
+import { createServer } from "http";
+import { Server } from 'socket.io';
+import express from 'express'; 
+import session from "express-session";
 import { io as Server_io } from 'socket.io-client';
-import express from 'express';
-import http from 'http';
-import { dirname  as __dirname } from 'path';
-import path from 'path';
-import {fileURLToPath} from 'url';
+
+// Cephalopod modules
+
+import User_list from './Cephalopod_modules/User_list.js'
 
 
-// Init celery Server
-
-const worker = celery.createWorker(
-	'amqp://myuser:mypassword@localhost:5672/myvhost',
-	'redis://localhost:6379/0'
-);
+var Users = new User_list();
 
 
-//Init celery client (to call other workers)
+function init() {
 
-const client = celery_client.createClient(
-  "amqp://myuser:mypassword@localhost:5672/myvhost",
-  "redis://localhost:6379/0"
-);
-
-
-//  Worker to start Socketio Server
-
-worker.register("tasks.start_server", async () => {
-	
 	//init  Socketio Server
-	
-	const http_app = express();                
-	const server = http.createServer(http_app);
-	const io = new Server(server);             
+
+	const app = express();
+	const httpServer = createServer(app);
 
 
-	// Http file to serve
-	http_app.get('/', (req, res) => {
-
-		const __filename = fileURLToPath(import.meta.url);
-		const __dirname = path.dirname(__filename);
-		res.sendFile(__dirname + '/Cephalopod-Web/index.html');
+	const sessionMiddleware = session({
+		secret: "a",
+		resave: false,
+		saveUninitialized: false
 	});
+
+	const io = new Server(httpServer, {
+
+		allowRequest: (req, callback) => {
+
+			// with HTTP long-polling, we have access to the HTTP response here, but this is not
+
+			// the case with WebSocket, so we provide a dummy response object
+
+			const fakeRes = {
+				
+				getHeader() {
+					return [];
+				},
+				
+				setHeader(key, values) {
+
+					req.cookieHolder = values[0];
+				},
+
+				writeHead() {},
+			};
+
+			sessionMiddleware(req, fakeRes, () => {
+
+				if (req.session) {
+
+					// trigger the setHeader() above
+
+					fakeRes.writeHead();
+
+					// manually save the session (normally triggered by res.end())
+
+					req.session.save();
+				}
+
+				callback(null, true);
+			});
+		},
+	});
+
+	io.engine.on("initial_headers", (headers, req) => {
+
+		if (req.cookieHolder) {
+
+			headers["set-cookie"] = req.cookieHolder;
+
+			delete req.cookieHolder;
+		}
+	});
+		
+	start(httpServer);
 	
+	init_events(io);
+}
+
+
+class user {
+	
+	constructor(username, user_id) {
+
+		this.username = username;
+		this.sid = user_id;
+	}
+}
+
+
+function init_events(io) {
+
 	io.on("connection", (socket) => {
-		
-		console.log('a user connected');
 
-		socket.join("Lobby");
-		
-		var userId = socket.id; 
+		const req = socket.request;
+		const session = socket.request.session;
+
+		session.user_id = socket.id;
+
+		socket.join(socket.id);
+
+		io.sockets.to(socket.id).emit("Journal_title");
+
+		io.sockets.to(socket.id).emit("message", "Welcome to the server!")
 
 
-		io.to(userId).emit("message", "Welcome to Caphalopod, your user id is " + userId );
-		
-		io.to("Lobby").emit("message", "User Id " + userId + " has joined the server");
+		socket.on("private_message", (Message) => {
 
+			Message = JSON.parse(Message);
 
-		socket.on('disconnect', () => {
-			console.log('User disconnected');
+			var recipient = Message["recipient"];
+
+			recipient = username_to_id(io, socket, recipient)
+			
+			io.sockets.to(recipient).emit("private_message", Message)
+
 		});
 
 
-		socket.on('chat message', (msg) =>{
-			console.log('Message: ' + msg);
-			io.emit("message", msg);
+		socket.on("message", (message) => {
+
+			socket.emit(message)
+			console.log(message)
+		});
+
+		
+		socket.on("username", (username) => {
+
+			var user2 = new user(username, session.user_id)
+			Users[user2.username] = user2;
+
+			console.log(Users);
+			
+			socket.emit("users", Users);
+			
+			session.username = username;
+
+			session.save();
+
+			io.sockets.to(session.user_id).emit("req_password")
+		});
+
+
+		socket.on("Brain_password", (password) => {
+
+			req.session.password = password;
+
+			req.session.save();
+
+			if (password == "BrainPassword") {
+
+				socket.emit("message", "You are authenticated!")
+
+			}
+			else {
+				socket.emit("message", "Wrong Brain Password, Please contact an administrator")
+				console.log("Wrong Brain Password")
+			}
+		});
+
+
+		socket.on("user_password", (password) => {
+
+			var BrainID = username_to_id(io, socket, "Brain")
+			socket.to(BrainID).emit("user_auth", req.session.username, password)
+			
+			console.log(`Brain id ${BrainID}`)
+		});
+
+
+		socket.on("auth_success", (username) => {
+
+			var recipient = username_to_id(io, socket, username)
+
+			io.sockets.to(recipient).emit("auth_successful")
+			
+			console.log(username + " has joined the server")
+
 		});
 
 	});
-
-	io.on("message", (data) => {
-			console.log(data);
-			socket.emit("message", data);
-	});
-
-	console.log("");
-
-	server.listen(5000, () => {
-		console.log('listening on *:5000');
-	});
-
-});
-
-// Init Server client
-
-worker.register("tasks.Server_client", async () => { 
-	
-	const Server_socket = Server_io("ws://localhost:5000");
-
-	Server_socket.on("message", (data) => {
-		console.log("For Server: " + data);
-	});
+}
 
 
-	Server_socket.on("connection", function(socket){
-		print("Server client connected")	
-	});
+function username_to_id(io, socket, username) {
 
-	
-	Server_socket.on("disconnect", function(socket){
-		socket.disconnect();
-	});
+	for (const user in Users) {
+		if (username == user){
 
-	console.log("");
+			return Users[username]["sid"]
 
-});
+		}
+	}
+}
 
 
-worker.start();
+function start(httpServer) {
+
+	const PORT = process.env.PORT || 3000;
+
+	httpServer.listen(PORT, () =>
+		console.log(`server listening at http://localhost:${PORT}`)
+	);
+}
+
+
+
+init();
