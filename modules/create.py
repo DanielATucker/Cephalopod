@@ -4,11 +4,13 @@ import inspect
 
 # modules
 
+
 from .Brain_handlers.journal_handler import journal_handler
+
 
 def main(log, graph, journal_title, date_format, sio, user_id, username, User_list):
 
-    Journal_handler = journal_handler(sio)
+    Journal_handler = journal_handler(sio, username, User_list)
 
     is_journal_created_today = graph.run(f"MATCH (j: Journal), (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE j.name = '{journal_title}' AND u.name = '{username}' RETURN j.is_journal_created_today ", journal_title=journal_title, username=username).evaluate()
 
@@ -40,9 +42,9 @@ def main(log, graph, journal_title, date_format, sio, user_id, username, User_li
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (J)-[s: link]->(u) WHERE u.name = '{username}' CREATE (j: Journal)-[r: Journal_of]->(J) SET j.name = '{journal_title}', j.is_journal_created_today = 1", journal_title=journal_title, username=username)
 
-        Journal_handler.title(sio, user_id, journal_title, User_list)
+        Journal_handler.init1.title(username, User_list, journal_title)
 
-        Journal_handler.body(sio, user_id, journal_body, User_list)
+        Journal_handler.init1.body(username, User_list, journal_body)
 
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE u.name = '{username}' AND j.name = '{journal_title}' SET j.name = '{journal_title}', j.body = '{journal_body}' ", journal_title=journal_title, journal_body=journal_body)
