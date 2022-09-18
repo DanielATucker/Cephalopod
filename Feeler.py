@@ -59,9 +59,6 @@ def username_to_id(username):
 
     for user in User_list.values():
 
-        print(f"User {user}")
-
-
         if username == user:
 
             return user["user_id"]
@@ -127,7 +124,6 @@ def users(Users):
         if user not in User_list.values():
 
             User_list[user["username"]] = user
-
 
 @sio.event
 def private_message(Message):
