@@ -6,7 +6,7 @@ def main(log, graph, journal_title, date_format, sio, user_id, username):
     @sio.event
     def body(username,journal_body):
             
-        Private_Message(f"{journal_body}", username, sio, username)
+        Private_Message(f"{journal_body}", username, sio, "Brain")
             
         print("sent")
 
@@ -16,13 +16,13 @@ def main(log, graph, journal_title, date_format, sio, user_id, username):
         
         print(f"username {username}")
             
-        Private_Message(f"Let's create a new Jounal entry. Journal title: {journal_title}. Journal body?", username, sio)
+        Private_Message(f"Let's create a new Jounal entry. Journal title: {journal_title}. Journal body?", username, sio, "Brain")
 
 
     @sio.event
     def Etitle(username, journal_title, journal_body, mood, anxiety, depression, energy):
             
-        Private_Message(f"You have already created a journal today, here it is\n Journal title: {journal_title}\n Body: {journal_body}\n Mood: {mood}\n Anxiety: {anxiety}\n Depression: {depression}\n Energy: {energy}\n", sio, username)
+        Private_Message(f"You have already created a journal today, here it is\n Journal title: {journal_title}\n Body: {journal_body}\n Mood: {mood}\n Anxiety: {anxiety}\n Depression: {depression}\n Energy: {energy}\n", username, sio, "Brain")
 
 
     is_journal_created_today = graph.run(f"MATCH (j: Journal), (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE j.name = '{journal_title}' AND u.name = '{username}' RETURN j.is_journal_created_today ", journal_title=journal_title, username=username).evaluate()
@@ -47,7 +47,7 @@ def main(log, graph, journal_title, date_format, sio, user_id, username):
         depression = today["depression"]
         energy = today["energy"]
 
-        Etitle(username, journal_title, journal_body, mood, anxiety, depression, energy)
+        Etitle(journal_title, journal_body, mood, anxiety, depression, energy, username, sio, "Brain")
 
 
     elif is_journal_created_today is None:
