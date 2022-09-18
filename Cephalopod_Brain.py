@@ -127,13 +127,11 @@ def private_message(Message):
 
         user_id_in = Message["sender_id"]
 
-        username = Message["username"]
-
-        user_id = username_to_id(username)
+        username = Message["sender"]
 
         message = Message["message"]
 
-        log.info(f"{user_id}: {message}")
+        log.info(f"{username}: {message}")
     else:
         log.info(Message)
 
