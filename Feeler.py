@@ -25,14 +25,9 @@ sio =  socketio.Client({
 
 def prompt():
 
-    global username
-
-
     response = ""
 
     while response != "/exit":
-
-        global sio
 
         time.sleep(1)
 
@@ -53,12 +48,12 @@ def prompt():
 
             console.log(f"Sent: {message} To: {recipient}")
 
-
 class decorator:
 
     def __init__(self):
 
         self.sio = sio
+
 
 def username_to_id(username):
 
@@ -102,6 +97,7 @@ def req_password():
     sio.emit("user_password", password)
 
     console.log("pass")
+
 
 @sio.event
 def message(msg):
@@ -147,6 +143,7 @@ def private_message(Message):
     if "handler" in Message:
 
         handler.main(Message)
+
 
 def main():
 
