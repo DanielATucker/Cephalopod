@@ -47,7 +47,7 @@ def main(log, graph, journal_title, date_format, sio, user_id, username):
         depression = today["depression"]
         energy = today["energy"]
 
-        Etitle(username, user_id, journal_title, journal_body, mood, anxiety, depression, energy)
+        Etitle(username, journal_title, journal_body, mood, anxiety, depression, energy)
 
 
     elif is_journal_created_today is None:
