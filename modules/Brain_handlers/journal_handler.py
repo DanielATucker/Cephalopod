@@ -1,11 +1,9 @@
 from ..Private_Message import Private_Message
 
+from ...Cephalopod_Brain import sio
 
+class journal_handler(sio):
 
-class journal_handler:
-    
-    sio = None
-    
     def __init__(self, sio):
 
         self.title = self.title()
