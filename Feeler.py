@@ -104,7 +104,7 @@ def connect_error(data):
     console.log("The connection failed!")
     console.log(data)
     console.log("Bye!")
-    exit
+    exit()
 
 
 @sio.event
