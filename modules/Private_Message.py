@@ -9,17 +9,8 @@ class Private_Message:
             self.recipient = recipient
             self.sender_id = sio.sid
             self.username = self.id_to_username(sio, User_list)
-
+            
             sio.emit("private_message", jsonpickle.encode(self))
-
-
-        def id_to_username(self, sio, User_list):
-
-            for user in User_list.values():
-                
-                if user["sid"] == sio.sid:
-
-                    return user["username"]
 
 
         def __repr__(self):
