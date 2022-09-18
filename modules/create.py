@@ -6,7 +6,7 @@ def main(log, graph, journal_title, date_format, sio, user_id, username, User_li
     @sio.event
     def body(username, User_list, journal_body):
             
-        Private_Message(f"{journal_body}", username, sio, User_list)
+        Private_Message(f"{journal_body}", username, sio, username)
             
         print("sent")
 
@@ -47,16 +47,16 @@ def main(log, graph, journal_title, date_format, sio, user_id, username, User_li
         depression = today["depression"]
         energy = today["energy"]
 
-        Etitle(user_id, journal_title, journal_body, mood, anxiety, depression, energy)
+        Etitle(username, user_id, journal_title, journal_body, mood, anxiety, depression, energy)
 
 
     elif is_journal_created_today is None:
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (J)-[s: link]->(u) WHERE u.name = '{username}' CREATE (j: Journal)-[r: Journal_of]->(J) SET j.name = '{journal_title}', j.is_journal_created_today = 1", journal_title=journal_title, username=username)
 
-        title(username, User_list, journal_title)
+        title(username, journal_title)
 
-        body(username, User_list, journal_body)
+        body(username, journal_body)
 
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE u.name = '{username}' AND j.name = '{journal_title}' SET j.name = '{journal_title}', j.body = '{journal_body}' ", journal_title=journal_title, journal_body=journal_body)

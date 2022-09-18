@@ -23,7 +23,7 @@ sio =  socketio.Client({
 })
 
 
-def prompt():
+def prompt(username):
 
     global sio
     response = ""
@@ -45,7 +45,7 @@ def prompt():
 
         if command == "/send":
 
-            Private_Message(message, recipient, sio, User_list)
+            Private_Message(message, recipient, sio, username)
 
             console.log(f"Sent: {message} To: {recipient}")
 
@@ -75,9 +75,11 @@ def connect():
 @sio.event
 def auth_successful():
 
+    global username
+
     time.sleep(.5)
     console.log("Orders?")
-    prompt()
+    prompt(username)
 
 
 @sio.event
