@@ -15,7 +15,7 @@ class Private_Message:
 
         def id_to_username(self, sio, User_list):
 
-            for user in User_list.values():
+            for user in User_list.items():
                 print(user)
                 if user["sid"] == sio.sid:
 
