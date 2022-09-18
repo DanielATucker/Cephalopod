@@ -27,5 +27,3 @@ class journal_handler:
     def Etitle(username, User_list, journal_title, journal_body, mood, anxiety, depression, energy):
 
         sio.emit (f"You have already created a journal today, here it is\n Journal title: {journal_title}\n Body: {journal_body}\n Mood: {mood}\n Anxiety: {anxiety}\n Depression: {depression}\n Energy: {energy}\n", user_id)
-
-    return title, body, Etitle
