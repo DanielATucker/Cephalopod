@@ -1,6 +1,5 @@
 from ..Private_Message import Private_Message
 import sys
-sys.path.append(..../Cephalopod)
 
 from Cephalopod_Brain import sio
 
