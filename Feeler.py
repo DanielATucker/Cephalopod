@@ -119,7 +119,7 @@ def disconnect():
 @sio.event
 def users(Users):
 
-    print(f"Incoming User list {Users}")
+    console.log(f"Incoming User list {Users}")
     for user in Users.values():
 
         if user not in User_list.values():
