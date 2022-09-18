@@ -11,9 +11,9 @@ import getpass
 from modules.Private_Message import Private_Message
 from modules.Feeler_handlers import handler
 from modules.console1 import console
+from modules.user_list import User_list
 
 
-User_list = {}
 
 sio =  socketio.Client({
     "headers": {
