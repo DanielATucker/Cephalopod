@@ -1,7 +1,7 @@
 from ..Private_Message import Private_Message
 
 
-def journal_handler(sio):
+def journal_handler(journal_title, date_format, sio, user_id, username, User_list):
 
     @sio.event
     def body(username, User_list, journal_body):
