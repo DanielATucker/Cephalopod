@@ -3,3 +3,5 @@
 *.swp
 */Cephalopod
 *Cephalopod
+*.vs
+*/.vs
