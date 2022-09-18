@@ -21,7 +21,7 @@ class journal_handler(sio):
     @sio.event
     def title(username, User_list, journal_title):
         
-        print(f"user id {user_id}")
+        print(f"username {username}")
 
         Private_Message(f"Let's create a new Jounal entry. Journal title: {journal_title}. Journal body?", username, sio, User_list)
 
