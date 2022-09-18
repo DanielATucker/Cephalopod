@@ -3,40 +3,28 @@ import sys
 import inspect
 
 
-class journal_handler(sio):
-
-    def __init__(self, sio):
-        sio = sio
-
-
+def main(log, graph, journal_title, date_format, sio, user_id, username, User_list):
+         
     @sio.event
     def body(username, User_list, journal_body):
-
+            
         Private_Message(f"{journal_body}", username, sio, User_list)
+            
         print("sent")
-
-    
 
 
     @sio.event
     def title(username, User_list, journal_title):
         
         print(f"username {username}")
-
+            
         Private_Message(f"Let's create a new Jounal entry. Journal title: {journal_title}. Journal body?", username, sio, User_list)
-
-    
 
 
     @sio.event
     def Etitle(username, User_list, journal_title, journal_body, mood, anxiety, depression, energy):
-
+            
         sio.emit (f"You have already created a journal today, here it is\n Journal title: {journal_title}\n Body: {journal_body}\n Mood: {mood}\n Anxiety: {anxiety}\n Depression: {depression}\n Energy: {energy}\n", user_id)
-
-
-def main(log, graph, journal_title, date_format, sio, user_id, username, User_list):
-
-    Journal_handler = journal_handler(journal_title, date_format, sio, user_id, username, User_list)
 
 
     is_journal_created_today = graph.run(f"MATCH (j: Journal), (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE j.name = '{journal_title}' AND u.name = '{username}' RETURN j.is_journal_created_today ", journal_title=journal_title, username=username).evaluate()
@@ -61,16 +49,16 @@ def main(log, graph, journal_title, date_format, sio, user_id, username, User_li
         depression = today["depression"]
         energy = today["energy"]
 
-        Journal_handler.Etitle(sio, user_id, journal_title, journal_body, mood, anxiety, depression, energy)
+        Etitle(user_id, journal_title, journal_body, mood, anxiety, depression, energy)
 
 
     elif is_journal_created_today is None:
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (J)-[s: link]->(u) WHERE u.name = '{username}' CREATE (j: Journal)-[r: Journal_of]->(J) SET j.name = '{journal_title}', j.is_journal_created_today = 1", journal_title=journal_title, username=username)
 
-        Journal_handler.title(username, User_list, journal_title)
+        title(username, User_list, journal_title)
 
-        Journal_handler.body(username, User_list, journal_body)
+        body(username, User_list, journal_body)
 
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE u.name = '{username}' AND j.name = '{journal_title}' SET j.name = '{journal_title}', j.body = '{journal_body}' ", journal_title=journal_title, journal_body=journal_body)
