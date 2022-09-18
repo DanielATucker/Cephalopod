@@ -167,7 +167,7 @@ def switchboard(sio, data, sender_id, username):
 
     if data.startswith("/create"):
 
-        create.main(log, graph, journal_title, date_format, sio, sender_id, username, User_list)
+        create.main(log, graph, journal_title, date_format, sio, sender_id, username)
 
 
 @sio.event
