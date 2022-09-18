@@ -42,9 +42,9 @@ def main(log, graph, journal_title, date_format, sio, user_id, username, User_li
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (J)-[s: link]->(u) WHERE u.name = '{username}' CREATE (j: Journal)-[r: Journal_of]->(J) SET j.name = '{journal_title}', j.is_journal_created_today = 1", journal_title=journal_title, username=username)
 
-        Journal_handler.init1.title(username, User_list, journal_title)
+        Journal_handler.title(username, User_list, journal_title)
 
-        Journal_handler.init1.body(username, User_list, journal_body)
+        Journal_handler.body(username, User_list, journal_body)
 
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE u.name = '{username}' AND j.name = '{journal_title}' SET j.name = '{journal_title}', j.body = '{journal_body}' ", journal_title=journal_title, journal_body=journal_body)
