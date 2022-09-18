@@ -4,6 +4,13 @@ from ..Private_Message import Private_Message
 
 class journal_handler(sio):
     
+    def __init__(self, sio):
+
+        self.title = self.title()
+        self.body = self.body()
+        self.Etitle = self.Etitle()
+
+
     @sio.event
     def body(username, User_list, journal_body):
 
