@@ -2,7 +2,9 @@ from ..Private_Message import Private_Message
 
 
 
-class journal_handler(sio):
+class journal_handler:
+    
+    sio = None
     
     def __init__(self, sio):
 
