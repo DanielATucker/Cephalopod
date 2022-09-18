@@ -1,6 +1,6 @@
 from ..Private_Message import Private_Message
 
-from ...Cephalopod_Brain import sio
+from ....Cephalopod.Cephalopod_Brain import sio
 
 class journal_handler(sio):
 
