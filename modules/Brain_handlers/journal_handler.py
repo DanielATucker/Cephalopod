@@ -1,16 +1,7 @@
 from ..Private_Message import Private_Message
-import sys
 
-from Cephalopod_Brain import sio
 
-class journal_handler(sio):
-
-    def __init__(self, sio):
-
-        self.title = self.title()
-        self.body = self.body()
-        self.Etitle = self.Etitle()
-
+def journal_handler(sio):
 
     @sio.event
     def body(username, User_list, journal_body):
