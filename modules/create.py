@@ -16,7 +16,7 @@ def main(log, graph, journal_title, date_format, sio, user_id, username):
         
         print(f"username {username}")
             
-        Private_Message(f"Let's create a new Jounal entry. Journal title: {journal_title}. Journal body?", username, sio, User_list)
+        Private_Message(f"Let's create a new Jounal entry. Journal title: {journal_title}. Journal body?", username, sio)
 
 
     @sio.event
