@@ -7,6 +7,7 @@ import inspect
 
 from .Brain_handlers.journal_handler import journal_handler
 
+journal_handler = journal_handler()
 
 def main(log, graph, journal_title, date_format, sio, user_id, username, User_list):
 
@@ -32,16 +33,16 @@ def main(log, graph, journal_title, date_format, sio, user_id, username, User_li
         depression = today["depression"]
         energy = today["energy"]
 
-        journal_handler.Etitle(sio, user_id, journal_title, journal_body, mood, anxiety, depression, energy)
+        Journal_handler.Etitle(sio, user_id, journal_title, journal_body, mood, anxiety, depression, energy)
 
 
     elif is_journal_created_today is None:
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (J)-[s: link]->(u) WHERE u.name = '{username}' CREATE (j: Journal)-[r: Journal_of]->(J) SET j.name = '{journal_title}', j.is_journal_created_today = 1", journal_title=journal_title, username=username)
 
-        journal_handler.title(username, User_list, journal_title)
+        Journal_handler.title(username, User_list, journal_title)
 
-        journal_handler.body(username, User_list, journal_body)
+        Journal_handler.body(username, User_list, journal_body)
 
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE u.name = '{username}' AND j.name = '{journal_title}' SET j.name = '{journal_title}', j.body = '{journal_body}' ", journal_title=journal_title, journal_body=journal_body)
