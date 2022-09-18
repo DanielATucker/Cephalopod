@@ -13,7 +13,7 @@ from modules.Feeler_handlers import handler
 from modules.console1 import console
 from modules.user_list import User_list
 
-
+global sio
 
 sio =  socketio.Client({
     "headers": {
@@ -25,6 +25,7 @@ sio =  socketio.Client({
 
 def prompt():
 
+    global sio
     response = ""
 
     while response != "/exit":
@@ -47,12 +48,6 @@ def prompt():
             Private_Message(message, recipient, sio, User_list)
 
             console.log(f"Sent: {message} To: {recipient}")
-
-class decorator:
-
-    def __init__(self):
-
-        self.sio = sio
 
 
 def username_to_id(username):
