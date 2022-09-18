@@ -1,7 +1,8 @@
 from ..Private_Message import Private_Message
+import sys
 
-
-def journal_handler(journal_title, date_format, sio, user_id, username, User_list):
+from Cephalopod import sio
+class journal_handler:
 
     @sio.event
     def body(username, User_list, journal_body):
