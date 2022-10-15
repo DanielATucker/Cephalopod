@@ -56,8 +56,6 @@ def main(log, graph, journal_title, date_format, sio, user_id, username):
 
         title(username, journal_title)
 
-        body(username, journal_body)
-
 
         graph.run(f"MATCH (u: User), (J: JournalMaster), (j: Journal), (j)-[*]->(J)-[r: link]->(u) WHERE u.name = '{username}' AND j.name = '{journal_title}' SET j.name = '{journal_title}', j.body = '{journal_body}' ", journal_title=journal_title, journal_body=journal_body)
 
