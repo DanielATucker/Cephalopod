@@ -5,6 +5,7 @@ const require = createRequire(import.meta.url);
 var blessed = require('blessed')
 , contrib = require('blessed-contrib')
 
+var strftime = require('strftime')
 
 export default function timebox(grid, screen) {
   setInterval(()=> {
