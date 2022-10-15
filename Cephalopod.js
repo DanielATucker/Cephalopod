@@ -108,8 +108,6 @@ function init_events(io) {
 
 		socket.join(socket.id);
 
-		io.sockets.to(socket.id).emit("Journal_title");
-
 		io.sockets.to(socket.id).emit("message", "Welcome to the server!")
 
 

@@ -1,5 +1,0 @@
-setuptools
-py2neo
-python-socketio[client]
-rich
-jsonpickle
