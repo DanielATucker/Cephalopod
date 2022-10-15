@@ -20,8 +20,8 @@ export default function timebox(grid, screen) {
         type: 'line'
       },
       style: {
-        fg: 'white',
-        bg: 'magenta',
+        fg: 'red',
+        bg: 'black',
         border: {
           fg: '#f0f0f0'
         },
