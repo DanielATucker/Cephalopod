@@ -1,5 +1,6 @@
 from .Private_Message import Private_Message
 
+from Brain_handlers.journal_handler import journal_handler
 
 def main(log, graph, journal_title, date_format, sio, user_id, username):
     
