@@ -10,7 +10,7 @@ var strftime = require('strftime')
 export default function timebox(grid, screen) {
   setInterval(()=> {
 
-    let Now = strftime('%y%m%d %H:%M.%S', new Date(1307472705067))
+    let Now = strftime('%y%m%d %H:%M.%S', new Date())
 
     var TimeBox = grid.set(0, 0, 2, 2, blessed.box, {
       width: '100%',
