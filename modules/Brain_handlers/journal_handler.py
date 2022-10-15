@@ -1,6 +1,6 @@
 from ..Private_Message import Private_Message
 import sys
-from ...Cephalopod import sio
+from Cephalopod import sio
 class journal_handler:
 
     @sio.event
