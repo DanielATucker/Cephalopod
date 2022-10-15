@@ -24,7 +24,7 @@ export default function timebox(grid, screen) {
         fg: 'red',
         bg: 'black',
         border: {
-          fg: '#f0f0f0'
+          fg: 'red'
         },
         hover: {
           bg: 'green'
