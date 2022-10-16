@@ -18,7 +18,7 @@ export default function terminalbox(grid, screen) {
 
   function refresh(callback) { 
     setInterval(()=> {
-      var Terminal = grid.set(5, 0, 3, 8, .textbox({
+      var Terminal = grid.set(5, 0, 3, 8, blessed.textbox({
         top: 4,
         left: 5,
         height: 3,
