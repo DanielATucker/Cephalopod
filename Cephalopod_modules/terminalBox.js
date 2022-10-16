@@ -8,10 +8,14 @@ var blessed = require('blessed')
 
 export default function terminalbox(grid, screen) {
   setInterval(()=> {
-    var terminalBox = grid.set(8, 6, 4, 2, contrib.log, 
-        { fg: "green"
-        , selectedFg: "green"
-        , label: 'Server Log'})
+
+    let terminalContent = "terminal WILL GO HERE"
+
+
+    var log = grid.set(5, 0, 3, 8, contrib.log, 
+  { fg: "red"
+  , selectedFg: "red"
+  , label: 'Terminal'})
   
     screen.render();
   
