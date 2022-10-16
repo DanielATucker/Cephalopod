@@ -16,15 +16,18 @@ export default function terminalbox(grid, screen) {
     Terminal = TerminalIn
   }
 
-  function refresh() { 
+  function refresh(callback) { 
     setInterval(()=> {
-      var Terminal = grid.set(5, 0, 3, 8, blessed.input, ({
-        parent: screen,
-        width: '100%',
-        left: 'center',
-        keys: true,
-        inputOnFocus: true
-      }));
+      var Terminal = grid.set(5, 0, 3, 8, blessed.textbox({
+        top: 4,
+        left: 5,
+        height: 3,
+        mouse: true,
+        inputOnFocus: true,
+        border: {
+          type: 'line',
+        },
+      }))
     });
   }
  };
