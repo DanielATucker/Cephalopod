@@ -19,7 +19,7 @@ export default function terminalbox(grid, screen) {
 
   function refresh(callback) { 
     setInterval(()=> {
-      var Terminal = grid.set(5, 0, 3, 8, contrib.log,({ fg: "red", selectedFg: "red", label: 'Terminal', border: {fg: 'red'},}));
+      var Terminal = grid.set(5, 0, 3, 8, contrib.log,({ fg: "red", selectedFg: "red", label: 'Terminal'}));
 
       Terminal.log(terminalContent);
 
