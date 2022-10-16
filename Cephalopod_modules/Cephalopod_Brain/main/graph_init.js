@@ -8,9 +8,9 @@ import { new_user } from "./new_user.js";
 
 export class graph_init {
     constructor() {
-        uri = "bolt://localhost:7688";
-        neo4j_user = "neo4j"
-        neo4j_password = process.env.BrainDBPassword;
+        let uri = "bolt://localhost:7688";
+        let neo4j_user = "neo4j"
+        let neo4j_password = process.env.BrainDBPassword;
     
         const driver = neo4j.driver(uri, neo4j.auth.basic(neo4j_user, neo4j_password));
         const graph = driver.session();

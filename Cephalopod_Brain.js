@@ -32,7 +32,7 @@ socket.io.on("open", () => {
     });
   });
 
-  sender_info = {
+  let sender_info = {
     "sender": "Brain",
     "sender_id": socket.id
   }
@@ -49,7 +49,7 @@ socket.on('req_password', () => {
 });
 
 socket.on('user_auth', (sender, username, password) => {
-  graph = graph_init();
+  let graph = graph_init();
 
   auth(socket, graph, sender_info, username, password);
 });
