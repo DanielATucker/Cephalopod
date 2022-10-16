@@ -2,17 +2,17 @@ const prompt = require("prompt-sync")({ sigint: true });
 
 
 export default function new_user (graph) {
-    self.privileges = "user"
+    let privileges = "user"
 
-    console.log("Username?")
+    console.log("Username?");
 
-    username = prompt(">>")
+    let username = prompt(">>");
 
-    console.log("Password?")
-    pass1 = getpass.getpass(">>")
+    console.log("Password?");
+    let pass1 = getpass.getpass(">>");
 
-    console.log("Reenter password to verify")
-    pass2 = getpass.getpass(">>")
+    console.log("Reenter password to verify");
+    let pass2 = getpass.getpass(">>");
 
     while (pass1 != pass2) {
         console.log("Passwords did not match, Try again or exit");
@@ -45,14 +45,14 @@ export default function new_user (graph) {
               J.name = 'JournalMaster',\n
               TC.name = 'TaskCompleted',\n
               MM.name = 'MessageMaster',\n
-              V.name = 'Vault' `, username=username)
+              V.name = 'Vault' `, username=username);
 
     graph.run(`MATCH (u: User)\n
               WHERE u.name = '${username}'\n
               SET u.user = '${username}',\n
               u.password = '${password}',\n
               u.privileges = '${privileges}'\n
-              `, user=user, password=password, privileges=privileges)
+              `, user=user, password=password, privileges=privileges);
 
-    console.log("User created")
-}
+    console.log("User created");
+};
