@@ -12,7 +12,27 @@ export default function terminalbox(grid, screen) {
     let terminalContent = "terminal WILL GO HERE"
 
 
-    var terminalBox = grid.set(5, 0, 3, 8,Terminal =  contrib.log, ({ fg: "red", selectedFg: "red", label: 'Terminal'}));
+    var terminalBox = grid.set(5, 0, 3, 8, blessed.terminal, ({
+        parent: screen,
+        cursor: 'block',
+        cursorBlink: true,
+        screenKeys: false,
+        label: ' multiplex.js ',
+        left: '50%-1',
+        top: 0,
+        width: '50%+1',
+        height: '50%',
+        border: 'line',
+        style: {
+          fg: 'red',
+          bg: 'black',
+          focus: {
+            border: {
+              fg: 'red'
+            }
+          }
+        }
+      }););
   
     screen.render();
   
