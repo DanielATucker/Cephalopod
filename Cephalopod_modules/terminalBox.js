@@ -8,48 +8,23 @@ var contrib = require('blessed-contrib')
 
 export default function terminalbox(grid, screen) {
   let Terminal = null;
-  let text = null;
   let terminalContent = "terminal WILL GO HERE";
 
   refresh(get_Terminal);
 
-  function get_Terminal(TerminalIn, textIn){
+  function get_Terminal(TerminalIn){
     Terminal = TerminalIn
-    text = textIn
   }
 
-  function refresh(callback) { 
+  function refresh() { 
     setInterval(()=> {
-      var TerminalIn = grid.set(6, 0, 3, 8, blessed.textarea, ({
+      var Terminal = grid.set(5, 0, 3, 8, blessed.form, ({
         parent: screen,
-        top: 'center',
-        left: 'center',
         width: '100%',
-        height: '100%',
-        border: {
-          type: 'line'
-        },
-        inputOnFocus: true,
-        style: {
-          border: {
-            fg: 'red'
-          }
-        }
+        left: 'center',
+        keys: true,
+        vi: true
       }));
-
-      TerminalIn.key(['enter'], () => TerminalIn.submit());
-      TerminalIn.key(['escape'], () => TerminalIn.cancel());
-      TerminalIn.on('submit', () => {
-        let text = TerminalIn.getValue();
-
-        callback(TerminalIn, text)
-
-        TerminalIn.destroy();
-      });
-      TerminalIn.on('cancel', () => {
-        TerminalIn.destroy();
-      });
-      TerminalIn.focus();
     });
   }
-};
+ };
