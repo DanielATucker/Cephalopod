@@ -12,6 +12,8 @@ var blessed = require('blessed')
 
 import timeBox from "./Cephalopod_modules/timeBox.js";
 import statsBox from "./Cephalopod_modules/statsBox.js";
+import terminalBox from "./Cephalopod_modules/terminalBox";
+
 
 function main() {
   // Quit on Escape, q, or Control-C.
@@ -21,6 +23,8 @@ function main() {
   
   let Timebox = timeBox(grid, screen)
   let StatsBox = statsBox(grid, screen)
+  let TerminalBox = terminalBox(grid, screen)
+
 }
 
 main()
