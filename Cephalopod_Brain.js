@@ -7,8 +7,8 @@ import { parse } from "cookie";
 
 var term = require( 'terminal-kit' ).terminal ;
 
-import { graph_init } from "./Cephalopod_modules/Cephalopod_Brain/main/graph_init";
-import { auth } from "./Cephalopod_modules/Cephalopod_Brain/main/auth";
+import { graph_init } from "./Cephalopod_modules/Cephalopod_Brain/main/graph_init.js";
+import { auth } from "./Cephalopod_modules/Cephalopod_Brain/main/auth.js";
 
 const socket = io("http://localhost:3000");
 const COOKIE_NAME = "a";
