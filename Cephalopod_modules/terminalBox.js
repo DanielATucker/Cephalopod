@@ -32,6 +32,8 @@ export default function terminalbox(grid, screen) {
           },
         }
       }));
+
+      Terminal.focus();
     });
   };
 
