@@ -11,7 +11,7 @@ export default function timebox(grid, screen) {
 
     let StatsContent = "STATS WILL GO HERE"
 
-    var StatsBox = grid.set(1, 5, 2, 2, blessed.box, {
+    var StatsBox = grid.set(0, 5, 2, 2, blessed.box, {
       width: '100%',
       height: '100%',
       content: StatsContent,
