@@ -5,6 +5,8 @@ import { parse } from "cookie";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+const prompt = require("prompt-sync")({ sigint: true });
+
 var blessed = require('blessed')
 , contrib = require('blessed-contrib')
 , screen = blessed.screen()
