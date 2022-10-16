@@ -13,19 +13,7 @@ export default function terminalbox(grid, screen) {
   function refresh(screen) { 
     setInterval(()=> {
       var Terminal = grid.set(5, 0, 3, 8, blessed.form, ({
-        top: 'center',
-        left: 'center',
-        mouse: true,
-        keys: true,
-        width: 33,
-        height: 10,
-        border: {
-          type: 'line',
-          fg: 'red',
-          bg: 'black'
-        },
-        fg: 'red',
-        bg: 'black'
+        keys: true
       }));
 
       Terminal.log(terminalContent);
