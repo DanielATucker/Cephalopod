@@ -61,14 +61,14 @@ socket.on('connect', async function (data) {
   
   console.log('Connected!');
   console.log("Enter Your Username"); 
-  username = prompt(">>");
+  let username = prompt(">>");
   
   socket.emit("username", username)
 });
 
 socket.on('req_password', function (data) {
   console.log("Password?")
-  password = prompt(">>");
+  let password = prompt(">>");
   socket.emit("user_password", password);
   console.log("you have logged in");
 });
