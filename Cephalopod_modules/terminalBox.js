@@ -3,7 +3,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 var blessed = require('blessed')
-//var contrib = require('blessed-contrib')
+var contrib = require('blessed-contrib')
 
 
 export default function terminalbox(grid, screen) {
