@@ -3,7 +3,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 var blessed = require('blessed')
-, contrib = require('blessed-contrib')
+var contrib = require('blessed-contrib')
 
 
 export default function timebox(grid, screen) {
@@ -30,7 +30,6 @@ export default function timebox(grid, screen) {
         }
       }
     });
-    
   
     screen.render();
   
