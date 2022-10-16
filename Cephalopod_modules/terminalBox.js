@@ -11,7 +11,7 @@ export default function terminalbox(grid, screen) {
 
     let terminalContent = "terminal WILL GO HERE"
 
-    var terminalBox = grid.set(5, 0, 4, 4, blessed.box, {
+    var terminalBox = grid.set(5, 0, 3, 8, blessed.box, {
       width: '100%',
       height: '100%',
       content: terminalContent,
