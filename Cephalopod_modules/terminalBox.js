@@ -12,10 +12,10 @@ export default function terminalbox(grid, screen) {
     let terminalContent = "terminal WILL GO HERE"
 
 
-    var terminalBox = grid.set(5, 0, 3, 8, contrib.log, ({ fg: "red", selectedFg: "red", label: 'Terminal'}));
+    var terminalBox = grid.set(5, 0, 3, 8,Terminal =  contrib.log, ({ fg: "red", selectedFg: "red", label: 'Terminal'}));
   
     screen.render();
   
-    return terminalBox;
+    return terminalBox, Terminal;
   },1000);
 };

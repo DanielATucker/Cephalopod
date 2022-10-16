@@ -23,8 +23,9 @@ function main() {
   
   let Timebox = timeBox(grid, screen)
   let StatsBox = statsBox(grid, screen)
-  let TerminalBox = terminalBox(grid, screen)
+  let TerminalBox, Terminal = terminalBox(grid, screen)
 
+  Terminal.log()
 }
 
 main()
