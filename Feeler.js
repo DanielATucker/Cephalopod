@@ -61,11 +61,15 @@ socket.on('connect', async function (data) {
   
   console.log('Connected!');
   console.log("Enter Your Username"); 
+  username = prompt(">>");
+  
+  socket.emit("username", username)
 });
 
 socket.on('req_password', function (data) {
-  socket.emit("Brain_password", "BrainPassword");
-  socket.emit("message", "Brain is online @ " + socket.id);
+  console.log("Password?")
+  password = prompt(">>");
+  socket.emit("user_password", password);
   console.log("you have logged in");
 });
 
