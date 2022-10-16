@@ -68,7 +68,7 @@ socket.on('connect', async function (data) {
 
 socket.on('req_password', function (data) {
   console.log("Password?")
-  let password = prompt(">>");
+  let password = prompt.hide(">>");
   socket.emit("user_password", password);
   console.log("you have logged in");
 });
