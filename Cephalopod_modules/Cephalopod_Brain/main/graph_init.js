@@ -23,7 +23,7 @@ export class graph_init {
     system_init(graph){
         let main = graph.run(`MATCH (n: Main) WHERE n.name='Main' RETURN (n)`)
 
-        if (main == None) {
+        if (main == null) {
             console.log("No data found. Initializing system.");
             create_system(graph);
         }  
