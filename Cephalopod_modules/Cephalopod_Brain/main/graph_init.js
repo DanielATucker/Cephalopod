@@ -22,7 +22,6 @@ export class graph_init {
     
     system_init(graph){
         let main = graph.run(`MATCH (n: Main) WHERE n.name='Main' RETURN (n)`)
-        main = main.evaluate();
 
         if (main == None) {
             console.log("No data found. Initializing system.");
