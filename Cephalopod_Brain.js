@@ -39,6 +39,11 @@ socket.on('req_password', function (data) {
     socket.emit("message", "Brain is online @ " + socket.id)
 });
 
+socket.on('user_auth', (username, password) => {
+  console.log(username)
+  console.log(password)
+});
+
 socket.on("message", (Message) => {
   console.log(Message);
 });
