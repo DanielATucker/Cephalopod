@@ -12,7 +12,7 @@ var blessed = require('blessed')
 
 import timeBox from "./Cephalopod_modules/timeBox.js";
 import statsBox from "./Cephalopod_modules/statsBox.js";
-import terminalBox from "./Cephalopod_modules/terminalBox";
+import terminalBox from "./Cephalopod_modules/terminalBox.js";
 
 
 function main() {
