@@ -11,6 +11,7 @@ var blessed = require('blessed')
 , grid = new contrib.grid({rows: 8, cols: 8, screen: screen})
 
 import timeBox from "./Cephalopod_modules/timeBox.js";
+import statsBox from "./Cephalopod_modules/statsBox.js";
 
 function main() {
   // Quit on Escape, q, or Control-C.
@@ -19,6 +20,7 @@ function main() {
   });
   
   let Timebox = timeBox(grid, screen)
+  let StatsBox = statsBox(grid, screen)
 }
 
 main()
