@@ -8,34 +8,13 @@ var blessed = require('blessed')
 
 export default function terminalbox(grid, screen) {
   setInterval(()=> {
-
-    let terminalContent = "terminal WILL GO HERE"
-
-
-    var terminalBox = grid.set(5, 0, 3, 8, blessed.terminal, ({
-        parent: screen,
-        cursor: 'block',
-        cursorBlink: true,
-        screenKeys: false,
-        label: ' multiplex.js ',
-        left: '50%-1',
-        top: 0,
-        width: '50%+1',
-        height: '50%',
-        border: 'line',
-        style: {
-          fg: 'red',
-          bg: 'black',
-          focus: {
-            border: {
-              fg: 'red'
-            }
-          }
-        }
-      }));
+    var terminalBox = grid.set(8, 6, 4, 2, contrib.log, 
+        { fg: "green"
+        , selectedFg: "green"
+        , label: 'Server Log'})
   
     screen.render();
   
-    return terminalBox, Terminal;
+    return terminalBox,
   },1000);
 };
