@@ -13,19 +13,19 @@ export default function terminalbox(grid, screen) {
 
   refresh(get_Terminal);
 
-  function get_Terminal(Terminal){
-    return Terminal
+  function get_Terminal(TerminalIn){
+    Terminal = TerminalIn
   }
 
-  function refresh() { 
-    setInterval((get_Terminal)=> {
+  function refresh(callback) { 
+    setInterval(()=> {
       var Terminal = grid.set(5, 0, 3, 8, contrib.log,({ fg: "red", selectedFg: "red", label: 'Terminal'}))
 
-      Terminal.log("TEST")
+      Terminal.log(terminalContent);
 
       screen.render();
     
-      get_Terminal(Terminal);
+      callback(Terminal);
     });
   }
 
