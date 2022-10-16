@@ -17,7 +17,7 @@ export default function terminalbox(grid, screen) {
     return Terminal
   }
 
-  function refresh(get_Terminal) { 
+  function refresh() { 
     setInterval((get_Terminal)=> {
       var Terminal = grid.set(5, 0, 3, 8, contrib.log,({ fg: "red", selectedFg: "red", label: 'Terminal'}))
 
@@ -29,5 +29,4 @@ export default function terminalbox(grid, screen) {
     });
   }
 
-  
 };
