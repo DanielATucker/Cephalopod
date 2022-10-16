@@ -1,4 +1,4 @@
-import { private_message } from "./private_message";
+import { private_message } from "./private_message.js";
 
 export function auth(socket, graph, sender_info, username, password){
     let matched_user = graph.run(`MATCH (u: User) WHERE u.name = '${username}' RETURN (u)`, username=username).evaluate();
