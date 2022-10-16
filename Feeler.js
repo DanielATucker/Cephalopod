@@ -70,6 +70,9 @@ socket.on('req_password', function (data) {
   console.log("Password?")
   let password = prompt.hide(">>");
   socket.emit("user_password", password);
+});
+
+socket.on("auth_success", {
   console.log("you have logged in");
 });
 
