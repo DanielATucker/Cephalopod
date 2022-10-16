@@ -26,7 +26,7 @@ export default function terminalbox(grid, screen) {
         },
         style: {
           fg: 'red',
-          bg: 'black',
+          bg: 'blue',
           border: {
             fg: 'red'
           },
