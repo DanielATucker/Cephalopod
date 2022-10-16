@@ -23,6 +23,12 @@ export default function terminalbox(grid, screen) {
         border: {
           type: 'line',
         },
+        style: {
+          fg: 'red',
+          bg: 'black',
+          border: {
+            fg: 'red'
+          },
       }));
     });
   };
