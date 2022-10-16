@@ -22,6 +22,9 @@ export default function terminalbox(grid, screen) {
     setInterval(()=> {
       var TerminalIn = grid.set(6, 0, 3, 8, blessed.textarea, ({
         parent: screen,
+        top: 'center',
+        left: 'center',
+        width: '100%',
         height: '100%',
         border: {
           type: 'line'
