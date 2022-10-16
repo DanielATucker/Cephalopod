@@ -7,11 +7,17 @@ var blessed = require('blessed')
 
 
 export default function terminalbox(grid, screen) {
-  let terminalContent = "terminal WILL GO HERE"
-  
-  refresh()
-  
-  function refresh() { 
+  let Terminal = null;
+  let terminalContent = "terminal WILL GO HERE";
+
+
+  refresh(get_Terminal);
+
+  function get_Terminal(Terminal){
+    return Terminal
+  }
+
+  function refresh(get_Terminal) { 
     setInterval((get_Terminal)=> {
       var Terminal = grid.set(5, 0, 3, 8, contrib.log,({ fg: "red", selectedFg: "red", label: 'Terminal'}))
 
@@ -23,7 +29,5 @@ export default function terminalbox(grid, screen) {
     });
   }
 
-  function get_Terminal(Terminal){
-
-  }
+  
 };
