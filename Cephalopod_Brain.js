@@ -49,7 +49,7 @@ socket.on('req_password', () => {
 });
 
 socket.on('user_auth', (sender, username, password) => {
-  let graph = graph_init();
+  let graph =  new graph_init();
 
   auth(socket, graph, sender_info, username, password);
 });
