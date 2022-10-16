@@ -32,7 +32,7 @@ export default function terminalbox(grid, screen) {
             }
           }
         }
-      }););
+      }));
   
     screen.render();
   
