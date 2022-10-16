@@ -14,7 +14,7 @@ import timeBox from "./Cephalopod_modules/timeBox.js";
 import statsBox from "./Cephalopod_modules/statsBox.js";
 import terminalBox from "./Cephalopod_modules/terminalBox.js";
 
-
+/*
 function main() {
   // Quit on Escape, q, or Control-C.
   screen.key(['escape', 'q', 'C-c'], function(ch, key) {
@@ -29,9 +29,9 @@ function main() {
 }
 
 main()
+*/
 
 
-/*
 const socket = io("http://localhost:3000");
 const COOKIE_NAME = "a";
 
@@ -75,5 +75,3 @@ socket.on("private_message", (Message) => {
   Message = JSON.parse(Message);
   box.insertLine(1, Message);
 });
-
-*/
