@@ -72,7 +72,7 @@ socket.on('req_password', function (data) {
   socket.emit("user_password", password);
 });
 
-socket.on("auth_success", {
+socket.on("auth_success", () => {
   console.log("you have logged in");
 });
 
