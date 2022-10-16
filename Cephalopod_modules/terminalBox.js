@@ -13,7 +13,10 @@ export default function terminalbox(grid, screen) {
 
 
     var terminalBox = grid.set(5, 0, 3, 8, contrib.log,({ fg: "red", selectedFg: "red", label: 'Terminal'}))
-  
+
+
+    terminalBox.log("TEST")
+
     screen.render();
   
     return terminalBox;

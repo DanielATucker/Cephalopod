@@ -25,7 +25,7 @@ function main() {
   let StatsBox = statsBox(grid, screen)
   let TerminalBox = terminalBox(grid, screen)
 
-  TerminalBox.log("TEST")
+  //TerminalBox.log("TEST")
 }
 
 main()
