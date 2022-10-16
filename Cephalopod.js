@@ -16,14 +16,12 @@ import User_list from './Cephalopod_modules/User_list.js'
 
 var Users = new User_list();
 
-
 function init() {
 
 	//init  Socketio Server
 
 	const app = express();
 	const httpServer = createServer(app);
-
 
 	const sessionMiddleware = session({
 		secret: "a",
@@ -86,7 +84,6 @@ function init() {
 	init_events(io);
 }
 
-
 class user {
 	
 	constructor(username, user_id) {
@@ -95,7 +92,6 @@ class user {
 		this.sid = user_id;
 	}
 }
-
 
 function init_events(io) {
 
@@ -110,7 +106,6 @@ function init_events(io) {
 
 		io.sockets.to(socket.id).emit("message", "Welcome to the server!")
 
-
 		socket.on("private_message", (Message) => {
 
 			Message = JSON.parse(Message);
@@ -123,14 +118,12 @@ function init_events(io) {
 
 		});
 
-
 		socket.on("message", (message) => {
 
 			socket.emit(message)
 			console.log(message)
 		});
-
-		
+	
 		socket.on("username", (username) => {
 
 			var user2 = new user(username, session.user_id)
@@ -141,12 +134,12 @@ function init_events(io) {
 			socket.emit("users", Users);
 			
 			session.username = username;
+			socket.username = username; 
 
 			session.save();
 
 			io.sockets.to(session.user_id).emit("req_password")
 		});
-
 
 		socket.on("Brain_password", (password) => {
 
@@ -165,29 +158,21 @@ function init_events(io) {
 			}
 		});
 
-
 		socket.on("user_password", (password) => {
-
 			var BrainID = username_to_id(io, socket, "Brain")
 			socket.to(BrainID).emit("user_auth", req.session.username, password)
-			
-			console.log(`Brain id ${BrainID}`)
 		});
 
-
 		socket.on("auth_success", (username) => {
-
 			var recipient = username_to_id(io, socket, username)
 
 			io.sockets.to(recipient).emit("auth_successful")
 			
 			console.log(username + " has joined the server")
-
 		});
 
 	});
 }
-
 
 function username_to_id(io, socket, username) {
 
@@ -200,7 +185,6 @@ function username_to_id(io, socket, username) {
 	}
 }
 
-
 function start(httpServer) {
 
 	const PORT = process.env.PORT || 3000;
@@ -209,7 +193,5 @@ function start(httpServer) {
 		console.log(`server listening at http://localhost:${PORT}`)
 	);
 }
-
-
 
 init();

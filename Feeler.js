@@ -58,11 +58,10 @@ socket.io.on("open", () => {
 socket.on('connect', async function (data) {
   await new Promise(resolve => setTimeout(resolve, 5000));
 
-  
   console.log('Connected!');
   console.log("Enter Your Username"); 
   let username = prompt(">>");
-  
+
   socket.emit("username", username)
 });
 
