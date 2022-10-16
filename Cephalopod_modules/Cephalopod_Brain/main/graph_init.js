@@ -2,7 +2,7 @@ const neo4j = require('neo4j-driver')
 
 import { new_user } from "./new_user.js";
 
-export default class graph_init {
+export class graph_init {
     constructor() {
         uri = "bolt://localhost:7688";
         neo4j_user = "neo4j"
