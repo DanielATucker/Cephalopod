@@ -12,7 +12,7 @@ export default function timebox(grid, screen) {
 
     let Now = strftime('%y%m%d %H:%M.%S', new Date())
 
-    var TimeBox = grid.set(0, 0, 2, 2, blessed.box, {
+    var TimeBox = grid.set(0, 0, 3, 2, blessed.box, {
       width: '100%',
       height: '100%',
       content: Now,
