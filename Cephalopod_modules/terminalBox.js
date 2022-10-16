@@ -28,5 +28,7 @@ export default function terminalbox(grid, screen) {
           type: 'line',
         },
       }));
-  }
- };
+    });
+  };
+
+};
