@@ -35,19 +35,19 @@ export default function terminalbox(grid, screen) {
         }
       }));
 
-      input.key(['enter'], () => input.submit());
-      input.key(['escape'], () => input.cancel());
-      input.on('submit', () => {
-        let text = input.getValue();
+      TerminalIn.key(['enter'], () => TerminalIn.submit());
+      TerminalIn.key(['escape'], () => TerminalIn.cancel());
+      TerminalIn.on('submit', () => {
+        let text = TerminalIn.getValue();
 
         callback(TerminalIn, text)
 
-        input.destroy();
+        TerminalIn.destroy();
       });
-      input.on('cancel', () => {
-        input.destroy();
+      TerminalIn.on('cancel', () => {
+        TerminalIn.destroy();
       });
-      input.focus();
+      TerminalIn.focus();
     });
   }
 };
