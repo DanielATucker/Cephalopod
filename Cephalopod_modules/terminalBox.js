@@ -29,6 +29,7 @@ export default function terminalbox(grid, screen) {
           border: {
             fg: 'red'
           },
+        }
       }));
     });
   };
