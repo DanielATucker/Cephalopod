@@ -15,7 +15,7 @@ export class graph_init {
         const driver = neo4j.driver(uri, neo4j.auth.basic(neo4j_user, neo4j_password));
         const graph = driver.session();
 
-        system_init(graph);
+        this.system_init(graph);
 
         return graph
     }
