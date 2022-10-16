@@ -18,7 +18,6 @@ export default function terminalbox(grid, screen) {
         top: 4,
         left: 5,
         height: 3,
-        mouse: true,
         inputOnFocus: true,
         fg: 'red',
         border: {
