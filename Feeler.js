@@ -57,21 +57,21 @@ socket.on('connect', async function (data) {
   await new Promise(resolve => setTimeout(resolve, 5000));
 
   
-  box.insertLine(1, 'Connected!');
-  box.insertLine(1, "Enter Your Username"); 
+  console.log('Connected!');
+  console.log("Enter Your Username"); 
 });
 
 socket.on('req_password', function (data) {
   socket.emit("Brain_password", "BrainPassword");
   socket.emit("message", "Brain is online @ " + socket.id);
-  box.insertLine(1, "you have logged in");
+  console.log("you have logged in");
 });
 
 socket.on("message", (Message) => {
-  box.insertLine(1, Message);
+  console.log(Message)
 });
 
 socket.on("private_message", (Message) => {
   Message = JSON.parse(Message);
-  box.insertLine(1, Message);
+  console.log(Message);
 });
