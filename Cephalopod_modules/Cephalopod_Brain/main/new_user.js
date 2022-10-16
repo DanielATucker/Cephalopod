@@ -1,7 +1,7 @@
 const prompt = require("prompt-sync")({ sigint: true });
 
 
-export default function new_user (graph) {
+export function new_user (graph) {
     let privileges = "user"
 
     console.log("Username?");
