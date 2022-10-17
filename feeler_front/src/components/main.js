@@ -7,7 +7,7 @@ class Main extends Component{
         super(props);
 
         this.username = this.get_username();
-    };
+    }
 
     async get_username(){
         const response = await fetch('http://localhost:3001/get_username');
