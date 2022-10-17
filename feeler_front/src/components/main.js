@@ -22,7 +22,6 @@ class Main extends Component{
     render() {
         return (
             <Card variant="outlined">
-                <div id = "Main">
                 <head>
                     <title>Cephalopod</title>
                 </head>
@@ -32,8 +31,6 @@ class Main extends Component{
 
                 <p> Your username is {this.username}</p>
                 </body>
-
-                </div>
             </Card>
         );
     }; 
