@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Card from '@mui/material';
+import Card from '@mui/material/Card';
 
 
 class Main extends Component{
