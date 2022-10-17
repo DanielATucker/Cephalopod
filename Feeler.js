@@ -7,33 +7,6 @@ const require = createRequire(import.meta.url);
 
 const prompt = require("prompt-sync")({ sigint: true });
 
-var blessed = require('blessed')
-, contrib = require('blessed-contrib')
-, screen = blessed.screen()
-, grid = new contrib.grid({rows: 8, cols: 8, screen: screen})
-
-import timeBox from "./Cephalopod_modules/timeBox.js";
-import statsBox from "./Cephalopod_modules/statsBox.js";
-import terminalBox from "./Cephalopod_modules/terminalBox.js";
-
-/*
-function main() {
-  // Quit on Escape, q, or Control-C.
-  screen.key(['escape', 'q', 'C-c'], function(ch, key) {
-    return process.exit(0);
-  });
-  
-  let Timebox = timeBox(grid, screen)
-  let StatsBox = statsBox(grid, screen)
-  let TerminalBox = terminalBox(grid, screen)
-
-  //TerminalBox.log("TEST")
-}
-
-main()
-*/
-
-
 const socket = io("http://localhost:3000");
 const COOKIE_NAME = "a";
 
