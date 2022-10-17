@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import fetch from 'node-fetch';
 
 import Card from '@mui/material/Card';
 
