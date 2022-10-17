@@ -6,14 +6,14 @@ class Main extends Component{
     constructor(props) {
         super(props);
 
-        this.username = this.get_username();
+        this.get_username();
     }
 
     async get_username(){
         const response = await fetch('http://localhost:3001/get_username');
         const username = await response.json();
       
-        return username;
+        this.username = username;
     };
 
     render() {
