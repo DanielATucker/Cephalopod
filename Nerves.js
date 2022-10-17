@@ -30,8 +30,7 @@ function init() {
 
 	const io = new Server(httpServer, {
 		cors: {
-			origin: "*",
-			methods: ["GET", "POST"]
+			origin: `*`,
 		},
 	
 		allowRequest: (req, callback) => {
