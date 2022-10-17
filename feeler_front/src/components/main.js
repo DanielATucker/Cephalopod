@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Card } from '@mui/material';
+import Card from '@mui/material';
 
 
 class Main extends Component{
@@ -11,7 +11,7 @@ class Main extends Component{
         };
 
         this.username = this.get_username();
-    }
+    };
 
     async get_username(){
         const response = await fetch('http://localhost:3001/get_username');
@@ -37,7 +37,7 @@ class Main extends Component{
                 </div>
             </Card>
         );
-    } 
-}
+    }; 
+};
 
 export default Main;
