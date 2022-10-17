@@ -3,8 +3,8 @@ import Card from '@mui/material/Card';
 
 
 class Main extends Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
 
         this.username = this.get_username();
     };
