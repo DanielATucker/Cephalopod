@@ -17,7 +17,6 @@ import User_list from './Cephalopod_modules/User_list.js'
 var Users = new User_list();
 
 function init() {
-
 	//init  Socketio Server
 
 	const app = express();
@@ -70,7 +69,6 @@ function init() {
 	});
 
 	io.engine.on("initial_headers", (headers, req) => {
-
 		if (req.cookieHolder) {
 
 			headers["set-cookie"] = req.cookieHolder;
@@ -85,18 +83,14 @@ function init() {
 }
 
 class user {
-	
 	constructor(username, user_id) {
-
 		this.username = username;
 		this.sid = user_id;
 	}
 }
 
 function init_events(io) {
-
 	io.on("connection", (socket) => {
-
 		const req = socket.request;
 		const session = socket.request.session;
 
@@ -175,7 +169,6 @@ function init_events(io) {
 }
 
 function username_to_id(io, socket, username) {
-
 	for (const user in Users) {
 		if (username == user){
 
@@ -186,7 +179,6 @@ function username_to_id(io, socket, username) {
 }
 
 function start(httpServer) {
-
 	const PORT = 3000;
 
 	httpServer.listen(PORT, () =>

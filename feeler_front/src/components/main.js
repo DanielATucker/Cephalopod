@@ -10,16 +10,16 @@ class Main extends Component{
             name: "React"
         };
 
-        async function get_username(){
-            const response = await fetch('http://localhost:5000/get_username');
-            const username = await response.json();
-      
-            return username;
-        };
-      
-        this.username = get_username();
+        this.username = this.get_username();
     }
-    
+
+    async get_username(){
+        const response = await fetch('http://localhost:3001/get_username');
+        const username = await response.json();
+      
+        return username;
+    };
+
     render() {
         return (
             <Card variant="outlined">
