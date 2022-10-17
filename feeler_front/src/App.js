@@ -10,8 +10,7 @@ export default class App extends Component {
     let a = 1;
   };
 
-  render() {
-    
+  render() { 
     return (
       <Card variant="outlined">
         <Main/>
