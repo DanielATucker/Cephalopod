@@ -7,8 +7,6 @@ class Main extends Component{
     constructor(props) {
         super(props);
 
-        this.username = "No user logged in"
-
         this.get_username();
     }
 
