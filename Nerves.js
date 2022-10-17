@@ -30,7 +30,7 @@ function init() {
 
 	const io = new Server(httpServer, {
 		cors: {
-			origin: "100.106.167.126",
+			origin: "100.69.19.3:3002",
 			methods: ["GET", "POST"]
 		},
 	
