@@ -28,7 +28,7 @@ socket.io.on("open", () => {
   });
 });
 
-socket.on('connect', async function (data) {
+socket.on('connect', async function () {
   await new Promise(resolve => setTimeout(resolve, 5000));
 
   console.log('Connected!');
@@ -38,7 +38,7 @@ socket.on('connect', async function (data) {
   socket.emit("username", username)
 });
 
-socket.on('req_password', function (data) {
+socket.on('req_password',  () => {
   console.log("Password?")
   let password = prompt.hide(">>");
   socket.emit("user_password", password);
