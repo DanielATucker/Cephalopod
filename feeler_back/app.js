@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var cors = require('cors')
 
 //Routes 
 var indexRouter = require('./routes/index');
@@ -11,6 +12,7 @@ var get_usernameRouter = require("./routes/get_username.js");
 
 
 var app = express();
+app.use(cors())
 
 app.set('port', process.env.PORT || 3001)
 
