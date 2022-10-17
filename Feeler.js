@@ -1,6 +1,7 @@
 import { io } from "socket.io-client";
 import { parse } from "cookie";
 
+
 // Allow require
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
