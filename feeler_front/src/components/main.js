@@ -10,7 +10,7 @@ class Main extends Component{
     }
 
     async get_username(){
-        const response = await fetch('http://localhost:3001/get_username');
+        const response = await fetch('localhost:3001/get_username');
         const username = await response.json();
       
         this.username = username;
