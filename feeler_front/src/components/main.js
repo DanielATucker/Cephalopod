@@ -3,7 +3,6 @@ import { Card } from '@mui/material';
 
 
 class Main extends Component{
-
     constructor(props) {
         super(props);
 
@@ -12,7 +11,7 @@ class Main extends Component{
         };
 
         async function get_username(){
-            const response = await fetch('http://localhost:5000/get_usernamea');
+            const response = await fetch('http://localhost:5000/get_username');
             const username = await response.json();
       
             return username;
