@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Card } from '@mui/material';
+import {SocketContext, socket} from 'context/socket';
 
 import Main from "./components/main";
 
@@ -12,9 +13,11 @@ export default class App extends Component {
 
   render() { 
     return (
+      <SocketContext.Provider value={socket}>
       <Card variant="outlined">
         <Main/>
-      </Card> 
+      </Card>
+      </SocketContext.Provider>
     )
   };
 }
