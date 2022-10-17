@@ -3,8 +3,8 @@ import Card from '@mui/material/Card';
 
 
 class Main extends Component{
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             name: "React"
