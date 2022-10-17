@@ -187,7 +187,7 @@ function username_to_id(io, socket, username) {
 
 function start(httpServer) {
 
-	const PORT = 3003;
+	const PORT = 3000;
 
 	httpServer.listen(PORT, () =>
 		console.log(`server listening at http://localhost:${PORT}`)
