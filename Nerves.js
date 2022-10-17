@@ -29,7 +29,11 @@ function init() {
 	});
 
 	const io = new Server(httpServer, {
-
+		cors: {
+			origin: "http://localhost",
+			methods: ["GET", "POST"]
+		},
+	
 		allowRequest: (req, callback) => {
 
 			// with HTTP long-polling, we have access to the HTTP response here, but this is not
