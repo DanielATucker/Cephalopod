@@ -9,15 +9,22 @@ class Main extends Component{
 
         this.username = "No user logged in"
 
-        this.username = this.get_username();
+        this.username = fetch('http://100.69.19.3:3001/get_username')
+        .then((response) => response.json())
+        .then((responseJSON) => {
+           console.log(responseJSON);
+        });
+    
     };
 
-    async get_username(){
+    
+    /*async get_username(){
         const response = fetch('http://100.69.19.3:3001/get_username');
         const username = response.json;
     
         return username;
     };
+    */
 
     render() {
         return (
