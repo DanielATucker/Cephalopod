@@ -14,7 +14,7 @@ class Main extends Component{
 
     async get_username(){
         const response = fetch('http://100.69.19.3:3001/get_username');
-        const username = response.json();
+        const username = response.json;
     
         return username;
     };
