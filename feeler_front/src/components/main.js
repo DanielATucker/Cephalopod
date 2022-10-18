@@ -13,8 +13,8 @@ class Main extends Component{
     };
 
     async get_username(){
-        const response = await fetch('http://100.69.19.3:3001/get_username');
-        const username = await response.json();
+        const response = fetch('http://100.69.19.3:3001/get_username');
+        const username = response.json();
     
         return username;
     };
