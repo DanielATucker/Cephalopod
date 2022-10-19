@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
-import MyTerminal from "./MyTerminal0";
+import MyTerminal from "./MyTerminal";
 
 
 export default function Main () {
