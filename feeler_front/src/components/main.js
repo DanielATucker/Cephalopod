@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 
 import Terminal from "./Terminal.js";
 
-export default class Main extends React.Component () {
+export default class Main extends React.Component {
     constructor() {
         super();
 
