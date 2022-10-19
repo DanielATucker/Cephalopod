@@ -9,14 +9,14 @@ function Main () {
 
     //setUsername("No user logged in");
 
-    username = fetch('http://100.69.19.3:3001/get_username')
+    usernameIn = fetch('http://100.69.19.3:3001/get_username')
         .then((response) => response.json())
         .then((responseJSON) => {
         console.log(responseJSON);
     });
 
     useEffect(() => {
-        setUsername(username);
+        setUsername(usernameIn);
     });
 
     
