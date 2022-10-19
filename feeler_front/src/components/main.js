@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
 
-import MyTerminal from "./MyTerminal.js";
+import MyTerminal from "./Terminal.js";
 
 export default function Main () {
     const [username, setUsername] = useState("No user logged in");
