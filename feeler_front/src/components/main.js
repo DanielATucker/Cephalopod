@@ -12,6 +12,11 @@ export default class Main extends React.Component {
             "username": "No user logged in",
             "Terminal": new Terminal()
         };
+        
+        StateArray = [
+            this.state.Terminal
+        ]
+
     };
     
     render() {
@@ -29,8 +34,7 @@ export default class Main extends React.Component {
                     <p> {this.state.username} </p>
                 </body>
             </Card>
-            
-            {this.state.Terminal}
+            {StateArray}
             </>
         );
     };
