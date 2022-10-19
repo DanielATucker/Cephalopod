@@ -16,7 +16,7 @@ export default class Terminal extends React.Component{
                             
                 <Card>
                     <body>
-                        <ScrollView></ScrollView> 
+                        {ScrollView}
                     </body>
                 </Card>
     
