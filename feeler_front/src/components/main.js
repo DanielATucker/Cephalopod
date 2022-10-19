@@ -28,8 +28,6 @@ export default function Main () {
         setMyTerminal(Terminal);
     });
     */
-
-    let MyTerminal = Terminal;
     
     return (
         <>
@@ -47,7 +45,7 @@ export default function Main () {
         </Card>
 
         <Card>
-            {MyTerminal}
+            {Terminal}
         </Card>
         
         </>
