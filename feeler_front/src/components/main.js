@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
+import MyTerminal from "./MyTerminal";
 
 
 function Main () {
@@ -19,6 +20,7 @@ function Main () {
 
 
     return (
+        <>
         <Card variant="outlined">
             <head>
                 <title>Cephalopod</title>
@@ -31,6 +33,11 @@ function Main () {
                 <p> {username} </p>
                 </body>
         </Card>
+
+        <Card> 
+            {MyTerminal}
+        </Card>
+        </>
     );
 };
 
