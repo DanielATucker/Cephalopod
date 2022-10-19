@@ -16,6 +16,7 @@
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
     "react-scripts": "^2.1.8",
+    "terminal-in-react": "^4.3.1",
     "web-vitals": "^3.0.3"
   },
   "scripts": {
@@ -43,4 +44,3 @@
     ]
   }
 }
-
