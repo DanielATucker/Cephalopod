@@ -10,7 +10,9 @@ export default class Terminal extends React.Component{
     constructor() {
         super();
 
-        this.state = {};
+        this.state = {
+            "messages": this.state.SocketHandler.state.data.messages
+        };
 
         this.state.TerminalState = (
             <>
@@ -19,13 +21,15 @@ export default class Terminal extends React.Component{
                             
                 <Card>
                     <body>
-                        {ScrollView}
+                        <ScrollView>
+                            
+                        </ScrollView>
                     </body>
                 </Card>
     
                 <Card>
                     <input></input>
-                    <button onClick={(SocketHandler.sendMessage)}> Send </button>
+                    <button onClick={sendMessage}> Send </button>
                 </Card>
             </Card> 
             </>
