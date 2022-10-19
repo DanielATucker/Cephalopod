@@ -3,7 +3,7 @@ import { ScrollView } from 'react';
 
 import Card from '@mui/material/Card';
 
-import SocketHandler from "./SocketHandler1.js";
+import SocketHandler from "./SocketHandler.js";
 
 
 export default class Terminal extends React.Component{
