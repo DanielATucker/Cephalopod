@@ -20,7 +20,6 @@ export default function Terminal() {
                 <input></input>
             </Card>
         </Card> 
-        
         </>
     );
 };
