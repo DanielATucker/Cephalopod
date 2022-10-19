@@ -9,9 +9,6 @@ import Card from '@mui/material/Card';
 export default class MyTerminal extends Component {
     render() {
         return (
-        <>
-        <Terminal></Terminal>
-        </>
-        );
+        <p> Terminal </p>        );
     };
 };
