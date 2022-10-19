@@ -38,7 +38,8 @@ function Main () {
             <body>
             <h1>Welcome to Cephalopod</h1>
 
-            <p> Your username is {username}</p>
+            <p> Your username is</p>
+            <p> {username}</p>
             </body>
         </Card>
     );
