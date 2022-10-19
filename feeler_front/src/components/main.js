@@ -10,7 +10,7 @@ export default class Main extends React.Component {
 
         this.state = {
             "username": "No user logged in",
-            "Terminal": Terminal()
+            "Terminal": new Terminal
         };
     };
     
