@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 
 
 function Main () {
-    const [username, setUsername] = useState("");
+    const [username, setUsername] = useState("No user logged in");
 
     //setUsername("No user logged in");
 
