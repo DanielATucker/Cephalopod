@@ -9,10 +9,9 @@ export default function Terminal() {
     return (
         <>
         <Card variant="outlined">
-            <head>
-                <p> Terminal</p>
-            </head>
             
+            <p> Terminal</p>
+                        
             <Card>
                 <body>
                     <ScrollView></ScrollView> 
