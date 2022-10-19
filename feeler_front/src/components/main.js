@@ -31,6 +31,7 @@ export default function Main () {
                 <p> {username} </p>
             </body>
         </Card> 
+        
         </>
     );
 };
