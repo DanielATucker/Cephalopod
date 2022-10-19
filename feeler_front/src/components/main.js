@@ -5,8 +5,8 @@ import Card from '@mui/material/Card';
 import Terminal from "./Terminal.js";
 
 export default class Main extends React.Component () {
-    constructor(props) {
-        super(props)
+    constructor() {
+        super();
 
         this.state = {
             "username": "No user logged in",

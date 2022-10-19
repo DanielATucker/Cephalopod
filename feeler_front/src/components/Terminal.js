@@ -4,8 +4,8 @@ import { ScrollView } from 'react';
 import Card from '@mui/material/Card';
 
 export default class Terminal extends React.Component{
-    constructor(props) {
-        super(props)
+    constructor() {
+        super();
 
         this.state = {};
 
