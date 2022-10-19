@@ -2,6 +2,8 @@ import React from "react";
 
 import Card from '@mui/material/Card';
 
+
+
 export default class SocketHandler extends React.Component{
     constructor() {
         super();
@@ -15,6 +17,9 @@ export default class SocketHandler extends React.Component{
         );
         */
 
+        const sendMessage = () => {
+
+        }
 
     };
 };

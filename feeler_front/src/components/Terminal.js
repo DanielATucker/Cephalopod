@@ -3,6 +3,9 @@ import { ScrollView } from 'react';
 
 import Card from '@mui/material/Card';
 
+import SocketHandler from "./SocketHandler.js";
+
+
 export default class Terminal extends React.Component{
     constructor() {
         super();
@@ -22,7 +25,7 @@ export default class Terminal extends React.Component{
     
                 <Card>
                     <input></input>
-                    <button> Send </button>
+                    <button onClick={(SocketHandler.sendMessage)}> Send </button>
                 </Card>
             </Card> 
             </>
