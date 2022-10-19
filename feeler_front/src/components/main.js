@@ -10,8 +10,8 @@ function Main () {
     fetch('http://100.69.19.3:3001/get_username')
         .then((response) => response.json())
         .then((responseJSON) => {
-        console.log(responseJSON);
-        setUsername(responseJSON);
+        console.log(responseJSON["USERNAME"]);
+        setUsername(responseJSON["USERNAME"]);
     });
     
 
