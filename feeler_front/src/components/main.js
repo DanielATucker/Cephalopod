@@ -12,15 +12,13 @@ export default function Main () {
         const initialMyTerminal = Terminal();
         return initialMyTerminal;
     });
-
-    fetch('http://100.69.19.3:3001/get_username')
-        .then((response) => response.json())
-        .then((responseJSON) => {
-        setUsername(responseJSON["USERNAME"]);
-    });
     
     useEffect(() => {
-        setUsername(username);
+        fetch('http://100.69.19.3:3001/get_username')
+        .then((response) => response.json())
+        .then((responseJSON) => {
+            setUsername(responseJSON["USERNAME"]);
+        });
     });
 
     useEffect(() => {
