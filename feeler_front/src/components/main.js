@@ -43,7 +43,7 @@ export default function Main () {
         </Card>
 
         <Card>
-            <MyTerminal></MyTerminal>
+            {MyTerminal}
         </Card>
         
         </>
