@@ -7,14 +7,13 @@ import Card from '@mui/material/Card';
 function Main () {
     const [username, setUsername] = useState("No user logged in");
 
-    //setUsername("No user logged in");
-
-    /*let usernameIn = fetch('http://100.69.19.3:3001/get_username')
+    fetch('http://100.69.19.3:3001/get_username')
         .then((response) => response.json())
         .then((responseJSON) => {
         console.log(responseJSON);
+        setUsername(responseJSON);
     });
-    */
+    
 
     useEffect(() => {
         setUsername(username);
