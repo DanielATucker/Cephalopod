@@ -4,7 +4,7 @@ import { Image, ScrollView, Text } from 'react';
 
 import Card from '@mui/material/Card';
 
-export default function Main () {
+export default function Terminal() {
     
     return (
         <>
