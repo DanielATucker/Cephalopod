@@ -15,6 +15,7 @@ function Main () {
         .then((response) => response.json())
         .then((responseJSON) => {
         console.log(responseJSON);
+        return responseJSON;
      }));
     });
 
