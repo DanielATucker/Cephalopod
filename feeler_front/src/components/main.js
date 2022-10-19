@@ -33,10 +33,8 @@ function Main () {
                 <p> {username} </p>
                 </body>
         </Card>
-
-        <Card> 
-            {MyTerminal}
-        </Card>
+        <MyTerminal></MyTerminal>
+        
         </>
     );
 };
