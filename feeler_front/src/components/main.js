@@ -18,6 +18,8 @@ export default function Main () {
         setUsername(username);
     });
 
+    let MyTerminal = Terminal;
+
 
     return (
         <>
@@ -35,7 +37,7 @@ export default function Main () {
         </Card>
 
         <Card>
-            <Terminal> </Terminal>
+            <MyTerminal> </MyTerminal>
         </Card>
         
         </>
