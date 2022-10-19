@@ -3,7 +3,6 @@ import React from "react";
 import Card from '@mui/material/Card';
 
 import Terminal from "./Terminal.js";
-import SocketHandler from "./SocketHandler.js";
 
 export default class Main extends React.Component {
     constructor() {
