@@ -8,6 +8,8 @@ import Terminal from "./Terminal.js";
 export default function Main () {
     const [username, setUsername] = useState("No user logged in");
 
+    const [MyTerminal, setMyTerminal] = useState();
+
     fetch('http://100.69.19.3:3001/get_username')
         .then((response) => response.json())
         .then((responseJSON) => {
@@ -19,7 +21,7 @@ export default function Main () {
     });
 
     useEffect(() => {
-        let MyTerminal = Terminal;
+        setMyTerminal(MyTerminal);
     });
 
     return (
