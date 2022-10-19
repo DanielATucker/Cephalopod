@@ -6,7 +6,8 @@ import Main from "./components/main.js";
 
 
 export default class App extends Component {
-  /*constructor() {
+  /*
+  constructor() {
     super();
     let a = 1;
   };
