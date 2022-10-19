@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ScrollView } from 'react';
 
 import Card from '@mui/material/Card';
 
 import SocketHandler from "./SocketHandler.js";
+import { Socket } from "socket.io-client";
 
 
 export default class Terminal extends React.Component{
@@ -14,6 +15,10 @@ export default class Terminal extends React.Component{
             "messages": this.state.SocketHandler.state.data.messages
         };
 
+        const send_message = () => {
+           SocketHandler.socket.emit("username", { message });
+        };
+        
         this.state.TerminalState = (
             <>
             <Card variant="outlined">
