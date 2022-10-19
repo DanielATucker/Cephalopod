@@ -9,7 +9,7 @@ export default function Main () {
     const [username, setUsername] = useState("No user logged in");
 
     const [MyTerminal, setMyTerminal] = useState(() => {
-        const initialMyTerminal = new Terminal;
+        const initialMyTerminal = Terminal();
         return initialMyTerminal;
     });
 
