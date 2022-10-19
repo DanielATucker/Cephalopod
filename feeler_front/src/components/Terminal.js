@@ -9,7 +9,7 @@ export default class Terminal extends React.Component{
 
         this.state = {};
 
-        let TerminalState = (
+        this.state.TerminalState = (
             <>
             <Card variant="outlined">
                 <p> Terminal</p>
@@ -27,7 +27,5 @@ export default class Terminal extends React.Component{
             </Card> 
             </>
         );
-
-        this.state.TerminalState = TerminalState;
     };
 };
