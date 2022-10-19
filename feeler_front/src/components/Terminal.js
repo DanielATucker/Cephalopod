@@ -7,7 +7,6 @@ export default function Terminal() {
     return (
         <>
         <Card variant="outlined">
-            
             <p> Terminal</p>
                         
             <Card>
