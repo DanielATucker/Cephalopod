@@ -1,21 +1,19 @@
 import React, { Component } from "react";
+import { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
 
 
-class Main extends Component{
-    constructor(props) {
-        super(props);
+function Main () {
+    const [username, setUsername] = useState("");
 
-        this.username = "No user logged in"
+    setUsername = "No user logged in";
 
-        this.username = fetch('http://100.69.19.3:3001/get_username')
-        .then((response) => response.json())
-        .then((responseJSON) => {
-           console.log(responseJSON);
-        });
-    
-    };
+    setUsername = fetch('http://100.69.19.3:3001/get_username')
+    .then((response) => response.json())
+    .then((responseJSON) => {
+       console.log(responseJSON);
+    });   
 
     
     /*async get_username(){
@@ -26,21 +24,19 @@ class Main extends Component{
     };
     */
 
-    render() {
-        return (
-            <Card variant="outlined">
-                <head>
-                    <title>Cephalopod</title>
-                </head>
-                
-                <body>
-                <h1>Welcome to Cephalopod</h1>
+    return (
+        <Card variant="outlined">
+            <head>
+                <title>Cephalopod</title>
+            </head>
+            
+            <body>
+            <h1>Welcome to Cephalopod</h1>
 
-                <p> Your username is {this.username}</p>
-                </body>
-            </Card>
-        );
-    }; 
+            <p> Your username is {username}</p>
+            </body>
+        </Card>
+    );
 };
 
 export default Main;
