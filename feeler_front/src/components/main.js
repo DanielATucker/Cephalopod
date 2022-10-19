@@ -2,8 +2,6 @@ import React from "react";
 import { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
-import MyTerminal from "./MyTerminal";
-
 
 export default function Main () {
     const [username, setUsername] = useState("No user logged in");
@@ -32,10 +30,7 @@ export default function Main () {
                 <p> Your username is </p>
                 <p> {username} </p>
             </body>
-        </Card>
-        
-        <MyTerminal></MyTerminal>
-        
+        </Card> 
         </>
     );
 };
