@@ -1,7 +1,3 @@
-// Allow require
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
 import React, { Component } from 'react';
 import Terminal from 'terminal-in-react';
  
@@ -10,14 +6,6 @@ export default class MyTerminal extends Component {
  
   render() {
     return (
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          height: "100vh"
-        }}
-      >
         <Terminal
           color='red'
           backgroundColor='black'
@@ -35,7 +23,6 @@ export default class MyTerminal extends Component {
           }}
           msg='You can write anything here. Example - Hello! My name is Foo and I like Bar.'
         />
-      </div>
     );
   }
 }
