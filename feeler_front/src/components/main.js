@@ -34,5 +34,6 @@ export default class Main extends React.Component {
             {this.state.Terminal.state.TerminalState}
             </>
         );
+        
     };
 };
