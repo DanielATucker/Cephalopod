@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { Image, ScrollView, Text } from 'react';
+import { ScrollView } from 'react';
 
 import Card from '@mui/material/Card';
 
