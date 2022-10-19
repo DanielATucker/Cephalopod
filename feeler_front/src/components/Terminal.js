@@ -29,12 +29,4 @@ export default class Terminal extends React.Component{
 
         this.state.TerminalState = TerminalState;
     };
-
-    render() {
-        return (
-            <>
-            {this.state.TerminalState}
-            </>
-        );
-    };
 };

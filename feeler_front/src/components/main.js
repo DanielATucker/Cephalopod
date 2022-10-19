@@ -30,9 +30,8 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            <Card>
-                {this.state.Terminal.state}
-            </Card>
+            {this.state.Terminal.state.TerminalState}
+
             
             </>
         );
