@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import MyTerminal from "./MyTerminal";
 
 
-function Main () {
+export default function Main () {
     const [username, setUsername] = useState("No user logged in");
 
     fetch('http://100.69.19.3:3001/get_username')
@@ -23,20 +23,19 @@ function Main () {
         <>
         <Card variant="outlined">
             <head>
-                <title>Cephalopod</title>
+                <title> Cephalopod </title>
             </head>
             
             <body>
-                <h1>Welcome to Cephalopod</h1>
+                <h1> Welcome to Cephalopod </h1>
                 
-                <p> Your username is</p>
+                <p> Your username is </p>
                 <p> {username} </p>
-                </body>
+            </body>
         </Card>
+        
         <MyTerminal></MyTerminal>
         
         </>
     );
 };
-
-export default Main;
