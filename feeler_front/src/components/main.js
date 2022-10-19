@@ -1,53 +1,37 @@
 import React from "react";
-import { useEffect, useState } from "react";
 
 import Card from '@mui/material/Card';
 
 import Terminal from "./Terminal.js";
 
-export default function Main () {
-    const [username, setUsername] = useState("No user logged in");
-
-    /*
-    const [MyTerminal, setMyTerminal] = useState(() => {
-        const initialMyTerminal = Terminal();
-        return initialMyTerminal;
-    });
-    */
+export default class Main extends React.Component () {
+    constructor() {
+        this.state = {
+            "username": "No user logged in",
+            "Terminal": Terminal()
+        };
+    };
     
-    useEffect(() => {
-        fetch('http://100.69.19.3:3001/get_username')
-        .then((response) => response.json())
-        .then((responseJSON) => {
-            setUsername(responseJSON["USERNAME"]);
-        });
-    });
-
-    /*
-    useEffect(() => {
-        setMyTerminal(Terminal);
-    });
-    */
-    
-    return (
-        <>
-        <Card variant="outlined">
-            <head>
-                <title> Cephalopod </title>
-            </head>
-            
-            <body>
-                <h1> Welcome to Cephalopod </h1>
+    render() {
+        return (
+            <>
+            <Card variant="outlined">
+                <head>
+                    <title> Cephalopod </title>
+                </head>
                 
-                <p> Your username is </p>
-                <p> {username} </p>
-            </body>
-        </Card>
-
-        <Card>
-            {Terminal}
-        </Card>
-        
-        </>
-    );
+                <body>
+                    <h1> Welcome to Cephalopod </h1>
+                    
+                    <p> Your username is </p>
+                    <p> {this.state.username} </p>
+                </body>
+            </Card>
+    
+            <Card>
+                {this.state.Terminal}
+            </Card>
+            </>
+        );
+    };
 };

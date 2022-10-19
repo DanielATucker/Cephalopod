@@ -3,22 +3,36 @@ import { ScrollView } from 'react';
 
 import Card from '@mui/material/Card';
 
-export default function Terminal() {
-    return (
-        <>
-        <Card variant="outlined">
-            <p> Terminal</p>
-                        
-            <Card>
-                <body>
-                    <ScrollView></ScrollView> 
-                </body>
-            </Card>
+export default class Terminal extends React.Component{
+    constructor() {
+        this.state = {};
 
-            <Card>
-                <input></input>
-            </Card>
-        </Card> 
-        </>
-    );
+        let TerminalState = (
+            <>
+            <Card variant="outlined">
+                <p> Terminal</p>
+                            
+                <Card>
+                    <body>
+                        <ScrollView></ScrollView> 
+                    </body>
+                </Card>
+    
+                <Card>
+                    <input></input>
+                </Card>
+            </Card> 
+            </>
+        );
+
+        this.state.TerminalState = TerminalState;
+    };
+
+    render() {
+        return (
+            <>
+            {this.state.TerminalState}
+            </>
+        );
+    };
 };
