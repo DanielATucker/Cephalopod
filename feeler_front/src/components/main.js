@@ -9,13 +9,14 @@ function Main () {
 
     //setUsername("No user logged in");
 
-    setUsername(
+    useEffect(() => {
+        setUsername(
         fetch('http://100.69.19.3:3001/get_username')
         .then((response) => response.json())
         .then((responseJSON) => {
         console.log(responseJSON);
-        
-    }));   
+     }));
+    });
 
     
     /*async get_username(){
