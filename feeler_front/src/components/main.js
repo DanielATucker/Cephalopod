@@ -29,10 +29,8 @@ export default class Main extends React.Component {
                     <p> {this.state.username} </p>
                 </body>
             </Card>
-    
-            <Card>
-                {this.state.Terminal}
-            </Card>
+            
+            {this.state.Terminal}
             </>
         );
     };
