@@ -5,8 +5,8 @@ import Card from '@mui/material/Card';
 
 export default class Terminal extends React.Component{
     constructor() {
-        super()
-        
+        super(props)
+
         this.state = {};
 
         let TerminalState = (
