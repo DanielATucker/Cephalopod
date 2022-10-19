@@ -22,6 +22,7 @@ export default class Terminal extends React.Component{
     
                 <Card>
                     <input></input>
+                    <button> Send </button>
                 </Card>
             </Card> 
             </>
