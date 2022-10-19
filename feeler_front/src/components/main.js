@@ -18,8 +18,9 @@ export default function Main () {
         setUsername(username);
     });
 
-    let MyTerminal = Terminal;
-
+    useEffect(() => {
+        let MyTerminal = Terminal;
+    });
 
     return (
         <>
