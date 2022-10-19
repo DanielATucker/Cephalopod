@@ -35,7 +35,7 @@ export default function Main () {
         </Card>
 
         <Card>
-            {Terminal}
+            <Terminal> </Terminal>
         </Card>
         
         </>
