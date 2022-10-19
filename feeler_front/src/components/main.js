@@ -6,6 +6,8 @@ import Terminal from "./Terminal.js";
 
 export default class Main extends React.Component () {
     constructor() {
+        super()
+        
         this.state = {
             "username": "No user logged in",
             "Terminal": Terminal()
