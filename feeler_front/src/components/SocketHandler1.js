@@ -18,8 +18,6 @@ export default class SocketHandler extends React.Component{
         */
 
         const sendMessage = () => {
-
         }
-
     };
 };
