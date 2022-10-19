@@ -25,11 +25,11 @@ function Main () {
             </head>
             
             <body>
-            <h1>Welcome to Cephalopod</h1>
-
-            <p> Your username is</p>
-            <p> {username} </p>
-            </body>
+                <h1>Welcome to Cephalopod</h1>
+                
+                <p> Your username is</p>
+                <p> {username} </p>
+                </body>
         </Card>
     );
 };
