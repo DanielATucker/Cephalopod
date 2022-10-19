@@ -8,7 +8,10 @@ import Terminal from "./Terminal.js";
 export default function Main () {
     const [username, setUsername] = useState("No user logged in");
 
-    const [MyTerminal, setMyTerminal] = useState();
+    const [MyTerminal, setMyTerminal] = useState(() => {
+        const initialMyTerminal = Terminal();
+        return initialMyTerminal;
+    });
 
     fetch('http://100.69.19.3:3001/get_username')
         .then((response) => response.json())
