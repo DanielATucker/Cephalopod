@@ -31,8 +31,6 @@ export default class Main extends React.Component {
             </Card>
             
             {this.state.Terminal.state.TerminalState}
-
-            
             </>
         );
     };
