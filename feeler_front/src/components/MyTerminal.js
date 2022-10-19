@@ -6,7 +6,7 @@ export default class MyTerminal extends Component {
  
   render() {
     return (
-        <Terminal>
+        /*<Terminal>
           color='red'
           backgroundColor='black'
           barColor='black'
@@ -23,6 +23,9 @@ export default class MyTerminal extends Component {
           }}
           msg='You can write anything here. Example - Hello! My name is Foo and I like Bar.'
         </Terminal>
+        */
+
+        <></>
     );
   }
 }
