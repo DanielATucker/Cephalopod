@@ -7,11 +7,12 @@ export default class SocketHandler extends React.Component{
     constructor() {
         super();
 
-        this.state = {
-            "data": {
-                "messages": {}
-            }
-        };
+        this.state_init = React.createRef();
+        this.state = this.state_init.current;
+        
+        this.state.data = {
+            "messages": {}
+        }
 
         this.state.socket = io.connect("http://100.69.19.3:3000");
 
