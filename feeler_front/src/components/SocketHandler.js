@@ -25,4 +25,8 @@ export default class SocketHandler extends React.Component{
             });
         }, [this.socket]);
     };
+
+    sendMessage = (message) => {
+        socket.emit("username", { message });
+    };
 };
