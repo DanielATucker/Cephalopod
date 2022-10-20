@@ -18,7 +18,7 @@ export default class Terminal extends React.Component{
             }
         };
 
-        let sendMessage = SocketHandler.sendMessage();
+        let sendMessage = socketHandler.sendMessage();
         
         this.state.TerminalState = (
             <>
