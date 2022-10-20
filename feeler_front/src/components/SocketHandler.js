@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-
-import Card from '@mui/material/Card';
+import React, { useEffect, useState, } from "react";
 
 import io from "socket.io";
 
