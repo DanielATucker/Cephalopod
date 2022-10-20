@@ -11,7 +11,7 @@ export default class Terminal extends React.Component{
         super();
 
         this.state = {
-            "messages": new SocketHandler.messages
+            "messages": SocketHandler.state.messages
         };
 
         let sendMessage = SocketHandler.state.data.sendMessage();
