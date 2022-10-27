@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 
 import Card from '@mui/material/Card';
 
@@ -16,9 +16,9 @@ export default class Main extends React.Component {
         };
 
         this.setState({
-            "Terminal": new Terminal(UseState(messages)), 
+            "Terminal": new Terminal(useState(messages)), 
         })
-    };
+    };s
     
     render() {
         return (
