@@ -16,7 +16,7 @@ export default class SocketHandler extends React.Component{
         try {
             this.setState(
                 {
-                    socket: io.connect("http://100.69.19.3:3000")
+                    socket: io("http://100.69.19.3:3000")
                 }
             );
             
