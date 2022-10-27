@@ -3,14 +3,13 @@ import { ScrollView } from 'react';
 
 import Card from '@mui/material/Card';
 
+import SocketHandler from "./SocketHandler";
 
 export default class Terminal extends React.Component{
     constructor(props) {
         super(props);
-        
-        let socketHandler = props;
 
-        let messages = socketHandler.messages;
+        let messages = props.messages;
 
         this.state = {
             "messages": {
