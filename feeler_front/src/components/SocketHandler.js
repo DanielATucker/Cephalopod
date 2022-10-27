@@ -13,11 +13,19 @@ export default class SocketHandler extends React.Component{
             }
         };
 
-        this.setState(
-            {
-                socket: io.connect("http://100.69.19.3:3000")
-            }
-        );
+        try {
+            this.setState(
+                {
+                    socket: io.connect("http://100.69.19.3:3000")
+                }
+            );
+        }
+        catch(err) {
+            console.log(err)
+        }
+        
+        
+        
         
         useEffect(() => {
             this.socket.on("Private_message", (message) => {
