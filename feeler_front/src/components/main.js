@@ -9,8 +9,6 @@ export default class Main extends React.Component {
     constructor() {
         super();
 
-        let SocketHandler = new SocketHandler();
-
         this.state = {
             "username": "No user logged in",
             "socketHandler": SocketHandler,
