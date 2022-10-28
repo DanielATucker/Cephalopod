@@ -18,7 +18,7 @@ export default class Main extends React.Component {
         this.setState({
             "Terminal": new Terminal(useState(messages)), 
         })
-    };s
+    };
     
     render() {
         return (
