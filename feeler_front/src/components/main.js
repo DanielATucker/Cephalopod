@@ -12,11 +12,11 @@ export default class Main extends React.Component {
         this.state = {
             "username": "No user logged in",
             "socketHandler": new SocketHandler(),
-            "messages": {}
         };
 
         let [messages, setMessages] = useState({});
 
+        setMessages(this.state.socketHandler.state.data.messages)
 
         this.setState({
             "Terminal": new Terminal(messages), 
