@@ -15,8 +15,11 @@ export default class Main extends React.Component {
             "messages": {}
         };
 
+        let [messages, setMessages] = useState({});
+
+
         this.setState({
-            "Terminal": new Terminal(useState(messages)), 
+            "Terminal": new Terminal(messages), 
         })
     };
     
