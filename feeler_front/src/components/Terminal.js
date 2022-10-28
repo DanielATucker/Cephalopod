@@ -10,6 +10,8 @@ export default class Terminal extends React.Component{
         super(props);
 
         let messages = props.messages;
+        
+        let socketHandler = props.socketHandler;
 
         this.state = {
             "messages": {
@@ -17,8 +19,7 @@ export default class Terminal extends React.Component{
             }
         };
 
-        //let sendMessage = socketHandler.sendMessage();
-        let sendMessage = null;
+        let sendMessage = socketHandler.sendMessage();
         
         this.state.TerminalState = (
             <>

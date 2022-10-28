@@ -14,16 +14,19 @@ export default class Main extends React.Component {
             "socketHandler": {},
         };
 
+
         let [messages, setMessages] = useState({});
         
         let [socketHandler, setSocketHandler] = useState({});
 
+
         setMessages(this.state.socketHandler.state.data.messages)
 
         setSocketHandler(SocketHandler);
-        
+
+
         this.setState({
-            "Terminal": new Terminal(messages), 
+            "Terminal": new Terminal(messages, socketHandler), 
         })
     };
     
