@@ -11,6 +11,8 @@ export default class Main extends React.Component {
 
         this.setState({
             "username": "No user logged in",
+            "socketHandler": {},
+            "messages": {},
             "socketHandler": {}
         });
 
