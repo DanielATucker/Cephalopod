@@ -17,12 +17,12 @@ export default class Main extends React.Component {
 
         //let [messages, setMessages] = useState({});
         
-        let [socketHandler, setSocketHandler] = useState({});
+        //let [socketHandler, setSocketHandler] = useState({});
 
 
-        setMessages(this.state.socketHandler.state.data.messages)
+        //setMessages(this.state.socketHandler.state.data.messages)
 
-        setSocketHandler(new SocketHandler());
+        //setSocketHandler(new SocketHandler());
 
 
         this.setState({
