@@ -19,7 +19,7 @@ export default class Terminal extends React.Component{
             }
         };
 
-        let sendMessage = socketHandler.sendMessage();
+        //let sendMessage = socketHandler.sendMessage();
     };
 
     render() {
