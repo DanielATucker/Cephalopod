@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { ScrollView, Text } from 'react';
 
 import Card from '@mui/material/Card';
 
@@ -12,9 +12,12 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card> 
         
-        <ScrollView>
-            <Text> hi</Text>
-        </ScrollView>
+        <View>
+            <ScrollView>
+                <Text> hi</Text>
+            </ScrollView>
+        </View>
+        
         
         <input></input>
         <button > Send </button>
