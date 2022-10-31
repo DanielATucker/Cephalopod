@@ -6,8 +6,8 @@ import Card from '@mui/material/Card';
 import SocketHandler from "./SocketHandler";
 
 export default class Terminal extends React.Component{
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         //let messages = props.messages;
         
