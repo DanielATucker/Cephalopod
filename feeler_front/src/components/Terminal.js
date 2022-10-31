@@ -12,7 +12,7 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card> 
         
-        <View>
+        <View style={{flex:1}}>
             <ScrollView>
                 <Text> hi</Text>
             </ScrollView>
