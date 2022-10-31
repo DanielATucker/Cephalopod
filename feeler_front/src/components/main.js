@@ -13,8 +13,8 @@ export default class Main extends React.Component {
         
         let [terminal, setTerminal] = useState({});
 
-        setTerminal(new Terminal)
-        
+        setTerminal(Terminal)
+
         /*
         let [socketHandler, setSocketHandler] = useState({});
         
