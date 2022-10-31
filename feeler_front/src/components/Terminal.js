@@ -38,7 +38,7 @@ export default class Terminal extends React.Component{
     
                 <Card>
                     <input></input>
-                    <button onClick={sendMessage}> Send </button>
+                    <button > Send </button>
                 </Card>
             </Card> 
             </>
