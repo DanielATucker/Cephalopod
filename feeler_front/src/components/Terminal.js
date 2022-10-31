@@ -12,6 +12,10 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card> 
          
+        <ScrollView>
+            <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
+        </ScrollView>
+        
         <input></input>
         <button > Send </button>
         </>
