@@ -6,6 +6,7 @@ import Terminal from "./Terminal.js";
 import SocketHandler from "./SocketHandler.js";
 
 export default class Main extends React.Component {
+    /*
     constructor() {
         super();
 
@@ -16,7 +17,7 @@ export default class Main extends React.Component {
         
         setTerminal(Terminal)
 
-        /*
+        
         let [socketHandler, setSocketHandler] = useState({});
         
         let [messages, setMessages] = useState({});    
@@ -27,9 +28,10 @@ export default class Main extends React.Component {
         setMessages(this.state.socketHandler.state.data.messages)  
         
         setTerminal(new Terminal(messages, socketHandler));
-        */
-    };
-    
+        
+    }
+    */
+
     render() {
         return (
             <>
