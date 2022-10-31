@@ -9,27 +9,21 @@ export default class Main extends React.Component {
     constructor() {
         super();
 
-        this.setState({
+        this.setState ({
             "username": "No user logged in",
-            "socketHandler": {},
-            "messages": {"Test": "TestMsg"},
-            "socketHandler": {}
         });
-
-
-        //let [messages, setMessages] = useState({});
         
-        //let [socketHandler, setSocketHandler] = useState({});
-
-
-        //setMessages(this.state.socketHandler.state.data.messages)
-
-        //setSocketHandler(new SocketHandler());
-
-
-        this.setState({
-            "Terminal": new Terminal(this.state.messages, this.state.socketHandler), 
-        })
+        let [socketHandler, setSocketHandler] = useState({});
+        
+        let [messages, setMessages] = useState({});    
+        
+        let [Terminal, setTerminal] = useState({});
+        
+        setSocketHandler(new SocketHandler());
+        
+        setMessages(this.state.socketHandler.state.data.messages)  
+        
+        setTerminal(new Terminal(messages, socketHandler));
     };
     
     render() {
