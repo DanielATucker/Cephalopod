@@ -12,6 +12,10 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card> 
         
+        <ScrollView>
+            hi
+        </ScrollView>
+        
         <input></input>
         <button > Send </button>
         </>
