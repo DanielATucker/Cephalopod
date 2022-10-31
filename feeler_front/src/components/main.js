@@ -28,7 +28,7 @@ export default class Main extends React.Component {
 
 
         this.setState({
-            "Terminal": new Terminal(messages, socketHandler), 
+            "Terminal": new Terminal(this.state.messages, this.state.socketHandler), 
         })
     };
     
