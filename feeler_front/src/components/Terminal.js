@@ -11,14 +11,7 @@ export default function Terminal() {
         <Card variant="outlined">
             <p> Terminal</p>
         </Card> 
-        
-        <View style={{flex:1}}>
-            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
-                <Text> hi</Text>
-            </ScrollView>
-        </View>
-        
-        
+         
         <input></input>
         <button > Send </button>
         </>
