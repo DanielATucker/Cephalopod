@@ -20,8 +20,10 @@ export default class Terminal extends React.Component{
         };
 
         let sendMessage = socketHandler.sendMessage();
-        
-        this.state.TerminalState = (
+    };
+
+    render() {
+        return (
             <>
             <Card variant="outlined">
                 <p> Terminal</p>
@@ -29,7 +31,7 @@ export default class Terminal extends React.Component{
                 <Card>
                     <body>
                         <ScrollView>
-                            
+                            {this.state.messages}
                         </ScrollView>
                     </body>
                 </Card>
@@ -41,5 +43,5 @@ export default class Terminal extends React.Component{
             </Card> 
             </>
         );
-    };
+    }
 };
