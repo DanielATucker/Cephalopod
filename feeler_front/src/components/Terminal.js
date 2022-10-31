@@ -13,7 +13,7 @@ export default function Terminal() {
         </Card> 
         
         <View style={{flex:1}}>
-            <ScrollView>
+            <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
                 <Text> hi</Text>
             </ScrollView>
         </View>
