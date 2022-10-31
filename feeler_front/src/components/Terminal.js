@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { ScrollView, Text } from 'react';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 import Card from '@mui/material/Card';
 
