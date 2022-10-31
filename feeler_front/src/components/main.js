@@ -10,12 +10,8 @@ export default class Main extends React.Component {
         super();
 
         this.state = {};
-            //"username": "No user logged in",
-            //"socketHandler": {},
-            //"messages": {},
-            //"terminal": {}
-        //};
         
+        /*
         let [socketHandler, setSocketHandler] = useState({});
         
         let [messages, setMessages] = useState({});    
@@ -27,6 +23,7 @@ export default class Main extends React.Component {
         setMessages(this.state.socketHandler.state.data.messages)  
         
         setTerminal(new Terminal(messages, socketHandler));
+        */
     };
     
     render() {
@@ -45,7 +42,6 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            {this.state.terminal}
             </>
         );
     };
