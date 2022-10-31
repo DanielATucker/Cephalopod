@@ -13,7 +13,7 @@ export default function Terminal() {
         </Card> 
         
         <ScrollView>
-            hi
+            <text> hi</text>
         </ScrollView>
         
         <input></input>
