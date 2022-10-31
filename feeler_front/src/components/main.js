@@ -6,32 +6,12 @@ import Terminal from "./Terminal.js";
 import SocketHandler from "./SocketHandler.js";
 
 export default class Main extends React.Component {
-    /*
     constructor() {
         super();
 
-        this.state = {};
-        
-        let [terminal, setTerminal] = useState({});
-
-        
-        setTerminal(Terminal)
-
-        
-        let [socketHandler, setSocketHandler] = useState({});
-        
-        let [messages, setMessages] = useState({});    
-        
-        
-        setSocketHandler(new SocketHandler());
-        
-        setMessages(this.state.socketHandler.state.data.messages)  
-        
-        setTerminal(new Terminal(messages, socketHandler));
-        
-    }
-    */
-
+        this.state = {"username": "No user logged in"};
+    };
+    
     render() {
         return (
             <>
