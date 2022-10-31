@@ -11,8 +11,6 @@ export default class Main extends React.Component {
 
         this.state = {};
         
-        let [terminal, setTerminal] = useState({});
-
         //setTerminal(Terminal)
 
         /*
@@ -45,7 +43,7 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            {this.state.terminal}
+            <Terminal> test</Terminal>
             </>
         );
     };
