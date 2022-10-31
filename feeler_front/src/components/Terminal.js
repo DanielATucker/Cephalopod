@@ -17,12 +17,10 @@ export default function Terminal() {
                 </ScrollView>
                 
             </Card>
-
-            <Card>
-                <input></input>
-                <button > Send </button>
-            </Card>
         </Card> 
+        
+        <input></input>
+        <button > Send </button>
         </>
     );
 };
