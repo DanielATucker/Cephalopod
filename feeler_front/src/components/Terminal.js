@@ -12,7 +12,8 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card> 
          
-        <ScrollView>
+        <ScrollView style={styles.scrollView} 
+        contentContainerStyle={styles.contentContainer}>
             <Text style={{ fontSize: 96 }}>Scroll me plz</Text>
         </ScrollView>
         
