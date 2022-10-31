@@ -13,14 +13,14 @@ export default class Main extends React.Component {
             "username": "No user logged in",
             "socketHandler": {},
             "messages": {},
-            "Terminal": {}
+            "terminal": {}
         });
         
         let [socketHandler, setSocketHandler] = useState({});
         
         let [messages, setMessages] = useState({});    
         
-        let [Terminal, setTerminal] = useState({});
+        let [terminal, setTerminal] = useState({});
         
         setSocketHandler(new SocketHandler());
         
@@ -45,7 +45,7 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            {this.state.Terminal.state.TerminalState}
+            {this.state.terminal}
             </>
         );
     };
