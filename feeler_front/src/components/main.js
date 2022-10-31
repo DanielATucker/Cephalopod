@@ -9,10 +9,10 @@ export default class Main extends React.Component {
     constructor() {
         super();
 
-        this.state = {
+        this.setState({
             "username": "No user logged in",
             "socketHandler": {}
-        };
+        });
 
 
         let [messages, setMessages] = useState({});
