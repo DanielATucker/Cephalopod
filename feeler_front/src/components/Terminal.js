@@ -5,28 +5,25 @@ import Card from '@mui/material/Card';
 
 import SocketHandler from "./SocketHandler";
 
-export default class Terminal extends React.Component{
+export default function Terminal() {
+    return (
+        <>
+        <Card variant="outlined">
+            <p> Terminal</p>
+                        
+            <Card>
+                <body>
+                    <ScrollView>
+                        hi
+                    </ScrollView>
+                </body>
+            </Card>
 
-    render() {
-        return (
-            <>
-            <Card variant="outlined">
-                <p> Terminal</p>
-                            
-                <Card>
-                    <body>
-                        <ScrollView>
-                            hi
-                        </ScrollView>
-                    </body>
-                </Card>
-    
-                <Card>
-                    <input></input>
-                    <button > Send </button>
-                </Card>
-            </Card> 
-            </>
-        );
-    }
+            <Card>
+                <input></input>
+                <button > Send </button>
+            </Card>
+        </Card> 
+        </>
+    );
 };
