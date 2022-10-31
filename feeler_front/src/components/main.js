@@ -22,7 +22,7 @@ export default class Main extends React.Component {
 
         setMessages(this.state.socketHandler.state.data.messages)
 
-        setSocketHandler(SocketHandler);
+        setSocketHandler(new SocketHandler);
 
 
         this.setState({
