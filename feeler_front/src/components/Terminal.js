@@ -6,23 +6,6 @@ import Card from '@mui/material/Card';
 import SocketHandler from "./SocketHandler";
 
 export default class Terminal extends React.Component{
-    /*
-    constructor() {
-        super();
-
-        //let messages = props.messages;
-        
-        //let socketHandler = props.socketHandler;
-
-        this.state = {
-            "messages": {
-                "test": "Test"
-            }
-        };
-
-        //let sendMessage = socketHandler.sendMessage();
-    };
-    */
 
     render() {
         return (

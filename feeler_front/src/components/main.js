@@ -28,7 +28,7 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            {this.state.terminal}
+            
             </>
         );
     };
