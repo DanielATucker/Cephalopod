@@ -9,15 +9,13 @@ export default class Terminal extends React.Component{
     constructor(props) {
         super(props);
 
-        let messages = "test"
-        
         //let messages = props.messages;
         
         //let socketHandler = props.socketHandler;
 
         this.state = {
             "messages": {
-                messages
+                "test": "Test"
             }
         };
 
