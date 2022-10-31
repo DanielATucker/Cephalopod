@@ -43,7 +43,7 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            
+            <Terminal></Terminal>
             </>
         );
     };
