@@ -15,7 +15,7 @@ export default class Main extends React.Component {
         });
 
 
-        let [messages, setMessages] = useState({});
+        //let [messages, setMessages] = useState({});
         
         let [socketHandler, setSocketHandler] = useState({});
 
