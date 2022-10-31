@@ -10,19 +10,6 @@ export default function Terminal() {
         <>
         <Card variant="outlined">
             <p> Terminal</p>
-                        
-            <Card>
-                <body>
-                    <ScrollView>
-                        hi
-                    </ScrollView>
-                </body>
-            </Card>
-
-            <Card>
-                <input></input>
-                <button > Send </button>
-            </Card>
         </Card> 
         </>
     );
