@@ -33,7 +33,7 @@ export default class Terminal extends React.Component{
                 <Card>
                     <body>
                         <ScrollView>
-                            {this.state.messages}
+                            hi
                         </ScrollView>
                     </body>
                 </Card>
