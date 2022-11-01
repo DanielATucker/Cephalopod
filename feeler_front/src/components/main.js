@@ -15,7 +15,7 @@ export default class Main extends React.Component {
         };
 
         
-        function handleMessageChange(messages) {
+        handleMessageChange = (messages) => {
             this.setState({
                 "messages": messages
             })
