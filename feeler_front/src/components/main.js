@@ -11,7 +11,7 @@ export default class Main extends React.Component {
 
         this.state = {
             "username": "No user logged in",
-            "messages": {}
+            "messages": []
         };
     };
 
