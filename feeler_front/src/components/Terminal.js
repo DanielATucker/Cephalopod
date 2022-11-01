@@ -13,6 +13,16 @@ export default class Terminal extends React.Component {
             "messages": messages,
             "scrollviewMessages": []
         };
+
+        let messageDict = []
+        
+        for (let item in this.state.messages) {
+            messageDict.push(item)
+        };
+
+        this.setState({
+            "scrollviewMessages": messageDict
+        });
     };
     
     componentDidUpdate(prevProps) {
