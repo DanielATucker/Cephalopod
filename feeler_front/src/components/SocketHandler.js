@@ -8,8 +8,8 @@ export default class SocketHandler extends React.Component{
         super(props);
 
         this.state = {};
-        
-        const [messages, setMessages] = useState({})
+
+        const [messages, setMessages] = useState({});
 
         /*
         useEffect(() => {
@@ -18,7 +18,7 @@ export default class SocketHandler extends React.Component{
         },[messages])
         */
 
-        setMessages("test")
+        setMessages("test");
 
         try {
             this.setState(
