@@ -25,7 +25,7 @@ export default class Terminal extends React.Component {
             let messageDict = []
             
             this.props.messages.map(message => {
-                messageDict.push(message);
+                messageDict.push(this.addMessage(message));
             })
 
             this.setState({
@@ -33,7 +33,13 @@ export default class Terminal extends React.Component {
                 "messages": messageDict
             })
         }
-    }
+    };
+
+    addMessage(message) {
+        let wrapper = <Text> message </Text>
+
+        return wrapper;
+    };
 
     render() {
         return (
