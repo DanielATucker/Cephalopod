@@ -11,18 +11,6 @@ export default class Terminal extends React.Component {
             "messages": [],
             "scrollviewMessages": []
         };
-
-        
-        /*
-        console.log(`Terminal state messages: ${this.state.messages}`);
-        
-        for (let item in this.state.messages) {
-            messageDict.push(item)
-        };
-
-        console.log(`Terminal messageDict: ${messageDict}`);
-        console.log(`Terminal state messages: ${this.state.messages}`);
-        */
     };
     
     componentDidMount() {
