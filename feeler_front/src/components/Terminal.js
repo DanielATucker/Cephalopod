@@ -1,23 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Card from '@mui/material/Card';
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react';
+import { ScrollView } from "@cantonjs/react-scroll-view";
 
 
 export default function Terminal() {
-
-    const styles = StyleSheet.create({
-        container: {
-          flex: 1,
-          paddingTop: StatusBar.currentHeight,
-        },
-        scrollView: {
-          backgroundColor: 'pink',
-          marginHorizontal: 20,
-        },
-        text: {
-          fontSize: 42,
-        },
-    });
 
     return (
         <>
@@ -25,9 +11,9 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card>
 
-        <ScrollView style={styles.scrollView}>
-            <Text style={styles.text}>
-            </Text>
+        <ScrollView style={{ height: '100vh' }}>
+            <h1>React Scroll View</h1>
+            <p>Awseome!</p>
         </ScrollView>
 
         <input></input>
