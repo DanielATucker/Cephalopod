@@ -14,15 +14,17 @@ export default class Main extends React.Component {
             "messages": {}
         };
 
-        function handleMessageChange(messages) {
-            this.setState({
-                "messages": messages
-            })
-
-            console.log(messages);
-        };
+        this.handler = this.handler.bind(this);        
     };
-    
+
+    handleMessageChange(messages) {
+        this.setState({
+            "messages": messages
+        })
+
+        console.log(messages);
+    };
+
     render() {
         return (
             <>
@@ -44,7 +46,7 @@ export default class Main extends React.Component {
             > 
 
             </Terminal>
-            <SocketHandler handleMessageChange={() => this.handleMessageChange}></SocketHandler>
+            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
             </>
         );
     };
