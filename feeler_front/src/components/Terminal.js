@@ -11,7 +11,7 @@ export default class Terminal extends React.Component {
         
         this.state = {
             "messages": messages,
-            "scrollviewMessages": ["hi"]
+            "scrollviewMessages": []
         };
 
         for (let item in this.state.messages) {
@@ -32,7 +32,7 @@ export default class Terminal extends React.Component {
             </ScrollView>
 
             <input></input>
-            <button > Send </button>
+            <button> Send </button>
             </>
         );
     };

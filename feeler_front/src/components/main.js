@@ -14,7 +14,7 @@ export default class Main extends React.Component {
             "messages": {}
         };
 
-        /*
+        
         function handleMessageChange(messages) {
             this.setState({
                 "messages": messages
@@ -24,7 +24,7 @@ export default class Main extends React.Component {
         let sockethandler = new SocketHandler(this.handleMessageChange);
 
         console.log(sockethandler);
-        */
+        
     };
     
     render() {
