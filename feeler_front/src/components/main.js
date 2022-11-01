@@ -14,7 +14,7 @@ export default class Main extends React.Component {
             "messages": "test"
         };
 
-        socketHandler = new SocketHandler();
+        let socketHandler = new SocketHandler();
 
         console.log(socketHandler.state)
 
