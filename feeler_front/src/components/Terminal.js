@@ -22,7 +22,7 @@ export default class Terminal extends React.Component {
         };
 
         console.log(`Terminal messageDict: ${messageDict}`);
-        console.log(`Terminal state messages: ${messages}`);
+        console.log(`Terminal state messages: ${this.state.messages}`);
 
 
 
