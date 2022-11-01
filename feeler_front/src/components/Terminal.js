@@ -8,7 +8,7 @@ export default class Terminal extends React.Component {
         super(props)
 
         this.state = {
-            "messages": {},
+            "messages": [],
             "scrollviewMessages": []
         };
 
