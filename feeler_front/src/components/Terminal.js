@@ -3,20 +3,31 @@ import Card from '@mui/material/Card';
 import { ScrollView } from "@cantonjs/react-scroll-view";
 
 
-export default function Terminal() {
+export default class Terminal extends React.Component {
+    constructor(props) {
+        super(props)
 
-    return (
-        <>
-        <Card variant="outlined">
-            <p> Terminal</p>
-        </Card>
+        let messages = pops.messages;
 
-        <ScrollView>
-            <p>Awseome</p>
-        </ScrollView>
+        this.state = {
+            "messages": messages
+        }
+    };
+    
+    render() {
+        return (
+            <>
+            <Card variant="outlined">
+                <p> Terminal</p>
+            </Card>
 
-        <input></input>
-        <button > Send </button>
-        </>
-    );
+            <ScrollView>
+                {this.state.messages}
+            </ScrollView>
+
+            <input></input>
+            <button > Send </button>
+            </>
+        );
+    };
 };

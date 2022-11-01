@@ -9,7 +9,10 @@ export default class Main extends React.Component {
     constructor() {
         super();
 
-        this.state = {"username": "No user logged in"};
+        this.state = {
+            "username": "No user logged in",
+            "messages": "test"
+        };
     };
     
     render() {
@@ -28,7 +31,7 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            <Terminal></Terminal>
+            <Terminal messsages={this.state.messages}> </Terminal>
             </>
         );
     };
