@@ -26,8 +26,15 @@ export default class Terminal extends React.Component {
             this.setState({
                 "scrollviewMessages": messageDict
             })
+            this.onRefresh();
         }
     }
+
+    onRefresh = React.useCallback(() => {
+        setRefreshing(true);
+        wait(2000).then(() => setRefreshing(false));
+      }, []
+    );
 
     render() {
         return (
