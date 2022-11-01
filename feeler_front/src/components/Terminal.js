@@ -12,11 +12,7 @@ export default class Terminal extends React.Component {
             "scrollviewMessages": []
         };
 
-
-        console.log(this.props);
-
         
-        let messageDict = []
         /*
         console.log(`Terminal state messages: ${this.state.messages}`);
         
@@ -27,13 +23,19 @@ export default class Terminal extends React.Component {
         console.log(`Terminal messageDict: ${messageDict}`);
         console.log(`Terminal state messages: ${this.state.messages}`);
         */
+    };
+    
+    componentDidMount() {
+        console.log(this.props);
 
+        let messageDict = this.props.messages;
 
         this.setState({
             "scrollviewMessages": messageDict
         });
+
     };
-    
+
     componentDidUpdate(prevProps) {
         if (this.props.messages !== prevProps.messages) {          
             let messageDict = []
