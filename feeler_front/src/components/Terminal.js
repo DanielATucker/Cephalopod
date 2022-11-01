@@ -47,7 +47,8 @@ export default class Terminal extends React.Component {
             })
 
             this.setState({
-                "scrollviewMessages": messageDict
+                "scrollviewMessages": messageDict,
+                "messages": messageDict
             })
             
             console.log(this.state.messages);
