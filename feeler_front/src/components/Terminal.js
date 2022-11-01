@@ -40,7 +40,6 @@ export default class Terminal extends React.Component {
             
             for (let item in this.props.messages) {
                 console.log(item);
-                
                 messageDict.push(item)
             };
 
