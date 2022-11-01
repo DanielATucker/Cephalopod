@@ -13,6 +13,11 @@ export default class Main extends React.Component {
             "username": "No user logged in",
             "messages": "test"
         };
+
+        socketHandler = new SocketHandler();
+
+        console.log(socketHandler.state)
+
     };
     
     render() {
