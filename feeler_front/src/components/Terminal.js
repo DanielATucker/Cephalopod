@@ -13,7 +13,7 @@ export default class Terminal extends React.Component {
         };
 
 
-        console.log(props.messages);
+        console.log(this.props);
 
         
         let messageDict = []
