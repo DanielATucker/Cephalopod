@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Text } from "react";
 import Card from '@mui/material/Card';
 import { ScrollView } from "@cantonjs/react-scroll-view";
 
