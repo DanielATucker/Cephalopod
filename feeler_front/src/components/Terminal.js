@@ -13,7 +13,7 @@ export default function Terminal() {
 
         <ScrollView style={{ height: '100vh' }}>
             <h1>React Scroll View</h1>
-            <p>Awseome!</p>
+            <p>Awseome</p>
         </ScrollView>
 
         <input></input>
