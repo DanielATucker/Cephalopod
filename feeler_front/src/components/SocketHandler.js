@@ -8,10 +8,10 @@ export default class SocketHandler extends React.Component{
         super(props);
 
         this.state = {
-            "messages": {}
+            "messages": "Test"
         };
     
-        this.props.handleMessageChange("test");
+        this.props.handleMessageChange(this.state.messages);
 
         /*
 
