@@ -11,7 +11,7 @@ export default class Terminal extends React.Component {
         
         this.state = {
             "messages": messages,
-            "scrollviewMessages": []
+            "scrollviewMessages": ["hi"]
         };
 
         for (let item in this.state.messages) {
