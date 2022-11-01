@@ -40,8 +40,6 @@ export default class Terminal extends React.Component {
         if (this.props.messages !== prevProps.messages) {          
             let messageDict = []
             
-            console.log(this.props.messages);
-
             this.props.messages.map(message => {
                 messageDict.push(message);
             })
@@ -50,8 +48,6 @@ export default class Terminal extends React.Component {
                 "scrollviewMessages": messageDict,
                 "messages": messageDict
             })
-            
-            console.log(this.state.messages);
         }
     }
 
