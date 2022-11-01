@@ -7,14 +7,11 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
 
-        let handleMessageChange = props.handleMessageChange;
-
-
         const [messages, setMessages] = useState({})
 
         useEffect(() => {
             console.log(messages, '- Has changed')
-            handleMessageChange(messages)
+            this.props.handleMessageChange(messages)
         },[messages])
 
         setMessages("test")
