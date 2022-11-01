@@ -13,8 +13,8 @@ export default class Terminal extends React.Component {
         };
 
 
-        console.log(this.props.messages);
-        
+        console.log(props.messages);
+
         
         let messageDict = []
         /*
