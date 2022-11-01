@@ -14,11 +14,10 @@ export default class SocketHandler extends React.Component{
         this.props.handleMessageChange(this.state.messages);
                 
         try {
-            this.setState(
-                {
-                    socket: io("http://100.69.19.3:3000")
-                }
-            );
+
+            let socket = io("http://100.69.19.3:3000");
+
+            console.log(socket);
             
             useEffect(() => {
                 this.socket.on("Private_message", (message) => {
