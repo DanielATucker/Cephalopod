@@ -26,8 +26,6 @@ export default class Terminal extends React.Component {
     };
     
     componentDidMount() {
-        console.log(this.props);
-
         let messageDict = this.props.messages;
 
         this.setState({
