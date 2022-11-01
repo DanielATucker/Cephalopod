@@ -11,8 +11,7 @@ export default function Terminal() {
             <p> Terminal</p>
         </Card>
 
-        <ScrollView style={{ height: '100vh' }}>
-            <h1>React Scroll View</h1>
+        <ScrollView>
             <p>Awseome</p>
         </ScrollView>
 
