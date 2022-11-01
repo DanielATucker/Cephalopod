@@ -5,8 +5,6 @@ import io from "socket.io";
 
 export default class SocketHandler {
     constructor(props) {
-        super(props);
-
         this.state = {
             "messages": "Test"
         };
