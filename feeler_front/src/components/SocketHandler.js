@@ -3,8 +3,10 @@ import React, { useEffect, useState } from "react";
 import io from "socket.io";
 
 
-export default class SocketHandler {
+export default class SocketHandler extends React.Component{
     constructor(props) {
+        super(props);
+
         this.state = {
             "messages": "Test"
         };
