@@ -10,7 +10,7 @@ export default class SocketHandler extends React.Component{
         this.state = {};
 
         /*
-        const [messages, setMessages] = useState({});
+        const [messages, setMessages] = useState({})
 
         
         useEffect(() => {
@@ -19,7 +19,7 @@ export default class SocketHandler extends React.Component{
         },[messages])
         
 
-        setMessages("test");
+        setMessages("test")
 
         try {
             this.setState(
@@ -37,9 +37,10 @@ export default class SocketHandler extends React.Component{
         catch(err) {
             console.log(err)
         }
-        
+        */      
     };
 
+    /*
     sendMessage = (message) => {
         this.state.socket.emit("username", { message });
     };
