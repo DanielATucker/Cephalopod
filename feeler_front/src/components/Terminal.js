@@ -9,7 +9,7 @@ export default class Terminal extends React.Component {
 
         //let messages = props.messages;
 
-        console.log(props);
+        console.log(props.messages);
         
         this.state = {
             "messages": "test"
