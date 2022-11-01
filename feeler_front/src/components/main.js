@@ -17,7 +17,7 @@ export default class Main extends React.Component {
 
     handleMessageChange = (messages) => {
         let {messagesIn} = messages;
-        console.log(messagesIn);
+        console.log(JSON.stringify(messagesIn));
         
         this.setState({
             "messages": messagesIn
