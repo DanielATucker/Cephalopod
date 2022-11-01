@@ -21,6 +21,7 @@ export default class SocketHandler extends React.Component{
 
             console.log(socket);
             
+            /*
             useEffect(() => {
                 this.socket.on("Private_message", (message) => {
                     this.setState({
@@ -30,6 +31,7 @@ export default class SocketHandler extends React.Component{
                     //this.state.data.messages["message"] = message;
                 });
             }, [this.state.socket]);
+            */
         }
         catch(err) {
             console.log(err)
