@@ -16,11 +16,11 @@ export default class Main extends React.Component {
     };
 
     handleMessageChange = (messages) => {
-        let {messages} = messages;
-        console.log(messages);
+        let {messagesIn} = messages;
+        console.log(messagesIn);
         
         this.setState({
-            "messages": messages
+            "messages": messagesIn
         })
 
         console.log(messages);
