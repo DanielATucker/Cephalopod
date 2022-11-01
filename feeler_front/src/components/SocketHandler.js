@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import io from "socket.io";
+import { Manager } from "socket.io-client";
 
 
 export default class SocketHandler extends React.Component{
@@ -15,7 +15,9 @@ export default class SocketHandler extends React.Component{
                 
         try {
 
-            let socket = io("http://100.69.19.3:3000");
+            const manager = new Manager("http://100.69.19.3:3000");
+
+            const socket = manager.socket("/");
 
             console.log(socket);
             
