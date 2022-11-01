@@ -21,6 +21,7 @@ export default class SocketHandler extends React.Component{
 
         setMessages("test")
 
+        /*
         try {
             this.setState(
                 {
@@ -37,6 +38,7 @@ export default class SocketHandler extends React.Component{
         catch(err) {
             console.log(err)
         }
+        */
            
     };
 
