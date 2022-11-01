@@ -39,7 +39,7 @@ export default class Main extends React.Component {
             </Card>
             
             <SocketHandler
-            handleMessageChange={this.handleMessageChange}
+            handleMessageChange={this.handleMessageChange.bind(this)}
             > 
             
             </SocketHandler>
