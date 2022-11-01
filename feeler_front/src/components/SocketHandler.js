@@ -11,8 +11,8 @@ export default class SocketHandler extends React.Component{
             "messages": "Test"
         };
     
-        console.log(this.props.handleMessageChange);
-        
+        console.log(this.props);
+
         //this.props.handleMessageChange(this.state.messages);
 
         /*
