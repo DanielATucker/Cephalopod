@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Card from '@mui/material/Card';
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react';
 
 
 export default function Terminal() {
@@ -24,7 +24,7 @@ export default function Terminal() {
         <Card variant="outlined">
             <p> Terminal</p>
         </Card>
-         
+
         <ScrollView style={styles.scrollView}>
             <Text style={styles.text}>
             </Text>
