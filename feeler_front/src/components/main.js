@@ -19,6 +19,7 @@ export default class Main extends React.Component {
         let {messagesIn} = messages;
         console.log(JSON.stringify(messagesIn));
         
+        
         this.setState({
             "messages": messagesIn
         })
