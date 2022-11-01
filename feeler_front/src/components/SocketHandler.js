@@ -4,14 +4,22 @@ import io from "socket.io";
 
 
 export default class SocketHandler extends React.Component{
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
+
+        let handleMessageChange = props.handleMessageChange;
+
 
         this.state = {
             "data": {
                 "messages": {}
             }
         };
+
+        useEffect(() => {
+            console.log(messages, '- Has changed')
+            handleMessageChange(messages)
+        },[messages])
 
         try {
             this.setState(

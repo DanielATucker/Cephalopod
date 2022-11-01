@@ -11,12 +11,14 @@ export default class Main extends React.Component {
 
         this.state = {
             "username": "No user logged in",
-            "messages": "test"
+            "messages": {}
         };
 
-        let socketHandler = new SocketHandler();
-
-        console.log(socketHandler.state)
+        function handleMessageChange(messages) {
+            this.setState({
+                "messages": messages
+            })
+        };
 
     };
     
@@ -36,7 +38,17 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            <Terminal messages={this.state.messages}> </Terminal>
+            <SocketHandler
+            handleMessageChange={handleMessageChange}
+            > 
+            
+            </SocketHandler>
+
+            <Terminal
+            messages={this.state.messages}
+            > 
+
+            </Terminal>
             </>
         );
     };
