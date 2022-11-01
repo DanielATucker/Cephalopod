@@ -9,14 +9,15 @@ export default class SocketHandler extends React.Component{
 
         this.state = {};
 
+        /*
         const [messages, setMessages] = useState({});
 
-        /*
+        
         useEffect(() => {
             console.log(messages, '- Has changed')
             //this.props.handleMessageChange(messages)
         },[messages])
-        */
+        
 
         setMessages("test");
 
@@ -42,4 +43,5 @@ export default class SocketHandler extends React.Component{
     sendMessage = (message) => {
         this.state.socket.emit("username", { message });
     };
+    */
 };
