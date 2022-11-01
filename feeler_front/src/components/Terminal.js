@@ -14,10 +14,8 @@ export default class Terminal extends React.Component {
     };
     
     componentDidMount() {
-        let messageDict = this.props.messages;
-
         this.setState({
-            "scrollviewMessages": messageDict
+            "scrollviewMessages": this.props.messages
         });
 
     };
