@@ -7,13 +7,18 @@ export default class Terminal extends React.Component {
     constructor(props) {
         super(props)
 
-        let messages = this.props.messages;
-        console.log({this.props.messages});
-
         this.state = {
-            "messages": messages,
+            "messages": {},
             "scrollviewMessages": []
         };
+
+        let messages = this.props.messages;
+
+        console.log(this.props.messages);
+
+        this.setState({
+            "messages": messages
+        });
 
         let messageDict = []
         
