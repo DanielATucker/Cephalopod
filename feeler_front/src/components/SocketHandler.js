@@ -7,6 +7,8 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
 
+        this.state = {};
+        
         const [messages, setMessages] = useState({})
 
         /*
