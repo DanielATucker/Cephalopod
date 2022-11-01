@@ -7,7 +7,7 @@ export default class Terminal extends React.Component {
     constructor(props) {
         super(props)
 
-        let messages = pops.messages;
+        let messages = props.messages;
 
         this.state = {
             "messages": messages
