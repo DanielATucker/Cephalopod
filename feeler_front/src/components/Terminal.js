@@ -36,8 +36,7 @@ export default class Terminal extends React.Component {
     };
 
     addMessage(message) {
-        let wrapper = <Text> message </Text>
-
+        let wrapper =  <p> {message} </p>
         return wrapper;
     };
 
