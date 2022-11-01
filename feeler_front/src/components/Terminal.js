@@ -35,12 +35,10 @@ export default class Terminal extends React.Component {
     };
     
     componentDidUpdate(prevProps) {
-        if (this.props.messages !== prevProps.messages) {
-            console.log(this.props);
-            
+        if (this.props.messages !== prevProps.messages) {          
             let messageDict = []
             
-            for (let item in this.state.messages) {
+            for (let item in this.props.messages) {
                 messageDict.push(item)
             };
 
