@@ -21,9 +21,10 @@ export default class SocketHandler extends React.Component{
 
             console.log(socket);
             
-            socket.io.on("connect", () => {
+            socket.on("connect", () => {
                 console.log("Connected!")
             });
+            
             /*
             useEffect(() => {
                 this.socket.on("Private_message", (message) => {
