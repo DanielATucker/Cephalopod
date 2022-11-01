@@ -43,7 +43,7 @@ export default class Main extends React.Component {
             > 
 
             </Terminal>
-            <SocketHandler handleMessageChange={handleMessageChange}></SocketHandler>
+            <SocketHandler handleMessageChange={() => handleMessageChange}></SocketHandler>
             </>
         );
     };
