@@ -7,9 +7,13 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
 
+        let [messages, setMessages] = setState([]);
+
+        /*
         this.state = {
             "messages": ["Test", "Test2"]
         };
+        */
     
         this.props.handleMessageChange(this.state.messages);
                 
@@ -21,9 +25,11 @@ export default class SocketHandler extends React.Component{
 
             console.log(socket);
             
+            /*
             this.setState({
                 "messages": this.state.messages.push("Test3")
             });
+            */
 
             socket.on("connect", () => {
 
