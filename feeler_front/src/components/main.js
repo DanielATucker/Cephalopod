@@ -20,8 +20,6 @@ export default class Main extends React.Component {
                 "messages": messages
             })
         };
-
-        let sockethandler = new SocketHandler(this.handleMessageChange);        
     };
     
     render() {
@@ -45,6 +43,7 @@ export default class Main extends React.Component {
             > 
 
             </Terminal>
+            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
             </>
         );
     };

@@ -52,4 +52,10 @@ export default class SocketHandler extends React.Component{
     };
     */
 
+    render() {
+        return(
+            <>
+            </>
+        )
+    };
 };
