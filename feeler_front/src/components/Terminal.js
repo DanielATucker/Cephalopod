@@ -38,6 +38,8 @@ export default class Terminal extends React.Component {
         if (this.props.messages !== prevProps.messages) {          
             let messageDict = []
             
+            console.log(this.props.messages);
+            
             for (let item in this.props.messages) {
                 console.log(item);
                 messageDict.push(item)
