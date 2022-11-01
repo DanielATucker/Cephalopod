@@ -9,7 +9,7 @@ export default class SocketHandler {
             "messages": "Test"
         };
 
-        console.log(this.props);
+        console.log(props);
 
         /*
         const [messages, setMessages] = useState({})
