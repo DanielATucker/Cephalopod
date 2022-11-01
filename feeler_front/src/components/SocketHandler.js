@@ -23,14 +23,14 @@ export default class SocketHandler extends React.Component{
             
             this.setState({
                 "messages": this.state.messages.push("Test3")
-            })
+            });
 
             socket.on("connect", () => {
                 this.setState({
                     "messages": this.state.messages.push("Connected")
                 });
                 
-                console.log("Connected!")
+                console.log("Connected!");
             });
 
             /*
