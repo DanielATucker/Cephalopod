@@ -13,11 +13,9 @@ export default class Main extends React.Component {
             "username": "No user logged in",
             "messages": {}
         };
-
-        this.handler = this.handler.bind(this);        
     };
 
-    handleMessageChange(messages) {
+    handleMessageChange = (messages) => {
         this.setState({
             "messages": messages
         })
