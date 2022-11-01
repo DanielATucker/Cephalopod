@@ -11,7 +11,8 @@ export default class SocketHandler extends React.Component{
             "messages": "Test"
         };
 
-        console.log(props)
+        console.log(props);
+
         /*
         const [messages, setMessages] = useState({})
 

@@ -21,10 +21,7 @@ export default class Main extends React.Component {
             })
         };
 
-        let sockethandler = new SocketHandler(this.handleMessageChange);
-
-        console.log(sockethandler);
-        
+        let sockethandler = new SocketHandler(this.handleMessageChange);        
     };
     
     render() {
