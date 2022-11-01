@@ -12,7 +12,9 @@ export default class Terminal extends React.Component {
             "scrollviewMessages": []
         };
 
-    
+
+        console.log(this.props.messages);
+        
         
         let messageDict = []
         /*
