@@ -20,6 +20,9 @@ export default class Main extends React.Component {
             })
         };
 
+        let sockethandler = new SocketHandler(this.handleMessageChange);
+
+        console.log(sockethandler);
     };
     
     render() {
@@ -37,12 +40,6 @@ export default class Main extends React.Component {
                     <p> {this.state.username} </p>
                 </body>
             </Card>
-            
-            <SocketHandler
-            handleMessageChange={this.handleMessageChanged}
-            > 
-            
-            </SocketHandler>
 
             <Terminal
             messages={this.state.messages}
