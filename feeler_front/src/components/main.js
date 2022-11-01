@@ -19,8 +19,7 @@ export default class Main extends React.Component {
         this.setState({
             "messages": messages
         })
-
-        
+         
         console.log(messages);
     };
 

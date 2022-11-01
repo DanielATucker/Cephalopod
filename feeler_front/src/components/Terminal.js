@@ -16,7 +16,7 @@ export default class Terminal extends React.Component {
 
         let messageDict = []
         
-        console.log(`Terminal state messages: ${messages[1]}`);
+        console.log(`Terminal state messages: ${messages}`);
         
         for (let item in this.state.messages) {
             messageDict.push(item)
