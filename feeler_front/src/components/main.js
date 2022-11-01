@@ -31,7 +31,7 @@ export default class Main extends React.Component {
                 </body>
             </Card>
             
-            <Terminal> {this.state.messages} </Terminal>
+            <Terminal messsages={this.state.messages}> </Terminal>
             </>
         );
     };
