@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Socket } from "socket.io";
 
 import { Manager } from "socket.io-client";
 
@@ -7,13 +8,11 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
 
-        let [messages, setMessages] = this.setState([]);
-
-        /*
+        
         this.state = {
             "messages": ["Test", "Test2"]
         };
-        */
+        
     
         this.props.handleMessageChange(this.state.messages);
                 
@@ -23,7 +22,9 @@ export default class SocketHandler extends React.Component{
 
             const socket = manager.socket("/");
 
-            console.log(socket);
+            this.setState({
+                "socket": Socket
+            });
             
             /*
             this.setState({
@@ -31,21 +32,10 @@ export default class SocketHandler extends React.Component{
             });
             */
 
-            socket.on("connect", () => {
-
-                console.log(this.state.messages)
-                
-                let messageOut = this.state.messages;
-
-                messageOut.push("Connected")
-
-                console.log(messageOut);
-
+            this.state.socket.on("connect", () => {                
                 this.setState({
-                    "messages": messageOut
+                    "messages": this.state.messages.push("Connected")
                 });
-                
-                console.log("Connected!");
             });
 
             /*
