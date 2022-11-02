@@ -32,7 +32,7 @@ export default class SocketHandler extends React.Component{
             
             console.log(messageOut);
 
-            messageOut = messageOut.push("Connected");
+            messageOut.push("Connected");
 
             console.log(messageOut);
 
