@@ -33,7 +33,7 @@ export default class Terminal extends React.Component {
                 "scrollviewMessages": messageDict,
                 "messages": messageDict
             });
-            
+
         }
     };
 
@@ -51,9 +51,7 @@ export default class Terminal extends React.Component {
                 <p> Terminal</p>
             </Card>
 
-            <Text>
-                {this.state.scrollviewMessages}
-            </Text>
+            <Text> hi</Text>
 
             <input></input>
             <button> Send </button>
