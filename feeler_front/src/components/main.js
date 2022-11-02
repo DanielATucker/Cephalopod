@@ -18,8 +18,8 @@ export default class Main extends React.Component {
     timeout = (delay) =>  {
         return new Promise( res => setTimeout(res, delay) );
     }
-    
-    handleMessageChange = async (messages) => {
+
+    handleMessageChange = async (messages, timeout) => {
         await timeout(1000)
         
         this.setState({
