@@ -15,41 +15,35 @@ export default class SocketHandler extends React.Component{
         
     
         this.props.handleMessageChange(this.state.messages);
-                
-        try {
 
-            const manager = new Manager("http://100.69.19.3:3000");
-
-            const socket = manager.socket("/");
-
-            this.setState({
-                "socket": socket
-            });
-
-            this.state.socket.on("connect", () => {                
-                this.setState({
-                    "messages": this.state.messages.push("Connected")
-                });
-
-                console.log(this.state.socket);
-            });
-
-            this.state.socket.on("Private_message", (message) => {
-                this.setState({
-                    "messages": this.state.messages.push(message)
-                });                
-            });
-
-            this.state.socket.on("message", (message) => {
-                this.setState({
-                    "messages": this.state.messages.push(message)
-                });                
-            });
-        }
-        catch(err) {
-            console.log(err)
-        }
         
+        const manager = new Manager("http://100.69.19.3:3000");
+
+        const socket = manager.socket("/");
+
+        this.setState({
+            "socket": socket
+        });
+
+        this.state.socket.on("connect", () => {                
+            this.setState({
+                "messages": this.state.messages.push("Connected")
+            });
+
+            console.log(this.state.socket);
+        });
+
+        this.state.socket.on("Private_message", (message) => {
+            this.setState({
+                "messages": this.state.messages.push(message)
+            });                
+        });
+
+        this.state.socket.on("message", (message) => {
+            this.setState({
+                "messages": this.state.messages.push(message)
+            });                
+        });
            
     };
 
