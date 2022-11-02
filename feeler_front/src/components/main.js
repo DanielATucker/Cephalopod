@@ -23,7 +23,7 @@ export default class Main extends React.Component {
         })
     };
 
-    timeout(delay) {
+    timeout = (delay) =>  {
         return new Promise( res => setTimeout(res, delay) );
     }
 
