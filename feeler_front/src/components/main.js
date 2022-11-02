@@ -14,20 +14,12 @@ export default class Main extends React.Component {
             "messages": []
         };
     };
-    
-    timeout = (delay) =>  {
-        return new Promise( res => setTimeout(res, delay) );
-    }
 
-    handleMessageChange = async (messages, timeout) => {
-        await timeout(1000)
-        
+    handleMessageChange = (messages) => {        
         this.setState({
             "messages": messages
         })
     };
-
-    
 
     render() {
         return (
