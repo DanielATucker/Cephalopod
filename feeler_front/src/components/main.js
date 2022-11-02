@@ -15,11 +15,17 @@ export default class Main extends React.Component {
         };
     };
 
-    handleMessageChange = (messages) => {        
+    handleMessageChange = async (messages) => {
+        await timeout(1000)
+        
         this.setState({
             "messages": messages
         })
     };
+
+    timeout(delay) {
+        return new Promise( res => setTimeout(res, delay) );
+    }
 
     render() {
         return (
