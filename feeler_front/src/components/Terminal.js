@@ -26,14 +26,17 @@ export default class Terminal extends React.Component {
             
             console.log(this.props.messages);
 
-            this.props.messages.map(message => {
-                messageDict.push(this.wrapMessage(message));
-            })
+            messageDict = this.props.messages.map(message => {
+                <>
+                <li key={message.id}></li>
+                <p> {message} </p>
+                </>
+            });
 
             this.setState({
                 "scrollviewMessages": messageDict,
                 "messages": messageDict
-            })
+            });
         }
     };
 
