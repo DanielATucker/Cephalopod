@@ -27,7 +27,7 @@ export default class Terminal extends React.Component {
             console.log(this.props.messages);
 
             this.props.messages.map(message => {
-                [this.addMessage(message)]
+                [this.wrapMessage(message)]
             })
 
             this.setState({
@@ -37,7 +37,7 @@ export default class Terminal extends React.Component {
         }
     };
 
-    addMessage(message) {
+    wrapMessage(message) {
         let wrapper =  <p> {message} </p>
         return wrapper;
     };
