@@ -11,11 +11,9 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
         
-        this.state = {
-            "messages": []
-        };
-
-        this.setState({
+        let [messages, setMessages] = useState([])
+        
+        setMessages({
             "messages": {
                 "Message": {
                     "body": "Test",
@@ -31,7 +29,9 @@ export default class SocketHandler extends React.Component{
             }
         });
 
-        console.log(this.state.messages);
+        useEffect(() => {
+            console.log(this.state.messages);
+        }, [messages])
 
         this.props.handleMessageChange(this.state.messages);
 
