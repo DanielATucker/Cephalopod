@@ -28,7 +28,7 @@ export default class Terminal extends React.Component {
 
             messageDict = this.props.messages.map(message => 
                 <>
-                <li key={message.date = new Date(message)}></li>
+                <li key={message.date}></li>
                 <p> {message} </p>
                 <p> {message.date}</p>
                 </>
