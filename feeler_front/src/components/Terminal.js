@@ -25,7 +25,8 @@ export default class Terminal extends React.Component {
         if (this.props.messages !== prevProps.messages) {                     
             console.log(this.props.messages);
             
-            let [messageDict] = this.props.messages.map((message) => <Text key={message.uuid}>{message}</Text>);
+            let messageDict = []
+            messageDict = this.props.messages.map((message) => <li key={message.uuid}>{message}</li>);
             
             console.log(messageDict);
 
