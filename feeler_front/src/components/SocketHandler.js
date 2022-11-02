@@ -28,8 +28,9 @@ export default class SocketHandler extends React.Component{
                 }
             ]
         };
+
+        console.log(this.state.messages);
         
-    
         this.props.handleMessageChange(this.state.messages);
 
 
@@ -47,7 +48,7 @@ export default class SocketHandler extends React.Component{
             let messageOut = this.state.messages.concat("Connected")
             
             console.log(messageOut);
-            
+
             this.props.handleMessageChange(messageOut);
 
             console.log("Connected!")
