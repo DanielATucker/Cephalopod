@@ -24,13 +24,13 @@ export default class SocketHandler extends React.Component{
                         "body": "Test2",
                         "datetime": new Date(),
                         "uuid": uuid()
-                    },
+                    }
                 }
             ]
         };
 
         console.log(this.state.messages);
-        
+
         this.props.handleMessageChange(this.state.messages);
 
 
