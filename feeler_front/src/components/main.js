@@ -16,11 +16,9 @@ export default class Main extends React.Component {
     };
 
     handleMessageChange = (messages) => {        
-        setTimeout(() => {
-            this.setState({
-                "messages": messages
-            })
-        }, 1000);
+        this.setState({
+            "messages": this.state.messages.concat(messages)
+        })
     };
 
     render() {
