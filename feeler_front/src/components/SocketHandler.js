@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { Socket } from "socket.io";
 
+import uuid from 'react-uuid';
+
+
 import { Manager } from "socket.io-client";
 
 
@@ -9,7 +12,21 @@ export default class SocketHandler extends React.Component{
         super(props);
         
         this.state = {
-            "messages": ["Test", "Test2"]
+            "messages": [
+                {
+                    "Message": {
+                        "body": "Test",
+                        "datetime": new Date(),
+                        "uuid": uuid()
+                    },
+                    
+                    "Message": {
+                        "body": "Test2",
+                        "datetime": new Date(),
+                        "uuid": uuid()
+                    },
+                }
+            ]
         };
         
     

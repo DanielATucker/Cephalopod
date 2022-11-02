@@ -1,6 +1,7 @@
-import React, { useEffect, useState, Text } from "react";
+import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
-import { ScrollView } from "@cantonjs/react-scroll-view";
+import { ScrollView, Text, StyleSheet, View, Dimensions, SafeAreaView, TouchableOpacity } from 'react';
+import { fontSize } from "@mui/system";
 
 
 export default class Terminal extends React.Component {
@@ -21,27 +22,24 @@ export default class Terminal extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        if (this.props.messages !== prevProps.messages) {          
-            let messageDict = []
-            
+        if (this.props.messages !== prevProps.messages) {                     
             console.log(this.props.messages);
-
-            messageDict = this.props.messages.map(message => 
-                <>
-                <li key={message.date}></li>
-                <p> {message} </p>
-                <p> {message.date}</p>
-                </>
-            );
+            
+            let [messageDict] = this.props.messages.map((message) => <Text key={message.uuid}>{message}</Text>);
+            
+            console.log(messageDict);
 
             this.setState({
                 "scrollviewMessages": messageDict,
                 "messages": messageDict
             });
+            
         }
     };
 
     wrapMessage(message) {
+        console.log(message);
+
         let wrapper =  <p> {message} </p>
         return wrapper;
     };
@@ -53,9 +51,9 @@ export default class Terminal extends React.Component {
                 <p> Terminal</p>
             </Card>
 
-            <ScrollView>
+            <Text>
                 {this.state.scrollviewMessages}
-            </ScrollView>
+            </Text>
 
             <input></input>
             <button> Send </button>
