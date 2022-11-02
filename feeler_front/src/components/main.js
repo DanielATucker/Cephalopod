@@ -16,8 +16,10 @@ export default class Main extends React.Component {
     };
 
     handleMessageChange = (messages) => {        
-        console.log(messages);
+        console.log(this.state.messages);
         
+        console.log(messages);
+
         this.setState({
             "messages": this.state.messages.concat(messages)
         })
