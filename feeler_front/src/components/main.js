@@ -14,7 +14,11 @@ export default class Main extends React.Component {
             "messages": []
         };
     };
-
+    
+    timeout = (delay) =>  {
+        return new Promise( res => setTimeout(res, delay) );
+    }
+    
     handleMessageChange = async (messages) => {
         await timeout(1000)
         
@@ -23,9 +27,7 @@ export default class Main extends React.Component {
         })
     };
 
-    timeout = (delay) =>  {
-        return new Promise( res => setTimeout(res, delay) );
-    }
+    
 
     render() {
         return (
