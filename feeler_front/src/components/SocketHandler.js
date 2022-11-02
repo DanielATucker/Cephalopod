@@ -29,7 +29,8 @@ export default class SocketHandler extends React.Component{
                     "uuid": uuid()
                 }
             }
-        })
+        });
+        
         console.log(this.state.messages);
 
         this.props.handleMessageChange(this.state.messages);
