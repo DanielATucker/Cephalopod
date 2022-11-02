@@ -15,7 +15,7 @@ export default class SocketHandler extends React.Component{
             "messages": []
         };
 
-        this.state.setState({
+        this.setState({
             "messages": {
                 "Message": {
                     "body": "Test",
@@ -30,7 +30,7 @@ export default class SocketHandler extends React.Component{
                 }
             }
         });
-        
+
         console.log(this.state.messages);
 
         this.props.handleMessageChange(this.state.messages);
