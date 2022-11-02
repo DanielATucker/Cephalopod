@@ -12,23 +12,24 @@ export default class SocketHandler extends React.Component{
         super(props);
         
         this.state = {
-            "messages": [
-                {
-                    "Message": {
-                        "body": "Test",
-                        "datetime": new Date(),
-                        "uuid": uuid()
-                    },
-                    
-                    "Message": {
-                        "body": "Test2",
-                        "datetime": new Date(),
-                        "uuid": uuid()
-                    }
-                }
-            ]
+            "messages": []
         };
 
+        this.state.setState({
+            "messages": {
+                "Message": {
+                    "body": "Test",
+                    "datetime": new Date(),
+                    "uuid": uuid()
+                },
+                
+                "Message": {
+                    "body": "Test2",
+                    "datetime": new Date(),
+                    "uuid": uuid()
+                }
+            }
+        })
         console.log(this.state.messages);
 
         this.props.handleMessageChange(this.state.messages);
