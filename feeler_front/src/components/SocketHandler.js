@@ -19,7 +19,7 @@ export default class SocketHandler extends React.Component{
 
         const manager = new Manager("http://100.69.19.3:3000");
 
-        const socket = manager.socket("/");
+        let socket = manager.socket("/");
 
         this.setState({
             "socket": socket
