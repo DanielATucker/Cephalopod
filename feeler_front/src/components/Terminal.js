@@ -27,7 +27,7 @@ export default class Terminal extends React.Component {
             console.log(this.props.messages);
 
             this.props.messages.map(message => {
-                messageDict.push(this.addMessage(message));
+                [this.addMessage(message)]
             })
 
             this.setState({
