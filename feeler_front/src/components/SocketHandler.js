@@ -7,7 +7,6 @@ import { Manager } from "socket.io-client";
 export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
-
         
         this.state = {
             "messages": ["Test", "Test2"]
