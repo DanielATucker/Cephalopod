@@ -10,6 +10,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.13",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "neo4j-driver": "^5.1.0",
