@@ -11,9 +11,7 @@ export default class SocketHandler extends React.Component{
         super(props);
 
         this.state = {};
-    };
 
-    componentDidMount() {
         this.setState({
             "messages": {
                 "Message": {
@@ -29,7 +27,9 @@ export default class SocketHandler extends React.Component{
                 }
             },
         });
+    };
 
+    componentDidMount() {
         let manager = new Manager("http://100.69.19.3:3000");
 
         console.log(manager);
