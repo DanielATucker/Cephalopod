@@ -13,8 +13,6 @@ export default class Terminal extends React.Component {
             "messages": [],
             "scrollviewMessages": []
         };
-
-        console.log(props);
     };
     
     componentDidMount() {
@@ -25,14 +23,10 @@ export default class Terminal extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        if (this.props.messages !== prevProps.messages) {                     
-            console.log(this.props.messages);
-            
+        if (this.props.messages !== prevProps.messages) {            
             let messageDict = []
             messageDict = this.props.messages.map((message) => <li key={message.uuid}>{message}</li>);
             
-            console.log(messageDict);
-
             this.setState({
                 "scrollviewMessages": messageDict,
                 "messages": messageDict
@@ -42,8 +36,6 @@ export default class Terminal extends React.Component {
     };
 
     wrapMessage(message) {
-        console.log(message);
-
         let wrapper =  <p> {message} </p>
         return wrapper;
     };
