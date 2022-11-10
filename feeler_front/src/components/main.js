@@ -12,13 +12,18 @@ export default class Main extends React.Component {
         this.state = {
             "username": "No user logged in"
         };
-    };
 
-    handleMessageChange = (messages) => {
         let [messages, setMessages] = useState({})
+
         setMessages({
             "messages": messages
         });
+    };
+
+    handleMessageChange = (messagesIn) => {        
+        this.setSetState({
+            "messages": messagesIn
+        })
     };
 
     render() {
