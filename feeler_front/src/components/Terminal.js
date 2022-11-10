@@ -48,9 +48,7 @@ export default class Terminal extends React.Component {
             </Card>
 
             <ScrollView  style={{ height: '100vh' }}>
-                <ScrollObserver>
-                    {this.state.scrollviewMessages}
-                </ScrollObserver>
+                <t> test</t>
             </ScrollView>
 
             <input></input>
