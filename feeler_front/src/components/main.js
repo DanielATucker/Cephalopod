@@ -13,11 +13,7 @@ export default class Main extends React.Component {
             "username": "No user logged in",
             "messages": []
         };
-    };
-
-    /*
-    <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
-    */
+    };   
 
     handleMessageChange = (messages) => {        
         console.log(this.state.messages);
@@ -48,6 +44,8 @@ export default class Main extends React.Component {
             <Terminal
             messages={this.state.messages}
             ></Terminal>
+            
+            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
 
             </>
         );
