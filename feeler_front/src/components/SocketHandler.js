@@ -10,7 +10,7 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
 
-        this.setState({});
+        this.state = {};
     };
 
     componentDidMount() {
