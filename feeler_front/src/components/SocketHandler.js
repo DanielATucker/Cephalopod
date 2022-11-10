@@ -10,9 +10,7 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
         
-        let [messages, setMessages] = useState([])
-        
-        setMessages({
+        this.setState({
             "messages": {
                 "Message": {
                     "body": "Test",
