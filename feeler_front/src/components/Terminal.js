@@ -1,6 +1,8 @@
-import React, { ScrollView, SafeAreaView, useEffect, useState, FlatList } from "react";
+import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
+
+import { ScrollView } from "@cantonjs/react-scroll-view";
 
 
 
@@ -58,12 +60,9 @@ export default class Terminal extends React.Component {
                 <p> Terminal</p>
             </Card>
 
-            <SafeAreaView style={styles.container}>
-                <ScrollView style={styles.scrollView}>
-                    <t> Test </t>
-                </ScrollView>
-            </SafeAreaView>
-
+            <ScrollView>
+                {this.state.scrollviewMessages}
+            </ScrollView>
 
             <input></input>
             <button> Send </button>
