@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import { Text, StyleSheet, View, Dimensions, SafeAreaView, TouchableOpacity } from 'react';
 import { fontSize } from "@mui/system";
 
-import { ScrollView, ScrollObserver } from "@cantonjs/react-scroll-view";
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 
 export default class Terminal extends React.Component {
@@ -41,15 +41,32 @@ export default class Terminal extends React.Component {
     };
 
     render() {
+        const styles = StyleSheet.create({
+            container: {
+              flex: 1,
+              paddingTop: StatusBar.currentHeight,
+            },
+            scrollView: {
+              backgroundColor: 'pink',
+              marginHorizontal: 20,
+            },
+            text: {
+              fontSize: 42,
+            }
+        });
+
         return (
             <>
             <Card variant="outlined">
                 <p> Terminal</p>
             </Card>
 
-            <ScrollView  style={{ height: '100vh' }}>
-                <t> test</t>
-            </ScrollView>
+            <SafeAreaView style={styles.container}>
+                <ScrollView style={styles.scrollView}>
+                    <t> Test </t>
+                </ScrollView>
+            </SafeAreaView>
+
 
             <input></input>
             <button> Send </button>
