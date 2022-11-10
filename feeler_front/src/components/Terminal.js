@@ -2,7 +2,7 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
-import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react';
+import { StyleSheet, Text, SafeAreaView, ScrollView, StatusBar } from 'react-native';
 
 
 export default class Terminal extends React.Component {
