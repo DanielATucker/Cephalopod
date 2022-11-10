@@ -146,8 +146,8 @@ function init_events(io) {
 				let admin_id = username_to_id(username);
 				
 				let admin_data = {
-					"Admin name": admin_name,
-					"Admin id": admin_id
+					"admin_name": admin_name,
+					"admin_id": admin_id
 				}
 				admin_list.push(admin_data);
 			}
