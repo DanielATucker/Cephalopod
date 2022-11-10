@@ -42,7 +42,6 @@ export default class Terminal extends React.Component {
         const styles = {
             container: {
               flex: 1,
-              paddingTop: StatusBar.currentHeight,
             },
             scrollView: {
               backgroundColor: 'pink',
