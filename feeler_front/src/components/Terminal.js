@@ -40,7 +40,7 @@ export default class Terminal extends React.Component {
     };
 
     render() {
-        const styles = StyleSheet.create({
+        const styles = {
             container: {
               flex: 1,
               paddingTop: StatusBar.currentHeight,
@@ -52,7 +52,7 @@ export default class Terminal extends React.Component {
             text: {
               fontSize: 42,
             }
-        });
+        };
 
         return (
             <>
