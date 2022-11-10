@@ -62,7 +62,9 @@ export default class Terminal extends React.Component {
             </Card>
 
             <ScrollView>
+            <ScrollObserver>
             <t> test </t>   
+            </ScrollObserver>
             </ScrollView>
 
             <input></input>
