@@ -10,14 +10,13 @@ export default class Main extends React.Component {
         super();
 
         this.state = {
-            "username": "No user logged in",
-            "messages": []
+            "username": "No user logged in"
         };
     };
 
     handleMessageChange = (messages) => {
-        let messages = this.state.messages.concat(messages)
-        this.setState({
+        let [messages, setMessages] = useState({})
+        setMessages({
             "messages": messages
         });
     };
