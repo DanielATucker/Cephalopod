@@ -146,8 +146,8 @@ function init_events(io) {
 				let admin_id = username_to_id(username);
 				
 				let admin_data = {
-					"admin_name": admin_name,
-					"admin_id": admin_id
+					"Admin_name": admin_name,
+					"Admin_id": admin_id
 				}
 				admin_list.push(admin_data);
 			}
@@ -184,7 +184,7 @@ function init_events(io) {
 		});
 
 		socket.on("stats", (data) => {
-			let admin_id = admin_list[0].admin_id;
+			let admin_id = admin_list[0].Admin_id;
 
 			socket.to(admin_id).emit("message", data)			
 		});
