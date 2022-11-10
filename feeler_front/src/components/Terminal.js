@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import { Text, StyleSheet, View, Dimensions, SafeAreaView, TouchableOpacity } from 'react';
 import { fontSize } from "@mui/system";
 
-import { ScrollView } from "@cantonjs/react-scroll-view";
+import { ScrollView, ScrollObserver } from "@cantonjs/react-scroll-view";
 
 
 export default class Terminal extends React.Component {
@@ -48,7 +48,9 @@ export default class Terminal extends React.Component {
             </Card>
 
             <ScrollView  style={{ height: '100vh' }}>
-                {this.state.scrollviewMessages}
+                <ScrollObserver>
+                    {this.state.scrollviewMessages}
+                </ScrollObserver>
             </ScrollView>
 
             <input></input>
