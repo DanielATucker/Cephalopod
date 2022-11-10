@@ -52,8 +52,6 @@ export default class Terminal extends React.Component {
                 <p> Terminal</p>
             </Card>
 
-            <Text> hi</Text>
-
             <input></input>
             <button> Send </button>
             </>
