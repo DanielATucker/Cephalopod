@@ -35,12 +35,8 @@ export default class SocketHandler extends React.Component{
         this.props.handleMessageChange(this.state.messages);
 
         socket.on("connect", () => {
-            let [messages] = this.state.messages;
+            console.log(this.state);
             
-            messages.map((message) => (console.log(message)));
-
-            console.log(messages.concat("connected"));
-
             let messageOut = messages.concat("connected")
 
             this.props.handleMessageChange(messageOut);
