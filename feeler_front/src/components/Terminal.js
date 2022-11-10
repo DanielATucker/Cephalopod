@@ -1,4 +1,4 @@
-import React, { SafeAreaView, useEffect, useState, FlatList } from "react";
+import React, { ScrollView, SafeAreaView, useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
