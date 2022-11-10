@@ -10,11 +10,7 @@ export default class SocketHandler extends React.Component{
     constructor(props) {
         super(props);
 
-        this.state = {};
-    };
-
-    componentDidMount() {
-        this.setState({
+        this.state = {
             "messages": {
                 "Message": {
                     "body": "Test",
@@ -28,8 +24,10 @@ export default class SocketHandler extends React.Component{
                     "uuid": uuidv4()
                 }
             },
-        });
+        };
+    };
 
+    componentDidMount() {
         let manager = new Manager("http://100.69.19.3:3000");
 
         console.log(manager);
