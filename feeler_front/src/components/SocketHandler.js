@@ -13,16 +13,19 @@ export default class SocketHandler extends React.Component{
 
         this.state = {
             "messages": [
-                "Message": {
-                    "body": "Test",
-                    "datetime": new Date(),
-                    "uuid": uuidv4()
+                {
+                    "Message": {
+                        "body": "Test",
+                        "datetime": new Date(),
+                        "uuid": uuidv4()
+                    }
                 },
-                
-                "Message": {
-                    "body": "Test2",
-                    "datetime": new Date(),
-                    "uuid": uuidv4()
+                {
+                    "Message": {
+                        "body": "Test2",
+                        "datetime": new Date(),
+                        "uuid": uuidv4()
+                    }
                 }
             ],
         };
