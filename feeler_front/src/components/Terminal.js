@@ -2,9 +2,6 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
-import { ScrollView, ScrollObserver } from "@cantonjs/react-scroll-view";
-
-
 
 export default class Terminal extends React.Component {
     constructor(props) {
@@ -59,12 +56,6 @@ export default class Terminal extends React.Component {
             <Card variant="outlined">
                 <p> Terminal</p>
             </Card>
-
-            <ScrollView>
-            <ScrollObserver>
-            <t> test </t>   
-            </ScrollObserver>
-            </ScrollView>
 
             <input></input>
             <button> Send </button>
