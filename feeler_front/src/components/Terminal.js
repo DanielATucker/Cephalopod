@@ -2,7 +2,8 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { ScrollView, Text, StyleSheet, View, Dimensions, SafeAreaView, TouchableOpacity } from 'react';
 import { fontSize } from "@mui/system";
-import { formControlLabelClasses } from "@mui/material";
+
+import { ScrollView } from "@cantonjs/react-scroll-view";
 
 
 export default class Terminal extends React.Component {
@@ -19,7 +20,6 @@ export default class Terminal extends React.Component {
         this.setState({
             "scrollviewMessages": this.props.messages
         });
-
     };
 
     componentDidUpdate(prevProps) {
@@ -46,6 +46,10 @@ export default class Terminal extends React.Component {
             <Card variant="outlined">
                 <p> Terminal</p>
             </Card>
+
+            <ScrollView  style={{ height: '100vh' }}>
+                {this.state.scrollviewMessages}
+            </ScrollView>
 
             <input></input>
             <button> Send </button>
