@@ -18,12 +18,6 @@ export default class SocketHandler extends React.Component{
                     "datetime": new Date(),
                     "uuid": uuidv4()
                 },
-                
-                "Message": {
-                    "body": "Test2",
-                    "datetime": new Date(),
-                    "uuid": uuidv4()
-                }
             },
         };
     };
@@ -36,7 +30,7 @@ export default class SocketHandler extends React.Component{
 
         socket.on("connect", () => {
             console.log(this.state);
-            
+
             let messageOut = messages.concat("connected")
 
             this.props.handleMessageChange(messageOut);
