@@ -143,7 +143,7 @@ function init_events(io) {
 
 			if (username === "Daniel") {
 				let admin_name = username;
-				let admin_id = username_to_id(username);
+				let admin_id = username_to_id(io, socket, username);
 				
 				let admin_data = {
 					"Admin_name": admin_name,
