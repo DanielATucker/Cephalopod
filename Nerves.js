@@ -184,9 +184,9 @@ function init_events(io) {
 		});
 
 		socket.on("stats", (data) => {
-			let admin_id = admin_list[0].Admin_id;
+			console.log(admin_list[0]);
 
-			socket.to(admin_id).emit("message", data)			
+			//socket.to(admin_id).emit("message", data)			
 		});
 
 	});
