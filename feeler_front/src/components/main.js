@@ -2,8 +2,8 @@ import React, { useEffect, useState} from "react";
 
 import Card from '@mui/material/Card';
 
-import Terminal from "./Terminal.js";
-import SocketHandler from "./SocketHandler.js";
+//import Terminal from "./Terminal.js";
+//import SocketHandler from "./SocketHandler.js";
 
 export default class Main extends React.Component {
     constructor() {
@@ -15,6 +15,15 @@ export default class Main extends React.Component {
         };
     };
 
+    /*
+    <Terminal
+            messages={this.state.messages}
+            > 
+
+            </Terminal>
+            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
+    */
+   
     handleMessageChange = (messages) => {        
         console.log(this.state.messages);
         
@@ -41,12 +50,6 @@ export default class Main extends React.Component {
                 </body>
             </Card>
 
-            <Terminal
-            messages={this.state.messages}
-            > 
-
-            </Terminal>
-            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
             </>
         );
     };
