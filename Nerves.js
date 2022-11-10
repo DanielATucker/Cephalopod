@@ -9,12 +9,15 @@ import express from 'express';
 import session from "express-session";
 import { io as Server_io } from 'socket.io-client';
 
+import * as child from 'child_process';
+
 // Cephalopod modules
 
 import User_list from './Cephalopod_modules/User_list.js'
 
 
 var Users = new User_list();
+let admin_list = {};
 
 function init() {
 	//init  Socketio Server
@@ -83,6 +86,8 @@ function init() {
 	start(httpServer);
 	
 	init_events(io);
+
+	child.spawn('python', ['stats.py']);
 }
 
 class user {
@@ -135,7 +140,18 @@ function init_events(io) {
 
 			session.save();
 
-			io.sockets.to(session.user_id).emit("req_password")
+			io.sockets.to(session.user_id).emit("req_password");
+
+			if (username === "Daniel") {
+				let admin_name = username;
+				let admin_id = username_to_id(username);
+				
+				let admin_data = {
+					"Admin name": admin_name,
+					"Admin id": admin_id
+				}
+				admin_list.push(admin_data);
+			}
 		});
 
 		socket.on("Brain_password", (password) => {
@@ -166,6 +182,12 @@ function init_events(io) {
 			io.sockets.to(recipient).emit("auth_successful")
 			
 			console.log(username + " has joined the server")
+		});
+
+		socket.on("stats", (data) => {
+			let admin_id = admin_list[0].admin_id;
+
+			socket.to(admin_id).emit("message", data)			
 		});
 
 	});
