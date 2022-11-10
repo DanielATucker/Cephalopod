@@ -26,10 +26,6 @@ export default class SocketHandler extends React.Component{
             }
         });
 
-        useEffect(() => {
-            console.log(this.state.messages);
-        }, [messages])
-
         this.props.handleMessageChange(this.state.messages);
 
 
