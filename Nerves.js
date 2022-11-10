@@ -16,7 +16,7 @@ import User_list from './Cephalopod_modules/User_list.js'
 
 
 var Users = new User_list();
-let admin_list = {};
+let admin_list = [];
 
 function init() {
 	//init  Socketio Server
