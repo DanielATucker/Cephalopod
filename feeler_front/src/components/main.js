@@ -4,6 +4,7 @@ import Card from '@mui/material/Card';
 
 import Terminal from "./Terminal.js";
 import SocketHandler from "./SocketHandler.js";
+import Stats from "./stats";
 
 export default class Main extends React.Component {
     constructor() {
@@ -40,6 +41,8 @@ export default class Main extends React.Component {
                 </body>
             </Card>
 
+            <Stats></Stats>
+            
             <Terminal
             messages={this.state.messages}
             ></Terminal>
