@@ -2,7 +2,7 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
-import { ScrollView } from "@cantonjs/react-scroll-view";
+import { ScrollView, ScrollObserver } from "@cantonjs/react-scroll-view";
 
 
 
