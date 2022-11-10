@@ -25,7 +25,7 @@ export default class SocketHandler extends React.Component{
                 "Message": {
                     "body": "Test2",
                     "datetime": new Date(),
-                    "uuid": uuid()
+                    "uuid": new uuid()
                 }
             },
         });
