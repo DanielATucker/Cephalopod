@@ -37,6 +37,8 @@ export default class SocketHandler extends React.Component{
         const socket = manager.socket("/")
 
         console.log(socket);
+        
+        console.log(this.state.messages);
 
         this.props.handleMessageChange(this.state.messages);
 
