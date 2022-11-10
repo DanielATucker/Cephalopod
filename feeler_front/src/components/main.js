@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 
 import Card from '@mui/material/Card';
 
-//import Terminal from "./Terminal.js";
+import Terminal from "./Terminal.js";
 //import SocketHandler from "./SocketHandler.js";
 
 export default class Main extends React.Component {
@@ -48,7 +48,7 @@ export default class Main extends React.Component {
             <Terminal
             messages={this.state.messages}
             ></Terminal>
-            
+
             </>
         );
     };
