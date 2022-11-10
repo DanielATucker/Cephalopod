@@ -19,6 +19,8 @@ export default class Main extends React.Component {
         this.setState({
             "messages": messagesIn
         })
+
+        console.log(this.state.messages);
     };
 
     render() {
