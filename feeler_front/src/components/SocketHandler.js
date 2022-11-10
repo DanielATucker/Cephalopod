@@ -28,12 +28,11 @@ export default class SocketHandler extends React.Component{
                     "uuid": uuid()
                 }
             },
-            "manager": new Manager("http://100.69.19.3:3000")
         });
 
-        
+        let manager = new Manager("http://100.69.19.3:3000");
 
-        this.setState({"socket": this.state.manager.socket("/")})
+        this.setState({"socket": manager.socket("/")})
 
         this.props.handleMessageChange(this.state.messages);
 
