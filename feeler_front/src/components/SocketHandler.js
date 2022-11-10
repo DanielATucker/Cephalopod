@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 
-import uuid from 'react-uuid';
+import { v4 as uuidv4 } from 'uuid';
 
 
 import { Manager } from "socket.io-client";
@@ -19,13 +19,13 @@ export default class SocketHandler extends React.Component{
                 "Message": {
                     "body": "Test",
                     "datetime": new Date(),
-                    "uuid": uuid()
+                    "uuid": uuidv4()
                 },
                 
                 "Message": {
                     "body": "Test2",
                     "datetime": new Date(),
-                    "uuid": uuid()
+                    "uuid": uuidv4()
                 }
             },
         });
