@@ -9,8 +9,7 @@ import express from 'express';
 import session from "express-session";
 import { io as Server_io } from 'socket.io-client';
 
-import * as child from 'child_process';
-
+import { exec } from "node:child_process";
 // Cephalopod modules
 
 import User_list from './Cephalopod_modules/User_list.js'
@@ -87,7 +86,7 @@ function init() {
 	
 	init_events(io);
 
-	child.spawn('python', ['stats.py']);
+	exec('python3 stats.py');
 }
 
 class user {
