@@ -2,6 +2,7 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { ScrollView, Text, StyleSheet, View, Dimensions, SafeAreaView, TouchableOpacity } from 'react';
 import { fontSize } from "@mui/system";
+import { formControlLabelClasses } from "@mui/material";
 
 
 export default class Terminal extends React.Component {
@@ -12,6 +13,8 @@ export default class Terminal extends React.Component {
             "messages": [],
             "scrollviewMessages": []
         };
+
+        console.log(props);
     };
     
     componentDidMount() {
