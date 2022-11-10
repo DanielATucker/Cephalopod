@@ -32,6 +32,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <>
+            
             <Card variant="outlined">
                 <head>
                     <title> Cephalopod </title>
