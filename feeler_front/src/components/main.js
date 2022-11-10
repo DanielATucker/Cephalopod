@@ -15,10 +15,6 @@ export default class Main extends React.Component {
         };
     };
 
-    /*
-    <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
-    */
-
     handleMessageChange = (messages) => {        
         console.log(this.state.messages);
         
@@ -32,7 +28,7 @@ export default class Main extends React.Component {
     render() {
         return (
             <>
-            
+
             <Card variant="outlined">
                 <head>
                     <title> Cephalopod </title>
@@ -49,6 +45,8 @@ export default class Main extends React.Component {
             <Terminal
             messages={this.state.messages}
             ></Terminal>
+            
+            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
 
             </>
         );
