@@ -4,6 +4,7 @@ import { v4 as uuidv4 } from 'uuid';
 
 
 import { Manager } from "socket.io-client";
+import { formControlLabelClasses } from "@mui/material";
 
 
 export default class SocketHandler extends React.Component{
@@ -34,9 +35,13 @@ export default class SocketHandler extends React.Component{
         this.props.handleMessageChange(this.state.messages);
 
         socket.on("connect", () => {
-            let messageOut = this.state.messages.concat("Connected")
+            let messages = this.state.messages;
             
-            console.log(messageOut);
+            console.log(messages);
+
+            console.log(messages.concat("connected"));
+
+            let messageOut = messages.concat("connected")
 
             this.props.handleMessageChange(messageOut);
 
