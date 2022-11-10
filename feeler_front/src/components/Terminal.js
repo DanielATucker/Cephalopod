@@ -61,7 +61,7 @@ export default class Terminal extends React.Component {
             </Card>
 
             <ScrollView>
-                {this.state.scrollviewMessages}
+            <t> test </t>   
             </ScrollView>
 
             <input></input>
