@@ -184,10 +184,15 @@ function init_events(io) {
 		});
 
 		socket.on("stats", (data) => {
-			let admin = admin_list[0]
-			console.log(`Admin ${admin.admin_id}`)
+		  if (typeof admin_list[0] !="undefined") {
+		    let admin = admin_list[0]
+		   
+		    let admin_id = admin.Admin_id
+		    
+		    socket.to(admin_id).emit("message", data)		
+		  }
 
-			socket.to(admin_id).emit("message", data)			
+				
 		});
 
 	});
