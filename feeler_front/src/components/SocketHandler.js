@@ -63,8 +63,6 @@ export default class SocketHandler extends React.Component{
             this.setState({
                 "stats": dataOut
             })
-
-            console.log(this.state.stats)            
         });
            
 

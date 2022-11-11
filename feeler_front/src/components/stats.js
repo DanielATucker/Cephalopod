@@ -7,13 +7,15 @@ export default class Stats extends React.Component {
 
         this.state = {
             "messages": [],
-            "scrollviewMessages": []
+            "scrollviewMessages": [],
+            "stats": []
         };
     };
 
     render () {
         return(
             <h1> Stats </h1>
+            <p> {this.state.stats}</p>
         )
     }
 }

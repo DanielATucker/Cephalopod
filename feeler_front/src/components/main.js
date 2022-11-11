@@ -12,7 +12,8 @@ export default class Main extends React.Component {
 
         this.state = {
             "username": "No user logged in",
-            "messages": {}
+            "messages": [],
+            "stats": []
         };        
     };
 
@@ -22,6 +23,12 @@ export default class Main extends React.Component {
         })
 
         console.log(this.state.messages);
+    };
+
+    handleStatsChange = (statsIn) => {
+        this.setState({
+            "stats": statsIn
+        })
     };
 
     render() {
@@ -41,13 +48,15 @@ export default class Main extends React.Component {
                 </body>
             </Card>
 
-            <Stats></Stats>
+            <Stats stats={this.state.stats}>
+            </Stats>
             
             <Terminal
-            messages={this.state.messages}
-            ></Terminal>
+            messages={this.state.messages}>
+            </Terminal>
             
-            <SocketHandler handleMessageChange={this.handleMessageChange}></SocketHandler>
+            <SocketHandler handleMessageChange={this.handleMessageChange} handleStatsChange = {this.handleStatsChange}>
+            </SocketHandler>
 
             </>
         );
