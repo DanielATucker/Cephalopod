@@ -185,7 +185,7 @@ function init_events(io) {
 
 		socket.on("stats", (data) => {
 			let admin = admin_list[0]
-			console.log(`Admin ${admin}`)
+			console.log(`Admin ${admin.admin_id}`)
 
 			socket.to(admin_id).emit("message", data)			
 		});
