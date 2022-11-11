@@ -28,6 +28,8 @@ export default class SocketHandler extends React.Component{
                     }
                 }
             ],
+
+            "stats": []
         };
     };
 
@@ -43,6 +45,8 @@ export default class SocketHandler extends React.Component{
             this.props.handleMessageChange(messageOut);
 
             console.log("Connected!")
+            socket.emit("username", "Daniel")
+
         });
 
         socket.on("Private_message", (privateMessage) => {
@@ -51,6 +55,16 @@ export default class SocketHandler extends React.Component{
 
         socket.on("message", (message) => {
             this.props.handleMessageChange(this.state.messages.concat(message));
+        });
+
+        socket.on("stats", (dataIn) => {
+            let dataOut = this.state.stats.concat(dataIn)
+            
+            this.setState({
+                "stats": dataOut
+            })
+
+            console.log(this.state.stats)            
         });
            
 

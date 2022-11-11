@@ -189,7 +189,7 @@ function init_events(io) {
 		   
 		    let admin_id = admin.Admin_id
 		    
-		    socket.to(admin_id).emit("message", data)		
+		    socket.to(admin_id).emit("stats", data)		
 		  }
 
 				
