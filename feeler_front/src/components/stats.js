@@ -36,7 +36,6 @@ export default class Stats extends React.Component {
 
         let table1 = {
             label: "Stats",
-            labels: ["Time", "Time2", "Tim3"],
             datasets: [1, 2, 3]
         };
 
