@@ -48,6 +48,7 @@ export default class Stats extends React.Component {
                 "table1": table1,
             }
         }
+    }
 
     render () {
         return(
