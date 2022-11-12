@@ -52,7 +52,7 @@ export default class Stats extends React.Component {
             <>
             
             <h1> Stats </h1>
-            <Line data = {this.state.data.stats}> </Line>
+            <Line data= {this.state.stats}> </Line>
 
             </>
         )
