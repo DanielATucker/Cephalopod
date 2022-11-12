@@ -28,6 +28,12 @@ export default class Stats extends React.Component {
     constructor(props) {
         super(props)
 
+        let table1 = {
+            label: "Stats",
+            labels: ["Time", "Time2", "Time3"],
+            datasets: [1, 2, 3]
+        };
+        
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
@@ -35,12 +41,6 @@ export default class Stats extends React.Component {
             "tables": {
                 "table1": table1,
               }
-        };
-
-        let table1 = {
-            label: "Stats",
-            labels: ["Time", "Time2", "Time3"],
-            datasets: [1, 2, 3]
         };
     };
 
