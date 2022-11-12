@@ -32,7 +32,7 @@ export default class Stats extends React.Component {
             label: "Stats",
             labels: ["Time", "Time2", "Time3"],
             datasets: [{
-                "id": 01,
+                "id": 1,
                 "label": "CPU",
                 "data": [5, 5, 5],
                 "borderColor": "rgb(235, 52, 235)",
