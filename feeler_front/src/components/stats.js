@@ -21,7 +21,7 @@ ChartJS.register(
     Title,
     Tooltip,
     Legend
-  );
+);
 
 
 export default class Stats extends React.Component {
