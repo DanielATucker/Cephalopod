@@ -1,5 +1,28 @@
 import React, { useEffect, useState } from "react";
 
+import {
+    Chart as ChartJS,
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend,
+  } from 'chart.js';
+
+import { Line } from 'react-chartjs-2';
+
+ChartJS.register(
+    CategoryScale,
+    LinearScale,
+    PointElement,
+    LineElement,
+    Title,
+    Tooltip,
+    Legend
+  );
+
 
 export default class Stats extends React.Component {
     constructor(props) {
@@ -10,6 +33,18 @@ export default class Stats extends React.Component {
             "scrollviewMessages": [],
             "stats": []
         };
+
+        let table1 = {
+            label: "Stats",
+            labels: ["Time"],
+            datasets: [1, 2, 3]
+        };
+
+        this.state = {
+            "data": {
+              "table1": table1,
+            }
+        };
     };
 
     render () {
@@ -17,7 +52,7 @@ export default class Stats extends React.Component {
             <>
             
             <h1> Stats </h1>
-            <p> {this.state.stats}</p>
+            <Line data = {this.state.data.stats}> </Line>
 
             </>
         )
