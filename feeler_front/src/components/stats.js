@@ -31,18 +31,23 @@ export default class Stats extends React.Component {
         let table1 = {
             label: "Stats",
             labels: ["Time", "Time2", "Time3"],
-            datasets: [1, 2, 3]
+            datasets: [{
+                "id": 01,
+                "label": "CPU",
+                "data": [5, 5, 5],
+                "borderColor": "rgb(235, 52, 235)",
+                "backgroundColor": "rgb(235, 52, 235)"
+            }]
         };
-        
+
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
             "stats": [],
             "tables": {
                 "table1": table1,
-              }
-        };
-    };
+            }
+        }
 
     render () {
         return(
