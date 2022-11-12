@@ -31,19 +31,16 @@ export default class Stats extends React.Component {
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
-            "stats": []
+            "stats": [],
+            "tables": {
+                "table1": table1,
+              }
         };
 
         let table1 = {
             label: "Stats",
-            labels: ["Time", "Time2", "Tim3"],
+            labels: ["Time", "Time2", "Time3"],
             datasets: [1, 2, 3]
-        };
-
-        this.state = {
-            "data": {
-              "table1": table1,
-            }
         };
     };
 
@@ -52,7 +49,7 @@ export default class Stats extends React.Component {
             <>
             
             <h1> Stats </h1>
-            <Line data= {this.state.stats}> </Line>
+            <Line data= {this.state.tables.table1}> </Line>
 
             </>
         )
