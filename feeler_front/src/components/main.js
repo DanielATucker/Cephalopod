@@ -27,7 +27,7 @@ export default class Main extends React.Component {
 
     handleStatsChange = (statsIn) => {
         this.setState({
-            "stats": statsIn
+            "stats": this.state.stats.concat(statsIn)
         });
 
         console.log(this.state.stats);
