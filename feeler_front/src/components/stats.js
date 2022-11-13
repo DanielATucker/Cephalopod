@@ -49,7 +49,7 @@ export default class Stats extends React.Component {
             }
         }
 
-        this.props.stats.map((stat) => {
+        props.stats.map((stat) => {
             console.log(stat);
         });
     }
