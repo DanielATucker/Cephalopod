@@ -30,7 +30,7 @@ export default class Main extends React.Component {
             "stats": statsIn
         });
 
-        console.log(this.state.messages);
+        console.log(this.state.stats);
     };
 
     render() {
