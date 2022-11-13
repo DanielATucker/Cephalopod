@@ -48,15 +48,15 @@ export default class Stats extends React.Component {
             "tables": {
                 "table1": table1,
             }
-        }
-    }
+        };
+    };
 
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {            
             let statsDict = []
 
-            console.log(this.props.stats);
-            
+            console.log(this.props);
+
             statsDict = this.props.stats.map((stat) => {
                 console.log(stat);
             });
@@ -65,7 +65,7 @@ export default class Stats extends React.Component {
                 "stats": statsDict
             });
 
-        }
+        };
     };
 
     render () {
@@ -77,5 +77,5 @@ export default class Stats extends React.Component {
 
             </>
         )
-    }
-}
+    };
+};
