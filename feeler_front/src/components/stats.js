@@ -12,6 +12,7 @@ import {
   } from 'chart.js';
 
 import { Line } from 'react-chartjs-2';
+import { formControlLabelClasses } from "@mui/material";
 
 ChartJS.register(
     CategoryScale,
@@ -53,6 +54,9 @@ export default class Stats extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {            
             let statsDict = []
+
+            console.log(this.props.stats);
+            
             statsDict = this.props.stats.map((stat) => {
                 console.log(stat);
             });
