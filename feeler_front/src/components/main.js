@@ -28,7 +28,9 @@ export default class Main extends React.Component {
     handleStatsChange = (statsIn) => {
         this.setState({
             "stats": statsIn
-        })
+        });
+
+        console.log(this.state.messages);
     };
 
     render() {
