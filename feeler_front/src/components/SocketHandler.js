@@ -27,9 +27,7 @@ export default class SocketHandler extends React.Component{
                         "uuid": uuidv4()
                     }
                 }
-            ],
-
-            "stats": []
+            ]
         };
     };
 
@@ -60,9 +58,7 @@ export default class SocketHandler extends React.Component{
         socket.on("stats", (dataIn) => {
             let dataOut = this.state.stats.concat(dataIn)
             
-            this.setState({
-                "stats": dataOut
-            })
+            this.props.handleMessageChange(this.state.stats.concat(dataOut));
         });
            
 
