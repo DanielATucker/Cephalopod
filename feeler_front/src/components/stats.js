@@ -53,7 +53,7 @@ export default class Stats extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {            
             let statsDict = []
-            messageDict = this.props.stats.map((stat) => {
+            statsDict = this.props.stats.map((stat) => {
                 console.log(stat);
             });
             
