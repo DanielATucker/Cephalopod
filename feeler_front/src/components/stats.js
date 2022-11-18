@@ -41,7 +41,7 @@ export default class Stats extends React.Component {
             }]
         };
 
-        this.setState({
+        this.state = {
             "messages": [],
             "scrollviewMessages": [],
             "data": {
@@ -57,7 +57,7 @@ export default class Stats extends React.Component {
             "tables": {
                 "table1": table1,
             }
-        });
+        };
     };
 
     componentDidUpdate(prevProps) {
