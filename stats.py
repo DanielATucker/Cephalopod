@@ -37,7 +37,7 @@ def get_stats(sio):
         def get_size(bytes):
             for unit in ['', 'K', 'M', 'G', 'T', 'P']:
                 if bytes < 1024:
-                    return f"{bytes:.2f}{unit}B"
+                    return f"{bytes:.2f}"
                 bytes /= 1024
         
         # get the stats again
@@ -46,10 +46,10 @@ def get_stats(sio):
         us, ds = io_2.bytes_sent - bytes_sent, io_2.bytes_recv - bytes_recv
         
         
-        upload = io_2.bytes_sent
-        download = io_2.bytes_recv
-        upload_speed =  (us / UPDATE_DELAY)
-        download_speed =  (ds / UPDATE_DELAY)
+        upload = get_size(io_2.bytes_sent)
+        download = get_size(io_2.bytes_recv)
+        upload_speed =  get_size(us / UPDATE_DELAY)
+        download_speed =  get_size(ds / UPDATE_DELAY)
         
         bytes_sent, bytes_recv = io_2.bytes_sent, io_2.bytes_recv
         
