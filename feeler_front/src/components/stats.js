@@ -76,11 +76,11 @@ export default class Stats extends React.Component {
                 "data": {
                     "CPU_Percent_list": this.state.data.CPU_Percent_list.push(this.props.CPU_Percent),
                     "RAM_Percent_list": this.state.data.RAM_Percent_list.push(this.props.RAM_Percent),
-                    "Ram_GB_list": this.state.data.Ram_GB.push(this.props.Ram_GB),
-                    "Upload_list": this.state.data.Upload.push(this.props.Upload),
-                    "Upload_Speed_list": this.state.data.Upload_Speed.push(this.props.Upload_Speed),
-                    "Download_list": this.state.data.Download.push(this.props.Download),
-                    "Download_Speed_list": this.state.data.Download_Speed.push(this.props.Download_Speed),
+                    "Ram_GB_list": this.state.data.Ram_GB_list.push(this.props.Ram_GB),
+                    "Upload_list": this.state.data.Upload_list.push(this.props.Upload),
+                    "Upload_Speed_list": this.state.data.Upload_Speed_list.push(this.props.Upload_Speed),
+                    "Download_list": this.state.data.Download_list.push(this.props.Download),
+                    "Download_Speed_list": this.state.data.Download_Speed_list.push(this.props.Download_Speed),
                     "Time_List": this.state.data.Time_List.push(this.props.Time)
                 }
             });
