@@ -148,7 +148,7 @@ export default class Stats extends React.Component {
             <h1> Stats </h1>
             
             <Line data= {this.state.tables.table1}> </Line>
-            <Line data= {this.state.tables.Network_Table}> </Line>
+            <Line data= {this.state.tables.table2}> </Line>
             
             </>
         )
