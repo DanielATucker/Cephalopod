@@ -27,6 +27,7 @@ export default class Main extends React.Component {
 
     handleStatsChange = (statsIn) => {
         console.log(this.state.stats);
+        console.log(statsIn)
         
         this.setState({
             "stats": this.state.stats.push(statsIn)
