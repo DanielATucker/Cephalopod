@@ -69,7 +69,7 @@ export default class Stats extends React.Component {
             
             console.log(`State Data: ${currentState}`);
 
-            if ((this.props.stats.length >= 0) ) {
+            if ((this.props.stats.length >= 1) ) {
                 this.props.stats.map((stat) => {
 
                     this.setState({            
@@ -107,14 +107,14 @@ export default class Stats extends React.Component {
             else {
                 this.setState({            
                     "data": {
-                        "CPU_Percent_list": this.props.stats.CPU_Percent,
-                        "RAM_Percent_list": this.props.stats.RAM_Percent_list,
-                        "Ram_GB_list": this.props.stats.Ram_GB,
-                        "Upload_list": this.props.stats.Upload,
-                        "Upload_Speed_list": this.props.stats.Upload_Speed,
-                        "Download_list": this.props.stats.Download,
-                        "Download_Speed_list": this.props.stats.Download_Speed,
-                        "Time_List": this.props.stats.Time
+                        "CPU_Percent_list": [this.props.stats.CPU_Percent],
+                        "RAM_Percent_list": [this.props.stats.RAM_Percent_list],
+                        "Ram_GB_list": [this.props.stats.Ram_GB],
+                        "Upload_list": [this.props.stats.Upload],
+                        "Upload_Speed_list": [this.props.stats.Upload_Speed],
+                        "Download_list": [this.props.stats.Download],
+                        "Download_Speed_list": [this.props.stats.Download_Speed],
+                        "Time_List": [this.props.stats.Time]
                     }
                 });
 
