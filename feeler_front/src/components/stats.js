@@ -122,6 +122,7 @@ export default class Stats extends React.Component {
             this.setState({
                 "tables": {
                     "table1": CPU_RAM_Table,
+                    "table2": Network_Table
                 }
             }); 
         };
