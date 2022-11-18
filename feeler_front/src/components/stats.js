@@ -56,15 +56,6 @@ export default class Stats extends React.Component {
             let statsDict = []
 
             console.log(this.props);
-
-            statsDict = this.props.stats.map((stat) => {
-                console.log(stat);
-            });
-            
-            this.setState({
-                "stats": statsDict
-            });
-
         };
     };
 
