@@ -63,9 +63,7 @@ export default class Stats extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        if (this.props.stats !== prevProps.stats) {
-            console.log(this.state.data.Download_Speed_list);
-            
+        if (this.props.stats !== prevProps.stats) {            
             this.setState({            
                 "data": {
                     "CPU_Percent_list": this.state.data.CPU_Percent_list.concat(this.props.stats.CPU_Percent),
