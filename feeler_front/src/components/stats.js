@@ -61,7 +61,7 @@ export default class Stats extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        if (this.props.stats !== prevProps.stats) {
+        if ((this.props.stats !== prevProps.stats) && (props.stats.length != 0)) {
             console.log(this.props);
 
             console.log(`Updated Props: ${this.props}`);
