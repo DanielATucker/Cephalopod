@@ -62,16 +62,6 @@ export default class Stats extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {
-            let  currentProps = JSON.stringify(this.props);
-            let currentState = JSON.stringify(this.state.data);
-            
-            console.log(`State: ${currentState}`);
-
-            console.log(`Props: ${currentProps}`);
-
-            console.log(this.props.stats);
-            console.log(typeof this.props.stats);
-
             this.setState({            
                 "data": {
                     "CPU_Percent_list": this.state.data.CPU_Percent_list.concat(this.props.stats.CPU_Percent),
