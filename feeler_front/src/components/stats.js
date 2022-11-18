@@ -69,6 +69,8 @@ export default class Stats extends React.Component {
             
             console.log(`State Data: ${currentState}`);
 
+            console.log(`Lenght: ${this.props.stats.lenght}`);
+            
             if (this.props.stats.length !=0) {
                 this.props.stats.map((stat) => {
 
