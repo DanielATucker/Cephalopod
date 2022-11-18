@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 
 import Terminal from "./Terminal.js";
 import SocketHandler from "./SocketHandler.js";
-import Stats from "./stats";
+import Stats from "./stats.js";
 
 export default class Main extends React.Component {
     constructor() {

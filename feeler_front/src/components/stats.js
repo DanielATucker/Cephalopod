@@ -31,11 +31,11 @@ export default class Stats extends React.Component {
 
         let table1 = {
             label: "Stats",
-            labels: ["Time", "Time2", "Time3"],
+            labels: ["Not Initiated"],
             datasets: [{
                 "id": 1,
-                "label": "CPU",
-                "data": [5, 5, 5],
+                "label": "NOT Initiated",
+                "data": [0],
                 "borderColor": "rgb(235, 52, 235)",
                 "backgroundColor": "rgb(235, 52, 235)"
             }]
@@ -44,7 +44,16 @@ export default class Stats extends React.Component {
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
-            "stats": [],
+            "data": {
+                "CPU_Percent_list": [],
+                "RAM_Percent_list": [],
+                "Ram_GB_list": [],
+                "Upload_list": [],
+                "Upload_Speed_list": [],
+                "Download_list": [],
+                "Download_Speed_list": [],
+                "Time_List": []
+            },
             "tables": {
                 "table1": table1,
             }
