@@ -41,6 +41,18 @@ export default class Stats extends React.Component {
             }]
         };
 
+        let table2 = {
+            label: "Not Initiated",
+            labels: ["Not Initiated"],
+            datasets: [{
+                "id": 1,
+                "label": "NOT Initiated",
+                "data": [0],
+                "borderColor": "rgb(235, 52, 235)",
+                "backgroundColor": "rgb(235, 52, 235)"
+            }]
+        };
+
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
@@ -56,6 +68,7 @@ export default class Stats extends React.Component {
             },
             "tables": {
                 "table1": table1,
+                "table2": table2
             }
         };
     };
@@ -98,7 +111,7 @@ export default class Stats extends React.Component {
             };
 
             let Network_Table = {
-                label: "Network Table ",
+                label: "Network Table",
                 labels: this.state.data.Time_List,
                 datasets: [
                     {
