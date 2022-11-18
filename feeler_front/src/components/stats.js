@@ -75,7 +75,7 @@ export default class Stats extends React.Component {
             this.setState({            
                 "data": {
                     "CPU_Percent_list": this.state.data.CPU_Percent_list.push(this.props.CPU_Percent),
-                    "RAM_Percent_list": this.state.data.RAM_Percent_list.push(this.props.RAM_Percent_list),
+                    "RAM_Percent_list": this.state.data.RAM_Percent_list.push(this.props.RAM_Percent),
                     "Ram_GB_list": this.state.data.Ram_GB.push(this.props.Ram_GB),
                     "Upload_list": this.state.data.Upload.push(this.props.Upload),
                     "Upload_Speed_list": this.state.data.Upload_Speed.push(this.props.Upload_Speed),
@@ -87,7 +87,7 @@ export default class Stats extends React.Component {
 
                     
             let table1 = {
-                label: "Stats",
+                label: "CPU",
                 labels: this.state.data.Time_List,
                 datasets: [{
                     "id": 1,
