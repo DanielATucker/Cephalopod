@@ -97,6 +97,28 @@ export default class Stats extends React.Component {
                 ]
             };
 
+            let Network_Table = {
+                label: "Network Table ",
+                labels: this.state.data.Time_List,
+                datasets: [
+                    {
+                        "id": 1,
+                        "label": "Upload Total",
+                        "data": this.state.data.Upload_list,
+                        "borderColor": "rgb(235, 52, 235)",
+                        "backgroundColor": "rgb(235, 52, 235)"
+                    },
+                    {
+                        "id": 2,
+                        "label": "Download Total",
+                        "data": this.state.data.Download_list,
+                        "borderColor": "rgb(255, 0, 0)",
+                        "backgroundColor": "rgb(255, 0, 0)"
+                    }
+                    
+                ]
+            };
+
             this.setState({
                 "tables": {
                     "table1": CPU_RAM_Table,
