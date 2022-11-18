@@ -76,7 +76,7 @@ export default class Stats extends React.Component {
             });
 
                     
-            let table1 = {
+            let CPUTable = {
                 label: "CPU",
                 labels: this.state.data.Time_List,
                 datasets: [{
@@ -90,7 +90,7 @@ export default class Stats extends React.Component {
 
             this.setState({
                 "tables": {
-                    "table1": table1,
+                    "table1": CPUTable,
                 }
             }); 
         };
