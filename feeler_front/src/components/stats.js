@@ -73,7 +73,7 @@ export default class Stats extends React.Component {
 
             console.log(`Props Lenght: ${currentProps.length}`);
 
-            if (currentProps.length > 0) {
+            if (currentProps.isArray() ) {
                 currentProps.map((stat) => {
 
                     console.log("Updated list");
