@@ -76,21 +76,30 @@ export default class Stats extends React.Component {
             });
 
                     
-            let CPUTable = {
-                label: "CPU",
+            let CPU_RAM_Table = {
+                label: "CPU & RAM % ",
                 labels: this.state.data.Time_List,
-                datasets: [{
-                    "id": 1,
-                    "label": "CPU",
-                    "data": this.state.data.CPU_Percent_list,
-                    "borderColor": "rgb(235, 52, 235)",
-                    "backgroundColor": "rgb(235, 52, 235)"
-                }]
+                datasets: [
+                    {
+                        "id": 1,
+                        "label": "CPU",
+                        "data": this.state.data.CPU_Percent_list,
+                        "borderColor": "rgb(235, 52, 235)",
+                        "backgroundColor": "rgb(235, 52, 235)"
+                    },
+                    {
+                        "id": 2,
+                        "label": "RAM",
+                        "data": this.state.data.RAM_Percent_list,
+                        "borderColor": "rgb(255, 255, 255)",
+                        "backgroundColor": "rgb(255, 255, 255)"
+                    }
+                ]
             };
 
             this.setState({
                 "tables": {
-                    "table1": CPUTable,
+                    "table1": CPU_RAM_Table,
                 }
             }); 
         };
