@@ -54,7 +54,7 @@ export default class Terminal extends React.Component {
         return (
             <>
             <Card variant="outlined">
-                <p> Terminal</p>
+                <h1> Terminal</h1>
             </Card>
 
             <input></input>
