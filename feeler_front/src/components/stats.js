@@ -69,10 +69,7 @@ export default class Stats extends React.Component {
 
             console.log(`Props: ${currentProps}`);
 
-            console.log(`State Lenght: ${currentState.length}`);
-
-            console.log(`Props Lenght: ${currentProps.length}`);
-
+            console.log(typeof currentProps)
             if (currentProps.isArray() ) {
                 currentProps.map((stat) => {
 
