@@ -69,7 +69,9 @@ export default class Stats extends React.Component {
 
             console.log(`Props: ${currentProps}`);
 
-            console.log(typeof currentProps)
+            console.log(this.props);
+            console.log(typeof this.props);
+            
             if (currentProps.isArray() ) {
                 currentProps.map((stat) => {
 
