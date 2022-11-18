@@ -2,6 +2,8 @@ import psutil
 import os
 import time
 
+from datetime import datetime
+
 import socketio
 
 
@@ -10,6 +12,10 @@ def get_stats(sio):
     while True:
         time.sleep(.01)
         
+        now = datetime.now()
+        
+        currentDatetime = now.strftime("%y%m%d_%X")
+
         cpu_percent = psutil.cpu_percent(1)
         
         ram_percent = psutil.virtual_memory()[2]
@@ -50,7 +56,8 @@ def get_stats(sio):
             "Upload": upload,
             "Upload_Speed": upload_speed,
             "Download": download,
-            "Download_Speed": download_speed
+            "Download_Speed": download_speed,
+            "Time": currentDatetime
         }
         
         sio.emit("stats", data)
