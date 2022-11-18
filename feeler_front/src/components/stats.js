@@ -45,7 +45,7 @@ export default class Stats extends React.Component {
             label: "Not Initiated",
             labels: ["Not Initiated"],
             datasets: [{
-                "id": 1,
+                "id": 2,
                 "label": "NOT Initiated",
                 "data": [0],
                 "borderColor": "rgb(235, 52, 235)",
