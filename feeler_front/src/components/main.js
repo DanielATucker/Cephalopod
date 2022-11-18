@@ -26,11 +26,13 @@ export default class Main extends React.Component {
     };
 
     handleStatsChange = (statsIn) => {
+        console.log(this.state.stats);
+        
         this.setState({
             "stats": this.state.stats.push(statsIn)
         });
 
-        console.log(this.state.stats);
+        
     };
 
     render() {
