@@ -173,7 +173,7 @@ export default class Stats extends React.Component {
             <div style={{ position: "relative", margin: "auto", width: "80vw" }}>
                 <Line data= {this.state.tables.table3}> </Line>
             </div>
-            
+
             </>
         )
     };
