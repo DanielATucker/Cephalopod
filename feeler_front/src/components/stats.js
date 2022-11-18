@@ -69,11 +69,11 @@ export default class Stats extends React.Component {
             
             console.log(`State Data: ${currentState}`);
 
-            if ((this.props.stats.length > 0) ) {
+            if (this.props.stats.length > 0) {
                 this.props.stats.map((stat) => {
 
                     console.log("Updated list");
-                    
+
                     this.setState({            
                         "data": {
                             "CPU_Percent_list": this.state.data.CPU_Percent_list.push(stat.CPU_Percent),
