@@ -29,18 +29,6 @@ export default class Stats extends React.Component {
     constructor(props) {
         super(props)
 
-        let table1 = {
-            label: "Stats",
-            labels: ["Not Initiated"],
-            datasets: [{
-                "id": 1,
-                "label": "NOT Initiated",
-                "data": [0],
-                "borderColor": "rgb(235, 52, 235)",
-                "backgroundColor": "rgb(235, 52, 235)"
-            }]
-        };
-
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
@@ -53,12 +41,30 @@ export default class Stats extends React.Component {
                 "Download_list": [],
                 "Download_Speed_list": [],
                 "Time_List": []
-            },
+            }
+        }
+    };
+
+    componentDidMount(){
+        let table1 = {
+            label: "Not Initiated",
+            labels: ["Not Initiated"],
+            datasets: [{
+                "id": 1,
+                "label": "NOT Initiated",
+                "data": this.state.data.CPU_Percent_list,
+                "borderColor": "rgb(235, 52, 235)",
+                "backgroundColor": "rgb(235, 52, 235)"
+            }]
+        };
+
+        this.setState({
             "tables": {
                 "table1": table1,
             }
-        };
-    };
+        });
+    }
+
 
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {
