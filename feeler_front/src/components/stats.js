@@ -41,18 +41,6 @@ export default class Stats extends React.Component {
             }]
         };
 
-        let table2 = {
-            label: "Not Initiated",
-            labels: ["Not Initiated"],
-            datasets: [{
-                "id": 2,
-                "label": "NOT Initiated",
-                "data": [0],
-                "borderColor": "rgb(235, 52, 235)",
-                "backgroundColor": "rgb(235, 52, 235)"
-            }]
-        };
-
         this.state = {
             "messages": [],
             "scrollviewMessages": [],
@@ -68,7 +56,8 @@ export default class Stats extends React.Component {
             },
             "tables": {
                 "table1": table1,
-                "table2": table2
+                "table2": table1,
+                "table3": table1
             }
         };
     };
@@ -132,10 +121,33 @@ export default class Stats extends React.Component {
                 ]
             };
 
+            let Network_Speed_Table = {
+                label: "Network Table",
+                labels: this.state.data.Time_List,
+                datasets: [
+                    {
+                        "id": 5,
+                        "label": "Upload Speed",
+                        "data": this.state.data.Upload_Speed_list,
+                        "borderColor": "rgb(235, 52, 235)",
+                        "backgroundColor": "rgb(235, 52, 235)"
+                    },
+                    {
+                        "id": 6,
+                        "label": "Download Speed",
+                        "data": this.state.data.Download_Speed_list,
+                        "borderColor": "rgb(255, 0, 0)",
+                        "backgroundColor": "rgb(255, 0, 0)"
+                    }
+                    
+                ]
+            };
+
             this.setState({
                 "tables": {
                     "table1": CPU_RAM_Table,
-                    "table2": Network_Table
+                    "table2": Network_Table,
+                    "table3": Network_Speed_Table
                 }
             }); 
         };
@@ -149,7 +161,8 @@ export default class Stats extends React.Component {
             
             <Line data= {this.state.tables.table1}> </Line>
             <Line data= {this.state.tables.table2}> </Line>
-            
+            <Line data= {this.state.tables.table3}> </Line>
+
             </>
         )
     };
