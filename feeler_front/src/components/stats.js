@@ -45,14 +45,14 @@ export default class Stats extends React.Component {
             "messages": [],
             "scrollviewMessages": [],
             "data": {
-                "CPU_Percent_list": [],
-                "RAM_Percent_list": [],
-                "Ram_GB_list": [],
-                "Upload_list": [],
-                "Upload_Speed_list": [],
-                "Download_list": [],
-                "Download_Speed_list": [],
-                "Time_List": []
+                "CPU_Percent_list": [0],
+                "RAM_Percent_list": [0],
+                "Ram_GB_list": [0],
+                "Upload_list": [0],
+                "Upload_Speed_list": [0],
+                "Download_list": [0],
+                "Download_Speed_list": [0],
+                "Time_List": [0]
             },
             "tables": {
                 "table1": table1,
