@@ -76,6 +76,7 @@ export default class Stats extends React.Component {
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {
             console.log(this.state.data.Upload_list);
+            console.log(this.state.data.CPU_Percent_list)
            
             this.setState({            
                 "data": {
