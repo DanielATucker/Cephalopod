@@ -61,23 +61,55 @@ export default class Stats extends React.Component {
     };
 
     componentDidUpdate(prevProps) {
-        if ((this.props.stats !== prevProps.stats) && (this.props.stats.length != 0)) {
-            console.log(this.props);
-
+        if (this.props.stats !== prevProps.stats) {
             console.log(`Updated Props: ${this.props}`);
             
-            this.props.stats.map((stat) => {
+            if (this.props.stats.length != 0) {
+                this.props.stats.map((stat) => {
 
+                    this.setState({            
+                        "data": {
+                            "CPU_Percent_list": this.state.data.CPU_Percent_list.push(stat.CPU_Percent),
+                            "RAM_Percent_list": this.state.data.RAM_Percent_list.push(stat.RAM_Percent_list),
+                            "Ram_GB_list": this.state.data.Ram_GB.push(stat.Ram_GB),
+                            "Upload_list": this.state.data.Upload.push(stat.Upload),
+                            "Upload_Speed_list": this.state.data.Upload_Speed.push(stat.Upload_Speed),
+                            "Download_list": this.state.data.Download.push(stat.Download),
+                            "Download_Speed_list": this.state.data.Download_Speed.push(stat.Download_Speed),
+                            "Time_List": this.state.data.Time_List.push(stat.Time)
+                        }
+                    });
+
+                    let table1 = {
+                        label: "Stats",
+                        labels: this.state.data.Time_List,
+                        datasets: [{
+                            "id": 1,
+                            "label": "CPU",
+                            "data": this.state.data.CPU_Percent_list,
+                            "borderColor": "rgb(235, 52, 235)",
+                            "backgroundColor": "rgb(235, 52, 235)"
+                        }]
+                    };
+
+                    this.setState({
+                        "tables": {
+                            "table1": table1,
+                        }
+                    }); 
+                });
+            }
+            else {
                 this.setState({            
                     "data": {
-                        "CPU_Percent_list": this.state.data.CPU_Percent_list.push(stat.CPU_Percent),
-                        "RAM_Percent_list": this.state.data.RAM_Percent_list.push(stat.RAM_Percent_list),
-                        "Ram_GB_list": this.state.data.Ram_GB.push(stat.Ram_GB),
-                        "Upload_list": this.state.data.Upload.push(stat.Upload),
-                        "Upload_Speed_list": this.state.data.Upload_Speed.push(stat.Upload_Speed),
-                        "Download_list": this.state.data.Download.push(stat.Download),
-                        "Download_Speed_list": this.state.data.Download_Speed.push(stat.Download_Speed),
-                        "Time_List": this.state.data.Time_List.push(stat.Time)
+                        "CPU_Percent_list": this.state.data.CPU_Percent_list.push(this.props.stats.CPU_Percent),
+                        "RAM_Percent_list": this.state.data.RAM_Percent_list.push(this.props.stats.RAM_Percent_list),
+                        "Ram_GB_list": this.state.data.Ram_GB.push(this.props.stats.Ram_GB),
+                        "Upload_list": this.state.data.Upload.push(this.props.stats.Upload),
+                        "Upload_Speed_list": this.state.data.Upload_Speed.push(this.props.stats.Upload_Speed),
+                        "Download_list": this.state.data.Download.push(this.props.stats.Download),
+                        "Download_Speed_list": this.state.data.Download_Speed.push(this.props.stats.Download_Speed),
+                        "Time_List": this.state.data.Time_List.push(this.props.stats.Time)
                     }
                 });
 
@@ -97,8 +129,8 @@ export default class Stats extends React.Component {
                     "tables": {
                         "table1": table1,
                     }
-                }); 
-            });
+                });
+            };
         };
     };
 
