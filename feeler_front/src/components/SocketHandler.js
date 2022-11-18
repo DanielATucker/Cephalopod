@@ -62,12 +62,6 @@ export default class SocketHandler extends React.Component{
 
     };
 
-    /*
-    sendMessage = (message) => {
-        this.state.socket.emit("username", { message });
-    };
-    */
-
     render() {
         return(
             <>

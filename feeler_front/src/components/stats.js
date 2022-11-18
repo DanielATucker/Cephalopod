@@ -72,75 +72,37 @@ export default class Stats extends React.Component {
             console.log(this.props.stats);
             console.log(typeof this.props.stats);
 
-            if ((typeof this.props !== "object" ) {
-                currentProps.map((stat) => {
+            this.setState({            
+                "data": {
+                    "CPU_Percent_list": this.state.data.CPU_Percent_list.push(this.props.CPU_Percent),
+                    "RAM_Percent_list": this.state.data.RAM_Percent_list.push(this.props.RAM_Percent_list),
+                    "Ram_GB_list": this.state.data.Ram_GB.push(this.props.Ram_GB),
+                    "Upload_list": this.state.data.Upload.push(this.props.Upload),
+                    "Upload_Speed_list": this.state.data.Upload_Speed.push(this.props.Upload_Speed),
+                    "Download_list": this.state.data.Download.push(this.props.Download),
+                    "Download_Speed_list": this.state.data.Download_Speed.push(this.props.Download_Speed),
+                    "Time_List": this.state.data.Time_List.push(this.props.Time)
+                }
+            });
 
-                    console.log("Updated list");
-
-                    this.setState({            
-                        "data": {
-                            "CPU_Percent_list": this.state.data.CPU_Percent_list.push(stat.CPU_Percent),
-                            "RAM_Percent_list": this.state.data.RAM_Percent_list.push(stat.RAM_Percent_list),
-                            "Ram_GB_list": this.state.data.Ram_GB.push(stat.Ram_GB),
-                            "Upload_list": this.state.data.Upload.push(stat.Upload),
-                            "Upload_Speed_list": this.state.data.Upload_Speed.push(stat.Upload_Speed),
-                            "Download_list": this.state.data.Download.push(stat.Download),
-                            "Download_Speed_list": this.state.data.Download_Speed.push(stat.Download_Speed),
-                            "Time_List": this.state.data.Time_List.push(stat.Time)
-                        }
-                    });
-
-                    let table1 = {
-                        label: "Stats",
-                        labels: this.state.data.Time_List,
-                        datasets: [{
-                            "id": 1,
-                            "label": "CPU",
-                            "data": this.state.data.CPU_Percent_list,
-                            "borderColor": "rgb(235, 52, 235)",
-                            "backgroundColor": "rgb(235, 52, 235)"
-                        }]
-                    };
-
-                    this.setState({
-                        "tables": {
-                            "table1": table1,
-                        }
-                    }); 
-                });
-            }
-            else {
-                this.setState({            
-                    "data": {
-                        "CPU_Percent_list": [this.props.stats.CPU_Percent],
-                        "RAM_Percent_list": [this.props.stats.RAM_Percent],
-                        "Ram_GB_list": [this.props.stats.Ram_GB],
-                        "Upload_list": [this.props.stats.Upload],
-                        "Upload_Speed_list": [this.props.stats.Upload_Speed],
-                        "Download_list": [this.props.stats.Download],
-                        "Download_Speed_list": [this.props.stats.Download_Speed],
-                        "Time_List": [this.props.stats.Time]
-                    }
-                });
-
-                let table1 = {
-                    label: "Stats",
-                    labels: this.state.data.Time_List,
-                    datasets: [{
-                        "id": 1,
-                        "label": "CPU",
-                        "data": this.state.data.CPU_Percent_list,
-                        "borderColor": "rgb(235, 52, 235)",
-                        "backgroundColor": "rgb(235, 52, 235)"
-                    }]
-                };
-
-                this.setState({
-                    "tables": {
-                        "table1": table1,
-                    }
-                });
+                    
+            let table1 = {
+                label: "Stats",
+                labels: this.state.data.Time_List,
+                datasets: [{
+                    "id": 1,
+                    "label": "CPU",
+                    "data": this.state.data.CPU_Percent_list,
+                    "borderColor": "rgb(235, 52, 235)",
+                    "backgroundColor": "rgb(235, 52, 235)"
+                }]
             };
+
+            this.setState({
+                "tables": {
+                    "table1": table1,
+                }
+            }); 
         };
     };
 
