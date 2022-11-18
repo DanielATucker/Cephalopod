@@ -15,6 +15,10 @@ def get_stats(sio):
         now = datetime.now()
         
         currentDatetime = now.strftime("%y%m%d_%X")
+        
+        Date = now.strftime("%y%m%d")
+        
+        Time = now.strftime("%X")
 
         cpu_percent = psutil.cpu_percent(1)
         
@@ -57,7 +61,8 @@ def get_stats(sio):
             "Upload_Speed": upload_speed,
             "Download": download,
             "Download_Speed": download_speed,
-            "Time": currentDatetime
+            "Time": Time,
+            "Current_Datetime": currentDatetime
         }
         
         sio.emit("stats", data)
