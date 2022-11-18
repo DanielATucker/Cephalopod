@@ -44,13 +44,13 @@ def get_stats(sio):
         bytes_sent, bytes_recv = io_2.bytes_sent, io_2.bytes_recv
         
         data = {
-            "CPU Percent": cpu_percent,
-            "RAM Percent": ram_percent,
-            "Ram GB": ram_GB,
+            "CPU_Percent": cpu_percent,
+            "RAM_Percent": ram_percent,
+            "Ram_GB": ram_GB,
             "Upload": upload,
-            "Upload Speed": upload_speed,
+            "Upload_Speed": upload_speed,
             "Download": download,
-            "Download Speed": download_speed
+            "Download_Speed": download_speed
         }
         
         sio.emit("stats", data)
