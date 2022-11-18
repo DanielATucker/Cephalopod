@@ -62,9 +62,12 @@ export default class Stats extends React.Component {
 
     componentDidUpdate(prevProps) {
         if (this.props.stats !== prevProps.stats) {
-            console.log(`Updated Props: ${this.props}`);
+            let  currentProps = JSON.stringify(this.props);
+            let currentState = JSON.stringify(this.state.data);
+
+            console.log(`Updated Props: ${currentProps}`);
             
-            console.log(`Stats: ${this.state.data}`)
+            console.log(`State Data: ${currentState}`);
 
             if ((this.props.stats.length >= 0) ) {
                 this.props.stats.map((stat) => {
