@@ -91,8 +91,8 @@ export default class Stats extends React.Component {
                         "id": 2,
                         "label": "RAM",
                         "data": this.state.data.RAM_Percent_list,
-                        "borderColor": "rgb(255, 255, 255)",
-                        "backgroundColor": "rgb(255, 255, 255)"
+                        "borderColor": "rgb(255, 0, 0)",
+                        "backgroundColor": "rgb(255, 0, 0)"
                     }
                 ]
             };
