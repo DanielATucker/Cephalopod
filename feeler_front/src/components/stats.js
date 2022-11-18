@@ -72,9 +72,13 @@ export default class Stats extends React.Component {
             console.log(this.props.stats);
             console.log(typeof this.props.stats);
 
+            CPU_Percent_Out = this.state.data.CPU_Percent_list.push(this.props.CPU_Percent)
+
+            console.log(CPU_Percent_Out);
+
             this.setState({            
                 "data": {
-                    "CPU_Percent_list": this.state.data.CPU_Percent_list.push(this.props.CPU_Percent),
+                    "CPU_Percent_list": CPU_Percent_Out,
                     "RAM_Percent_list": this.state.data.RAM_Percent_list.push(this.props.RAM_Percent),
                     "Ram_GB_list": this.state.data.Ram_GB_list.push(this.props.Ram_GB),
                     "Upload_list": this.state.data.Upload_list.push(this.props.Upload),
