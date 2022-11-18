@@ -69,7 +69,7 @@ export default class Stats extends React.Component {
             
             console.log(`State Data: ${currentState}`);
 
-            if ((this.props.stats.length >= 1) ) {
+            if ((this.props.stats.length > 0) ) {
                 this.props.stats.map((stat) => {
 
                     this.setState({            
