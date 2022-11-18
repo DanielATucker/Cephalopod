@@ -72,7 +72,7 @@ export default class Stats extends React.Component {
             console.log(this.props.stats);
             console.log(typeof this.props.stats);
 
-            let CPU_Percent_Out = this.state.data.CPU_Percent_list.concat(this.props.CPU_Percent)
+            let CPU_Percent_Out = this.state.data.CPU_Percent_list.concat(this.props.stats.CPU_Percent)
 
             console.log(CPU_Percent_Out);
 
