@@ -1,7 +1,7 @@
 import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
-import { DataGrid } from '@mui/x-data-grid';
+import { DataGrid } from '@mui/data-grid';
 
 
 export default class Journal extends React.Component {
