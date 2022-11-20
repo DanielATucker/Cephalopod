@@ -19,7 +19,7 @@ var cors = require('cors')
 //Routes 
 import indexRouter from './routes/index.js';
 import UsersRouter from "./routes/users.js";
-import Router from "./routes/get_username.js";
+import GetUsernameRouter from "./routes/get_username.js";
 
 
 var app = express();
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Use Router
 app.use('/', indexRouter);
 app.use('/users', UsersRouter);
-app.use("/get_username", router);
+app.use("/get_username", GetUsernameRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
