@@ -11,6 +11,8 @@ export default class Journal extends React.Component {
         this.state = {
             "test": 1
         };
+
+        
     };
     
     componentDidMount() {
