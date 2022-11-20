@@ -42,6 +42,7 @@ export default class Journal extends React.Component {
 
         return (
             <>
+            
             <h1> Journal</h1>
 
             <div style={{ height: 200, width: '100%' }}>
@@ -54,6 +55,7 @@ export default class Journal extends React.Component {
             </DataGrid>
             
             </div>
+
             </>
         );
     };
