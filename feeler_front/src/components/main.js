@@ -15,8 +15,6 @@ export default class Main extends React.Component {
             "messages": [],
             "stats": []
         };  
-
-        this.get_username();
     };
 
     async get_username(){
@@ -27,6 +25,10 @@ export default class Main extends React.Component {
             "username": username
         });
     };
+
+    componentDidMount(){
+        this.get_username();
+    }
 
     handleMessageChange = (messagesIn) => {        
         this.setState({
