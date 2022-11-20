@@ -1,6 +1,7 @@
 import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
+import { DataGrid } from '@mui/x-data-grid';
 
 
 export default class Journal extends React.Component {
@@ -33,6 +34,16 @@ export default class Journal extends React.Component {
         return (
             <>
             <h1> Journal</h1>
+
+            <DataGrid
+                rows={["Journal"]}
+                columns={[1,2,3]}
+                pageSize={5}
+                rowsPerPageOptions={[5]}
+                checkboxSelection
+            >
+            </DataGrid>
+
             </>
         );
     };
