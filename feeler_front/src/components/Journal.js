@@ -31,13 +31,21 @@ export default class Journal extends React.Component {
    
 
     render() {
+
+        const columns = [
+            { field: 'id', headerName: 'Journal'}
+        ]
+        const rows = [
+            { id: 1}
+            ];
+
         return (
             <>
             <h1> Journal</h1>
 
             <DataGrid
-                rows={["Journal"]}
-                columns={[1,2,3,4]}
+                rows={rows}
+                columns={columns}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
