@@ -13,4 +13,4 @@ Router.get('/', function(req, res, next) {
   res.json({"USERNAME": username});
 });
 
-module.exports = Router;
+export default Router;
