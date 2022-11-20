@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "PORT=3001 node app.cjs"
+    "start": "PORT=3001 node app"
   },
   "type": "module",
   "dependencies": {
