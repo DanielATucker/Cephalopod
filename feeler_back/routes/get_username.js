@@ -17,5 +17,7 @@ export default function GetUsernameRouter() {
     let username = username_raw.properties.name;
     
     res.json({"USERNAME": username});
+
+    console.log("TEST")
   });
 }
