@@ -21,7 +21,7 @@ export default class Main extends React.Component {
 
     async get_username(){
         const response = await fetch('http://100.69.19.3:3001/get_username');
-        const username = await response.json();
+        let username = await response.json();
 
         username = username.USERNAME;
 
