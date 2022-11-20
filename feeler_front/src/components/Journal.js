@@ -37,7 +37,7 @@ export default class Journal extends React.Component {
 
             <DataGrid
                 rows={["Journal"]}
-                columns={[1,2,3]}
+                columns={[1,2,3,4]}
                 pageSize={5}
                 rowsPerPageOptions={[5]}
                 checkboxSelection
