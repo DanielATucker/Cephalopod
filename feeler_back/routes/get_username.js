@@ -1,10 +1,10 @@
 var express = require('express');
-var router = express.Router();
+var Router = express.Router();
 
 var Database = require("../components/Database.js")
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+Router.get('/', function(req, res, next) {
 
   let username_raw = Database("MATCH (n) RETURN (n)");
 
@@ -13,4 +13,4 @@ router.get('/', function(req, res, next) {
   res.json({"USERNAME": username});
 });
 
-module.exports = router;
+module.exports = Router;
