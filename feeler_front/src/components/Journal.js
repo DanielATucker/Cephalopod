@@ -33,7 +33,8 @@ export default class Journal extends React.Component {
     render() {
 
         const columns = [
-            { field: 'id', headerName: 'Journal'}
+            { field: 'id', headerName: 'ID'},
+            { field: 'journal', headerName: 'Journal'}
         ]
         const rows = [
             { id: 1, Name: "JOURNALNAME"}
