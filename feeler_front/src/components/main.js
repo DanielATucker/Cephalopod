@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import Terminal from "./Terminal.js";
 import SocketHandler from "./SocketHandler.js";
 import Stats from "./stats.js";
-
+import Journal from "./Journal.js"
 export default class Main extends React.Component {
     constructor() {
         super();
@@ -51,6 +51,9 @@ export default class Main extends React.Component {
             <Stats stats={this.state.stats}>
             </Stats>
             
+            <Journal>
+            </Journal>
+
             <Terminal
             messages={this.state.messages}>
             </Terminal>
