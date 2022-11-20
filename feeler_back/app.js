@@ -11,8 +11,8 @@ var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
-import  indexRouter from './routes/index.js';
-import UsersRouter from "./routes/users";
+import indexRouter from './routes/index.js';
+import UsersRouter from "./routes/users.js";
 import Get_UsernameRouter from "./routes/get_username.js";
 
 
@@ -37,8 +37,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Router
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use("/get_username", get_usernameRouter);
+app.use('/users', UsersRouter);
+app.use("/get_username", Get_UsernameRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
