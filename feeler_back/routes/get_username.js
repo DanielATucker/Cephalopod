@@ -6,7 +6,8 @@ import Database from "../components/Database.js"
 
 
 export default function GetUsernameRouter() {
-
+  console.log("Test");
+  
   var express = require('express');
   var router = express.Router();
     /* GET home page. */
