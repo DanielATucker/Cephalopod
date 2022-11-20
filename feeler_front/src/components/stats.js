@@ -159,19 +159,25 @@ export default class Stats extends React.Component {
             
             <h1> Stats </h1>
             
-            <h2> CPU & RAM % </h2>
-            <div style={{ position: "relative", margin: "auto", width: "30vw" }}>
-                <Line data= {this.state.tables.table1}> </Line>
-            </div>
+            <div style="width: 100%; display: table;">
+                <div style="display: table-row">
 
-            <h2> Network </h2>
-            <div style={{ position: "relative", margin: "auto", width: "30vw" }}>
-                <Line data= {this.state.tables.table2}> </Line>
-            </div>
-            
-            <h2> Network Speed </h2>
-            <div style={{ position: "relative", margin: "auto", width: "30vw" }}>
-                <Line data= {this.state.tables.table3}> </Line>
+                    <div style="width: 33%; display: table-cell;">
+                        <h2> CPU & RAM % </h2>
+                        <Line data= {this.state.tables.table1}> </Line>
+                    </div>
+                    
+                    <div style="width: 33%; display: table-cell;">
+                        <h2> Network </h2>
+                        <Line data= {this.state.tables.table2}> </Line>
+                    </div>
+                    
+                    <div style="width: 33%; display: table-cell;">
+                        <h2> Network Speed </h2>
+                        <Line data= {this.state.tables.table3}> </Line>
+                    </div>
+                
+                </div>
             </div>
 
             </>
