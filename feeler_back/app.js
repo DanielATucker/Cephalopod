@@ -1,3 +1,7 @@
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
