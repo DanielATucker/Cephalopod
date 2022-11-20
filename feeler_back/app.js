@@ -6,7 +6,7 @@ const require = createRequire(import.meta.url);
 import path from 'path';
 import {fileURLToPath} from 'url';
 const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.__dirname(__filename);
+const __dirname = path.dirname(__filename);
 
 
 
