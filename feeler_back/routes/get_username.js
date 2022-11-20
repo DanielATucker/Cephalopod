@@ -10,7 +10,11 @@ import Database from "../components/Database.js";
 
 export default function GetUsernameRouter() {
   /* GET home page. */
+  console.log("TEST")
+
   router.get('/', function(req, res, next) {
+
+    console.log("TEST2")
 
     let username_raw = Database("MATCH (n) RETURN (n)");
 
@@ -18,6 +22,6 @@ export default function GetUsernameRouter() {
     
     res.json({"USERNAME": username});
 
-    console.log("TEST")
+    console.log("TEST3")
   });
 }
