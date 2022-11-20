@@ -3,6 +3,13 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 
+import path from 'path';
+import {fileURLToPath} from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = __dirname(__filename);
+
+
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
