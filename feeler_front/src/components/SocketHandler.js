@@ -58,8 +58,6 @@ export default class SocketHandler extends React.Component{
         socket.on("stats", (dataIn) => {            
             this.props.handleStatsChange(dataIn);
         });
-           
-
     };
 
     render() {
