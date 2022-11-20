@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 var express = require('express');
 var router = express.Router();
 
-var Database = require("../components/Database.js")
+import Database from "../components/Database.js";
 
 
 export default function GetUsernameRouter() {
