@@ -1,4 +1,4 @@
-default async function Database(query) {
+export default async function Database(query) {
     const neo4j = require('neo4j-driver')
 
     const Neo4jUser = process.env.Neo4jUser
