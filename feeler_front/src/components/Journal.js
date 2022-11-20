@@ -43,7 +43,7 @@ export default class Journal extends React.Component {
             <>
             <h1> Journal</h1>
 
-            <div style={{width: "100%", height: 20}}>
+            <div style={{width: "100%", height: "20px"}}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
