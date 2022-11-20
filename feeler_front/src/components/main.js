@@ -15,16 +15,18 @@ export default class Main extends React.Component {
             "messages": [],
             "stats": []
         };  
-
-        this.get_username();
     };
 
+    componentDidMount(){
+        this.get_username();
+    }
+    
     async get_username(){
         const response = await fetch('http://100.69.19.3:3001/get_username');
         let username = await response.json();
 
         username = username.USERNAME;
-        
+
         this.setState({
             "username": username
         });
