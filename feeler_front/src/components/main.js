@@ -24,9 +24,7 @@ export default class Main extends React.Component {
         let username = await response.json();
 
         username = username.USERNAME;
-
-        console.log(username);
-
+        
         this.setState({
             "username": username
         });
