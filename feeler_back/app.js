@@ -8,7 +8,7 @@ var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
-import indexRouter from './routes/index';
+import { router as indexRouter } from './routes/index.js';
 var usersRouter = require('./routes/users');
 var get_usernameRouter = require("./routes/get_username.js");
 
