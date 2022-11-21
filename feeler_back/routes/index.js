@@ -14,7 +14,7 @@ export default function indexRouter() {
   })
 
   /* GET home page. */
-  app.get('/', (req, res) => {
+  router.get('/', (req, res) => {
     res.send('INDEX')
   });
 }
