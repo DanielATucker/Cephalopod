@@ -2,13 +2,6 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-import { fileURLToPath } from 'url';
-import { dirname } from 'path';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -17,9 +10,9 @@ var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
-import indexRouter from './routes/index.js';
-import UsersRouter from "./routes/users.js";
-import GetUsernameRouter from "./routes/get_username.js";
+var indexRouter = require('./routes/index');
+var usersRouter = require('./routes/users');
+var get_usernameRouter = require("./routes/get_username.js");
 
 
 var app = express();
@@ -43,8 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Router
 app.use('/', indexRouter);
-app.use('/users', UsersRouter);
-app.use("/get_username", GetUsernameRouter);
+app.use('/users', usersRouter);
+app.use("/get_username", get_usernameRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -62,4 +55,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-export default app;
+module.exports = app;
