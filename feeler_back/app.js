@@ -43,7 +43,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Router
 
-app.use('/', indexRouter);
+app.use(indexRouter);
 /*
 app.use('/users', usersRouter);
 app.use("/get_username", getUsernameRouter);
