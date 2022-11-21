@@ -12,7 +12,7 @@ var cors = require('cors')
 //Routes 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var get_usernameRouter = require("./routes/get_username.js");
+var get_usernameRouter = require("./routes/get_username");
 
 
 var app = express();
