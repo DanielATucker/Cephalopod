@@ -10,9 +10,9 @@ var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
-import indexRouter from './routes/index';
-var usersRouter = require('./routes/users');
-var get_usernameRouter = require("./routes/get_username");
+import indexRouter from './routes/index.js';
+var usersRouter = require('./routes/users.js');
+var get_usernameRouter = require("./routes/get_username.js");
 
 
 var app = express();
