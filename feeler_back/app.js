@@ -15,10 +15,11 @@ var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
+/*
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import getUsernameRouter from "./routes/get_username.js";
-import birdRouter from "./routes/birds.js";
+*/
 
 var app = express();
 app.use(cors())
@@ -40,10 +41,16 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Router
+/*
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use("/get_username", getUsernameRouter);
-app.use("/get_birds", birdRouter);
+*/
+
+app.get('/test', (req, res) => {
+  res.send('test')
+});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
