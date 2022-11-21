@@ -9,13 +9,12 @@ export default function indexRouter() {
   var express = require('express');
   var router = express.Router();
 
-  router.use((req, res, next) => {
+  router.use((req, res) => {
     console.log('Time: ', Date.now())
-    next()
   })
 
   /* GET home page. */
-  router.get('/', function(req, res, next) {
-    res.send("API is working properly");
+  app.get('/', (req, res) => {
+    res.send('INDEX')
   });
 }
