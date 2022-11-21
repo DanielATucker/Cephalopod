@@ -13,7 +13,7 @@ export default function indexRouter() {
     console.log('Time: ', Date.now())
     next()
   })
-  
+
   /* GET home page. */
   router.get('/', function(req, res, next) {
     res.send("API is working properly");
