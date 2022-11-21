@@ -12,7 +12,7 @@ export default function GetUsernameRouter() {
   /* GET home page. */
   console.log("TEST")
 
-  router.get('/', function(req, res, next) {
+  router.get('/get_username', function(req, res, next) {
 
     console.log("TEST2")
 
