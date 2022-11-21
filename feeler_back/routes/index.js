@@ -4,11 +4,14 @@ const require = createRequire(import.meta.url);
 
 
 export default function indexRouter() {
-  console.log("index test");
 
   var express = require('express');
   var router = express.Router();
 
+  router.use(function (req, res) {
+    console.log("index test");
+  })
+  
   /* GET home page. */
   router.get('/', (req, res) => {
     res.send('INDEX')
