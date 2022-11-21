@@ -4,7 +4,12 @@ const require = createRequire(import.meta.url);
 
 var createError = require('http-errors');
 var express = require('express');
-import path from "path";
+var path = require('path');
+
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
