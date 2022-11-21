@@ -15,8 +15,9 @@ var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
-/*
+
 import indexRouter from './routes/index.js';
+/*
 import usersRouter from './routes/users.js';
 import getUsernameRouter from "./routes/get_username.js";
 */
@@ -41,8 +42,9 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Router
-/*
+
 app.use('/', indexRouter);
+/*
 app.use('/users', usersRouter);
 app.use("/get_username", getUsernameRouter);
 */
