@@ -1,16 +1,27 @@
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 var express = require('express');
 var router = express.Router();
 
-var Database = require("../components/Database.js")
+import Database from "../components/Database.js";
 
-export default function get_usernameRouter() {
+
+export default function GetUsernameRouter() {
   /* GET home page. */
+  console.log("TEST")
+
   router.get('/', function(req, res, next) {
-    console.log("TEST")
+
+    console.log("TEST2")
+
     let username_raw = Database("MATCH (n) RETURN (n)");
 
     let username = username_raw.properties.name;
     
     res.json({"USERNAME": username});
+
+    console.log("TEST3")
   });
 }
