@@ -11,12 +11,8 @@ birdRouter.use((req, res, next) => {
   next()
 })
 // define the home page route
-birdRouter.get('/', (req, res) => {
+birdRouter.get('/get_birds', (req, res) => {
   res.send('Birds home page')
-})
-// define the about route
-birdRouter.get('/about', (req, res) => {
-  res.send('About birds')
 })
 
 export default birdRouter;
