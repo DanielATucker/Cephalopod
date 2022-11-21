@@ -9,10 +9,6 @@ export default function indexRouter() {
   var express = require('express');
   var router = express.Router();
 
-  router.use((req, res) => {
-    console.log('Time: ', Date.now())
-  })
-
   /* GET home page. */
   router.get('/', (req, res) => {
     res.send('INDEX')
