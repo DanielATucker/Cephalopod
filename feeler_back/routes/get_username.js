@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
   let properties = username_raw
   
-  let username = username_raw.properties.name;
+  let username = username_raw.properties[0].name;
 
   console.log(properties);
 
