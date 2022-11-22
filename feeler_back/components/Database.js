@@ -18,7 +18,7 @@ export default async function Database(query) {
   catch (err) {
     console.log(err);
   }
-  /*
+
   const result = null;
 
   const node = null;
@@ -47,5 +47,4 @@ export default async function Database(query) {
   }
   
   await driver.close()
-  */
 };
