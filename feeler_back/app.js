@@ -51,7 +51,7 @@ app.get('/test', (req, res) => {
   res.send('test')
 });
 
-app.use(indexRouter);
+app.use("/", indexRouter);
 
 
 // catch 404 and forward to error handler
