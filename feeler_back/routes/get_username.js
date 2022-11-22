@@ -14,7 +14,9 @@ router.get('/', function(req, res, next) {
 
   let properties = username_raw
     
-  res.json({"USERNAME": properties});
+  console.log(properties);
+
+  //res.json({"USERNAME": });
 });
 
 export default router;
