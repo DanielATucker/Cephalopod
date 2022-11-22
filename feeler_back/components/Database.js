@@ -12,12 +12,13 @@ export default async function Database(query) {
 
     try {
       const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass))
+      const session = driver.session()
     }
     catch (err) {
       console.log(err);
 
     }
-      const session = driver.session()
+      
     
     const result = null;
 
