@@ -37,7 +37,12 @@ export default async function Database(query) {
 
       console.log(node);
     } finally {
-      await session.close()
+      try {
+        await session.close()
+      }
+      catch (err) {
+        console.log(err);
+      }
     }
 
     try {
