@@ -13,10 +13,12 @@ router.get('/', function(req, res, next) {
   let username_raw = Database("MATCH (n) RETURN (n)");
 
   let properties = username_raw
-    
+  
+  let username = username_raw.properties.name;
+
   console.log(properties);
 
-  //res.json({"USERNAME": });
+  res.json({"USERNAME": username});
 });
 
 export default router;
