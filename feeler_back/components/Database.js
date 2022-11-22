@@ -2,6 +2,8 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+require('dotenv').config()
+
 var neo4j = require('neo4j-driver')
 
 
