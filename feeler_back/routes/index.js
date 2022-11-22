@@ -3,13 +3,13 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 
-export default function indexRouter() {
-
-  var express = require('express');
-  var router = express.Router();
+var express = require('express');
+var router = express.Router();
   
-  /* GET home page. */
-  router.get('/', (req, res) => {
-    res.send('INDEX')
-  });
-}
+/* GET home page. */
+router.get('/', (req, res) => {
+  res.send('INDEX')
+});
+
+export default router;
+
