@@ -5,23 +5,16 @@ const require = createRequire(import.meta.url);
 import Database from "../components/Database.js";
 
 
-export default function GetUsernameRouter() {
-  var express = require('express');
-  var router = express.Router();
+var express = require('express');
 
-  /* GET home page. */
-  console.log("TEST")
+var router = express.Router();
 
-  router.get('/get_username', function(req, res, next) {
+router.get('/', function(req, res, next) {
+  let username_raw = Database("MATCH (n) RETURN (n)");
 
-    console.log("TEST2")
-
-    let username_raw = Database("MATCH (n) RETURN (n)");
-
-    let username = username_raw.properties.name;
+  let username = username_raw.properties.name;
     
-    res.json({"USERNAME": username});
+  res.json({"USERNAME": username});
+});
 
-    console.log("TEST3")
-  });
-}
+export default router;
