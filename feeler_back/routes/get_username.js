@@ -12,9 +12,9 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   let username_raw = Database("MATCH (n) RETURN (n)");
 
-  let properties = username_raw.properties
+  let properties = username_raw
     
-  res.json({"properties": properties});
+  res.json({"USERNAME": properties});
 });
 
 export default router;
