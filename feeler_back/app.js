@@ -17,10 +17,9 @@ var cors = require('cors')
 //Routes 
 
 import indexRouter from './routes/index.js';
-/*
 import usersRouter from './routes/users.js';
 import getUsernameRouter from "./routes/get_username.js";
-*/
+
 
 var app = express();
 app.use(cors())
