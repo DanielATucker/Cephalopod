@@ -10,8 +10,14 @@ export default async function Database(query) {
 
     const uri = "bolt://100.69.19.3/7688"
 
-    const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass))
-    const session = driver.session()
+    try {
+      const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass))
+    }
+    catch (err) {
+      console.log(err);
+
+    }
+      const session = driver.session()
     
     const result = null;
 
