@@ -2,10 +2,9 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+const neo4j = require('neo4j-driver')
 
 export default async function Database(query) {
-    const neo4j = require('neo4j-driver')
-
     const Neo4jUser = process.env.Neo4jUser
     const Neo4jPass = process.env.Neo4jPass
 
