@@ -28,7 +28,7 @@ export class GraphInit extends React.Component {
     render() {
         return (
             <>           
-            <p> ${this.state.doesSystemExist}</p>
+            <p>Does Exist:  ${this.state.doesSystemExist.json}</p>
             </>
         );
     };
