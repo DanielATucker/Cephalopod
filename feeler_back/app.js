@@ -1,14 +1,24 @@
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+
+import { fileURLToPath } from 'url';
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors')
 
 //Routes 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var get_usernameRouter = require("./routes/get_username.js");
+
+import indexRouter from './routes/index.js';
+import usersRouter from './routes/users.js';
+import getUsernameRouter from "./routes/get_username.js";
 
 
 var app = express();
@@ -31,9 +41,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Use Router
-app.use('/', indexRouter);
+app.use("/", indexRouter);
 app.use('/users', usersRouter);
-app.use("/get_username", get_usernameRouter);
+app.use("/get_username", getUsernameRouter);
+
+app.get('/test', (req, res) => {
+  res.send('test')
+});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -51,4 +65,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+export default app;
