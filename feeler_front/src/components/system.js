@@ -2,6 +2,8 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
+import GraphInit from "./modules/graphInit";
+
 
 export default class System extends React.Component {
     constructor(props) {
