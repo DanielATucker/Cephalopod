@@ -17,12 +17,12 @@ export default class System extends React.Component {
             "test": 2
         });
     };
-    
+
     render() {
         return (
             <>
             
-            <h1> Test</h1>
+            <h1> System </h1>
             
             </>
         );
