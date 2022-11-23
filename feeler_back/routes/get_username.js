@@ -11,11 +11,11 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let result = Database("MATCH (n) RETURN (n)");
-  
-  let username = JSON.stringify(result.properties);
-  
-  console.log(username);
+  let node = Database("MATCH (n) RETURN (n)");
+
+  let username = node.properties.name;
+  console.log(`Node!! ${node}`);
+  console.log((`NAME: ${username}`));
 
   res.json({"USERNAME": username});
 });

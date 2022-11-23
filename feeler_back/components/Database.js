@@ -33,9 +33,6 @@ export default async function Database(query) {
     const singleRecord = result.records[0];
         
     node = singleRecord.get(0);
-
-    console.log(`Node!! ${node}`);
-    console.log((`NAME: ${node.properties.name}`));
   } finally {
     await session.close()
   }
