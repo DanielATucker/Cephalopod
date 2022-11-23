@@ -12,12 +12,9 @@ var router = express.Router();
 
 router.get('/', function(req, res, next) {
   let result = Database("MATCH (n) RETURN (n)");
-
-  let properties = result.properties;
   
-  let username = result.name;
-
-  console.log(properties)
+  let username = JSON.stringify(result.name);
+  
   console.log(username);
 
   res.json({"USERNAME": username});
