@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
 
     let username = properties.name;
 
-    console.log(`Node: ${response.json()}`)
+    console.log(`Node: ${JSON.stringify(response)}`);
     console.log(`Properties: ${properties}`);
     console.log(`Username: ${username}`);
 
