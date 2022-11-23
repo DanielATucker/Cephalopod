@@ -11,13 +11,14 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let username_raw = Database("MATCH (n) RETURN (n)");
+  let result = Database("MATCH (n) RETURN (n)");
 
-  let properties = username_raw.properties
+  let properties = result.properties;
   
-  let username = username_raw.properties[0].name;
+  let username = properties.name;
 
-  console.log(properties);
+  console.log(properties)
+  console.log(username);
 
   res.json({"USERNAME": username});
 });
