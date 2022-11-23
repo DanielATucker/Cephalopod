@@ -11,10 +11,6 @@ export default async function Database(query) {
   const Neo4jUser = process.env.Neo4jUser;
   const Neo4jPass = process.env.Neo4jPass;
 
-  console.log(process.env);
-  console.log(Neo4jUser);
-  console.log(Neo4jPass);
-
   const uri = "bolt://100.69.19.3:7688";
 
   let session = null;
