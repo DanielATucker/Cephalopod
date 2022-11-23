@@ -30,14 +30,12 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    console.log(result);
-
     const singleRecord = result.records[0];
         
     node = singleRecord.get(0);
 
     console.log(`Node!! ${node}`);
-    console.log((`NAME: ${node.properties.name}`));
+    console.log((`NAME: ${node.name}`));
   } finally {
     await session.close()
   }
