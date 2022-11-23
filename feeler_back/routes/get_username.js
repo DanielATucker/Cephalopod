@@ -13,16 +13,16 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   let node = Database("MATCH (n) RETURN (n)");
 
-  let username = node.properties.name;
+  //let username = node.properties.name;
 
   let properties = node.properties;
 
 
   console.log(`Node!! ${node}`);
   console.log(properties);
-  console.log(`NAME: ${username}`);
+  //console.log(`NAME: ${username}`);
 
-  res.json({"USERNAME": username});
+  //res.json({"USERNAME": username});
 });
 
 export default router;
