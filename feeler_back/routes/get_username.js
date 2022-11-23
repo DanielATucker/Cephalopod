@@ -14,8 +14,13 @@ router.get('/', function(req, res, next) {
   let node = Database("MATCH (n) RETURN (n)");
 
   let username = node.properties.name;
+
+  let properties = node.properties;
+
+
   console.log(`Node!! ${node}`);
-  console.log((`NAME: ${username}`));
+  console.log(properties);
+  console.log(`NAME: ${username}`);
 
   res.json({"USERNAME": username});
 });
