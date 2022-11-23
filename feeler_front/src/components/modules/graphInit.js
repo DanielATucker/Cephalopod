@@ -25,6 +25,10 @@ export default class GraphInit extends React.Component {
         this.doesExist();
     };
 
+    componentDidUpdate() {
+        this.doesExist();
+    }
+
     render() {
         return (
             <>           
