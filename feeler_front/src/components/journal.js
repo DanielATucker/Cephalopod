@@ -28,9 +28,7 @@ export default class Journal extends React.Component {
             })
 
         }
-    };
-
-   
+    };   
 
     render() {
 
