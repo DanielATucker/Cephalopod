@@ -42,7 +42,7 @@ export default async function Database(query) {
     
     node = singleRecord.get(0);
 
-    console.log(node);
+    console.log(`Node!! ${node}`);
   } finally {
     await session.close()
   }
