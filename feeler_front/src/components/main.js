@@ -2,10 +2,13 @@ import React, { useEffect, useState} from "react";
 
 import Card from '@mui/material/Card';
 
-import Terminal from "./Terminal.js";
+import Terminal from "./terminal.js";
 import SocketHandler from "./SocketHandler.js";
 import Stats from "./stats.js";
-import Journal from "./Journal.js"
+import Journal from "./journal.js"
+import System from "./stats"
+
+
 export default class Main extends React.Component {
     constructor() {
         super();
@@ -48,7 +51,7 @@ export default class Main extends React.Component {
         this.setState({
             "stats": statsIn
         });
-    };
+0    };
 
     render() {
         return (
@@ -66,6 +69,9 @@ export default class Main extends React.Component {
                     <p> {this.state.username} </p>
                 </body>
             </Card>
+
+            <System>
+            </System>
 
             <Stats stats={this.state.stats}>
             </Stats>
