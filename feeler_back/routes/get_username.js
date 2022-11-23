@@ -13,7 +13,7 @@ var router = express.Router();
 router.get('/', function(req, res, next) {
   let result = Database("MATCH (n) RETURN (n)");
   
-  let username = JSON.stringify(result.name);
+  let username = JSON.stringify(result.properties.name);
   
   console.log(username);
 
