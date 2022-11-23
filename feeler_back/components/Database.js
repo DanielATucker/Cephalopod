@@ -37,9 +37,7 @@ export default async function Database(query) {
     console.log(result);
 
     const singleRecord = result.records[0];
-    
-    console.log(singleRecord);
-    
+        
     node = singleRecord.get(0);
 
     console.log(`Node!! ${node}`);
