@@ -8,7 +8,7 @@ export default class GraphInit extends React.Component {
         super(props)
 
         this.state = {
-            "doesSystemExist": true
+            "doesSystemExist": "Pending"
         };
     };
     
@@ -28,7 +28,7 @@ export default class GraphInit extends React.Component {
     render() {
         return (
             <>           
-            <p>Does Exist: {this.state.doesSystemExist.toString()}</p>
+            <p> Does Exist: {JSON.stringify(this.state.doesSystemExist)} </p>
             </>
         );
     };
