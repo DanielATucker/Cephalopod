@@ -6,7 +6,7 @@ import Terminal from "./terminal";
 import SocketHandler from "./socketHandler";
 import Stats from "./stats";
 import Journal from "./journal"
-import System from "./stats"
+import System from "./system"
 
 
 export default class Main extends React.Component {
