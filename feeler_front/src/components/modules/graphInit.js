@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
 
-export class GraphInit extends React.Component {
+export default class GraphInit extends React.Component {
     constructor(props) {
         super(props)
 
