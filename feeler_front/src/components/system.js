@@ -18,12 +18,6 @@ export default class System extends React.Component {
         });
     };
 
-    componentDidUpdate(prevProps) {
-        this.setState({
-            "test": 3
-        });
-    };
-
     render() {
         return (
             <>
