@@ -3,7 +3,7 @@ import React, { useEffect, useState} from "react";
 import Card from '@mui/material/Card';
 
 import Terminal from "./terminal.js";
-import SocketHandler from "./SocketHandler.js";
+import SocketHandler from "./socketHandler.js";
 import Stats from "./stats.js";
 import Journal from "./journal.js"
 import System from "./stats"
@@ -51,7 +51,7 @@ export default class Main extends React.Component {
         this.setState({
             "stats": statsIn
         });
-0    };
+    };
 
     render() {
         return (
