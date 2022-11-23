@@ -1,4 +1,5 @@
 // Allow require
+import { response } from "express";
 import { createRequire } from "module";
 import { userInfo } from "os";
 const require = createRequire(import.meta.url);
@@ -11,18 +12,19 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let node = Database("MATCH (n) RETURN (n)");
+  let nodePromise = Database("MATCH (n) RETURN (n)");
 
-  //let username = node.properties.name;
+  nodePromise.then((response) => {
+    let properties = response.properties;
 
-  let properties = node.properties;
+    let username = properties.name;
 
+    console.log(`Node: ${response.json()}`)
+    console.log(`Properties: ${properties}`);
+    console.log(`Username: ${username}`);
 
-  console.log(`Node!! ${node}`);
-  console.log(properties);
-  //console.log(`NAME: ${username}`);
-
-  //res.json({"USERNAME": username});
+    res.json({"USERNAME": username});
+  });
 });
 
 export default router;
