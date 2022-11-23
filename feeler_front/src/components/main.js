@@ -2,10 +2,10 @@ import React, { useEffect, useState} from "react";
 
 import Card from '@mui/material/Card';
 
-import Terminal from "./terminal.js";
-import SocketHandler from "./socketHandler.js";
-import Stats from "./stats.js";
-import Journal from "./journal.js"
+import Terminal from "./terminal";
+import SocketHandler from "./socketHandler";
+import Stats from "./stats";
+import Journal from "./journal"
 import System from "./stats"
 
 
