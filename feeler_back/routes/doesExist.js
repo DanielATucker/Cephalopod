@@ -11,7 +11,10 @@ router.get('/', (req, res) => {
   let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n) ");
 
   nodePromise.then((node) => {
-    res.send(node)
+    
+    if (typeof node !== 'undefined') {
+      res.send(true)
+    }
   });
 });
 
