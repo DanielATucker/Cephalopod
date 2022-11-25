@@ -33,6 +33,9 @@ export default async function Database(query) {
     const singleRecord = result.records[0];
         
     node = singleRecord.get(0);
+  } 
+  catch (err) {
+    console.log(err);
   } finally {
     await session.close()
   }
