@@ -19,7 +19,10 @@ router.get('/', (req, res) => {
       });
     }
     else {
-      res.json({"doesExist": "false"});
+      res.json({
+        "doesExist": "false",
+        "node": node
+      });
     }
   });
 });
