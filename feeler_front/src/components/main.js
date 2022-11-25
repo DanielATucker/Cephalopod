@@ -25,7 +25,7 @@ export default class Main extends React.Component {
     }
 
     componentDidUpdate(){
-        this.get_username();
+        setTimeout(this.get_username, 10000);
     }
     
     async get_username(){
