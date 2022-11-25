@@ -26,7 +26,7 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate() {
-        this.doesExist();
+        setTimeout(this.doesExist, 10000);
     }
 
     render() {
