@@ -32,16 +32,17 @@ export default async function Database(query) {
 
     const singleRecord = result.records[0];
     
-    try {
-      node = singleRecord.get(0);
-    }
-    catch (err) {
-      console.log(err);
+    if (typeof singleRecord != "undefined") {
+      try {node = singleRecord.get(0);
+      }
+      catch (err) {
+        console.log(err);
       
-      node = "undefined";
+        node = "undefined";
 
-      return node;
-    }
+        return node;
+      };
+    };
   } 
   catch (err) {
     console.log(err);
