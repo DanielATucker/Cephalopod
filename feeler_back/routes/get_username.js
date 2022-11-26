@@ -15,11 +15,13 @@ router.get('/', function(req, res, next) {
   let nodePromise = Database("MATCH (n) RETURN (n)");
 
   nodePromise.then((response) => {
-    let properties = response.properties;
+    if ((response != "undefined") && (response != null)); {
+      let properties = response.properties;
 
-    let username = properties.name;
+      let username = properties.name;
 
-    res.json({"USERNAME": username});
+      res.json({"USERNAME": username});
+    }
   });
 });
 
