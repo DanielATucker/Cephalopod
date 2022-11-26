@@ -17,7 +17,8 @@ export default class Main extends React.Component {
             "username": "No user logged in",
             "messages": [],
             "stats": []
-        };  
+        };
+        this.get_username = this.get_username.bind(this);
     };
 
     componentDidMount(){
