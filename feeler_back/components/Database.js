@@ -43,7 +43,7 @@ export default async function Database(query) {
           return node
         }
         else {
-          console.log(err);
+          console.log(err.name);
       
           node = "undefined";
 
