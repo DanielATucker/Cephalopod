@@ -8,16 +8,26 @@ export default class GraphInit extends React.Component {
         super(props)
 
         this.state = {
-            "doesSystemExist": "Pending"
+            "doesSystemExist": "Pending",
+            "isDatbaseOnline": "Pending"
         };
     };
     
     async doesExist(){
-        const response = await fetch('http://100.69.19.3:3001/doesExist');
+        const response = await fetch('http://100.69.19.3:3001/system/doesExist');
         let doesSystemExist = await response.json();
 
         this.setState({
             "doesSystemExist": doesSystemExist
+        });
+    };
+
+    async isDatbaseOnline(){
+        const response = await fetch('http://100.69.19.3:3001/system/isDatabaseOnline');
+        let isDatabaseOnline = await response.json();
+
+        this.setState({
+            "doesSystemExist": isDatabaseOnline
         });
     };
 
@@ -32,7 +42,11 @@ export default class GraphInit extends React.Component {
     render() {
         return (
             <>           
+
             <p> Does Exist: {this.state.doesSystemExist.doesExist} </p>
+            
+            <p> Database: {this.state.doesSystemExist.isDatbaseOnline} </p>
+
             </>
         );
     };

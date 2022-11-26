@@ -19,7 +19,7 @@ var cors = require('cors')
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import getUsernameRouter from "./routes/get_username.js";
-import getDoesExistRouter from "./routes/doesExist.js"
+import systemRouter from "./routes/system.js"
 
 var app = express();
 app.use(cors())
@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/", indexRouter);
 app.use('/users', usersRouter);
 app.use("/get_username", getUsernameRouter);
-app.use("/doesExist", getDoesExistRouter);
+app.use("/doesExist", systemRouter);
 
 app.get('/test', (req, res) => {
   res.send('test')
