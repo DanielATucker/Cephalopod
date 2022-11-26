@@ -46,10 +46,11 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate() {
-        setTimeout(() => {
+        /*setTimeout(() => {
             this.doesExist();
             this.isDatbaseOnline();
         }, 10000);
+        */
     }
 
     render() {
