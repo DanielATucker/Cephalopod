@@ -22,11 +22,10 @@ export default class Main extends React.Component {
     };
 
     componentDidMount(){
-        this.get_username();
+        setInterval(this.get_username, 10000);
     }
 
     componentDidUpdate(){
-        setTimeout(this.get_username, 10000);
     }
     
     async get_username(){
