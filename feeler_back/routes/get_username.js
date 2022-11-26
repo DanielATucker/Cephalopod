@@ -20,13 +20,14 @@ router.get('/', function(req, res, next) {
         res.json({
           "isDatabaseOnline":"No Database found"
         });
+      }
+      else {
+        let properties = response.properties;
+
+        let username = properties.name;
+
+        res.json({"USERNAME": username});
       };
-
-      let properties = response.properties;
-
-      let username = properties.name;
-
-      res.json({"USERNAME": username});
     }
     else {
       res.json({"USERNAME": "No User Found in database"});
