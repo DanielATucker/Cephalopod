@@ -47,7 +47,13 @@ export default async function Database(query) {
     };
   } 
   catch (err) {
-    console.log(err.name);
+    if (err instanceof "Neo4jError") {
+      node = "No Database found"
+      return node;
+    }
+    else {
+      console.log(err);
+    }
   } finally {
     await session.close()
   }
