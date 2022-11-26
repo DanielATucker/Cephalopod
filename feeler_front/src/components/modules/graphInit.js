@@ -14,11 +14,6 @@ export default class GraphInit extends React.Component {
 
         this.isDatbaseOnline = this.isDatbaseOnline.bind(this);
         this.doesExist = this.doesExist.bind(this);
-
-        setInterval(() => {
-            this.doesExist();
-            this.isDatbaseOnline();
-        }, 10000);
     };
     
     async doesExist(){
@@ -47,7 +42,10 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidMount() {
-        this.doesExist();
+        setInterval(() => {
+            this.doesExist();
+            this.isDatbaseOnline();
+        }, 10000);
     };
 
     componentDidUpdate() {       
