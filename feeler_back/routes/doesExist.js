@@ -12,9 +12,9 @@ router.get('/', (req, res) => {
 
   nodePromise.then((node) => {
     
-    if ((typeof node !== 'undefined') || ( node == "null")) {
+    if ((typeof node !== 'undefined') && ( node != null)) {
       console.log(node);
-      
+
       res.json({
         "doesExist": "true",
         "node": node
