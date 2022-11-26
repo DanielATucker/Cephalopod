@@ -13,17 +13,13 @@ router.get('/', (req, res) => {
   nodePromise.then((node) => {
     
     if ((typeof node !== 'undefined') && ( node != null)) {
-      console.log(node);
-
       res.json({
-        "doesExist": "true",
-        "node": node
+        "doesExist": "true"
       });
     }
     else {
       res.json({
-        "doesExist": "false",
-        "node": node
+        "doesExist": "false"
       });
     }
   });
