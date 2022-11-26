@@ -44,7 +44,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use("/", indexRouter);
 app.use('/users', usersRouter);
 app.use("/get_username", getUsernameRouter);
-app.use("/doesExist", systemRouter);
+app.use("/system", systemRouter);
 
 app.get('/test', (req, res) => {
   res.send('test')
