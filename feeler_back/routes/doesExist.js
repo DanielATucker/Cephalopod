@@ -14,12 +14,12 @@ router.get('/', (req, res) => {
     
     if ((typeof node !== 'undefined') && ( node != null)) {
       res.json({
-        "doesExist": "true"
+        "doesExist": "System found."
       });
     }
     else {
       res.json({
-        "doesExist": "false"
+        "doesExist": "No system found"
       });
     }
   });

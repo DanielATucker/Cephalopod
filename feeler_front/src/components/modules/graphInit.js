@@ -32,7 +32,7 @@ export default class GraphInit extends React.Component {
     render() {
         return (
             <>           
-            <p> Does Exist: {JSON.stringify(this.state.doesSystemExist)} </p>
+            <p> Does Exist: {this.state.doesSystemExist.doesExist} </p>
             </>
         );
     };
