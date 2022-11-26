@@ -36,11 +36,19 @@ export default async function Database(query) {
       try {node = singleRecord.get(0);
       }
       catch (err) {
-        console.log(err);
-      
-        node = "undefined";
+        let Neo4jError = new Error();
 
-        return node;
+        if (err instanceof Neo4jError) {
+          node = "No Database found";
+          return node
+        }
+        else {
+          console.log(err);
+      
+          node = "undefined";
+
+          return node;
+        };
       };
     };
   } 
