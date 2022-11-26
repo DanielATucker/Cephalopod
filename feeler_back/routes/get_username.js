@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
     if ((typeof response !== 'undefined') && ( response != null)) {
       if ((typeof response == "string") && (response == "No Database found")) {
         res.json({
-          "isDatabaseOnline":"No Database found"
+          "USERNAME":"No Database found"
         });
       }
       else {
