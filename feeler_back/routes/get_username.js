@@ -22,6 +22,10 @@ router.get('/', function(req, res, next) {
 
       res.json({"USERNAME": username});
     }
+    else {
+      res.json({"USERNAME": "No User Found in database"});
+
+    }
   });
 });
 
