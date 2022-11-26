@@ -13,6 +13,8 @@ router.get('/doesExist', (req, res) => {
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node != null)) {
+      console.log(node);
+      
       res.json({
         "doesExist": "System found."
       });
