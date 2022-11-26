@@ -16,12 +16,12 @@ router.get('/', function(req, res, next) {
 
   nodePromise.then((response) => {
     if ((typeof response !== 'undefined') && ( response != null)) {
-      if (typeof response == "string") && (response == "No Database found") {
+      if ((typeof response == "string") && (response == "No Database found")) {
         res.json({
           "isDatabaseOnline":"No Database found"
         });
       };
-      
+
       let properties = response.properties;
 
       let username = properties.name;
