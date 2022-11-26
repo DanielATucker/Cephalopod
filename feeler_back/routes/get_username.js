@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
   let nodePromise = Database("MATCH (n) RETURN (n)");
 
   nodePromise.then((response) => {
-    if ((response != "undefined") && (response != null)); {
+    if ((typeof response !== 'undefined') && ( response != null)) {
       let properties = response.properties;
 
       let username = properties.name;
