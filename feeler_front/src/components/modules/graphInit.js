@@ -13,6 +13,8 @@ export default class GraphInit extends React.Component {
             "initButton": false,
             "username": "No user logged in",
             "usernameInput": "",
+            "passwordInput": "",
+            "password2Input": "",
             "usernameFormStatus": false,
             "usernameForm": false
         };
@@ -89,10 +91,24 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    handleUsernameSubmit(event) {
+    handlepasswordChange(event) {
+        this.setState({
+            "passwordInput": event.target.value
+        });
+    };
+
+    handlepassword2Change(event) {
+        this.setState({
+            "password2Input": event.target.value
+        });
+    };
+
+    handleFormSubmit(event) {
         event.preventDefault();
         
         console.log(this.state.usernameInput);
+        console.log(this.state.passwordInput);
+        console.log(this.state.password2Input);
     };
 
     componentDidMount() {
@@ -121,13 +137,29 @@ export default class GraphInit extends React.Component {
 
                 <p> New username? </p>
 
-                <form onSubmit={this.handleUsernameSubmit}>
+                <form onSubmit={this.handleFormSubmit}>
                     <label>
+
                     <textarea 
+                    name="username"
                     value={this.state.usernameInput} 
                     onChange={this.handleUsernameChange} />
+                    
+                    <textarea
+                    name="password"
+                    type="password" 
+                    value={this.state.passwordInput}
+                    onChange={this.handlePasswordChange} />
+                    
+                    <textarea
+                    name="password2" 
+                    type="password"
+                    value={this.state.password2Input}
+                    onchange={this.handlePassword2Change} />
+                    
                     </label>
                     <br></br>
+                    
                     <input type="submit" value="Submit" />
                 </form>
 
