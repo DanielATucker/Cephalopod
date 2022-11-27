@@ -36,28 +36,13 @@ router.get('/doesExist', (req, res) => {
 router.get('/systeminit', (req, res) => {
   let nodePromise = Database("CREATE (n: Main) SET n.name = 'Main'");
 
-  if ((typeof node !== 'undefined') && ( node != null)) {
-    if (node == "No Database found") {
-      res.json({
-        "doesExist" : "No Database found. Recommended, Start database"
-      })
-    }
-    else {
-      console.log(`Success node: ${node}`)
-
-      res.json({
-        "status": "success"
-      })
-    }
-  }
-  else {
-    console.log(`/routes/system No system found. Recommended, Init Database. NODE: ${node}`);
-
+  nodePromise.next((node) => {
+    console.log(`node Status: ${node.status}`)
+    
     res.json({
-      "doesExist": "No system found. Recommended, Init Database"
+      "status": "success"
     });
-  }
-});
-
+  
+  })
+  
 export default router;
-
