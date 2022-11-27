@@ -41,11 +41,12 @@ router.get('/systeminit', (req, res) => {
 });
 
 router.post('/newUser', (req, res) => {
-  console.log(req.body)
-
+  let body = JSON.stringify(req.body)
+  
+  console.log(body)
   res.json({
     "status": "success",
-    "body": JSON.stringify(req.body)
+    "body": body
   });
 });
 
