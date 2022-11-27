@@ -59,19 +59,14 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate(prevState) {
-        if (prevState.recommendInit !== this.state.recommendInit) {
-            if (this.state.recommendInit == true) {
+        if (prevState.initButton !== this.state.initButton) {
+            if (this.state.initButton == true){
                 this.setState({
                     "initButton": <Button 
                     variant="outlined"
                     onClick={this.initSystem}>    
                     Init System
                     </Button>
-                });
-            }
-            else {
-                this.setState({
-                    "initButton": false
                 });
             };
         };
