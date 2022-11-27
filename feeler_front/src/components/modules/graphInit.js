@@ -21,7 +21,7 @@ export default class GraphInit extends React.Component {
         let systemStatus = await response.json();
 
         console.log(systemStatus);
-        
+
         this.setState({
             "doesSystemExist": systemStatus.doesExist,
         });
@@ -73,6 +73,11 @@ export default class GraphInit extends React.Component {
         }, 10000);
     };
 
+    componentDidUpdate(prevState) {
+        if (this.state != prevState) {
+            console.log(this.state.initButton);
+        };
+    }
     render() {
         return (
             <>           
