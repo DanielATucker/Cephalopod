@@ -142,14 +142,14 @@ export default class GraphInit extends React.Component {
 
                     <p> New username </p>
 
-                    <textarea 
+                    <input
                     name="username"
                     value={this.state.usernameInput} 
                     onChange={this.handleUsernameChange} />
                     
                     <p> New password </p>
 
-                    <textarea
+                    <input
                     name="password"
                     type="password" 
                     value={this.state.passwordInput}
@@ -157,7 +157,7 @@ export default class GraphInit extends React.Component {
                     
                     <p> Confirm new password </p>
 
-                    <textarea
+                    <input
                     name="password2" 
                     type="password"
                     value={this.state.password2Input}
