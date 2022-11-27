@@ -59,11 +59,7 @@ export default class GraphInit extends React.Component {
         }
         else if (systemStatus.doesExist ===  "No system found. Recommended, Init System") {
             this.setState({
-                "initButtonStatus": <Button 
-                variant="outlined"
-                onClick={this.initSystem}>    
-                Init System
-                </Button> 
+                "initButton": true
             })
         };
     };
@@ -132,7 +128,14 @@ export default class GraphInit extends React.Component {
             
             <Card>
                 <p> Does Exist: {this.state.doesSystemExist} </p>
-                <p>{this.state.initButton} </p>
+                <p>{this.state.initButton &&
+
+                    <Button 
+                    variant="outlined"
+                    onClick={this.initSystem}>    
+                    Init System
+                    </Button>
+                } </p>
 
                 <p> Your username is: {this.state.username} </p>
 
