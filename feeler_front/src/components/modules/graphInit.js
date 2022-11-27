@@ -118,6 +118,8 @@ export default class GraphInit extends React.Component {
 
                 <p> Your username is </p>
                 <p> {this.state.username} </p>
+
+                {this.state.usernameForm}
             </Card>
 
             </>
