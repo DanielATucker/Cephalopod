@@ -46,7 +46,6 @@ router.post('/newUser', (req, res) => {
   console.log(body)
   res.json({
     "status": "success",
-    "body": body
   });
 });
 
