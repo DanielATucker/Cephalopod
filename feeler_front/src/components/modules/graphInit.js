@@ -60,7 +60,7 @@ export default class GraphInit extends React.Component {
               this.setState({
                 "initButton": <Button 
                                 variant="outlined"
-                                onClick={initSystem}>    
+                                onClick={this.initSystem}>    
                                 Init System
                                 </Button>
               });  
