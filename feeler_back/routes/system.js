@@ -43,6 +43,7 @@ router.get('/systeminit', (req, res) => {
       "status": "success"
     });
   
-  })
-  
+  });
+});
+
 export default router;
