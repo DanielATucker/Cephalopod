@@ -35,9 +35,9 @@ router.get('/doesExist', (req, res) => {
 router.get('/systeminit', (req, res) => {
   Database("CREATE (n: Main) SET n.name = 'Main'");
 
-  res.json({
+  res.json(JSON.stringify({
     "status": "success",
-  });
+  }));
 });
 
 router.post('/newUser', (req, res) => {
