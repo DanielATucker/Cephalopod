@@ -13,6 +13,7 @@ export default class GraphInit extends React.Component {
             "initButton": false,
             "username": "No user logged in",
             "usernameInput": "",
+            "usernameFormStatus": false,
             "usernameForm": false
         };
 
@@ -33,15 +34,7 @@ export default class GraphInit extends React.Component {
 
         if (username === "No User Found in database") {
             this.setState({
-                "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
-                <label>
-                  Enter Username 
-                  <textarea 
-                  value={this.state.usernameInput} 
-                  onChange={this.handleUsernameChange} />
-                </label>
-                <input type="submit" value="Submit" />
-              </form>
+                "usernameFormStatus": true
             })
         };
     };
@@ -61,7 +54,7 @@ export default class GraphInit extends React.Component {
         }
         else if (systemStatus.doesExist ===  "No system found. Recommended, Init System") {
             this.setState({
-                "initButton": <Button 
+                "initButtonStatus": <Button 
                 variant="outlined"
                 onClick={this.initSystem}>    
                 Init System
@@ -120,7 +113,7 @@ export default class GraphInit extends React.Component {
                 <p> Your username is </p>
                 <p> {this.state.username} </p>
 
-                {this.state.usernameForm}
+                {this.state.usernameFormStatus && this.state.usernameForm}
             </Card>
 
             </>
