@@ -31,6 +31,14 @@ export default class GraphInit extends React.Component {
         };
     };
 
+    async initSystem() {
+        const response = await fetch('http://100.69.19.3:3001/system/systeminit');
+        
+        let status = await response.json();
+        
+        console.log(status)
+    };
+
     componentDidMount() {
         this.doesExist();
 
@@ -52,12 +60,7 @@ export default class GraphInit extends React.Component {
               this.setState({
                 "initButton": <Button 
                                 variant="outlined"
-                                onClick={async () => {
-                                    const response = await fetch('http://100.69.19.3:3001/system/systeminit');
-                                    let status = await response.json();
-
-                                    console.log(status)
-                                }}>    
+                                onClick={initSystem}>    
                                 Init System
                                 </Button>
               });  
