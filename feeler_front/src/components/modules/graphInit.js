@@ -115,8 +115,7 @@ export default class GraphInit extends React.Component {
                 <p> Does Exist: {this.state.doesSystemExist} </p>
                 <p>{this.state.initButton} </p>
 
-                <p> Your username is </p>
-                <p> {this.state.username} </p>
+                <p> Your username is: {this.state.username} </p>
 
                 {this.state.usernameFormStatus && 
                 
