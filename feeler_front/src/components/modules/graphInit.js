@@ -53,7 +53,7 @@ export default class GraphInit extends React.Component {
                 "initButton": <Button 
                                 variant="outlined"
                                 onClick={async () => {
-                                    const response = await fetch('http://100.69.19.3:3001/systeminit');
+                                    const response = await fetch('http://100.69.19.3:3001/system/systeminit');
                                     let status = await response.json();
 
                                     console.log(status)
