@@ -120,6 +120,10 @@ export default class GraphInit extends React.Component {
 
                 {this.state.usernameFormStatus && 
                 
+                <>
+
+                <p> New username? </p>
+
                 <form onSubmit={this.handleUsernameSubmit}>
                     <label>
                     Enter Username 
@@ -129,7 +133,10 @@ export default class GraphInit extends React.Component {
                     </label>
             
                     <input type="submit" value="Submit" />
-                </form>}
+                </form>
+
+                </>
+                }
             </Card>
 
             </>
