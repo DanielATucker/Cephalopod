@@ -22,7 +22,7 @@ export default class GraphInit extends React.Component {
         this.doesExist = this.doesExist.bind(this);
         this.get_username = this.get_username.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
-        this.handleUsernameSubmit = this.handleUsernameSubmit.bind(this);
+        this.handleFormSubmit = this.handleFormSubmit.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handlePassword2Change = this.handlePassword2Change.bind(this);
     };
@@ -93,13 +93,13 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    handlepasswordChange(event) {
+    handlePasswordChange(event) {
         this.setState({
             "passwordInput": event.target.value
         });
     };
 
-    handlepassword2Change(event) {
+    handlePassword2Change(event) {
         this.setState({
             "password2Input": event.target.value
         });
