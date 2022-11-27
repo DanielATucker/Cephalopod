@@ -137,22 +137,26 @@ export default class GraphInit extends React.Component {
                 
                 <>
 
-                <p> New username? </p>
-
                 <form onSubmit={this.handleFormSubmit}>
                     <label>
+
+                    <p> New username </p>
 
                     <textarea 
                     name="username"
                     value={this.state.usernameInput} 
                     onChange={this.handleUsernameChange} />
                     
+                    <p> New password </p>
+
                     <textarea
                     name="password"
                     type="password" 
                     value={this.state.passwordInput}
                     onChange={this.handlePasswordChange} />
                     
+                    <p> Confirm new password </p>
+
                     <textarea
                     name="password2" 
                     type="password"
