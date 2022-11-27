@@ -91,7 +91,7 @@ export default class GraphInit extends React.Component {
     handleUsernameSubmit(event) {
         console.log(event)
  
-        console.log(this.state.usernameInput);
+        console.log(JSON.stringify(this.state.usernameInput));
         
         event.preventDefault();
     };
