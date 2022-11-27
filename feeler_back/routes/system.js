@@ -32,25 +32,5 @@ router.get('/doesExist', (req, res) => {
   });
 });
 
-router.get('/isDatabaseOnline', (req, res) => {
-  fetch('100.69.19.3:7475')
-  .then((response) => {
-    if (response.status === 200) {
-      res.json({
-        "isDatabaseOnline": "Database Found"
-      });
-    } else {
-      res.json({
-        "isDatabaseOnline": "No Database found"
-      })
-     }
-   })
-  .catch((error) => {
-    res.json({
-      "isDatabaseOnline": error
-    });
-  });
-});
-
 export default router;
 

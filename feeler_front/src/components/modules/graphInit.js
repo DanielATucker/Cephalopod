@@ -12,7 +12,6 @@ export default class GraphInit extends React.Component {
             "isDatbaseOnline": "Pending"
         };
 
-        this.isDatbaseOnline = this.isDatbaseOnline.bind(this);
         this.doesExist = this.doesExist.bind(this);
     };
     
@@ -25,31 +24,13 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    async isDatbaseOnline(){
-        const response = await fetch('http://100.69.19.3:3001/system/isDatabaseOnline');
-        let isDatabaseOnline = await response.json();
-
-        if ((typeof response == "string") && (response == "No Database found")) {
-            this.setState({
-                "doesSystemExist": "No Database found"
-            });
-        } 
-        else {
-            this.setState({
-                "doesSystemExist": isDatabaseOnline
-            });
-        }
-    };
-
     componentDidMount() {
+        this.doesExist();
+
         setInterval(() => {
             this.doesExist();
-            this.isDatbaseOnline();
         }, 10000);
     };
-
-    componentDidUpdate() {       
-    }
 
     render() {
         return (
@@ -57,8 +38,6 @@ export default class GraphInit extends React.Component {
 
             <p> Does Exist: {this.state.doesSystemExist.doesExist} </p>
             
-            <p> Database: {this.state.doesSystemExist.isDatbaseOnline} </p>
-
             </>
         );
     };
