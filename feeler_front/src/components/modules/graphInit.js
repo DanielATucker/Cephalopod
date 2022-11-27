@@ -24,9 +24,9 @@ export default class GraphInit extends React.Component {
             "doesSystemExist": systemStatus.doesExist,
         });
 
-        if (systemStatus.recommendInit == true) {
+        if (systemStatus.doesExist === "System found.") {
             this.setState({
-                "initButton": true
+                "initButton": false
             });
         };
     
@@ -41,7 +41,7 @@ export default class GraphInit extends React.Component {
 
             response.next((node) => {
                 console.log(node);
-                
+
                 if (node.status === "success") {
                     this.setState({
                         "initButton": false
