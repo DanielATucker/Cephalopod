@@ -14,7 +14,17 @@ export default class GraphInit extends React.Component {
             "username": "No user logged in",
             "usernameInput": "",
             "usernameFormStatus": false,
-            "usernameForm": false
+            "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
+                <label>
+                    Enter Username
+                    <textarea 
+                    value={this.state.usernameInput} 
+                    onChange={this.handleUsernameChange} />
+                </label>
+                
+                <input type="submit" value="Submit" />
+                
+                </form>
         };
 
         this.doesExist = this.doesExist.bind(this);
