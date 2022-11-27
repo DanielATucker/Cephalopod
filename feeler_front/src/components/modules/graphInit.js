@@ -38,10 +38,6 @@ export default class GraphInit extends React.Component {
                 </Button> 
             })
         };
-    
-        if (this.state) {
-            console.log(this.state.initButton);
-        }
     };
 
     async initSystem() {
