@@ -11,6 +11,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 var cookieParser = require('cookie-parser');
+const sessions = require('express-session');
 var logger = require('morgan');
 var cors = require('cors')
 
