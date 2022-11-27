@@ -34,15 +34,10 @@ router.get('/doesExist', (req, res) => {
 });
 
 router.get('/systeminit', (req, res) => {
-  let nodePromise = Database("CREATE (n: Main) SET n.name = 'Main'");
+  Database("CREATE (n: Main) SET n.name = 'Main'");
 
-  nodePromise.next((node) => {
-    console.log(`node Status: ${node.status}`)
-    
-    res.json({
-      "status": "success"
-    });
-  
+  res.json({
+    "status": "success"
   });
 });
 
