@@ -114,10 +114,11 @@ export default class GraphInit extends React.Component {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    "username": this.state.usernameInput,
+                    "username": this.state.usernameI,
                     "password": this.state.passwordInput
                 })
-            }).then(res => console.log(res.json));
+            }).then(res => res.json())
+            .then(res => console.log(res));
         }
         else {
             console.log("Passwords Didn't match, Try again");
