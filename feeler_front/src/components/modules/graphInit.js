@@ -26,8 +26,10 @@ export default class GraphInit extends React.Component {
                 "doesSystemExist": "No Database found. Recommended, Start database"
             });
         }
-        
-        console.log(this.state.initButton);
+
+        if (this.state) {
+            console.log(this.state.initButton);
+        }
     };
 
     async initSystem() {
