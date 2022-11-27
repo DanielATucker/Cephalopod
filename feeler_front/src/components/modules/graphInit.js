@@ -14,7 +14,7 @@ export default class GraphInit extends React.Component {
             "username": "No user logged in",
             "usernameInput": "",
             "usernameFormStatus": false,
-            "usernameForm": fasle
+            "usernameForm": false
         };
 
         this.doesExist = this.doesExist.bind(this);
