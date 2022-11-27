@@ -84,7 +84,7 @@ export default class GraphInit extends React.Component {
     
     handleUsernameChange(event) {
         console.log(this.state.usernameInput);
-        
+
         this.setState({
             "usernameInput": this.state.usernameInput.concat(event.target.value)
         });
@@ -104,20 +104,6 @@ export default class GraphInit extends React.Component {
         setInterval(this.get_username, 10000);
 
         setInterval(this.doesExist, 10000);
-
-        this.setState({
-            "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
-            <label>
-                Enter Username
-                <textarea 
-                value={this.state.usernameInput} 
-                onChange={this.handleUsernameChange} />
-            </label>
-            
-            <input type="submit" value="Submit" />
-            
-            </form>
-        });
     };
 
     render() {
@@ -131,7 +117,18 @@ export default class GraphInit extends React.Component {
                 <p> Your username is </p>
                 <p> {this.state.username} </p>
 
-                {this.state.usernameFormStatus && this.state.usernameForm}
+                {this.state.usernameFormStatus && 
+                
+                <form onSubmit={this.handleUsernameSubmit}>
+                    <label>
+                    Enter Username 
+                    <textarea 
+                    value={this.state.usernameInput} 
+                    onChange={this.handleUsernameChange} />
+                    </label>
+            
+                    <input type="submit" value="Submit" />
+                </form>}
             </Card>
 
             </>
