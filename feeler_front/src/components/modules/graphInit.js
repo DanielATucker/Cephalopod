@@ -161,7 +161,7 @@ export default class GraphInit extends React.Component {
                     name="password2" 
                     type="password"
                     value={this.state.password2Input}
-                    onchange={this.handlePassword2Change} />
+                    onChange={this.handlePassword2Change} />
                     
                     </label>
                     <br></br>
