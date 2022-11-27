@@ -35,7 +35,7 @@ export default class GraphInit extends React.Component {
             this.setState({
                 "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
                 <label>
-                  Enter Username
+                  Enter Username 
                   <textarea 
                   value={this.state.usernameInput} 
                   onChange={this.handleUsernameChange} />
