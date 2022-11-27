@@ -11,11 +11,24 @@ export default class GraphInit extends React.Component {
         this.state = {
             "doesSystemExist": "Pending",
             "initButton": false,
+            "username": "No user logged in",
+            "usernameSubmit": false
         };
 
         this.doesExist = this.doesExist.bind(this);
     };
-    
+
+    async get_username(){
+        const response = await fetch('http://100.69.19.3:3001/get_username');
+        let username = await response.json();
+
+        username = username.USERNAME;
+
+        this.setState({
+            "username": username
+        });
+    };
+
     async doesExist(){
         const response = await fetch('http://100.69.19.3:3001/system/doesExist');
         let systemStatus = await response.json();
@@ -58,15 +71,18 @@ export default class GraphInit extends React.Component {
             console.log(err);
         }
     };
+    
 
     componentDidMount() {
         this.doesExist();
 
-        setInterval(() => {
-            this.doesExist();
-        }, 10000);
+        this.get_username();
+       
+        setInterval(this.get_username, 10000);
+
+        setInterval(this.doesExist, 10000);
     };
-    
+
     render() {
         return (
             <>           

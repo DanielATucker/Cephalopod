@@ -14,31 +14,10 @@ export default class Main extends React.Component {
         super();
 
         this.state = {
-            "username": "No user logged in",
             "messages": [],
             "stats": []
         };
         this.get_username = this.get_username.bind(this);
-    };
-
-    componentDidMount(){
-        this.get_username();
-        
-        setInterval(this.get_username, 10000);
-    }
-
-    componentDidUpdate(){
-    }
-    
-    async get_username(){
-        const response = await fetch('http://100.69.19.3:3001/get_username');
-        let username = await response.json();
-
-        username = username.USERNAME;
-
-        this.setState({
-            "username": username
-        });
     };
 
     handleMessageChange = (messagesIn) => {        
