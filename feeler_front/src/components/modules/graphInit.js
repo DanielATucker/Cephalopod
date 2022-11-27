@@ -118,7 +118,7 @@ export default class GraphInit extends React.Component {
                     "password": this.state.passwordInput
                 })
             }).then((res) =>{
-                console.log(res.json());
+                console.log(res);
             });
         }
         else {
