@@ -24,7 +24,7 @@ export default class GraphInit extends React.Component {
             "doesSystemExist": systemStatus.doesExist,
         });
 
-        if (systemStatus.recommendInit == true) {
+        if ((systemStatus.recommendInit == true) && (this.state.recommendInit == false)) {
             this.setState({
                 "initButton": true
             });
@@ -57,27 +57,20 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate(prevState) {
-         if (prevState !== this.state) {
-    
+        if (prevState.recommendInit !== this.state.recommendInit) {
             if (this.state.recommendInit == true) {
                 this.setState({
-                    "initButton": true
+                    "initButton": <Button 
+                    variant="outlined"
+                    onClick={this.initSystem}>    
+                    Init System
+                    </Button>
                 });
             }
             else {
                 this.setState({
                     "initButton": false
                 });
-            };
-        
-            if (this.state.initButton == true) {
-              this.setState({
-                "initButton": <Button 
-                                variant="outlined"
-                                onClick={this.initSystem}>    
-                                Init System
-                                </Button>
-              });  
             };
         };
     };
