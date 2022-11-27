@@ -20,6 +20,7 @@ export default class GraphInit extends React.Component {
         this.doesExist = this.doesExist.bind(this);
         this.get_username = this.get_username.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
+        this.handleUsernameSubmit = this.handleUsernameSubmit.bind(this);
     };
 
     async get_username(){
@@ -93,7 +94,7 @@ export default class GraphInit extends React.Component {
 
         console.log(event)
         
-        console.log(JSON.parse(JSON.stringify(this.state.usernameInput)));
+        console.log(this.state.usernameInput);
     };
 
     componentDidMount() {
