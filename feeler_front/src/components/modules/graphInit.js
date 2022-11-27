@@ -117,8 +117,7 @@ export default class GraphInit extends React.Component {
                     "username": this.state.usernameInput,
                     "password": this.state.passwordInput
                 })
-            }).then(res => res.json())
-            .then(res => console.log(res));
+            }).then(res => console.log(res.json));
         }
         else {
             console.log("Passwords Didn't match, Try again");
