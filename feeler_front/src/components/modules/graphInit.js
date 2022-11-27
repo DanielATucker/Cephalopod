@@ -109,7 +109,7 @@ export default class GraphInit extends React.Component {
             console.log("Passwords are good");
 
             fetch('http://100.69.19.3:3001/system/newUser', {
-                method: 'USE',
+                method: 'POST',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
