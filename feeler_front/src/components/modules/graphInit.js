@@ -53,7 +53,7 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate(prevState) {
-         if (this.prevState !== this.state) {
+         if (prevState !== this.state) {
     
             if (this.state.recommendInit == true) {
                 this.setState({
