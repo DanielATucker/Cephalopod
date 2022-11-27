@@ -9,7 +9,6 @@ export default class GraphInit extends React.Component {
 
         this.state = {
             "doesSystemExist": "Pending",
-            "isDatbaseOnline": "Pending"
         };
 
         this.doesExist = this.doesExist.bind(this);
