@@ -44,9 +44,9 @@ router.post('/newUser', (req, res) => {
   let body = JSON.stringify(req.body)
   
   console.log(body)
-  res.json({
+  res.json(JSON.stringify({
     "status": "success",
-  });
+  }));
 });
 
 export default router;
