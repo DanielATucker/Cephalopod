@@ -37,7 +37,7 @@ router.get('/systeminit', (req, res) => {
   Database("CREATE (n: Main) SET n.name = 'Main'");
 
   res.json({
-    "status": "success"
+    "status": "success",
   });
 });
 

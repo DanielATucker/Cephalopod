@@ -35,9 +35,13 @@ export default class GraphInit extends React.Component {
         try {
             const response = await fetch('http://100.69.19.3:3001/system/systeminit');
             
-            let status = await response.json();
-            
-            console.log(status)
+            response.next((node) => {
+                if (node.status == "success") {
+                    this.setState({
+                        "initButton": false
+                    });
+                };
+            });
         }
         catch (err) {
             console.log(err);
