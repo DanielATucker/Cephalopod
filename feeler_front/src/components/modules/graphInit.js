@@ -12,7 +12,7 @@ export default class GraphInit extends React.Component {
             "doesSystemExist": "Pending",
             "initButton": false,
             "username": "No user logged in",
-            "usernameInput": null,
+            "usernameInput": "",
             "usernameFormStatus": false,
             "usernameForm": false
         };
