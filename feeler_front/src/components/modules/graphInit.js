@@ -21,13 +21,14 @@ export default class GraphInit extends React.Component {
         const response = await fetch('http://100.69.19.3:3001/system/doesExist');
         let systemStatus = await response.json();
 
-        this.setState({
-            "doesSystemExist": systemStatus.doesExist,
-        });
-
-        if ((systemStatus.recommendInit == true) && (this.state.initButton == false)) {
+        if ((systemStatus.doesExist == false) && (this.state.initButton == false)) {
             this.setState({
                 "initButton": true
+            });
+        }
+        else if (systemStatus.doesExist == true) {
+            this.setState({
+                "doesSystemExist": systemStatus.doesExist,
             });
         };
     };
