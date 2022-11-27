@@ -16,6 +16,7 @@ export default class GraphInit extends React.Component {
         };
 
         this.doesExist = this.doesExist.bind(this);
+        this.get_username = this.get_username.bind(this);
     };
 
     async get_username(){
