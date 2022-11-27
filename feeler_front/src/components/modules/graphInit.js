@@ -1,6 +1,7 @@
 import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
+import { Button } from '@mui/material';
 
 
 export default class GraphInit extends React.Component {
@@ -9,6 +10,7 @@ export default class GraphInit extends React.Component {
 
         this.state = {
             "doesSystemExist": "Pending",
+            "initButton": false
         };
 
         this.doesExist = this.doesExist.bind(this);
@@ -16,11 +18,17 @@ export default class GraphInit extends React.Component {
     
     async doesExist(){
         const response = await fetch('http://100.69.19.3:3001/system/doesExist');
-        let doesSystemExist = await response.json();
+        let systemStatus = await response.json();
 
         this.setState({
-            "doesSystemExist": doesSystemExist
+            "doesSystemExist": systemStatus.doesExist,
         });
+
+        if (systemStatus.recommendInit == true) {
+            this.setState({
+                "initButton": true
+            });
+        };
     };
 
     componentDidMount() {
@@ -31,12 +39,39 @@ export default class GraphInit extends React.Component {
         }, 10000);
     };
 
+    componentDidUpdate(prevState) {
+         if (this.prevState !== this.state) {
+    
+            if (this.state.recommendInit == true) {
+                this.setState({
+                    "initButton": true
+                });
+            };
+        
+            if (this.state.initButton == true) {
+              this.setState({
+                "initButton": <Button 
+                                variant="outlined"
+                                onClick={() => {
+                                alert('clicked');
+                                }}>    
+                                Init System
+                                </Button>
+              });  
+            };
+        };
+    };
+
     render() {
         return (
             <>           
-
-            <p> Does Exist: {this.state.doesSystemExist.doesExist} </p>
             
+            <Card>
+                <p> Does Exist: {this.state.doesSystemExist.doesExist} </p>
+                
+                {this.state.initButton}
+            </Card>
+
             </>
         );
     };
