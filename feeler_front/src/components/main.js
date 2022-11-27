@@ -17,7 +17,6 @@ export default class Main extends React.Component {
             "messages": [],
             "stats": []
         };
-        this.get_username = this.get_username.bind(this);
     };
 
     handleMessageChange = (messagesIn) => {        
@@ -45,9 +44,6 @@ export default class Main extends React.Component {
                 
                 <body>
                     <h1> Welcome to Cephalopod </h1>
-                    
-                    <p> Your username is </p>
-                    <p> {this.state.username} </p>
                 </body>
             </Card>
 
