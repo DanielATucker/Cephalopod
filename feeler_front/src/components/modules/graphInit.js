@@ -66,12 +66,7 @@ export default class GraphInit extends React.Component {
             this.doesExist();
         }, 10000);
     };
-
-    componentDidUpdate(prevState) {
-        if (this.state != prevState) {
-            console.log(this.state.initButton);
-        };
-    }
+    
     render() {
         return (
             <>           
