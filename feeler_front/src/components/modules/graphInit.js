@@ -21,14 +21,14 @@ export default class GraphInit extends React.Component {
 
         console.log(response);
         
-        response.next((node) => {
-            if (node.doesExist == "No Database found. Recommended, Start database") {
-                this.setState({
-                    "initButton": true,
-                    "doesSystemExist": "No Database found. Recommended, Start database"
-                });
-            };
-        })
+        let node = response.json;
+
+        if (node.doesExist == "No Database found. Recommended, Start database") {
+            this.setState({
+                "initButton": true,
+                "doesSystemExist": "No Database found. Recommended, Start database"
+            });
+        };        
     
         if (this.state) {
             console.log(this.state.initButton);
