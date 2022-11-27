@@ -23,7 +23,7 @@ export default class GraphInit extends React.Component {
         
         let node = response.json;
 
-        if (node.doesExist == "No Database found. Recommended, Start database") {
+        if (node.doesExist === "No Database found. Recommended, Start database") {
             this.setState({
                 "initButton": true,
                 "doesSystemExist": "No Database found. Recommended, Start database"
@@ -40,7 +40,7 @@ export default class GraphInit extends React.Component {
             const response = await fetch('http://100.69.19.3:3001/system/systeminit');
             
             response.next((node) => {
-                if (node.status == "success") {
+                if (node.status === "success") {
                     this.setState({
                         "initButton": false
                     });
@@ -62,7 +62,7 @@ export default class GraphInit extends React.Component {
 
     componentDidUpdate(prevState) {
         if (prevState.initButton !== this.state.initButton) {
-            if (this.state.initButton == true){
+            if (this.state.initButton === true){
                 this.setState({
                     "initButton": <Button 
                     variant="outlined"
