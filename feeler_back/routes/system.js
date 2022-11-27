@@ -18,10 +18,11 @@ router.get('/doesExist', (req, res) => {
           "doesExist" : "No Database found, Recommend Init system"
         })
       }
-      
-      res.json({
-        "doesExist": "System found."
-      });
+      else {
+        res.json({
+          "doesExist": "System found."
+        });
+      }
     }
     else {
       res.json({
