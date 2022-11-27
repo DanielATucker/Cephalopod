@@ -53,6 +53,7 @@ router.get('/systeminit', (req, res) => {
       "doesExist": "No system found. Recommended, Init Database"
     });
   }
-}
+});
+
 export default router;
 
