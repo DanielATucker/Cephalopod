@@ -129,7 +129,7 @@ export default class GraphInit extends React.Component {
                     value={this.state.usernameInput} 
                     onChange={this.handleUsernameChange} />
                     </label>
-            
+                    <br></br>
                     <input type="submit" value="Submit" />
                 </form>
 
