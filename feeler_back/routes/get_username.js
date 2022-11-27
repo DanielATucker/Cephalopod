@@ -12,7 +12,7 @@ var express = require('express');
 var router = express.Router();
 
 router.get('/', function(req, res, next) {
-  let nodePromise = Database("MATCH (n)  WHERE n.name = `test` RETURN (n)");
+  let nodePromise = Database("MATCH (n)  WHERE n.name = 'test' RETURN (n)");
 
   nodePromise.then((response) => {
     if ((typeof response !== 'undefined') && ( response != null)) {
