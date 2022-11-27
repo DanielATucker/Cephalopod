@@ -44,6 +44,10 @@ router.get('/systeminit', (req, res) => {
     }
     else {
       console.log(`Success node: ${node}`)
+
+      res.json({
+        "status": "success"
+      })
     }
   }
   else {
