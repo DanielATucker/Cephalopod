@@ -33,7 +33,7 @@ export default class GraphInit extends React.Component {
         }
         else if (systemStatus.doesExist ===  "No system found. Recommended, Init System") {
             this.setState({
-                "inintButton": <Button 
+                "initButton": <Button 
                 variant="outlined"
                 onClick={this.initSystem}>    
                 Init System
