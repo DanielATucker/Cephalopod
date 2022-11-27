@@ -42,10 +42,9 @@ router.get('/systeminit', (req, res) => {
 
 router.post('/newUser', (req, res) => {
   let session = req.session;
-  
-  let body = req.body;
-
   console.log(`Session: ${session}`);
+
+  let body = req.body;
   console.log(`Body: ${body}`);
 
   let username=body.username;
