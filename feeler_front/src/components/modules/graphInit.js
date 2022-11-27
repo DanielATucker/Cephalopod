@@ -11,7 +11,7 @@ export default class GraphInit extends React.Component {
         this.state = {
             "doesSystemExist": "Pending",
             "initButton": false,
-            "username": "No user logged in",
+            "username": "Pending",
             "username2": "",
             "usernameInput": "",
             "passwordInput": "",
