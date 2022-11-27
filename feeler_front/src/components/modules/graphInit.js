@@ -14,17 +14,7 @@ export default class GraphInit extends React.Component {
             "username": "No user logged in",
             "usernameInput": "",
             "usernameFormStatus": false,
-            "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
-                <label>
-                    Enter Username
-                    <textarea 
-                    value={this.state.usernameInput} 
-                    onChange={this.handleUsernameChange} />
-                </label>
-                
-                <input type="submit" value="Submit" />
-                
-                </form>
+            "usernameForm": fasle
         };
 
         this.doesExist = this.doesExist.bind(this);
@@ -110,6 +100,20 @@ export default class GraphInit extends React.Component {
         setInterval(this.get_username, 10000);
 
         setInterval(this.doesExist, 10000);
+
+        this.setState({
+            "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
+            <label>
+                Enter Username
+                <textarea 
+                value={this.state.usernameInput} 
+                onChange={this.handleUsernameChange} />
+            </label>
+            
+            <input type="submit" value="Submit" />
+            
+            </form>
+        });
     };
 
     render() {
