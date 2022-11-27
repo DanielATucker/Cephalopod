@@ -26,7 +26,7 @@ export default class GraphInit extends React.Component {
                 "initButton": true
             });
         }
-        else if (systemStatus.doesExist == true) {
+        else if (systemStatus.doesExist == "No Database found. Recommended, Start database") {
             this.setState({
                 "doesSystemExist": systemStatus.doesExist,
             });
