@@ -18,17 +18,17 @@ export default class GraphInit extends React.Component {
     
     async doesExist(){
         const response = await fetch('http://100.69.19.3:3001/system/doesExist');
+        let systemStatus = await response.json();
 
-        console.log(response);
-        
-        let node = response.json;
+        this.setState({
+            "doesSystemExist": systemStatus.doesExist,
+        });
 
-        if (node.doesExist === "No Database found. Recommended, Start database") {
+        if (systemStatus.recommendInit == true) {
             this.setState({
-                "initButton": true,
-                "doesSystemExist": "No Database found. Recommended, Start database"
+                "initButton": true
             });
-        };        
+        };
     
         if (this.state) {
             console.log(this.state.initButton);
