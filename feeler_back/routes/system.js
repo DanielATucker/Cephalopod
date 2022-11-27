@@ -41,10 +41,13 @@ router.get('/systeminit', (req, res) => {
 });
 
 router.post('/newUser', (req, res) => {
+  let session = req.session;
+  
   let body = req.body;
 
+  console.log(`Session: ${session}`);
   console.log(`Body: ${body}`);
-  
+
   let username=body.username;
 
   let password = body.password;
