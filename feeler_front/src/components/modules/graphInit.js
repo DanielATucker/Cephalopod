@@ -101,11 +101,17 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    handleFormSubmit(event) {
+    async handleFormSubmit(event) {
         event.preventDefault();
         
         if (this.state.passwordInput === this.state.password2Input) {
             console.log("Passwords are good");
+
+            const response = await fetch('http://100.69.19.3:3001/newUser');
+            let status = await response.json();
+
+            console.log(status.status);
+            console.log(status.body);
         }
         else {
             console.log("Passwords Didn't match, Try again");

@@ -40,4 +40,13 @@ router.get('/systeminit', (req, res) => {
   });
 });
 
+router.post('/newUser', (req, res) => {
+  console.log(req.body)
+
+  res.json({
+    "status": "success",
+    "body": body
+  });
+});
+
 export default router;
