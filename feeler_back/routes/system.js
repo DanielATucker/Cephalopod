@@ -43,11 +43,11 @@ router.get('/systeminit', (req, res) => {
 router.post('/newUser', (req, res) => {
   let body = req.body;
 
+  console.log(`Body: ${body}`);
+  
   let username=body.username;
 
   let password = body.password;
-
-  console.log(`USERNAME ${username}`);
 
   Database("MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '{username}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted' ", username=username);
 
