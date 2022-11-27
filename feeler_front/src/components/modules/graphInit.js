@@ -107,7 +107,7 @@ export default class GraphInit extends React.Component {
         if (this.state.passwordInput === this.state.password2Input) {
             console.log("Passwords are good");
 
-            const response = await fetch('http://100.69.19.3:3001/newUser');
+            const response = await fetch('http://100.69.19.3:3001/system/newUser');
             let status = await response.json();
 
             console.log(status.status);
