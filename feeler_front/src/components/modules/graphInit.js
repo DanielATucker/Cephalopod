@@ -83,8 +83,6 @@ export default class GraphInit extends React.Component {
     };
     
     handleUsernameChange(event) {
-        console.log(this.state.usernameInput);
-
         this.setState({
             "usernameInput": event.target.value
         });
@@ -93,7 +91,7 @@ export default class GraphInit extends React.Component {
     handleUsernameSubmit(event) {
         console.log(this.state.usernameInput);
 
-        event.preventDefault();
+        //event.preventDefault();
     };
 
     componentDidMount() {
