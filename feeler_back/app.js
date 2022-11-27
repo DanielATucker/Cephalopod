@@ -46,6 +46,17 @@ app.use('/users', usersRouter);
 app.use("/get_username", getUsernameRouter);
 app.use("/system", systemRouter);
 
+//init sessions
+const oneDay = 1000 * 60 * 60 * 24;
+app.use(sessions({
+    secret: "abcd",
+    saveUninitialized:true,
+    cookie: { maxAge: oneDay },
+    resave: false 
+}));
+
+app.use(cookieParser());
+
 app.get('/test', (req, res) => {
   res.send('test')
 });

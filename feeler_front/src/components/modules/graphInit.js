@@ -12,6 +12,7 @@ export default class GraphInit extends React.Component {
             "doesSystemExist": "Pending",
             "initButton": false,
             "username": "No user logged in",
+            "username2": "",
             "usernameInput": "",
             "passwordInput": "",
             "password2Input": "",
@@ -117,8 +118,6 @@ export default class GraphInit extends React.Component {
                     "username": this.state.usernameInput,
                     "password": this.state.passwordInput
                 })
-            }).then((node) =>{
-                console.log(node);
             });
         }
         else {
