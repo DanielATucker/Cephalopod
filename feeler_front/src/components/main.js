@@ -22,6 +22,8 @@ export default class Main extends React.Component {
     };
 
     componentDidMount(){
+        this.get_username();
+        
         setInterval(this.get_username, 10000);
     }
 
