@@ -13,7 +13,11 @@ router.get('/doesExist', (req, res) => {
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node != null)) {
-      console.log(node);
+      if (node == "No Database found") {
+        res.json({
+          "doesExist" : "No Database found, Recommend Init system"
+        })
+      }
       
       res.json({
         "doesExist": "System found."
