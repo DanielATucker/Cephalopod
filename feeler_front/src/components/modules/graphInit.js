@@ -108,9 +108,12 @@ export default class GraphInit extends React.Component {
     handleFormSubmit(event) {
         event.preventDefault();
         
-        console.log(this.state.usernameInput);
-        console.log(this.state.passwordInput);
-        console.log(this.state.password2Input);
+        if (this.state.passwordInput === this.state.password2Input) {
+            console.log("Passwords are good");
+        }
+        else {
+            console.log("Passwords Disnt match, Try again");
+        }
     };
 
     componentDidMount() {
