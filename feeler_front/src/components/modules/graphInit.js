@@ -29,7 +29,7 @@ export default class GraphInit extends React.Component {
         const response = await fetch('http://100.69.19.3:3001/system/isDatabaseOnline');
         let isDatabaseOnline = await response.json();
 
-        if ((typeof isDatabaseOnline == "string") && (isDatabaseOnline == "No Database found")) {
+        if ((typeof response == "string") && (response == "No Database found")) {
             this.setState({
                 "doesSystemExist": "No Database found"
             });
