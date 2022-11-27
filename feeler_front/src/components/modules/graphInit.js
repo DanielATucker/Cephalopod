@@ -112,7 +112,7 @@ export default class GraphInit extends React.Component {
             console.log("Passwords are good");
         }
         else {
-            console.log("Passwords Disnt match, Try again");
+            console.log("Passwords Didn't match, Try again");
         }
     };
 
