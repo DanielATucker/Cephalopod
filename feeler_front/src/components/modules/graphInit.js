@@ -10,7 +10,8 @@ export default class GraphInit extends React.Component {
 
         this.state = {
             "doesSystemExist": "Pending",
-            "initButton": false
+            "initButton": false,
+            "recommendInit": false
         };
 
         this.doesExist = this.doesExist.bind(this);
