@@ -83,7 +83,9 @@ export default class GraphInit extends React.Component {
     };
     
     handleUsernameChange(event) {
-        this.setState({usernameInput: event.target.value});
+        this.setState({
+            "usernameInput": event.target.value
+        });
     };
 
     handleUsernameSubmit(event) {
