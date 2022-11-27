@@ -41,15 +41,15 @@ router.get('/systeminit', (req, res) => {
 });
 
 router.post('/newUser', (req, res) => {
-  let body = req.body
+  let body = req.body;
 
-  let username=body.username
+  let username=body.username;
 
   let password = body.password;
 
   Database("MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '{username}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted' ", username=username);
 
-  Database("MATCH (u: User) WHERE u.name = '{user}' SET u.user = '{user}', u.password = '{password}', u.privileges = 'user' ", user=username, password=password)
+  Database("MATCH (u: User) WHERE u.name = '{user}' SET u.user = '{user}', u.password = '{password}', u.privileges = 'user' ", user=username, password=password);
 });
 
 export default router;
