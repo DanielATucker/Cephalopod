@@ -12,7 +12,8 @@ export default class GraphInit extends React.Component {
             "doesSystemExist": "Pending",
             "initButton": false,
             "username": "No user logged in",
-            "usernameSubmit": false
+            "usernameInput": "",
+            "usernameForm": false
         };
 
         this.doesExist = this.doesExist.bind(this);
@@ -28,6 +29,20 @@ export default class GraphInit extends React.Component {
         this.setState({
             "username": username
         });
+
+        if (username === "No User Found in database") {
+            this.setState({
+                "usernameForm": <form onSubmit={this.handleUsernameSubmit}>
+                <label>
+                  Enter Username
+                  <textarea 
+                  value={this.state.usernameInput} 
+                  onChange={this.handleUsernameChange} />
+                </label>
+                <input type="submit" value="Submit" />
+              </form>
+            })
+        };
     };
 
     async doesExist(){
@@ -73,6 +88,15 @@ export default class GraphInit extends React.Component {
         }
     };
     
+    handleUsernameChange(event) {
+        this.setState({usernameInput: event.target.value});
+    };
+
+    handleUsernameSubmit(event) {
+        console.log(this.state.usernameInput);
+
+        event.preventDefault();
+    };
 
     componentDidMount() {
         this.doesExist();
