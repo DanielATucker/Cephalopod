@@ -86,7 +86,7 @@ export default class GraphInit extends React.Component {
         console.log(this.state.usernameInput);
 
         this.setState({
-            "usernameInput": this.state.usernameInput.concat(event.target.value)
+            "usernameInput": event.target.value
         });
     };
 
