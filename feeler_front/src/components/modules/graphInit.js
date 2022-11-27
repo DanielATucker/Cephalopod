@@ -59,6 +59,11 @@ export default class GraphInit extends React.Component {
                 this.setState({
                     "initButton": true
                 });
+            }
+            else {
+                this.setState({
+                    "initButton": false
+                });
             };
         
             if (this.state.initButton == true) {
