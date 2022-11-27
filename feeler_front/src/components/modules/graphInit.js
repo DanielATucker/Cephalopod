@@ -113,10 +113,10 @@ export default class GraphInit extends React.Component {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
                 },
-                body: JSON.stringify({
-                    "username": this.state.usernameI,
+                body: {
+                    "username": this.state.usernameInput,
                     "password": this.state.passwordInput
-                })
+                }
             }).then((res) =>{
                 console.log(res);
             });
