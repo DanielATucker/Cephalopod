@@ -37,7 +37,7 @@ export default class GraphInit extends React.Component {
             "username": username
         });
 
-        if (username === "No User Found in database") {
+        if ((username === "No User Found in database") && (this.state.initButton === false)) {
             this.setState({
                 "usernameFormStatus": true
             })
