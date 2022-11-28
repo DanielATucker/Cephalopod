@@ -87,9 +87,20 @@ export default class GraphInit extends React.Component {
 
         this.setState({
             "doesUserExist": userSystemStatus.doesExist,
-            "usernameInitFormStatus": false,
-            "loginFormStatus": true
-        })
+        });
+
+        if (userSystemStatus.doesExist === "No user found") {
+            this.setState({
+                "usernameInitFormStatus": true
+            });
+        }
+        else if (userSystemStatus.doesExist === "User found") {
+            this.setState({
+                "usernameInitFormStatus": false,
+                "loginFormStatus": true
+            });
+        }
+        
     };
 
     async initSystem() {
