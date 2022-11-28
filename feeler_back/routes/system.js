@@ -55,4 +55,43 @@ router.post('/newUser', function (req, res) {
   res.json(JSON.stringify({message: 'message here'}));
 });
 
+router.post('/login', function (req, res) {    
+  let username = req.body.username;
+
+  let password = req.body.password;
+
+  console.log(username);
+  console.log(password);
+
+  let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN n.username `);
+
+  nodePromise.then((node) => {
+    if ((typeof node !== 'undefined') && ( node != null)) {
+      if (node == "No Database found") {
+        res.json({
+          "doesExist" : "No Database found. Recommended, Start database"
+        })
+      }
+      else {
+        if (node === username) {
+          res.json({
+            "USERNAME": username
+          });
+        }
+        else {
+          res.json({
+            "USERNAME": "Invalid credentials"
+          });
+        };
+      };
+    }
+    else {
+      res.json({
+        "doesExist": "No system found. Recommended, Init System"
+      });
+    }
+  });
+  res.json(JSON.stringify({message: 'message here'}));
+});
+
 export default router;

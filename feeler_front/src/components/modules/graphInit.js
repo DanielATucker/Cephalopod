@@ -12,14 +12,11 @@ export default class GraphInit extends React.Component {
             "doesSystemExist": "Pending",
             "initButton": false,
             "username": "Pending",
-            "username2": "",
-            "usernameFinal": "",
             "usernameInput": "",
             "passwordInput": "",
             "password2Input": "",
-            "passwordFinal": "",
-            "usernameFormStatus": false,
-            "usernameForm": false
+            "usernameInitFormStatus": false,
+            "loginFormStatus": false
         };
 
         this.doesExist = this.doesExist.bind(this);
@@ -46,7 +43,7 @@ export default class GraphInit extends React.Component {
         });
 
         response.next((node) => {
-            console.log(node);
+            console.log(JSON.stringify(node));
             
             let username = node.USERNAME;
 
@@ -54,9 +51,9 @@ export default class GraphInit extends React.Component {
                 "username": username
             });
     
-            if ((username === "No User Found in database") && (this.state.initButton === false)) {
+            if ((this.state.loginFormStatus === false) && (this.state.initButton === false)) {
                 this.setState({
-                    "usernameFormStatus": true
+                    "usernameInitFormStatus": true
                 })
             };
         });
@@ -136,7 +133,7 @@ export default class GraphInit extends React.Component {
                 },
                 body: JSON.stringify({
                     "username": this.state.usernameInput,
-                    "password": this.state.password2Input
+                    "password": this.state.passwordInput
                 })
             });
         }
@@ -147,26 +144,19 @@ export default class GraphInit extends React.Component {
 
     async handleLoginFormSubmit(event) {
         event.preventDefault();
-        
-        if (this.state.usernamePassword === this.state.usernamePassword2) {
-            console.log("Passwords are good");
 
-            fetch('http://100.69.19.3:3001/system/newUser', {
-                method: 'POST',
-                mode: 'cors',
-                headers: {
-                    'Accept': 'application/json, text/plain, */*',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    "username": this.state.usernameLogin,
-                    "password": this.state.usernamePassword
-                })
-            });
-        }
-        else {
-            console.log("Passwords Didn't match, Try again");
-        }
+        fetch('http://100.69.19.3:3001/system/login', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "username": this.state.usernameLogin,
+                "password": this.state.usernamePassword
+            })
+        });
     };
 
     componentDidMount() {
@@ -200,10 +190,7 @@ export default class GraphInit extends React.Component {
 
                 <p> Your username is: {this.state.username} </p>
 
-                {this.state.usernameFormStatus && 
-                
-                <>
-
+                {this.state.usernameInitFormStatus && 
                 <form onSubmit={this.handleInitUserFormSubmit}>
                     <label>
 
@@ -235,8 +222,37 @@ export default class GraphInit extends React.Component {
                     
                     <input type="submit" value="Submit" />
                 </form>
+                }
 
-                </>
+                {this.state.loginFormStatus &&
+                    <form onSubmit={this.handleloginFormStatus}>
+                    <label>
+
+                    <h3> Login </h3>
+
+                    <p>username </p>
+
+                    <input
+                    name="username"
+                    value={this.state.usernameInput} 
+                    onChange={this.handleUsernameChange} />
+                    
+                    <p> password </p>
+
+                    <input
+                    name="password"
+                    type="password" 
+                    value={this.state.passwordInput}
+                    onChange={this.handlePasswordChange} />
+                    
+                    <p> Confirm new password </p>
+                    
+                    </label>
+                    <br></br>
+                    
+                    <input type="submit" value="Submit" />
+                </form>
+
                 }
             </Card>
 
