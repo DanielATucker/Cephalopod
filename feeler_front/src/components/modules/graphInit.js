@@ -142,7 +142,7 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    async handleInitUserFormSubmit(event) {
+    handleInitUserFormSubmit(event) {
         event.preventDefault();
         
         if (this.state.passwordInput === this.state.password2Input) {
