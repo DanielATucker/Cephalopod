@@ -44,7 +44,7 @@ router.post('/newUser', function (req, res) {
   let session = req.session;
   console.log(`Body: ${JSON.stringify(req.body)}`);
 
-  let username = body.username;
+  let username = req.body.username;
 
   console.log(`Username: ${username}`);
 
