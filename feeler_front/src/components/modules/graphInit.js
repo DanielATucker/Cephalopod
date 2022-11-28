@@ -38,7 +38,7 @@ export default class GraphInit extends React.Component {
         
         console.log(JSON.stringify(node));
 
-        res.json({
+        this.setState({
             "username": node.properties.name
         })
     };
