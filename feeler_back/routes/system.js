@@ -90,21 +90,7 @@ router.post('/login', function (req, res) {
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN n.username `);
 
   nodePromise.then((node) => {
-    if ((typeof node !== 'undefined') && ( node != null)) {
-      if (node == "No Database found") {
-        res.json({
-          "doesExist" : "No Database found. Recommended, Start database"
-        });
-      }
-      else {
-        if (node === username) {
-          console.log(node);
-        }
-        else {
-          console.log(node);
-        };
-      };
-    }
+   console.log(`Node: ${JSON.stringify(node)}`);
   });
 });
 
