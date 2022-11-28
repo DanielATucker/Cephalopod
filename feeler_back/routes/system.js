@@ -72,7 +72,7 @@ router.post('/newUser', function (req, res) {
   console.log(username);
   console.log(password);
 
-  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
+  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '[]' T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
   res.json(JSON.stringify({message: 'message here'}));
 });
 
@@ -89,15 +89,14 @@ router.post('/login', function (req, res) {
   nodePromise.then((node) => {
     console.log(node);
     
-   if (node.username != "undefined") {
-    res.end(JSON.stringify({
-      "USERNAME": node.username
-    }));
+   if (node.loginHistory != "undefined") {
+    let loginHistory = node.loginHistory.concat();
+
+    Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = ${loginHistory}`);
+    res.end()
    }
    else {
-    res.end(JSON.stringify({
-      "USERNAME": "Invalid Credentials"
-    }));
+    res.end();
    }
   });
 });
