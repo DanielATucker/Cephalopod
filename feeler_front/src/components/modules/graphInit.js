@@ -50,15 +50,7 @@ export default class GraphInit extends React.Component {
             this.setState({
                 "username": username
             });
-    
-            if ((this.state.loginFormStatus === false) && (this.state.initButton === false)) {
-                this.setState({
-                    "usernameInitFormStatus": true
-                })
-            };
         });
-
-        
     };
 
     async doesExist(){
@@ -166,10 +158,18 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate(prevState) {
-        if ((this.state.usernameInput != prevState.usernameInput) && (this.state.passwordInput != prevState.passwordInput)) {
-            this.get_username();
+        if (this.state != prevState) {
+            if ((this.state.usernameInput != prevState.usernameInput) && (this.state.passwordInput != prevState.passwordInput)) {
+                this.get_username();
        
-            setInterval(this.get_username, 10000);
+                setInterval(this.get_username, 10000);
+            };
+
+            if ((this.state.loginFormStatus === false) && (this.state.initButton === false)) {
+                this.setState({
+                    "usernameInitFormStatus": true
+                })
+            };
         };
     }
     
