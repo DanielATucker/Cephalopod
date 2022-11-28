@@ -57,7 +57,7 @@ router.post('/newUser', (req, res) => {
 
   Database("MATCH (u: User) WHERE u.name = '{user}' SET u.user = '{user}', u.password = '{password}', u.privileges = 'user' ", user=username, password=password);
 
-  res.json({message: 'message here'});
+  res.json(JSON.stringify({message: 'message here'}));
 });
 
 export default router;
