@@ -250,9 +250,7 @@ export default class GraphInit extends React.Component {
                     type="password" 
                     value={this.state.passwordInput}
                     onChange={this.handlePasswordChange} />
-                    
-                    <p> Confirm new password </p>
-                    
+                                        
                     </label>
                     <br></br>
                     
