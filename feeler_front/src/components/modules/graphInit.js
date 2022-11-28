@@ -32,17 +32,15 @@ export default class GraphInit extends React.Component {
     };
 
     async get_username(){
-        let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (n)`);
+        let userResponse = await fetch('http://100.69.19.3:3001/system/getUsername');
         
-        nodePromise.then((node) => {
-            if ((typeof node !== 'undefined') && ( node !== null)&& (node !== "No Database found")) {
-                console.log(JSON.stringify(node));
-                
-                res.json({
-                    "username": node.properties.name
-                })
-            };
-        });
+        let node = await userResponse.json();
+        
+        console.log(JSON.stringify(node));
+
+        res.json({
+            "username": node.properties.name
+        })
     };
 
     async doesExist(){

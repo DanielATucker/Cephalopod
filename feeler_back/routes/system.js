@@ -121,6 +121,8 @@ router.get('/getUsername', (req, res) => {
         })
       }
       else {
+        console.log(JSON.stringify(node));
+
         res.json({
           "username": node.properties.name
         })
