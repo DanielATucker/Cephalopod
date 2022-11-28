@@ -71,16 +71,13 @@ router.post('/newUser', function (req, res) {
 
   let password = req.body.password;
 
-  console.log(username);
-  console.log(password);
-
-  console.log(req.session.id)
+  let id = req.session.id;
 
   console.log(`Session: ${JSON.stringify(req.session)}`);
 
   let now = strftime("%y%m%d_%X");
 
-  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
+  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${[now]}', u.sessionids = '${id}' T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
   res.end();
 });
 
