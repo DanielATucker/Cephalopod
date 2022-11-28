@@ -44,11 +44,9 @@ router.post('/newUser', function (req, res) {
   let session = req.session;
   console.log(`Body: ${JSON.stringify(req.body)}`);
 
-  let body = JSON.parse(req.body);
+  let username = body.username;
 
-  console.log(body);
-
-  let username = body.Body.username;
+  console.log(`Username: ${username}`)
 
   let password = body.Body.password;
 
