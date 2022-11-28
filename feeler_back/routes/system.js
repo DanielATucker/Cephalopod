@@ -89,13 +89,13 @@ router.post('/login', function (req, res) {
   nodePromise.then((node) => {
    if (node.properties.username != "undefined") {
     res.json(JSON.stringify({
-      "USERNAME": username
+      "USERNAME": node.properties.username
     }));
    }
    else {
-    res.json({
+    res.json(JSON.stringify({
       "USERNAME": "Invalid Credentials"
-    })
+    }));
    }
   });
 });
