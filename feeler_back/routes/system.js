@@ -40,8 +40,12 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', function(req, res) {
-  let session = req.session;
+router.post('/newUser', (var1, var2) => {
+  
+  console.log(var1);
+  console.log(var2);
+  
+  /*let session = req.session;
   console.log(`Session: ${session}`);
 
   let body = req.body;
@@ -55,9 +59,7 @@ router.post('/newUser', function(req, res) {
 
   Database("MATCH (u: User) WHERE u.name = '{user}' SET u.user = '{user}', u.password = '{password}', u.privileges = 'user' ", user=username, password=password);
 
-  res.json(JSON.stringify({
-    "status": "successfull"
-  }));
+  */
 });
 
 export default router;
