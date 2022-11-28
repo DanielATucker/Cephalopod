@@ -42,9 +42,11 @@ router.get('/systeminit', (req, res) => {
 
 router.post('/newUser', function (req, res) {  
   let session = req.session;
-  console.log(`Session: ${session}`);
+  console.log(`Body: ${req.body}`);
 
   let body = JSON.parse(req.body);
+
+  console.log(body);
 
   let username = body.username;
 
@@ -52,7 +54,7 @@ router.post('/newUser', function (req, res) {
 
   console.log(username);
   console.log(password);
-  
+
   Database("MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '{username}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted' ", username=username);
 
   Database("MATCH (u: User) WHERE u.name = '{user}' SET u.user = '{user}', u.password = '{password}', u.privileges = 'user' ", user=username, password=password);
