@@ -87,9 +87,11 @@ router.get('/login', function (req, res) {
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
   nodePromise.then((node) => {
-   if (node.properties.username != "undefined") {
+    console.log(node);
+    
+   if (node.username != "undefined") {
     res.send(JSON.stringify({
-      "USERNAME": node.properties.username
+      "USERNAME": node.username
     }));
    }
    else {
