@@ -144,6 +144,7 @@ export default class GraphInit extends React.Component {
 
     async handleInitUserFormSubmit(event) {
         event.preventDefault();
+        event.stopPropagation();
         
         if (this.state.passwordInput === this.state.password2Input) {
             console.log("Passwords are good");
