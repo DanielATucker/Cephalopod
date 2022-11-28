@@ -150,7 +150,7 @@ export default class GraphInit extends React.Component {
     };
 
     componentDidUpdate(prevState) {
-        if ((this.state.usernameInput != this.prevState.usernameInput) && (this.state.passwordInput != prevState.passwordInput)) {
+        if ((this.state.usernameInput != prevState.usernameInput) && (this.state.passwordInput != prevState.passwordInput)) {
             this.get_username();
        
             setInterval(this.get_username, 10000);
