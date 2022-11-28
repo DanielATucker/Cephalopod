@@ -76,7 +76,7 @@ router.post('/newUser', function (req, res) {
   res.json(JSON.stringify({message: 'message here'}));
 });
 
-router.post('/login', function (req, res) {    
+router.get('/login', function (req, res) {    
   let username = req.body.username;
 
   let password = req.body.password;
@@ -87,7 +87,16 @@ router.post('/login', function (req, res) {
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
   nodePromise.then((node) => {
-   console.log(`Node: ${JSON.stringify(node)}`);
+   if (node.properties.username != "undefined") {
+    res.json(JSON.stringify({
+      "USERNAME": username
+    }));
+   }
+   else {
+    res.json({
+      "USERNAME": "Invalid Credentials"
+    })
+   }
   });
 });
 

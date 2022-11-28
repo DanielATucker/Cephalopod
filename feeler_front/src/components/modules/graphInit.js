@@ -171,7 +171,7 @@ export default class GraphInit extends React.Component {
         event.nativeEvent.stopImmediatePropagation();
 
         fetch('http://100.69.19.3:3001/system/login', {
-            method: 'POST',
+            method: 'GET',
             mode: 'cors',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -181,6 +181,10 @@ export default class GraphInit extends React.Component {
                 "username": this.state.usernameInput,
                 "password": this.state.passwordInput
             })
+        }).then((response) => {
+            if (response.USERNAME != "Invalid Credentials"){
+                console.log(`Logged in as ${response.USERNAME}`)
+            }
         });
     };
 
