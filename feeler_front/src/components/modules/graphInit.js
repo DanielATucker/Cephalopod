@@ -173,7 +173,7 @@ export default class GraphInit extends React.Component {
                 console.log("UIFS");
                 
                 this.setState({
-                    "usernameInitFormStatus": true
+                    "loginFormStatus": true
                 })
             };
         };
