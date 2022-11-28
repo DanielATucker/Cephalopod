@@ -168,11 +168,13 @@ export default class GraphInit extends React.Component {
                 setInterval(this.get_username, 10000);
             };
 
+            /*
             if ((this.state.loginFormStatus === false) && (this.state.initButton === false) &&  ((prevState.loginFormStatus !== this.state.loginFormStatus) || (this.state.initButton !== prevState.initButton))) {
                 this.setState({
                     "usernameInitFormStatus": true
                 })
             };
+            */
         };
     }
     
