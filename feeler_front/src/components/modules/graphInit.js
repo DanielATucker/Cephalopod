@@ -75,8 +75,10 @@ export default class GraphInit extends React.Component {
             this.setState({
                 "initButton": true
             })
-        };
+        };       
+    };
 
+    async doesUserExist() {
         let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist');
         
         let userSystemStatus = await userResponse.json();
@@ -84,9 +86,6 @@ export default class GraphInit extends React.Component {
         this.setState({
             "doesUserExist": userSystemStatus.doesExist
         })
-
-
-        
     };
 
     async initSystem() {
@@ -170,7 +169,11 @@ export default class GraphInit extends React.Component {
     componentDidMount() {
         this.doesExist();
 
+        this.doesUserExist();
+
         setInterval(this.doesExist, 10000);
+
+        setInterval(this.doesUserExist, 10000);
 
         this.setState({
             "test": 2 
