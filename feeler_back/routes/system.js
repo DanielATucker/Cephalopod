@@ -40,15 +40,10 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', function (req, res) {  
-  let session = req.session;
-  console.log(`Body: ${JSON.stringify(req.body)}`);
-
+router.post('/newUser', function (req, res) {    
   let username = req.body.username;
 
-  console.log(`Username: ${username}`);
-
-  let password = body.Body.password;
+  let password = req.body.password;
 
   console.log(username);
   console.log(password);
