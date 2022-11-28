@@ -96,10 +96,10 @@ router.post('/login', function (req, res) {
    if (node.loginHistory != "undefined") {
     let nowRaw = strftime("%y%m%d_%X");
     
-    let now = {
-      nowRaw: "Logged in"
-    };
+    let now = {};
 
+    now[nowRaw] = "Logged in";
+    
     let loginHistory = node.properties.loginHistory;
     console.log(JSON.stringify(loginHistory));
 
