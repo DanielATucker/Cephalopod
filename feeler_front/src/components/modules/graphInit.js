@@ -201,6 +201,9 @@ export default class GraphInit extends React.Component {
             
             <Card>
                 <p> Does Exist: {this.state.doesSystemExist} </p>
+
+                <p> Does User Exist: {this.state.doesUserExist} </p>
+
                 <p>{this.state.initButton &&
 
                     <Button 
