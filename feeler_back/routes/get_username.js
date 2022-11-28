@@ -39,29 +39,4 @@ router.post('/', function (req, res) {
   });
 });
 
-router.post('/', function(req, res, next) {
-  let nodePromise = Database("MATCH (n)  WHERE n.name = 'test' RETURN (n)");
-
-  nodePromise.then((response) => {
-    if ((typeof response !== 'undefined') && ( response != null)) {
-      if ((typeof response == "string") && (response == "No Database found")) {
-        res.json({
-          "USERNAME":"No Database found"
-        });
-      }
-      else {
-        let properties = response.properties;
-
-        let username = properties.name;
-
-        res.json({"USERNAME": username});
-      };
-    }
-    else {
-      res.json({"USERNAME": "No User Found in database"});
-
-    }
-  });
-});
-
 export default router;
