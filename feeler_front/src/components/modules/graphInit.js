@@ -84,9 +84,7 @@ export default class GraphInit extends React.Component {
         let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist');
         
         let userSystemStatus = await userResponse.json();
-
-        console.log(userSystemStatus.doesExist);
-        
+                
         this.setState({
             "doesUserExist": userSystemStatus.doesExist
         })
