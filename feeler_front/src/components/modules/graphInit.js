@@ -109,7 +109,7 @@ export default class GraphInit extends React.Component {
             console.log("Passwords are good");
 
             fetch('http://100.69.19.3:3001/system/newUser', {
-                method: 'POST',
+                method: 'GET',
                 headers: {
                     'Accept': 'application/json, text/plain, */*',
                     'Content-Type': 'application/json'
@@ -118,7 +118,9 @@ export default class GraphInit extends React.Component {
                     "username": this.state.usernameInput,
                     "password": this.state.passwordInput
                 })
-            });
+            }).then((response) => {
+                console.log(response);
+            })
         }
         else {
             console.log("Passwords Didn't match, Try again");
