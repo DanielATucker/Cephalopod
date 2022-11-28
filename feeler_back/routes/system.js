@@ -40,7 +40,7 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', (req, res) => {
+router.post('/newUser', function(req, res) {
   let session = req.session;
   console.log(`Session: ${session}`);
 
