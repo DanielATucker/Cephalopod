@@ -98,14 +98,10 @@ router.post('/login', function (req, res) {
       }
       else {
         if (node === username) {
-          res.json({
-            "USERNAME": username
-          });
+          console.log(node);
         }
         else {
-          res.json({
-            "USERNAME": "Invalid credentials"
-          });
+          console.log(node);
         };
       };
     }
