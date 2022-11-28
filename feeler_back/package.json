@@ -16,6 +16,7 @@
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
-    "neo4j-driver": "^5.2.0"
+    "neo4j-driver": "^5.2.0",
+    "strftime": "^0.10.1"
   }
 }
