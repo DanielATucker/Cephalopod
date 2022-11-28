@@ -57,6 +57,7 @@ app.use("/system", systemRouter);
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
     secret: "abcd",
+    secure: false,
     saveUninitialized:true,
     resave: false,
     genid: function(req) {
