@@ -55,7 +55,6 @@ app.use(session({
 // Use Router
 app.use("/", indexRouter);
 app.use('/users', usersRouter);
-app.use("/get_username", getUsernameRouter);
 app.use("/system", systemRouter);
 
 app.use(cookieParser());
