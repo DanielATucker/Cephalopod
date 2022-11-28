@@ -66,7 +66,7 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', (req, res) => {    
+router.post('/newUser', function (req, res) {    
   let username = req.body.username;
 
   let password = req.body.password;
@@ -74,8 +74,7 @@ router.post('/newUser', (req, res) => {
   console.log(username);
   console.log(password);
 
-  let session = req.session;
-  console.log(`Session: ${session}`);
+  console.log(`req: ${req}`)
 
   let now = strftime("%y%m%d_%X");
 
