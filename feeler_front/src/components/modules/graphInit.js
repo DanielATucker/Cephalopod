@@ -26,6 +26,7 @@ export default class GraphInit extends React.Component {
         this.get_username = this.get_username.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
         this.handleInitUserFormSubmit = this.handleInitUserFormSubmit.bind(this);
+        this.handleLoginFormSubmit = this.handleLoginFormSubmit.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handlePassword2Change = this.handlePassword2Change.bind(this);
     };
