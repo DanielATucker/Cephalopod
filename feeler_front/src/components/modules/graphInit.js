@@ -170,6 +170,8 @@ export default class GraphInit extends React.Component {
 
             
             if ((this.state.loginFormStatus === false) && (this.state.initButton === false) &&  (prevState.username === "Pending") && (this.state.username !== prevState.username)) {
+                console.log("UIFS");
+                
                 this.setState({
                     "usernameInitFormStatus": true
                 })
