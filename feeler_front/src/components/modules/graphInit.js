@@ -9,6 +9,7 @@ export default class GraphInit extends React.Component {
         super(props)
 
         this.state = {
+            "test": 1,
             "doesSystemExist": "Pending",
             "initButton": false,
             "username": "Pending",
@@ -158,6 +159,10 @@ export default class GraphInit extends React.Component {
         this.doesExist();
 
         setInterval(this.doesExist, 10000);
+
+        this.setState({
+            "test": 2 
+        });
     };
 
     componentDidUpdate(prevState) {
@@ -165,14 +170,14 @@ export default class GraphInit extends React.Component {
             
             if ((this.state.doesExist != prevState.doesExist) && (this.state.doesExist === "System found.") && (this.state.username === "Pending")) {
                 this.setState({
-                    "usernameInitFormStatus" :true
+                    "usernameInitFormStatus": true
                 });
             };
 
-            if ((this.state.usernameInitFormStatus === false) && (this.state.initButton === false) &&  (this.state.username === "Pending")) {
+            if ((this.state.test != prevState.test) && (this.state.usernameInitFormStatus === false) && (this.state.initButton === false) &&  (this.state.username === "Pending")) {
                 this.setState({
                     "loginFormStatus": true
-                })
+                });
             };
         };
     };
