@@ -50,7 +50,7 @@ router.get('/doesUserExist', (req, res) => {
     }
     else {
       res.json({
-        "doesExist": "No system found. Recommended, Init System"
+        "doesExist": "No User found"
       });
     }
   });

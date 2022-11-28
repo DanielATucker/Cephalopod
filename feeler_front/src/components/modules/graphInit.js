@@ -11,6 +11,7 @@ export default class GraphInit extends React.Component {
         this.state = {
             "test": 1,
             "doesSystemExist": "Pending",
+            "doesUserExist": "Pending",
             "initButton": false,
             "username": "Pending",
             "usernameInput": "",
@@ -184,7 +185,7 @@ export default class GraphInit extends React.Component {
     componentDidUpdate(prevState) {
         if (this.state !== prevState) {
             
-            if ((this.state.doesUserExist != prevState.doesUserExist) && (this.state.doesUserExist != "User found") && (this.state.doesExist === "System found.")) {
+            if ((this.state.doesUserExist != prevState.doesUserExist) && (this.state.doesUserExist === "No User found") && (this.state.doesExist === "System found.")) {
                 this.setState({
                     "usernameInitFormStatus": true
                 });
