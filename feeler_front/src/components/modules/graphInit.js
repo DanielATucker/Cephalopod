@@ -196,7 +196,7 @@ export default class GraphInit extends React.Component {
                     "usernameInitFormStatus": false,
                     "loginFormStatus": true
                 });
-                console.log(1);
+                console.log(2);
             };
         };
     };
