@@ -5,6 +5,8 @@ const require = createRequire(import.meta.url);
 var express = require('express');
 var router = express.Router();
 
+var strftime = require('strftime') 
+
 import Database from "../components/Database.js";
 
 
@@ -72,7 +74,9 @@ router.post('/newUser', function (req, res) {
   console.log(username);
   console.log(password);
 
-  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '[]', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
+  let now = strftime("%y%m%d_%X");
+
+  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '[]', u.createrTime = '${now}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
   res.json(JSON.stringify({message: 'message here'}));
 });
 
@@ -90,7 +94,9 @@ router.post('/login', function (req, res) {
     console.log(node);
     
    if (node.loginHistory != "undefined") {
-    let loginHistory = node.properties.loginHistory.concat();
+    let now = strftime("%y%m%d_%X");
+    
+    let loginHistory = node.properties.loginHistory.concat(now);
 
     Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = ${loginHistory}`);
     res.end()
