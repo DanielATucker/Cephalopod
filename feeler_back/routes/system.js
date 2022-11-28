@@ -90,7 +90,7 @@ router.post('/login', function (req, res) {
     console.log(node);
     
    if (node.loginHistory != "undefined") {
-    let loginHistory = node.loginHistory.concat();
+    let loginHistory = node.properties.loginHistory.concat();
 
     Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = ${loginHistory}`);
     res.end()
