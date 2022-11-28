@@ -182,9 +182,7 @@ export default class GraphInit extends React.Component {
                 "password": this.state.passwordInput
             })
         }).then((response) => {
-            if (response.USERNAME != "Invalid Credentials"){
-                console.log(`Logged in as ${response.USERNAME}`)
-            }
+            console.log(response);
         });
     };
 
