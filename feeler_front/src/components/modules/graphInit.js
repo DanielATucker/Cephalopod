@@ -29,20 +29,37 @@ export default class GraphInit extends React.Component {
     };
 
     async get_username(){
-        const response = await fetch('http://100.69.19.3:3001/get_username');
-        let username = await response.json();
 
-        username = username.USERNAME;
-
-        this.setState({
-            "username": username
+        let response = fetch('http://100.69.19.3:3001/get_username', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "username": this.state.usernameInput,
+                "password": this.state.passwordInput
+            })
         });
 
-        if ((username === "No User Found in database") && (this.state.initButton === false)) {
+        response.next((node) => {
+            console.log(node);
+            
+            username = node.USERNAME;
+
             this.setState({
-                "usernameFormStatus": true
-            })
-        };
+                "username": username
+            });
+    
+            if ((username === "No User Found in database") && (this.state.initButton === false)) {
+                this.setState({
+                    "usernameFormStatus": true
+                })
+            };
+        });
+
+        
     };
 
     async doesExist(){
