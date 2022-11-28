@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 
 const bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
-const sessions = require('express-session');
+const session = require('express-session');
 var logger = require('morgan');
 var cors = require('cors')
 
@@ -55,7 +55,7 @@ app.use("/system", systemRouter);
 
 //init sessions
 const oneDay = 1000 * 60 * 60 * 24;
-app.use(sessions({
+app.use(session({
     secret: "abcd",
     saveUninitialized:true,
     cookie: { maxAge: oneDay },
