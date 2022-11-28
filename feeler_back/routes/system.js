@@ -114,20 +114,16 @@ router.get('/getUsername', (req, res) => {
   let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (n)`);
 
   nodePromise.then((node) => {
-    if ((typeof node !== 'undefined') && ( node != null)) {
-      if (node == "No Database found") {
-        res.json({
-          "doesExist" : "No Database found. Recommended, Start database"
-        })
-      }
-      else {
-        console.log(JSON.stringify(node));
+    if ((typeof node !== 'undefined') && ( node != null)&& (node != "No Database found")) {
+      console.log(JSON.stringify(node));
 
-        res.json({
-          "username": node.properties.name
-        })
-      }
+      res.json({
+        "username": node.properties.name
+      })
     }
+    else {
+      res.end();
+    } 
   });
 });
 
