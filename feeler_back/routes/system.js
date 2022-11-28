@@ -66,7 +66,7 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', function (req, res) {    
+router.post('/newUser', (req, res) => {    
   let username = req.body.username;
 
   let password = req.body.password;
