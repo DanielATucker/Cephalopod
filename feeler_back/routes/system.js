@@ -100,7 +100,7 @@ router.post('/login', function (req, res) {
 
     console.log(loginHistory);
 
-    loginHistory.concat({now: "Logged in"}); 
+    loginHistory = loginHistory.concat({now: "Logged in"}); 
 
     Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = ${loginHistory}`);
     res.end()
