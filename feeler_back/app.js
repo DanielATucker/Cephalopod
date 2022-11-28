@@ -59,14 +59,13 @@ app.use(session({
     secret: "abcd",
     saveUninitialized:true,
     cookie: { maxAge: oneDay },
-    resave: false 
+    resave: false,
+    genid: function(req) {
+      return genuuid() // use UUIDs for session IDs
+    },
 }));
 
 app.use(cookieParser());
-
-app.get('/test', (req, res) => {
-  res.send('test')
-});
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
