@@ -172,9 +172,14 @@ export default class GraphInit extends React.Component {
 
         this.doesUserExist();
 
+        this.get_username();
+
         setInterval(this.doesExist, 10000);
 
         setInterval(this.doesUserExist, 10000);
+
+        setInterval(this.get_username, 10000);
+
 
         this.setState({
             "test": 2 
