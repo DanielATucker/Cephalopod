@@ -98,7 +98,9 @@ router.post('/login', function (req, res) {
     
     let loginHistory = node.properties.loginHistory;
 
-    loginHistory[now] =  "Logged in"; 
+    console.log(loginHistory);
+    
+    loginHistory[now] = "Logged in"; 
 
     Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = ${loginHistory}`);
     res.end()
