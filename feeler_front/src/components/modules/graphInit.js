@@ -170,10 +170,10 @@ export default class GraphInit extends React.Component {
         event.preventDefault();
         event.nativeEvent.stopImmediatePropagation();
 
-        fetch('http://100.69.19.3:3001/system/login', {
+        fetch('http://100.69.19.3:3001/system/login', JSON.stringify({
             "username": this.state.usernameInput,
             "password": this.state.passwordInput
-        }).then((response) => {
+        })).then((response) => {
             console.log(response);
         });
     };
