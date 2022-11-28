@@ -58,7 +58,6 @@ const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
     secret: "abcd",
     saveUninitialized:true,
-    cookie: { maxAge: oneDay },
     resave: false,
     genid: function(req) {
       return genuuid() // use UUIDs for session IDs
