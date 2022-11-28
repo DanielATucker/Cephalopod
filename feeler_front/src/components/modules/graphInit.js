@@ -42,6 +42,8 @@ export default class GraphInit extends React.Component {
             })
         });
 
+        /*
+
         response.next((node) => {
             console.log(JSON.stringify(node));
             
@@ -51,6 +53,7 @@ export default class GraphInit extends React.Component {
                 "username": username
             });
         });
+        */
     };
 
     async doesExist(){
