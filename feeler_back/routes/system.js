@@ -74,12 +74,12 @@ router.post('/newUser', function (req, res) {
   console.log(username);
   console.log(password);
 
-  console.log(`req: ${JSON.stringify(req)}`)
+  console.log(`req: ${JSON.stringify(req)}`);
 
   let now = strftime("%y%m%d_%X");
 
   Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
-  res.json(JSON.stringify({message: 'message here'}));
+  res.end();
 });
 
 router.post('/login', function (req, res) {    
