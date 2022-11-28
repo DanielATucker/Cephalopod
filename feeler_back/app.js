@@ -16,6 +16,8 @@ const session = require('express-session');
 var logger = require('morgan');
 var cors = require('cors')
 
+const { v4: uuidv4 } = require('uuid');
+
 
 //Routes 
 
@@ -50,9 +52,7 @@ app.use(bodyParser.json());
 app.use(session({ 
   secret: 'keyboard cat',
   cookie: { maxAge: 60000 },
-  genid: function(req) {
-    return genuuid() // use UUIDs for session IDs
-  }
+  id: uuidv4()
 }))
 
 // Use Router
