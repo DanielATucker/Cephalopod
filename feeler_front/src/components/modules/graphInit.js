@@ -46,7 +46,7 @@ export default class GraphInit extends React.Component {
         response.next((node) => {
             console.log(node);
             
-            username = node.USERNAME;
+            let username = node.USERNAME;
 
             this.setState({
                 "username": username
