@@ -82,7 +82,7 @@ export default class GraphInit extends React.Component {
         let userSystemStatus = await userResponse.json();
 
         this.setState({
-            "doesUserExist": userSystemStatus.doesUserExist
+            "doesUserExist": userSystemStatus.doesExist
         })
 
 
