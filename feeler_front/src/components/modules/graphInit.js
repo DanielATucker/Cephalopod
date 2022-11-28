@@ -67,7 +67,8 @@ export default class GraphInit extends React.Component {
 
         if (systemStatus.doesExist === "System found.") {
             this.setState({
-                "initButton": false
+                "initButton": false,
+                "usernameInitFormStatus": true
             });
         }
         else if (systemStatus.doesExist ===  "No system found. Recommended, Init System") {
@@ -75,6 +76,8 @@ export default class GraphInit extends React.Component {
                 "initButton": true
             })
         };
+
+        
     };
 
     async initSystem() {
@@ -168,7 +171,7 @@ export default class GraphInit extends React.Component {
     componentDidUpdate(prevState) {
         if (this.state !== prevState) {
             
-            if ((this.state.doesExist != prevState.doesExist) && (this.state.doesExist === "System found.") && (this.state.username === "Pending")) {
+            if ((this.state.test != prevState.test) && (this.state.doesExist === "System found.") && (this.state.username === "Pending")) {
                 this.setState({
                     "usernameInitFormStatus": true
                 });

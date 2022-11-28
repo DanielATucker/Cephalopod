@@ -32,6 +32,30 @@ router.get('/doesExist', (req, res) => {
   });
 });
 
+router.get('/doesUserExist', (req, res) => {
+  let nodePromise = Database("MATCH (m: Main), (u: User) WHERE (m)<-[*]-(u) RETURN (u)");
+
+  nodePromise.then((node) => {
+    if ((typeof node !== 'undefined') && ( node != null)) {
+      if (node == "No Database found") {
+        res.json({
+          "doesExist" : "No Database found. Recommended, Start database"
+        })
+      }
+      else {
+        res.json({
+          "doesExist": "User found"
+        });
+      }
+    }
+    else {
+      res.json({
+        "doesExist": "No system found. Recommended, Init System"
+      });
+    }
+  });
+});
+
 router.get('/systeminit', (req, res) => {
   Database("CREATE (n: Main) SET n.name = 'Main'");
 
