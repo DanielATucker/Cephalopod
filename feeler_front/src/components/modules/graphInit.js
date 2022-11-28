@@ -13,9 +13,11 @@ export default class GraphInit extends React.Component {
             "initButton": false,
             "username": "Pending",
             "username2": "",
+            "usernameFinal": "",
             "usernameInput": "",
             "passwordInput": "",
             "password2Input": "",
+            "passwordFinal": "",
             "usernameFormStatus": false,
             "usernameForm": false
         };
@@ -23,7 +25,7 @@ export default class GraphInit extends React.Component {
         this.doesExist = this.doesExist.bind(this);
         this.get_username = this.get_username.bind(this);
         this.handleUsernameChange = this.handleUsernameChange.bind(this);
-        this.handleFormSubmit = this.handleFormSubmit.bind(this);
+        this.handleInitUserFormSubmit = this.handleInitUserFormSubmit.bind(this);
         this.handlePasswordChange = this.handlePasswordChange.bind(this);
         this.handlePassword2Change = this.handlePassword2Change.bind(this);
     };
@@ -119,7 +121,7 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    async handleFormSubmit(event) {
+    async handleInitUserFormSubmit(event) {
         event.preventDefault();
         
         if (this.state.passwordInput === this.state.password2Input) {
@@ -134,7 +136,31 @@ export default class GraphInit extends React.Component {
                 },
                 body: JSON.stringify({
                     "username": this.state.usernameInput,
-                    "password": this.state.passwordInput
+                    "password": this.state.password2Input
+                })
+            });
+        }
+        else {
+            console.log("Passwords Didn't match, Try again");
+        }
+    };
+
+    async handleLoginFormSubmit(event) {
+        event.preventDefault();
+        
+        if (this.state.usernamePassword === this.state.usernamePassword2) {
+            console.log("Passwords are good");
+
+            fetch('http://100.69.19.3:3001/system/newUser', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Accept': 'application/json, text/plain, */*',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    "username": this.state.usernameLogin,
+                    "password": this.state.usernamePassword
                 })
             });
         }
@@ -178,7 +204,7 @@ export default class GraphInit extends React.Component {
                 
                 <>
 
-                <form onSubmit={this.handleFormSubmit}>
+                <form onSubmit={this.handleInitUserFormSubmit}>
                     <label>
 
                     <p> New username </p>
