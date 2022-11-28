@@ -74,7 +74,7 @@ router.post('/newUser', function (req, res) {
   console.log(username);
   console.log(password);
 
-  console.log(`req: ${req.JSON}`);
+  console.log(`Session: ${req.session}`);
 
   let now = strftime("%y%m%d_%X");
 
