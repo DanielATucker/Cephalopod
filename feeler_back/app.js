@@ -47,17 +47,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//init sessions
-const oneDay = 1000 * 60 * 60 * 24;
-app.use(session({
-    secret: "abcd",
-    secure: false,
-    saveUninitialized:true,
-    resave: false,
-    genid: function(req) {
-      return genuuid() // use UUIDs for session IDs
-    },
-}));
+app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 }}))
 
 // Use Router
 app.use("/", indexRouter);
