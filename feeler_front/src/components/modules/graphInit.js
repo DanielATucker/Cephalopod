@@ -77,6 +77,15 @@ export default class GraphInit extends React.Component {
             })
         };
 
+        let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist');
+        
+        let userSystemStatus = await userResponse.json();
+
+        this.setState({
+            "doesUserExist": userSystemStatus.doesUserExist
+        })
+
+
         
     };
 
@@ -177,8 +186,9 @@ export default class GraphInit extends React.Component {
                 });
             };
 
-            if ( (this.state.doesExist != prevState.doesExist) && (this.state.doesExist === "System found.") && (this.state.usernameInitFormStatus === false) && (this.state.initButton === false) &&  (this.state.username === "Pending")) {
+            if ((this.state.doesUserExist != prevState.doesUserExist) && (this.state.doesUserExist != "undefined")  &&  (this.state.username === "Pending")) {
                 this.setState({
+                    "usernameInitFormStatus": false,
                     "loginFormStatus": true
                 });
             };
