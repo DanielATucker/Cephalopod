@@ -50,7 +50,7 @@ router.get('/doesUserExist', (req, res) => {
     }
     else {
       res.json({
-        "doesExist": "No User found"
+        "doesExist": "No user found"
       });
     }
   });
