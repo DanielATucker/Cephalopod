@@ -121,7 +121,7 @@ router.get('/getUsername', (req, res) => {
       })
     }
     else {
-      res.sendStatus(200)
+      res.json({ok:true});
     } 
   });
 });
