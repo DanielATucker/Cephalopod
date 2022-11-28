@@ -184,6 +184,7 @@ export default class GraphInit extends React.Component {
                 this.setState({
                     "usernameInitFormStatus": true
                 });
+                console.log(1);
             };
 
             if ((this.state.doesUserExist != prevState.doesUserExist) && (this.state.doesUserExist == "User found")) {
@@ -191,6 +192,7 @@ export default class GraphInit extends React.Component {
                     "usernameInitFormStatus": false,
                     "loginFormStatus": true
                 });
+                console.log(2);
             };
         };
     };
