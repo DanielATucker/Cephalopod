@@ -32,32 +32,17 @@ export default class GraphInit extends React.Component {
     };
 
     async get_username(){
-
-        let response = fetch('http://100.69.19.3:3001/get_username', {
-            method: 'POST',
-            mode: 'cors',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                "username": this.state.usernameInput,
-                "password": this.state.passwordInput
-            })
+        let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (n)`);
+        
+        nodePromise.then((node) => {
+            if ((typeof node !== 'undefined') && ( node !== null)&& (node !== "No Database found")) {
+                console.log(JSON.stringify(node));
+                
+                res.json({
+                    "username": node.properties.name
+                })
+            };
         });
-
-        /*
-
-        response.next((node) => {
-            console.log(JSON.stringify(node));
-            
-            let username = node.USERNAME;
-
-            this.setState({
-                "username": username
-            });
-        });
-        */
     };
 
     async doesExist(){
@@ -181,9 +166,7 @@ export default class GraphInit extends React.Component {
                 "username": this.state.usernameInput,
                 "password": this.state.passwordInput
             })
-        }).then((response) => {
-            console.log(response)
-        });
+        })
     };
 
     componentDidMount() {

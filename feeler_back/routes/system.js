@@ -76,7 +76,7 @@ router.post('/newUser', function (req, res) {
 
   let now = strftime("%y%m%d_%X");
 
-  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', u.sessionIds = '${JSON.stringify([id])}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
+  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', u.id = '${id}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
   res.end();
 });
 
@@ -105,6 +105,27 @@ router.post('/login', function (req, res) {
    else {
     res.end();
    }
+  });
+});
+
+router.get('/getUsername', (req, res) => {
+  let userId = req.session.id;
+  
+  let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (n)`);
+
+  nodePromise.then((node) => {
+    if ((typeof node !== 'undefined') && ( node != null)) {
+      if (node == "No Database found") {
+        res.json({
+          "doesExist" : "No Database found. Recommended, Start database"
+        })
+      }
+      else {
+        res.json({
+          "username": node.properties.name
+        })
+      }
+    }
   });
 });
 
