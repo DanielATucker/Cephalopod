@@ -94,7 +94,7 @@ router.post('/login', function (req, res) {
       if (node == "No Database found") {
         res.json({
           "doesExist" : "No Database found. Recommended, Start database"
-        })
+        });
       }
       else {
         if (node === username) {
@@ -109,7 +109,7 @@ router.post('/login', function (req, res) {
       res.json({
         "doesExist": "No system found. Recommended, Init System"
       });
-    }
+    };
   });
   res.json(JSON.stringify({message: 'message here'}));
 });
