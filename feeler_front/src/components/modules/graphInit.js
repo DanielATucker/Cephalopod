@@ -265,7 +265,7 @@ export default class GraphInit extends React.Component {
                 }
 
                 {this.state.loginFormStatus &&
-                    <form onSubmit={this.handleloginFormSubmit}>
+                    <form onSubmit={this.handleLoginFormSubmit}>
                     <label>
 
                     <h3> Login </h3>
