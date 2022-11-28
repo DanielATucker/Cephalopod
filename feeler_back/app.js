@@ -10,10 +10,12 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 const sessions = require('express-session');
 var logger = require('morgan');
 var cors = require('cors')
+
 
 //Routes 
 
@@ -40,6 +42,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+//BodyParser
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // Use Router
 app.use("/", indexRouter);
