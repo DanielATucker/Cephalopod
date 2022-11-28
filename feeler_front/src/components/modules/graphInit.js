@@ -84,9 +84,11 @@ export default class GraphInit extends React.Component {
         let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist');
         
         let userSystemStatus = await userResponse.json();
-                
+
         this.setState({
-            "doesUserExist": userSystemStatus.doesExist
+            "doesUserExist": userSystemStatus.doesExist,
+            "usernameInitFormStatus": false,
+            "loginFormStatus": true
         })
     };
 
@@ -190,14 +192,6 @@ export default class GraphInit extends React.Component {
                     "usernameInitFormStatus": true
                 });
                 console.log(1);
-            };
-
-            if ((this.state.doesUserExist != prevState.doesUserExist) && (this.state.doesUserExist === "User found") && (this.state.doesExist === "System found.")) {
-                this.setState({
-                    "usernameInitFormStatus": false,
-                    "loginFormStatus": true
-                });
-                console.log(2);
             };
         };
     };
