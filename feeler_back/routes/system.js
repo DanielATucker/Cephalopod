@@ -48,9 +48,9 @@ router.post('/newUser', function (req, res) {
 
   console.log(body);
 
-  let username = body.body.username;
+  let username = body.Body.username;
 
-  let password = body.body.password;
+  let password = body.Body.password;
 
   console.log(username);
   console.log(password);
