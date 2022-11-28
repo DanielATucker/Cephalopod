@@ -162,16 +162,14 @@ export default class GraphInit extends React.Component {
 
     componentDidUpdate(prevState) {
         if (this.state !== prevState) {
-            if ((this.state.usernameInput !== prevState.usernameInput) && (this.state.passwordInput != prevState.passwordInput)) {
-                this.get_username();
-       
-                setInterval(this.get_username, 10000);
+            
+            if ((this.state.doesExist === "System found.") && (username === "Pending")) {
+                this.setState({
+                    "usernameInitFormStatus" :true
+                });
             };
 
-            
-            if ((this.state.loginFormStatus === false) && (this.state.initButton === false) &&  (this.state.username === "Pending")) {
-                console.log("UIFS");
-                
+            if ((this.state.usernameInitFormStatus === false) && (this.state.initButton === false) &&  (this.state.username === "Pending")) {
                 this.setState({
                     "loginFormStatus": true
                 })
@@ -250,7 +248,7 @@ export default class GraphInit extends React.Component {
                     type="password" 
                     value={this.state.passwordInput}
                     onChange={this.handlePasswordChange} />
-                                        
+
                     </label>
                     <br></br>
                     

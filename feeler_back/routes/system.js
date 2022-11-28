@@ -9,7 +9,7 @@ import Database from "../components/Database.js";
 
 
 router.get('/doesExist', (req, res) => {
-  let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n) ");
+  let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n)");
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node != null)) {
