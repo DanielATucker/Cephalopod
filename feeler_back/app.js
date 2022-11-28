@@ -59,6 +59,14 @@ app.use(session({
     },
 }));
 
+// Use Router
+app.use("/", indexRouter);
+app.use('/users', usersRouter);
+app.use("/get_username", getUsernameRouter);
+app.use("/system", systemRouter);
+
+
+
 app.use(cookieParser());
 
 // catch 404 and forward to error handler
@@ -76,11 +84,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-
-// Use Router
-app.use("/", indexRouter);
-app.use('/users', usersRouter);
-app.use("/get_username", getUsernameRouter);
-app.use("/system", systemRouter);
 
 export default app;
