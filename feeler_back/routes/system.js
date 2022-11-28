@@ -105,13 +105,7 @@ router.post('/login', function (req, res) {
         };
       };
     }
-    else {
-      res.json({
-        "doesExist": "No system found. Recommended, Init System"
-      });
-    };
   });
-  res.json(JSON.stringify({message: 'message here'}));
 });
 
 export default router;
