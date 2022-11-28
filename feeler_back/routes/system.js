@@ -76,7 +76,7 @@ router.post('/newUser', function (req, res) {
   res.json(JSON.stringify({message: 'message here'}));
 });
 
-router.get('/login', function (req, res) {    
+router.post('/login', function (req, res) {    
   let username = req.body.username;
 
   let password = req.body.password;

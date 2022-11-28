@@ -171,7 +171,7 @@ export default class GraphInit extends React.Component {
         event.nativeEvent.stopImmediatePropagation();
 
         fetch('http://100.69.19.3:3001/system/login', {
-            method: 'GET',
+            method: 'POST',
             mode: 'cors',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
