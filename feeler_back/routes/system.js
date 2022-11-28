@@ -87,7 +87,7 @@ router.post('/login', function (req, res) {
   console.log(username);
   console.log(password);
 
-  let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN n.username `);
+  let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
   nodePromise.then((node) => {
    console.log(`Node: ${JSON.stringify(node)}`);
