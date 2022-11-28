@@ -47,6 +47,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// Use Router
+app.use("/", indexRouter);
+app.use('/users', usersRouter);
+app.use("/get_username", getUsernameRouter);
+app.use("/system", systemRouter);
+
 //init sessions
 const oneDay = 1000 * 60 * 60 * 24;
 app.use(session({
@@ -58,14 +64,6 @@ app.use(session({
       return genuuid() // use UUIDs for session IDs
     },
 }));
-
-// Use Router
-app.use("/", indexRouter);
-app.use('/users', usersRouter);
-app.use("/get_username", getUsernameRouter);
-app.use("/system", systemRouter);
-
-
 
 app.use(cookieParser());
 
