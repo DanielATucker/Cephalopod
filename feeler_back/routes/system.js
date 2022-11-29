@@ -98,12 +98,13 @@ router.post('/login', function (req, res) {
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
 
+      let sessionIds = [];
+
       if (typeof node.properties.sessionIds === "undefined") {
-        let sessionIds = [];
         sessionIds.concat(req.session.id);
       }
       else {
-        let sessionIds = node.properties.sessionIds;
+        sessionIds.concat(node.properties.sessionIds);
         sessionIds.concat(req.session.id);
       };
       
