@@ -88,19 +88,21 @@ router.post('/login', function (req, res) {
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
   nodePromise.then((node) => {    
-    let nowRaw = strftime("%y%m%d_%X");
+    if ((typeof node !== 'undefined') && ( node != null) && (node == "No Database found")) {
+      let nowRaw = strftime("%y%m%d_%X");
     
-    let now = {};
+      let now = {};
 
-    now[nowRaw] = "Logged in";
+      now[nowRaw] = "Logged in";
 
-    let loginHistory = node.properties.loginHistory;
+      let loginHistory = node.properties.loginHistory;
 
-    loginHistory = loginHistory.concat(JSON.stringify(now)); 
+      loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
-    Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
+      Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
     
-    res.json({"status": "success"});
+      res.json({"status": "success"});
+    }
   });
 });
 
