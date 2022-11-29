@@ -71,12 +71,12 @@ router.post('/newUser', function (req, res) {
 
   let password = req.body.password;
 
-  let id = req.session.id;
+  let [sessionIds] = req.session.id;
 
 
   let now = strftime("%y%m%d_%X");
 
-  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', u.id = '${id}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
+  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (J: JournalMaster), (TC: TaskCompleted), (u)-[r: link]->(m), (J)-[s: link]->(u), (T)-[t: link]->(u), (TC)-[l: link]->(T) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', u.sessionIds = '${sessionIds}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted'`);
   res.end();
 });
 
@@ -95,11 +95,16 @@ router.post('/login', function (req, res) {
 
       now[nowRaw] = "Logged in";
 
+      
       let loginHistory = node.properties.loginHistory;
 
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
-      Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
+
+      let sessionIds = node.sessionIds.concat(req.session.id);
+
+
+      Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}', n.sessionIds = '${sessionIds}'`);
     
       res.json({"status": "success"});
     }
@@ -109,16 +114,11 @@ router.post('/login', function (req, res) {
 router.get('/getUsername', (req, res) => {
   let userId = req.session.id;
   
-  let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (u)`);
+  let nodePromise = Database(`MATCH (u: User) RETURN (u.sessionIds)`);
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
       console.log(`NODE ${JSON.stringify(node)}`);
-      console.log(`USERNAME ${node.properties.name}`);
-      
-      res.json({
-        "username": node.properties.name
-      })
     }
     else {
       res.json({"username": "Not logged in"});
