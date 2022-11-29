@@ -118,7 +118,7 @@ router.get('/getUsername', (req, res) => {
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
-      console.log(`NODE ${JSON.stringify(node)}`);
+      console.log(`NODE ${node}`);
     }
     else {
       res.json({"username": "Not logged in"});
