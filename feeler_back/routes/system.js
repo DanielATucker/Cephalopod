@@ -110,7 +110,7 @@ router.post('/login', function (req, res) {
 router.get('/getUsername', (req, res) => {
   let userId = req.session.id;
   
-  let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (n)`);
+  let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (u)`);
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node != null) && (node != "No Database found")) {
