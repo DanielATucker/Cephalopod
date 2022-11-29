@@ -98,7 +98,7 @@ router.post('/login', function (req, res) {
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
       let sessionIds = [];
-      sessionIds.concat(JSON.strinfigy(node.properties.sessionIds));
+      sessionIds.concat(JSON.stringify(node.properties.sessionIds));
       sessionIds.concat(JSON.stringify(req.session.id));
       
       console.log(JSON.stringify(sessionIds));
