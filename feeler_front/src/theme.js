@@ -13,8 +13,8 @@ export const Theme = createTheme({
       primary: '#d20104',
     },
     background: {
+      paper: '#120f0f',
       default: '#120f0f',
-      paper: '#484646',
     },
   },
 });
