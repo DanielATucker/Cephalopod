@@ -71,7 +71,8 @@ router.post('/newUser', function (req, res) {
 
   let password = req.body.password;
 
-  let [sessionIds] = req.session.id;
+  let sessionIds = []
+  sessionIds.concat(req.session.id);
 
 
   let now = strftime("%y%m%d_%X");
