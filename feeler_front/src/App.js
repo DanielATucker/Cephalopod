@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Card } from '@mui/material';
 
 import Main from "./components/main.js";
-import { Theme } from "./theme.js";
+import { Theme, ThemeProvider } from "./theme.js";
 
 
 export default class App extends Component {
