@@ -1,4 +1,3 @@
-import { ThemeOptions } from '@material-ui/core/styles/createMuiTheme';
 import { createTheme } from '@mui/material/styles';
 
 export const Theme = createTheme({
