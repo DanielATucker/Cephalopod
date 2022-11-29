@@ -84,9 +84,9 @@ router.post('/login', function (req, res) {
 
   let password = req.body.password;
 
-  let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
+  let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`,);
 
-  nodePromise.then((node, Id) => {    
+  nodePromise.then(node, Id => {    
     if ((typeof node !== 'undefined') && ( node != null) && (node !== "No Database found")) {
       let nowRaw = strftime("%y%m%d_%X");
     
