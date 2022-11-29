@@ -97,19 +97,12 @@ router.post('/login', function (req, res) {
 
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
-
       let sessionIds = [];
-
-      if (typeof node.properties.sessionIds === "undefined") {
-        sessionIds.concat(req.session.id);
-      }
-      else {
-        sessionIds.concat(node.properties.sessionIds);
-        sessionIds.concat(req.session.id);
-      };
+      sessionIds.concat(node.properties.sessionIds);
+      sessionIds.concat(req.session.id);
       
       console.log(JSON.stringify(sessionIds));
-      
+
       Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}', n.sessionIds = '${sessionIds}'`);
     
       res.json({"status": "success"});
