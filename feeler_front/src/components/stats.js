@@ -86,15 +86,15 @@ export default class Stats extends React.Component {
                         "id": 1,
                         "label": "CPU",
                         "data": this.state.data.CPU_Percent_list,
-                        "borderColor": "rgb(235, 52, 235)",
-                        "backgroundColor": "rgb(235, 52, 235)"
+                        "borderColor": "rgb(215, 34, 34)",
+                        "backgroundColor": "rgb(215, 34, 34)"
                     },
                     {
                         "id": 2,
                         "label": "RAM",
                         "data": this.state.data.RAM_Percent_list,
-                        "borderColor": "rgb(255, 0, 0)",
-                        "backgroundColor": "rgb(255, 0, 0)"
+                        "borderColor": "rgb(34, 215, 206)",
+                        "backgroundColor": "rgb(34, 216, 206)"
                     }
                 ]
             };
@@ -107,15 +107,15 @@ export default class Stats extends React.Component {
                         "id": 3,
                         "label": "Upload Total",
                         "data": this.state.data.Upload_list,
-                        "borderColor": "rgb(235, 52, 235)",
-                        "backgroundColor": "rgb(235, 52, 235)"
+                        "borderColor": "rgb(215, 106, 34)",
+                        "backgroundColor": "rgb(215, 106, 34)"
                     },
                     {
                         "id": 4,
                         "label": "Download Total",
                         "data": this.state.data.Download_list,
-                        "borderColor": "rgb(255, 0, 0)",
-                        "backgroundColor": "rgb(255, 0, 0)"
+                        "borderColor": "rgb(34, 215, 155)",
+                        "backgroundColor": "rgb(34, 215, 155)"
                     }
                     
                 ]
@@ -129,15 +129,15 @@ export default class Stats extends React.Component {
                         "id": 5,
                         "label": "Upload Speed",
                         "data": this.state.data.Upload_Speed_list,
-                        "borderColor": "rgb(235, 52, 235)",
-                        "backgroundColor": "rgb(235, 52, 235)"
+                        "borderColor": "rgb(34, 173, 215)",
+                        "backgroundColor": "rgb(34, 173, 215)"
                     },
                     {
                         "id": 6,
                         "label": "Download Speed",
                         "data": this.state.data.Download_Speed_list,
-                        "borderColor": "rgb(255, 0, 0)",
-                        "backgroundColor": "rgb(255, 0, 0)"
+                        "borderColor": "rgb(246, 203, 30)",
+                        "backgroundColor": "rgb(246, 2203, 30)"
                     }
                     
                 ]
