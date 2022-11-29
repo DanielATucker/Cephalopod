@@ -113,8 +113,6 @@ router.get('/getUsername', (req, res) => {
   let nodePromise = Database(`MATCH (u: User) WHERE u.id = '${userId}' RETURN (u)`);
 
   nodePromise.then((node) => {
-    console.log(`NODE ${JSON.stringify(node)}`);
-
     if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
       console.log(`NODE ${JSON.stringify(node)}`);
       console.log(`USERNAME ${node.properties.name}`);
