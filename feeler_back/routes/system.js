@@ -78,7 +78,7 @@ router.post('/newUser', function (req, res) {
 });
 
 router.post('/login', function (req, res) {    
-  console.log(JSON.stringify(req.session.id));
+  let Id = req.session.id;
   
   let username = req.body.username;
 
@@ -86,7 +86,7 @@ router.post('/login', function (req, res) {
 
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
-  nodePromise.then((node) => {    
+  nodePromise.then((node, Id) => {    
     if ((typeof node !== 'undefined') && ( node != null) && (node !== "No Database found")) {
       let nowRaw = strftime("%y%m%d_%X");
     
@@ -101,7 +101,7 @@ router.post('/login', function (req, res) {
 
       let sessionIds = [];
       sessionIds.concat(`IDs: ${JSON.stringify(node.properties.sessionIds)}`);
-      sessionIds.concat(`ID: ${JSON.stringify(req.session.id)}`);
+      sessionIds.concat(`ID: ${Id}}`);
       
       console.log(JSON.stringify(sessionIds));
 
