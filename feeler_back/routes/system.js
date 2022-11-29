@@ -88,7 +88,6 @@ router.post('/login', function (req, res) {
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
   nodePromise.then((node) => {    
-   if (node.loginHistory != "undefined") {
     let nowRaw = strftime("%y%m%d_%X");
     
     let now = {};
@@ -100,10 +99,6 @@ router.post('/login', function (req, res) {
     loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
     Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
-   }
-   else {
-    res.sendStatus(200)
-  }
   });
 });
 
