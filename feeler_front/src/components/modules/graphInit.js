@@ -154,7 +154,6 @@ export default class GraphInit extends React.Component {
 
     handleLoginFormSubmit(event) {
         event.preventDefault();
-        event.nativeEvent.stopImmediatePropagation();
 
         fetch('http://100.69.19.3:3001/system/login', {
             method: 'POST',
