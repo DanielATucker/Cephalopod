@@ -79,7 +79,8 @@ router.post('/newUser', function (req, res) {
 
 router.post('/login', function (req, res) {    
   let Id = req.session.id;
-  
+  console.log(`ID1: ${JSON.stringify(Id)}}`);
+
   let username = req.body.username;
 
   let password = req.body.password;
@@ -101,7 +102,7 @@ router.post('/login', function (req, res) {
 
       let sessionIds = [];
       sessionIds.concat(`IDs: ${JSON.stringify(node.properties.sessionIds)}`);
-      sessionIds.concat(`ID: ${Id}}`);
+      sessionIds.concat(`ID: ${JSON.stringify(Id)}}`);
       
       console.log(JSON.stringify(sessionIds));
 
@@ -120,7 +121,6 @@ router.get('/getUsername', (req, res) => {
   nodePromise.then(node => {
     if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
       console.log(`NODE ${JSON.stringify(node)}`);
-      console.log(`User Id: ${userId}`);
     }
     else {
       res.json({"username": "Not logged in"});
