@@ -108,6 +108,8 @@ router.post('/login', function (req, res) {
         sessionIds.concat(req.session.id);
       };
       
+      console.log(JSON.stringify(sessionIds));
+      
       Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}', n.sessionIds = '${sessionIds}'`);
     
       res.json({"status": "success"});
