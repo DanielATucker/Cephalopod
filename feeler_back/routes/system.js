@@ -117,10 +117,9 @@ router.get('/getUsername', (req, res) => {
   
   let nodePromise = Database(`MATCH (u: User) RETURN u.sessionIds`);
 
-  nodePromise.then((node) => {
+  nodePromise.then(node => {
     if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
       console.log(`NODE ${JSON.stringify(node)}`);
-      res.json({"status": "fail"})
     }
     else {
       res.json({"username": "Not logged in"});
