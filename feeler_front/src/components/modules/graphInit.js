@@ -36,7 +36,7 @@ export default class GraphInit extends React.Component {
         
         let node = await userResponse.json();
         
-        if ((node !== "undefined") && (node !== "null")) {
+        if ((node !== "undefined") && (node !== "null") && (node.username !== "Not logged in")) {
             console.log(`NODE: ${JSON.stringify(node)}`);
             console.log(`USERNAME: ${JSON.stringify(node.username)}`);
 
