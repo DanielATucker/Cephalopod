@@ -86,7 +86,7 @@ router.post('/login', function (req, res) {
 
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`,);
 
-  nodePromise.then(node, Id => {    
+  nodePromise.then(node => {    
     if ((typeof node !== 'undefined') && ( node != null) && (node !== "No Database found")) {
       let nowRaw = strftime("%y%m%d_%X");
     
@@ -119,7 +119,7 @@ router.get('/getUsername', (req, res) => {
 
   nodePromise.then((node) => {
     if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
-      console.log(`NODE ${node}`);
+      console.log(`NODE ${JSON.stringify(node)}`);
     }
     else {
       res.json({"username": "Not logged in"});
