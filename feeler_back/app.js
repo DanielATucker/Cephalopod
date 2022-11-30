@@ -47,6 +47,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 //Store setup
+var neo4j = require('neo4j-driver')
+
 const Neo4jUser = process.env.Neo4jUser;
 const Neo4jPass = process.env.Neo4jPass;
 
