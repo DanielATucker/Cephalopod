@@ -46,10 +46,29 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+//Store setup
+const Neo4jUser = process.env.Neo4jUser;
+const Neo4jPass = process.env.Neo4jPass;
+
+const uri = "bolt://100.69.19.3:7688";
+
+let session = null;
+
+try {
+  const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
+  session = driver.session();
+}
+catch (err) {
+  console.log(err);
+}
+let Neo4jStore = require('./components/connect-neo4j')(session)
+
+//Init session
 app.use(session({ 
   secret: 'keyboard cat',
   cookie: { maxAge: 60000 },
-  saveUninitialized: true
+  saveUninitialized: true,
+  store: new Neo4jStore({ client: driver }),
 }))
 
 // Use Router
