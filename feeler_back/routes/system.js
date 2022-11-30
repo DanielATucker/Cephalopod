@@ -91,6 +91,7 @@ router.post('/login', function (req, res) {
   console.log(`Session id: ${JSON.stringify(Id)}}`);
 
   req.session.username = req.body.username;
+  console.log(`USERNAME: ${JSON.stringify(JSON.stringify(req.session.username))}}`);
 
   let username = req.body.username;
 
