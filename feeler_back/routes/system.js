@@ -88,7 +88,7 @@ router.post('/newUser', function (req, res) {
 
 router.post('/login', function (req, res) {
   let Id = req.session.id;
-  console.log(`ID1: ${JSON.stringify(Id)}}`);
+  console.log(`Session id: ${JSON.stringify(Id)}}`);
 
   req.session.username = req.body.username;
 
