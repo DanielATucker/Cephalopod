@@ -52,8 +52,6 @@ const Neo4jPass = process.env.Neo4jPass;
 
 const uri = "bolt://100.69.19.3:7688";
 
-let session = null;
-
 try {
   const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
   session = driver.session();
