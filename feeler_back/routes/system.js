@@ -60,7 +60,7 @@ router.get('/doesUserExist', (req, res) => {
 });
 
 router.get('/systeminit', (req, res) => {
-  Database("CREATE (m: Main), (s: System), (S: Session) SET m.name = 'Main', s.name = 'System', S.name = 'Session', (S)->['link']->(s)->['link']->(m)");
+  Database("CREATE (m: Main), (s: System), (S: Session) SET m.name = 'Main', s.name = 'System', S.name = 'Session', (S)-[a: link]->(s)-[b: link]->(m)");
 
   res.json(JSON.stringify({
     "status": "success",
