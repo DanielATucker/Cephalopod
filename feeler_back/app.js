@@ -59,7 +59,8 @@ try {
 catch (err) {
   console.log(err);
 }
-let Neo4jStore = require('./components/connect-neo4j')(session)
+import { Neo4jSessionStore } from "./components/connect-neo4j";
+let Neo4jStore = Neo4jSessionStore(session);
 
 //Init session
 app.use(session({ 
