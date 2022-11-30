@@ -59,7 +59,7 @@ try {
 catch (err) {
   console.log(err);
 }
-import { Neo4jSessionStore } from "./components/connect-neo4j.js";
+import {default as  Neo4jSessionStore } from "./components/connect-neo4j.js";
 let Neo4jStore = Neo4jSessionStore(session);
 
 //Init session
