@@ -13,7 +13,18 @@ const { v4: uuidv4 } = require('uuid');
 import Database from "../components/Database.js";
 
 
+function if_first() {
+  if (typeof req.session.id0 !== "undefined") {
+    req.session.id0 = req.session.id
+    
+    console.log(`Added id0: ${req.session.id0}`)
+  };
+  console.log(`id0: ${req.session.id0}`)
+};
+
 router.get('/doesExist', (req, res) => {
+  if_first();
+  
   let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n)");
 
   nodePromise.then((node) => {
@@ -38,6 +49,8 @@ router.get('/doesExist', (req, res) => {
 });
 
 router.get('/doesUserExist', (req, res) => {
+  if_first();
+
   let nodePromise = Database("MATCH (m: Main), (u: User) WHERE (m)<-[*]-(u) RETURN (u)");
 
   nodePromise.then((node) => {
@@ -62,6 +75,8 @@ router.get('/doesUserExist', (req, res) => {
 });
 
 router.get('/systeminit', (req, res) => {
+  if_first();
+
   Database("CREATE (m: Main), (s: System), (S: SessionMaster), (S)-[a: link]->(s)-[b: link]->(m) SET m.name = 'Main', s.name = 'System', S.name = 'SessionMaster'");
 
   res.json(JSON.stringify({
@@ -69,7 +84,13 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', function (req, res) {    
+router.post('/newUser', function (req, res) { 
+  if_first();
+
+  if (typeof req.session.username !== "undefined") {
+    req.session.username = req.body.username;
+  };
+  
   let username = req.body.username;
 
   let password = req.body.password;
@@ -87,10 +108,15 @@ router.post('/newUser', function (req, res) {
 });
 
 router.post('/login', function (req, res) {
+  if_first();
+
   let Id = req.session.id;
   console.log(`Session id: ${JSON.stringify(Id)}}`);
 
-  req.session.username = req.body.username;
+  if (typeof req.session.username !== "undefined") {
+    req.session.username = req.body.username;
+  };
+
   console.log(`USERNAME: ${JSON.stringify(req.session.username)}}`);
 
   let username = req.body.username;
@@ -124,6 +150,8 @@ router.post('/login', function (req, res) {
 });
 
 router.get('/getUsername', (req, res) => {
+  if_first();
+
   let userId = req.session.id;
   
   let nodePromise = Database(`MATCH (u: User) RETURN u.sessionIds`);
