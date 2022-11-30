@@ -71,7 +71,7 @@ export default function (session) {
       let sess = this.client.session()
       sess
         .run(
-          `MATCH (S: SessionMaster) MERGE (s:${this.nodeLabel} {sid: $sid}) ON CREATE (s)-[a: Session]->(S) SET s.data = $data, s.expires = $expires ON MATCH SET s.data = $data`,
+          `MATCH (S: SessionMaster) MERGE (s:${this.nodeLabel} {sid: $sid}) ON CREATE CREATE (s)-[a: Session]->(S) SET s.data = $data, s.expires = $expires ON MATCH SET s.data = $data`,
           { sid: key, data, expires }
         )
         .then(() => cb(null, 'OK'))
