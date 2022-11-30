@@ -1,4 +1,4 @@
-export default function if_first() {
+export default function if_first(req.session.id0) {
     if (typeof req.session.id0 !== "undefined") {
       req.session.id0 = req.session.id
       
