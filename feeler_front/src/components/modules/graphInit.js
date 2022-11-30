@@ -32,7 +32,10 @@ export default class GraphInit extends React.Component {
     };
 
     async get_username(){
-        let userResponse = await fetch('http://100.69.19.3:3001/system/getUsername');
+        let userResponse = await fetch('http://100.69.19.3:3001/system/getUsername', {
+            method: 'GET',
+            credentials: 'include'
+        });
         
         let node = await userResponse.json();
         
@@ -47,7 +50,11 @@ export default class GraphInit extends React.Component {
     };
 
     async doesExist(){
-        const response = await fetch('http://100.69.19.3:3001/system/doesExist');
+        const response = await fetch('http://100.69.19.3:3001/system/doesExist', {
+            method: 'GET',
+            credentials: 'include'
+        });
+
         let systemStatus = await response.json();
 
         this.setState({
@@ -68,7 +75,10 @@ export default class GraphInit extends React.Component {
     };
 
     async doesUserExist() {
-        let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist');
+        let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist', {
+            method: 'GET',
+            credentials: 'include'
+        });
         
         let userSystemStatus = await userResponse.json();
 
@@ -93,7 +103,10 @@ export default class GraphInit extends React.Component {
 
     async initSystem() {
         try {
-            const response = await fetch('http://100.69.19.3:3001/system/systeminit');
+            const response = await fetch('http://100.69.19.3:3001/system/systeminit', {
+                method: 'GET',
+                credentials: 'include'
+            });
 
             response.next((node) => {
                 console.log(node);
@@ -144,7 +157,8 @@ export default class GraphInit extends React.Component {
                 body: JSON.stringify({
                     "username": this.state.usernameInput,
                     "password": this.state.passwordInput
-                })
+                }),
+                credentials: 'include'
             });
         }
         else {
@@ -165,7 +179,8 @@ export default class GraphInit extends React.Component {
             body: JSON.stringify({
                 "username": this.state.usernameInput,
                 "password": this.state.passwordInput
-            })
+            }),
+            credentials: 'include'
         })
     };
 
