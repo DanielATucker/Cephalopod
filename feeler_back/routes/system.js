@@ -8,6 +8,8 @@ var router = express.Router();
 
 var strftime = require('strftime') 
 
+import { v4 as uuidv4 } from 'uuid';
+
 import Database from "../components/Database.js";
 
 
@@ -85,6 +87,8 @@ router.post('/newUser', function (req, res) {
 });
 
 router.post('/login', function (req, res) {    
+  res.cookie('User_id', uuidv4())
+
   let Id = req.session.id;
   console.log(`ID1: ${JSON.stringify(Id)}}`);
 
