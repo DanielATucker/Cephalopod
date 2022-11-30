@@ -24,7 +24,11 @@ import usersRouter from './routes/users.js';
 import systemRouter from "./routes/system.js"
 
 var app = express();
-app.use(cors())
+app.use(cors({
+  origin: true,
+  optionsSuccessStatus: 200,
+  credentials: true
+}));
 
 app.set('port', process.env.PORT || 3001)
 
