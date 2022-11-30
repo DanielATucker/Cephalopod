@@ -11,11 +11,10 @@ var strftime = require('strftime')
 const { v4: uuidv4 } = require('uuid');
 
 import Database from "../components/Database.js";
-import if_first from "../components/if_first.js";
 
 
 router.get('/doesExist', (req, res) => {
-  
+
   let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n)");
 
   nodePromise.then((node) => {
