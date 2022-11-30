@@ -86,11 +86,11 @@ router.post('/newUser', function (req, res) {
   res.end();
 });
 
-router.post('/login', function (req, res) {    
-  res.cookie('User_id', uuidv4())
-
+router.post('/login', function (req, res) {
   let Id = req.session.id;
   console.log(`ID1: ${JSON.stringify(Id)}}`);
+
+  req.session.username = req.body.username;
 
   let username = req.body.username;
 
