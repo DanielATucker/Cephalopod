@@ -15,7 +15,6 @@ import if_first from "../components/if_first.js";
 
 
 router.get('/doesExist', (req, res) => {
-  if_first();
   
   let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n)");
 

@@ -73,7 +73,7 @@ let Neo4jStore = Neo4jSessionStore(session);
 app.use(session({ 
   secret: 'keyboard cat',
   cookie: { maxAge: 60000 },
-  saveUninitialized: false,
+  saveUninitialized: true,
   resave: false,
   store: new Neo4jStore({ client: driver }),
 }))
