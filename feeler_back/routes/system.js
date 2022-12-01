@@ -14,7 +14,6 @@ import Database from "../components/Database.js";
 
 
 router.get('/doesExist', (req, res) => {
-
   let nodePromise = Database("MATCH (n: Main) WHERE n.name='Main' RETURN (n)");
 
   nodePromise.then((node) => {
@@ -39,8 +38,6 @@ router.get('/doesExist', (req, res) => {
 });
 
 router.get('/doesUserExist', (req, res) => {
-  console.log(req.session.id0);
-
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
     req.session.save();
@@ -73,14 +70,6 @@ router.get('/doesUserExist', (req, res) => {
 });
 
 router.get('/systeminit', (req, res) => {
-  if (typeof req.session.id0 === "undefined") {
-    req.session.id0 = req.session.id
-    req.session.save();
-
-    console.log(`Added id0: ${req.session.id0}`)
-  };
-  console.log(`id0: ${req.session.id0}`);
-
   Database("CREATE (m: Main), (s: System), (S: SessionMaster), (S)-[a: link]->(s)-[b: link]->(m) SET m.name = 'Main', s.name = 'System', S.name = 'SessionMaster'");
 
   res.json(JSON.stringify({
@@ -88,15 +77,7 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', function (req, res) { 
-  if (typeof req.session.id0 === "undefined") {
-    req.session.id0 = req.session.id
-    req.session.save();
-
-    console.log(`Added id0: ${req.session.id0}`)
-  };
-  console.log(`id0: ${req.session.id0}`);
-
+router.post('/newUser', function (req, res) {
   if (typeof req.session.username !== "undefined") {
     req.session.username = req.body.username;
   };
@@ -117,23 +98,15 @@ router.post('/newUser', function (req, res) {
   res.end();
 });
 
-router.post('/login', function (req, res) {
-  if (typeof req.session.id0 === "undefined") {
-    req.session.id0 = req.session.id
-    req.session.save();
-
-    console.log(`Added id0: ${req.session.id0}`)
-  };
-  console.log(`id0: ${req.session.id0}`);
-
-  let Id = req.session.id;
-  console.log(`Session id: ${JSON.stringify(Id)}}`);
+router.post('/login', function (req, res) {  
+  console.log(`USERNAME in: ${JSON.stringify(req.session.username)}}`);
 
   if (typeof req.session.username !== "undefined") {
     req.session.username = req.body.username;
+    req.session.save();
   };
 
-  console.log(`USERNAME: ${JSON.stringify(req.session.username)}}`);
+  console.log(`USERNAME out: ${JSON.stringify(req.session.username)}}`);
 
   let username = req.body.username;
 
@@ -166,14 +139,6 @@ router.post('/login', function (req, res) {
 });
 
 router.get('/getUsername', (req, res) => {
-  if (typeof req.session.id0 === "undefined") {
-    req.session.id0 = req.session.id
-    req.session.save();
-
-    console.log(`Added id0: ${req.session.id0}`)
-  };
-  console.log(`id0: ${req.session.id0}`)
-
   let userId = req.session.id;
   
   let nodePromise = Database(`MATCH (u: User) RETURN u.sessionIds`);
