@@ -32,7 +32,7 @@ export default class GraphInit extends React.Component {
     };
 
     async get_username(){
-        let userResponse = await fetch('http://100.69.19.3:3001/system/getUsername', {
+        let userResponse = await fetch('https://100.69.19.3:3001/system/getUsername', {
             method: 'GET',
         });
         
@@ -49,7 +49,7 @@ export default class GraphInit extends React.Component {
     };
 
     async doesExist(){
-        const response = await fetch('http://100.69.19.3:3001/system/doesExist', {
+        const response = await fetch('https://100.69.19.3:3001/system/doesExist', {
             method: 'GET',
         });
 
@@ -73,7 +73,7 @@ export default class GraphInit extends React.Component {
     };
 
     async doesUserExist() {
-        let userResponse = await fetch('http://100.69.19.3:3001/system/doesUserExist', {
+        let userResponse = await fetch('https://100.69.19.3:3001/system/doesUserExist', {
             method: 'GET',
         });
         
@@ -100,7 +100,7 @@ export default class GraphInit extends React.Component {
 
     async initSystem() {
         try {
-            const response = await fetch('http://100.69.19.3:3001/system/systeminit', {
+            const response = await fetch('https://100.69.19.3:3001/system/systeminit', {
                 method: 'GET',
             });
 
@@ -143,7 +143,7 @@ export default class GraphInit extends React.Component {
         if (this.state.passwordInput === this.state.password2Input) {
             console.log("Passwords are good");
 
-            fetch('http://100.69.19.3:3001/system/newUser', {
+            fetch('https://100.69.19.3:3001/system/newUser', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
@@ -164,7 +164,7 @@ export default class GraphInit extends React.Component {
     handleLoginFormSubmit(event) {
         event.preventDefault();
 
-        fetch('http://100.69.19.3:3001/system/login', {
+        fetch('https://100.69.19.3:3001/system/login', {
             method: 'POST',
             mode: 'cors',
             headers: {
