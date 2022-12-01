@@ -39,6 +39,8 @@ router.get('/doesExist', (req, res) => {
 });
 
 router.get('/doesUserExist', (req, res) => {
+  console.log(req.session.id0);
+  
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
     
