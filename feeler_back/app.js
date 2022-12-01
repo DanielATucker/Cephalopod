@@ -75,7 +75,7 @@ app.use(session({
   cookie: { maxAge: 60000 },
   credentials: true,
   saveUninitialized: false,
-  //resave: false,
+  resave: true,
   store: new Neo4jStore({ client: driver }),
 }))
 
