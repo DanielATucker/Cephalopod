@@ -81,7 +81,7 @@ router.post('/newUser', function (req, res) {
 });
 
 router.post('/login', function (req, res) {  
-  console.log(`USERNAME in: ${JSON.stringify(req.session.username)}}`);
+  console.log(`USERNAME in: ${JSON.stringify(req.session.username)}`);
 
   if (!req.session.username) {
     req.session.username = req.body.username;
@@ -91,7 +91,7 @@ router.post('/login', function (req, res) {
     console.log(`User found ${req.session.username}`)
   };
 
-  console.log(`USERNAME out: ${JSON.stringify(req.session.username)}}`);
+  console.log(`USERNAME out: ${JSON.stringify(req.session.username)}`);
 
   let username = req.body.username;
 
