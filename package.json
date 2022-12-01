@@ -5,7 +5,7 @@
   "main": "Cephalopod.js",
   "type": "module",
   "scripts": {
-    "start": "node Cephalopod"
+    "start": "HTTPS=true SSL_CRT_FILE='./ssl/Cephalopod_Dev.crt' SSL_KEY_FILE='./ssl/Cephalopod_Dev.key' node Nerves"
   },
   "author": "",
   "license": "ISC",
