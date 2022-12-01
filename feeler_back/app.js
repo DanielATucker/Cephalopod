@@ -20,7 +20,7 @@ var cors = require('cors');
 
 
 import * as sqlite3 from 'sqlite3';
-import sqliteStoreFactory from 'express-session-sqlite';
+let  sqliteStoreFactory = require("express-session-sqlite").default;
 const SqliteStore = sqliteStoreFactory(session).default;
 
 
