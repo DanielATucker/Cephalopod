@@ -70,7 +70,7 @@ router.get('/systeminit', (req, res) => {
 });
 
 router.post('/newUser', function (req, res) {
-  if (typeof req.session.username !== "undefined") {
+  if (typeof req.session.username === "undefined") {
     req.session.username = req.body.username;
     req.session.save();
   };
