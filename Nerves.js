@@ -24,8 +24,8 @@ function init() {
 
 	const app = express();
 	const httpServer = createServer({
-		key: readFileSync("./ssl/Cephalopod_Dev1.key"),
-		cert: readFileSync("./ssl/Cephalopod_Dev1.crt")
+		key: readFileSync("./ssl/Nerves.key"),
+		cert: readFileSync("./ssl/Nerves.crt")
 	}, app);
 
 	const sessionMiddleware = session({
@@ -216,7 +216,7 @@ function start(httpServer) {
 	const PORT = 3000;
 
 	httpServer.listen(PORT, () =>
-		console.log(`server listening at http://localhost:${PORT}`)
+		console.log(`server listening at https://localhost:${PORT}`)
 	);
 }
 
