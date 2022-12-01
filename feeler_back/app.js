@@ -64,7 +64,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var session = require('express-session');
 var SQLiteStore = require('connect-sqlite3')(session);
 
 //Init session
