@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=dev && PORT=3001 node app"
+    "start": "HTTPS=true SSL_CRT_FILE='./ssl/Cephalopod_Dev.crt' SSL_KEY_FILE='./ssl/Cephalopod_Dev.key' export NODE_ENV=dev && PORT=3001 node app"
   },
   "type": "module",
   "dependencies": {
