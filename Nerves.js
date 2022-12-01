@@ -8,10 +8,11 @@ import { Server } from 'socket.io';
 import express from 'express'; 
 import session from "express-session";
 import { io as Server_io } from 'socket.io-client';
+import { readFileSync } from "fs";
 
 import { exec } from "node:child_process";
-// Cephalopod modules
 
+// Cephalopod modules
 import User_list from './Cephalopod_modules/User_list.js'
 
 
@@ -25,7 +26,6 @@ function init() {
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Cephalopod_Dev1.key"),
 		cert: readFileSync("./ssl/Cephalopod_Dev1.crt")
-
 	}, app);
 
 	const sessionMiddleware = session({
