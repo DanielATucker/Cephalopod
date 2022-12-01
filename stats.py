@@ -3,10 +3,6 @@ import os
 import time
 from datetime import datetime
 
-import ssl
-ssl._create_default_https_context = ssl._create_unverified_context
-
-
 import socketio
 
 
@@ -69,12 +65,11 @@ def get_stats(sio):
         }
         
         sio.emit("stats", data)
-        print(data)
         
         
 def start_sio():
-    sio = socketio.Client()
-    sio.connect('https://localhost:3000', verify=False)
+    sio = socketio.Client(ssl_verify=False)
+    sio.connect('https://localhost:3000')
     
     return sio
     
