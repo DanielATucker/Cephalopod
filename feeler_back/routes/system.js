@@ -118,18 +118,8 @@ router.post('/login', function (req, res) {
 });
 
 router.get('/getUsername', (req, res) => {
-  let userId = req.session.id;
-  
-  let nodePromise = Database(`MATCH (u: User) RETURN u.sessionIds`);
-
-  nodePromise.then(node => {
-    if ((typeof node !== 'undefined') && ( node !== null) && (node !== "No Database found")) {
-      console.log(`NODE ${JSON.stringify(node)}`);
-    }
-    else {
-      res.json({"username": "Not logged in"});
-    } 
-  });
+  console.log(`Cookie1: ${req.session.cookie.username}`);
+  res.json({"username": req.session.cookie.username});
 });
 
 export default router;
