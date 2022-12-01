@@ -18,12 +18,6 @@ const session = require('express-session');
 var logger = require('morgan');
 var cors = require('cors');
 
-
-import * as sqlite3 from 'sqlite3';
-let  sqliteStoreFactory = require("express-session-sqlite").default;
-const SqliteStore = sqliteStoreFactory(session);
-
-
 // ssl init
 var privateKey = fs.readFileSync('./ssl/feeler_back.key');
 var certificate = fs.readFileSync('./ssl/feeler_back.crt');
@@ -69,6 +63,22 @@ app.set('trust proxy', 1) // trust first proxy
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
+// set a cookie
+app.use(function (req, res, next) {
+  // check if client sent cookie
+  var cookie = req.cookies.cookieName;
+  if (cookie === undefined) {
+    // no: set a new cookie
+    var randomNumber=Math.random().toString();
+    randomNumber=randomNumber.substring(2,randomNumber.length);
+    res.cookie('cookieName',randomNumber, { maxAge: 900000, httpOnly: true });
+    console.log('cookie created successfully');
+  } else {
+    // yes, cookie was already present 
+    console.log('cookie exists', cookie);
+  } 
+  next(); // <-- important!
+});
 
 //Init session
 app.use(session({ 
