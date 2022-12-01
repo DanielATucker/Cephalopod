@@ -38,14 +38,6 @@ router.get('/doesExist', (req, res) => {
 });
 
 router.get('/doesUserExist', (req, res) => {
-  if (typeof req.session.id0 === "undefined") {
-    req.session.id0 = req.session.id
-    req.session.save();
-    
-    console.log(`Added id0: ${req.session.id0}`)
-  };
-  console.log(`id0: ${req.session.id0}`);
-
   let nodePromise = Database("MATCH (m: Main), (u: User) WHERE (m)<-[*]-(u) RETURN (u)");
 
   nodePromise.then((node) => {
