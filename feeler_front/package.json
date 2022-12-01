@@ -20,7 +20,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "HTTPS=true SSL_CRT_FILE='./ssl/Cephalopod_Dev.crt' SSL_KEY_FILE='./ssl/Cephalopod_Dev.crt' PORT=3002 react-scripts start",
+    "start": "HTTPS=true SSL_CRT_FILE='./ssl/Cephalopod_Dev.crt' SSL_KEY_FILE='./ssl/Cephalopod_Dev.key' PORT=3002 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
