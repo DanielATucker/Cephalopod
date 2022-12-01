@@ -93,7 +93,7 @@ router.post('/newUser', function (req, res) {
 router.post('/login', function (req, res) {  
   console.log(`USERNAME in: ${JSON.stringify(req.session.username)}}`);
 
-  if (typeof req.session.username !== "undefined") {
+  if (typeof req.session.username === "undefined") {
     req.session.username = req.body.username;
     req.session.save();
   };
