@@ -169,7 +169,8 @@ export default class GraphInit extends React.Component {
             mode: 'cors',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Credentials": true
             },
             body: JSON.stringify({
                 "username": this.state.usernameInput,
