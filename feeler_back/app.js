@@ -74,7 +74,7 @@ app.use(session({
   secret: 'keyboard cat',
   cookie: { maxAge: 60000 },
   saveUninitialized: false,
-  resave: false,
+  //resave: false,
   store: new Neo4jStore({ client: driver }),
 }))
 
