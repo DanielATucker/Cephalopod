@@ -40,9 +40,10 @@ router.get('/doesExist', (req, res) => {
 
 router.get('/doesUserExist', (req, res) => {
   console.log(req.session.id0);
-  
+
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
+    req.session.save();
     
     console.log(`Added id0: ${req.session.id0}`)
   };
@@ -74,7 +75,8 @@ router.get('/doesUserExist', (req, res) => {
 router.get('/systeminit', (req, res) => {
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
-    
+    req.session.save();
+
     console.log(`Added id0: ${req.session.id0}`)
   };
   console.log(`id0: ${req.session.id0}`);
@@ -89,7 +91,8 @@ router.get('/systeminit', (req, res) => {
 router.post('/newUser', function (req, res) { 
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
-    
+    req.session.save();
+
     console.log(`Added id0: ${req.session.id0}`)
   };
   console.log(`id0: ${req.session.id0}`);
@@ -117,7 +120,8 @@ router.post('/newUser', function (req, res) {
 router.post('/login', function (req, res) {
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
-    
+    req.session.save();
+
     console.log(`Added id0: ${req.session.id0}`)
   };
   console.log(`id0: ${req.session.id0}`);
@@ -164,7 +168,8 @@ router.post('/login', function (req, res) {
 router.get('/getUsername', (req, res) => {
   if (typeof req.session.id0 === "undefined") {
     req.session.id0 = req.session.id
-    
+    req.session.save();
+
     console.log(`Added id0: ${req.session.id0}`)
   };
   console.log(`id0: ${req.session.id0}`)
