@@ -188,8 +188,6 @@ function init_events(io) {
 		});
 
 		socket.on("stats", (data) => {
-			console.log(data);
-			
 		  if (typeof admin_list[0] !="undefined") {
 		    let admin = admin_list[0]
 		   
