@@ -118,7 +118,7 @@ router.post('/login', function (req, res) {
 });
 
 router.get('/getUsername', (req, res) => {
-  console.log(`Cookie1: ${JSON.stringify(req.session.cookie)}`);
+  console.log(`Cookie1: ${JSON.stringify(req.cookie)}`);
   res.json({"username": req.session.cookie.username});
 });
 
