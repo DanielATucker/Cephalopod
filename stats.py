@@ -74,7 +74,7 @@ def get_stats(sio):
         
 def start_sio():
     sio = socketio.Client()
-    sio.connect('https://localhost:3000')
+    sio.connect('https://localhost:3000', verify=False)
     
     return sio
     
