@@ -119,13 +119,7 @@ router.post('/login', function (req, res) {
 
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
-      let sessionIds = [];
-      sessionIds.concat(`IDs: ${JSON.stringify(node.properties.sessionIds)}`);
-      sessionIds.concat(`ID: ${JSON.stringify(Id)}}`);
-      
-      console.log(JSON.stringify(sessionIds));
-
-      Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}', n.sessionIds = '${sessionIds}'`);
+      Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
     }
   });
 });
