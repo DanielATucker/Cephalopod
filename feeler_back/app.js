@@ -73,7 +73,7 @@ app.use(session({
   credentials: true,
   saveUninitialized: false,
   resave: true,
-  store: new (SQLiteStore({dir: "."})),
+  store: new SQLiteStore({dir: "."}),
 }))
 
 // Use Router
