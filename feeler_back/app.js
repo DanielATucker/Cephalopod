@@ -8,12 +8,6 @@ var path = require('path');
 var fs = require('fs');
 var https = require('https');
 
-
-import * as sqlite3 from 'sqlite3'
-import sqliteStoreFactory from 'express-session-sqlite'
-const SqliteStore = sqliteStoreFactory(session)
-
-
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -23,6 +17,11 @@ var cookieParser = require('cookie-parser');
 const session = require('express-session');
 var logger = require('morgan');
 var cors = require('cors')
+
+
+import * as sqlite3 from 'sqlite3'
+import sqliteStoreFactory from 'express-session-sqlite'
+const SqliteStore = sqliteStoreFactory(session)
 
 
 // ssl init
