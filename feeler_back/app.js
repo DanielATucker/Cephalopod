@@ -64,24 +64,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-//Store setup
-var neo4j = require('neo4j-driver')
-
-const Neo4jUser = process.env.Neo4jUser;
-const Neo4jPass = process.env.Neo4jPass;
-
-const uri = "bolt://100.69.19.3:7688";
-
-let driver = null;
-
-try {
-  driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
-}
-catch (err) {
-  console.log(err);
-}
-import {default as  Neo4jSessionStore } from "./components/connect-neo4j.js";
-let Neo4jStore = Neo4jSessionStore(session);
+var session = require('express-session');
+var SQLiteStore = require('connect-sqlite3')(session);
 
 //Init session
 app.use(session({ 
@@ -90,7 +74,7 @@ app.use(session({
   credentials: true,
   saveUninitialized: false,
   resave: true,
-  store: new Neo4jStore({ client: driver }),
+  store: new SQLiteStore,
 }))
 
 // Use Router
