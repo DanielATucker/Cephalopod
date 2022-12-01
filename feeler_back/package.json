@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "export NODE_ENV=dev && PORT=3001 node app"
+    "start": "HTTPS=true export NODE_ENV=dev && PORT=3001 node app"
   },
   "type": "module",
   "dependencies": {
