@@ -9,6 +9,10 @@ var fs = require('fs');
 var https = require('https');
 
 
+import * as sqlite3 from 'sqlite3'
+import sqliteStoreFactory from 'express-session-sqlite'
+const SqliteStore = sqliteStoreFactory(session)
+
 
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -73,7 +77,21 @@ app.use(session({
   credentials: true,
   saveUninitialized: false,
   resave: true,
-  store: new SQLiteStore({dir: "."}),
+  store: new SqliteStore({
+    // Database library to use. Any library is fine as long as the API is compatible
+    // with sqlite3, such as sqlite3-offline
+    driver: sqlite3.Database,
+    // for in-memory database
+    // path: ':memory:'
+    path: './sessions/Sessions.db',
+    // Session TTL in milliseconds
+    ttl: 1234,
+    // (optional) Session id prefix. Default is no prefix.
+    prefix: 'sess:',
+    // (optional) Adjusts the cleanup timer in milliseconds for deleting expired session rows.
+    // Default is 5 minutes.
+    cleanupInterval: 300000
+  }),
 }))
 
 // Use Router
