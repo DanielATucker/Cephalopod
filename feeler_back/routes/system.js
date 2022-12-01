@@ -92,6 +92,9 @@ router.post('/login', function (req, res) {
     console.log(`User found ${req.session.username}`)
   };
 
+  console.log(req.session.test);
+  req.session.test = "test";
+
   console.log(`USERNAME out: ${JSON.stringify(req.session.username)}`);
 
   let username = req.body.username;
