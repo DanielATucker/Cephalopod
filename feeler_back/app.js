@@ -16,12 +16,12 @@ const bodyParser = require("body-parser");
 var cookieParser = require('cookie-parser');
 const session = require('express-session');
 var logger = require('morgan');
-var cors = require('cors')
+var cors = require('cors');
 
 
-import * as sqlite3 from 'sqlite3'
-import sqliteStoreFactory from 'express-session-sqlite'
-const SqliteStore = sqliteStoreFactory(session)
+import * as sqlite3 from 'sqlite3';
+import sqliteStoreFactory from 'express-session-sqlite';
+const SqliteStore = sqliteStoreFactory(session);
 
 
 // ssl init
@@ -35,7 +35,7 @@ var credentials = {key: privateKey, cert: certificate};
 
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
-import systemRouter from "./routes/system.js"
+import systemRouter from "./routes/system.js";
 
 var app = express();
 var httpsServer = https.createServer(credentials, app);
@@ -67,7 +67,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-var SQLiteStore = require('connect-sqlite3')(session);
 
 //Init session
 app.use(session({ 
