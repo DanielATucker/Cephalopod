@@ -69,12 +69,7 @@ router.get('/systeminit', (req, res) => {
   }));
 });
 
-router.post('/newUser', function (req, res) {
-  if (typeof req.session.username === "undefined") {
-    req.session.username = req.body.username;
-    req.session.save();
-  };
-  
+router.post('/newUser', function (req, res) {  
   let username = req.body.username;
 
   let password = req.body.password;
@@ -88,9 +83,12 @@ router.post('/newUser', function (req, res) {
 router.post('/login', function (req, res) {  
   console.log(`USERNAME in: ${JSON.stringify(req.session.username)}}`);
 
-  if (typeof req.session.username === "undefined") {
+  if (!req.session.username) {
     req.session.username = req.body.username;
     req.session.save();
+  }
+  else {
+    console.log(`User found ${req.session.username}`)
   };
 
   console.log(`USERNAME out: ${JSON.stringify(req.session.username)}}`);
