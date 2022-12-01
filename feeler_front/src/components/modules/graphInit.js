@@ -176,7 +176,7 @@ export default class GraphInit extends React.Component {
                 "username": this.state.usernameInput,
                 "password": this.state.passwordInput
             }),
-            credentials: 'include'
+            credentials: "same-origin"
         })
     };
 
