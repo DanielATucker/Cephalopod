@@ -86,7 +86,7 @@ router.post('/login', function (req, res) {
   if (!req.session.username) {
     req.session.username = req.body.username;
     req.session.save();
-    req.session.send();
+    res.send();
   }
   else {
     console.log(`User found ${req.session.username}`)
