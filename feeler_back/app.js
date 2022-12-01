@@ -22,8 +22,8 @@ var cors = require('cors')
 
 
 // ssl init
-var privateKey = fs.readFileSync('./ssl/Cephalopod_Dev1.key');
-var certificate = fs.readFileSync('./ssl/Cephalopod_Dev1.crt');
+var privateKey = fs.readFileSync('./ssl/feeler_back.key');
+var certificate = fs.readFileSync('./ssl/feeler_back.crt');
 
 var credentials = {key: privateKey, cert: certificate};
 
