@@ -21,7 +21,7 @@ var cors = require('cors');
 
 import * as sqlite3 from 'sqlite3';
 let  sqliteStoreFactory = require("express-session-sqlite").default;
-const SqliteStore = sqliteStoreFactory(session).default;
+const SqliteStore = sqliteStoreFactory(session);
 
 
 // ssl init
