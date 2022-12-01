@@ -3,7 +3,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 const SerAny = require('serialize-anything');
-import { createServer } from "http";
+import { createServer } from "https";
 import { Server } from 'socket.io';
 import express from 'express'; 
 import session from "express-session";
@@ -22,7 +22,11 @@ function init() {
 	//init  Socketio Server
 
 	const app = express();
-	const httpServer = createServer(app);
+	const httpServer = createServer({
+		key: readFileSync("./ssl/Cephalopod_Dev1.key"),
+		cert: readFileSync("./ssl/Cephalopod_Dev1.crt")
+
+	}, app);
 
 	const sessionMiddleware = session({
 		secret: "a",
