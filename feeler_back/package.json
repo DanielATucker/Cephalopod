@@ -14,10 +14,12 @@
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
     "express-session": "^1.17.3",
+    "express-session-sqlite": "^2.1.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
     "morgan": "~1.9.1",
     "neo4j-driver": "^5.2.0",
+    "sqlite3": "^5.1.2",
     "strftime": "^0.10.1"
   }
 }
