@@ -66,6 +66,7 @@ def get_stats(sio):
         }
         
         sio.emit("stats", data)
+        print(data)
         
         
 def start_sio():
