@@ -5,6 +5,10 @@ const require = createRequire(import.meta.url);
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
+var fs = require('fs');
+var https = require('https');
+
+
 
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -17,6 +21,13 @@ var logger = require('morgan');
 var cors = require('cors')
 
 
+// ssl init
+var privateKey = fs.readFileSync('./ssl/Cephalopod_Dev1.key');
+var certificate = fs.readFileSync('./ssl/Cephalopod_Dev1.crt');
+
+var credentials = {key: privateKey, cert: certificate};
+
+
 //Routes 
 
 import indexRouter from './routes/index.js';
@@ -24,6 +35,9 @@ import usersRouter from './routes/users.js';
 import systemRouter from "./routes/system.js"
 
 var app = express();
+var httpsServer = https.createServer(credentials, app);
+
+
 app.use(cors({
   origin: true,
   optionsSuccessStatus: 200,
@@ -32,7 +46,7 @@ app.use(cors({
 
 app.set('port', process.env.PORT || 3001)
 
-app.listen(app.get('port'), () => {
+httpsServer.listen(app.get('port'), () => {
   console.log(`Express server listening on port ${app.get('port')}`);
 });
 
