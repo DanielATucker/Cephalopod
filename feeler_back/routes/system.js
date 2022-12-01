@@ -86,6 +86,7 @@ router.post('/login', function (req, res) {
   if (!req.session.username) {
     req.session.username = req.body.username;
     req.session.save();
+    req.session.send();
   }
   else {
     console.log(`User found ${req.session.username}`)
@@ -118,7 +119,7 @@ router.post('/login', function (req, res) {
 });
 
 router.get('/getUsername', (req, res) => {
-  console.log(`Cookie1: ${JSON.stringify(req.session.cookie.username)}`);
+  console.log(`Cookie1: ${JSON.stringify(req.session.cookie)}`);
   res.json({"username": req.session.cookie.username});
 });
 
