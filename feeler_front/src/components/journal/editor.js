@@ -17,10 +17,11 @@ export default class Editor extends React.Component {
 
         <CKEditor
         editor={ ClassicEditor }
-        data="<p>Hello from CKEditor 5!</p>"
-        onReady={ ( editor ) => {
-          console.log( "CKEditor5 React Component is ready to use!", editor );
-        } }
+        data=[
+            "<p> Journal Title: </p>",
+            "<br></br>",
+            "<p> Journal Body: </p>"
+        ]
         onChange={ ( event, editor ) => {
           const data = editor.getData();
           console.log( { event, editor, data } );
