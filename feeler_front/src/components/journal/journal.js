@@ -3,6 +3,7 @@ import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 import { DataGrid } from '@mui/x-data-grid';
 
+import Editor from "./editor";
 
 export  default class Journal extends React.Component {
     constructor(props) {
@@ -56,7 +57,7 @@ export  default class Journal extends React.Component {
                 </div>
 
                 <div style={{display: "inline-block"}}>
-                    <Card> Editor </Card>
+                    <Editor></Editor>
                 </div>
 
                 <div style={{display: "inline-block"}}>
