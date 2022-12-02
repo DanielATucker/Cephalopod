@@ -11,7 +11,7 @@ export default class Editor extends React.Component {
             "journalData": {}
         });
 
-        start();
+        this.start();
     };
 
     start = () => {
