@@ -58,7 +58,11 @@ export default class Journal extends React.Component {
                 </div>
 
                 <div style={{display: "inline-block"}}>
-                    <h3> Viewer </h3>
+                    <Card> Editor </Card>
+                </div>
+
+                <div style={{display: "inline-block"}}>
+                    <Card> Viewer </Card>
                 </div>
             </div>
 
