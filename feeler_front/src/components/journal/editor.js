@@ -5,12 +5,23 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 export default class Editor extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+    constructor(props) {
+        super(props);
+        this.state = ({
+            "journalData": {}
+        });
 
-  render() {
-    return (
+        start();
+    };
+
+    start = () => {
+        useEffect(() => {
+            console.log(this.state.journalData);
+          }, this.state.journalData);
+    }
+
+    render() {
+        return (
         <>
         
         <h3> Editor </h3>
@@ -19,13 +30,14 @@ export default class Editor extends React.Component {
         editor={ ClassicEditor }        
         onChange={ ( event, editor ) => {
           const data = editor.getData();
-          console.log(data);
-          console.log(JSON.stringify(data));
-        } }
+          this.setState({
+            "journalData": JSON.stringify(data)
+          });
+        }}
         />
 
         </>
-    );
-  }
+        );
+    }
 }
 
