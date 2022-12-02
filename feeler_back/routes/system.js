@@ -88,7 +88,6 @@ router.post('/login', function (req, res, next) {
   if (!req.session.username) {
     req.session.username = req.body.username;
     req.session.save();
-    res.send();
   }
   else {
     console.log(`User found ${req.session.username}`)
@@ -121,6 +120,8 @@ router.post('/login', function (req, res, next) {
       Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
     }
   });
+
+  res.send();
 
   next();
 });
