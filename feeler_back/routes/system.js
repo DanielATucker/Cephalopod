@@ -121,7 +121,7 @@ router.post('/login', function (req, res, next) {
 });
 
 router.get('/getUsername', (req, res) => {
-  res.json({"username": req.session.username});
+  res.json({"USERNAME": req.session.username});
 });
 
 export default router;
