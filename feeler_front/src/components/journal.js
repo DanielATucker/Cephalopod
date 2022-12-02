@@ -62,7 +62,7 @@ export default class Journal extends React.Component {
                 </div>
 
                 <div style={{display: "inline-block"}}>
-                    <Card sx={{ borderColor: 'primary.main' }}> Viewer </Card>
+                    <Card borderColor="primary. main"> Viewer </Card>
                 </div>
             </div>
 
