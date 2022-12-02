@@ -14,7 +14,7 @@ export default class Editor extends React.Component {
     };
 
     componentDidUpdate(previousState) {
-        if ((this.state.journalData !== previousState.journalData) && (this.state.journalData !== null) {
+        if ((this.state.journalData !== previousState.journalData) && (this.state.journalData !== null)) {
             console.log(this.state.journalData)
         };
     };
