@@ -34,6 +34,7 @@ export default class GraphInit extends React.Component {
     async get_username(){
         let userResponse = await fetch('https://100.69.19.3:3001/system/getUsername', {
             method: 'GET',
+            credentials: "include"
         });
         
         let user = await userResponse.json();
