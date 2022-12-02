@@ -45,7 +45,7 @@ export default class Journal extends React.Component {
             
             <h1> Journal</h1>
 
-            <div style={{width: "100%", display: flex}}>
+            <div style={{width: "100%", display: "flex"}}>
                 
                 <div style={{display: "inline-block"}}>
                     <DataGrid
