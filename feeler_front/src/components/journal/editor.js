@@ -13,10 +13,10 @@ export default class Editor extends React.Component {
         });
     };
 
-    start = () => {
-        useEffect(() => {
-            console.log(this.state.journalData);
-        }, [this.state.journalData]);
+    componentDidUpdate(previousState) {
+        if (this.state.journalData !== previousState.journalData) {
+            console.log(this.state.journalData)
+        };
     };
 
     render() {
