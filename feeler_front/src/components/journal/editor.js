@@ -16,15 +16,7 @@ export default class Editor extends React.Component {
         <h3> Editor </h3>
 
         <CKEditor
-        editor={ ClassicEditor }
-        data={(
-        <> 
-        <p> Journal Title: </p>
-        <br></br>
-        <p> Journal Body: </p>
-        </>
-        )}
-        
+        editor={ ClassicEditor }        
         onChange={ ( event, editor ) => {
           const data = editor.getData();
           console.log( { event, editor, data } );
