@@ -45,15 +45,21 @@ export default class Journal extends React.Component {
             
             <h1> Journal</h1>
 
-            <div style={{ height: 200, width: '100%' }}>
-            <DataGrid
-                rows={rows}
-                columns={columns}
-                pageSize={5}
-                rowsPerPageOptions={[5]}
-                checkboxSelection>
-            </DataGrid>
-            
+            <div style={{width: "100%"}}>
+                
+                <div style={{display: "inline-block"}}>
+                    <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    pageSize={5}
+                    rowsPerPageOptions={[5]}
+                    checkboxSelection>
+                    </DataGrid>
+                </div>
+
+                <div style={{display: "inline-block"}}>
+                    <h3> Viewer </h3>
+                </div>
             </div>
 
             </>
