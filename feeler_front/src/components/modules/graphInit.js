@@ -38,7 +38,7 @@ export default class GraphInit extends React.Component {
         
         let user = await userResponse.json();
 
-        console.log(user.username);
+        console.log(user);
 
         this.setState({
             "username": user.username
