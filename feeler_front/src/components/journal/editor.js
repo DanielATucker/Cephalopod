@@ -17,15 +17,11 @@ export default class Editor extends React.Component {
 
         <CKEditor
         editor={ ClassicEditor }
-        data={
-        <>
-        
-        <p> Journal Title: </p>
-        <br></br>
-        <p> Journal Body: </p>
-
-        </>
-        }
+        data={(
+        "<p> Journal Title: </p>",
+        "<br></br>",
+        "<p> Journal Body: </p>"
+        )}
         
         onChange={ ( event, editor ) => {
           const data = editor.getData();
