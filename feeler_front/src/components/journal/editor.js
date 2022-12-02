@@ -19,7 +19,8 @@ export default class Editor extends React.Component {
         editor={ ClassicEditor }        
         onChange={ ( event, editor ) => {
           const data = editor.getData();
-          console.log( { data } );
+          console.log(data);
+          console.log(JSON.stringify(data));
         } }
         />
 
