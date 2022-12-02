@@ -36,16 +36,13 @@ export default class GraphInit extends React.Component {
             method: 'GET',
         });
         
-        let node = await userResponse.json();
-        
-        if ((node !== "undefined") && (node !== "null") && (node.username !== "Not logged in")) {
-            console.log(`NODE: ${JSON.stringify(node)}`);
-            console.log(`USERNAME: ${JSON.stringify(node.username)}`);
+        let user = await userResponse.json();
 
-            this.setState({
-                "username": node.username
-            })
-        };
+        console.log(user.username);
+
+        this.setState({
+            "username": user.username
+        });
     };
 
     async doesExist(){
