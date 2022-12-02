@@ -93,9 +93,6 @@ router.post('/login', function (req, res, next) {
     console.log(`User found ${req.session.username}`)
   };
 
-  console.log(req.session.test);
-  req.session.test = "test";
-
   console.log(`USERNAME out: ${JSON.stringify(req.session.username)}`);
 
   let username = req.body.username;
@@ -127,8 +124,7 @@ router.post('/login', function (req, res, next) {
 });
 
 router.get('/getUsername', (req, res) => {
-  console.log(`Cookie1: ${JSON.stringify(req.session.cookie)}`);
-  res.json({"username": req.session.cookie.username});
+  res.json({"username": req.session.username});
 });
 
 export default router;
