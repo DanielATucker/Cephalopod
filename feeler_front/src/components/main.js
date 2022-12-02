@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import Terminal from "./terminal";
 import SocketHandler from "./socketHandler";
 import Stats from "./stats";
-import Journal from "./journal"
+import Journal from "./journal/journal"
 import System from "./system"
 
 
