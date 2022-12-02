@@ -47,7 +47,7 @@ export default class Journal extends React.Component {
 
             <div style={{width: "100%", display: "flex"}}>
                 
-                <div style={{display: "inline-block", width: "20%"}}>
+                <div style={{display: "inline-block", width: "20%", height: 20}}>
                     <DataGrid
                     rows={rows}
                     columns={columns}
