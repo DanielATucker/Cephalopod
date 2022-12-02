@@ -3,17 +3,14 @@ import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 import { DataGrid } from '@mui/x-data-grid';
 
-import 
 
-export default class Journal extends React.Component {
+export  default class Journal extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
             "test": 1
         };
-
-        
     };
     
     componentDidMount() {
