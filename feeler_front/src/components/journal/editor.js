@@ -9,12 +9,12 @@ export default class Editor extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
-            "journalData": {}
+            "journalData": null
         });
     };
 
     componentDidUpdate(previousState) {
-        if ((this.state.journalData !== previousState.journalData) && (Object.keys(this.state.journalData).length === 0)) {
+        if ((this.state.journalData !== previousState.journalData) && (this.state.journalData !== null) {
             console.log(this.state.journalData)
         };
     };
