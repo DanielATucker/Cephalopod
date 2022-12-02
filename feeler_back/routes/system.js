@@ -80,7 +80,9 @@ router.post('/newUser', function (req, res) {
   res.end();
 });
 
-router.post('/login', function (req, res) {  
+router.post('/login', function (req, res, next) {  
+  console.log(`Session in: ${JSON.stringify(req.session)}`);
+
   console.log(`USERNAME in: ${JSON.stringify(req.session.username)}`);
 
   if (!req.session.username) {
@@ -119,6 +121,8 @@ router.post('/login', function (req, res) {
       Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' SET n.loginHistory = '${loginHistory}'`);
     }
   });
+
+  next();
 });
 
 router.get('/getUsername', (req, res) => {
