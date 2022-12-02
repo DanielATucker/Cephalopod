@@ -17,7 +17,7 @@ export default class Editor extends React.Component {
     start = () => {
         useEffect(() => {
             console.log(this.state.journalData);
-          }, this.state.journalData);
+        }, [this.state.journalData]);
     };
 
     render() {
