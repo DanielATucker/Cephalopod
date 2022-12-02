@@ -1,5 +1,6 @@
-import { React, useEffect } from 'react';
+import React from 'react';
 
+import { useEffect } from 'react';
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
