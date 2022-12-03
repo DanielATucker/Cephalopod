@@ -13,9 +13,23 @@ export default class Editor extends React.Component {
         });
     };
 
+    sendJournalData = (data) => {
+        fetch('https://100.69.19.3:3001/journal', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "journalData": data
+            }),
+        });
+    };
+
     componentDidUpdate(previousState) {
         if ((this.state.journalData !== previousState.journalData) && (this.state.journalData !== null)) {
-            console.log(this.state.journalData)
+            sendJournalData(this.state.journalData)
         };
     };
 

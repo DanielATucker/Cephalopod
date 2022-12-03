@@ -30,6 +30,7 @@ var credentials = {key: privateKey, cert: certificate};
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import systemRouter from "./routes/system.js";
+import journalRouter from "./routes/journal.js"
 
 var app = express();
 var httpsServer = https.createServer(credentials, app);
@@ -76,6 +77,7 @@ app.use(session({
 app.use("/", indexRouter);
 app.use('/users', usersRouter);
 app.use("/system", systemRouter);
+app.use("/journal", journalRouter);
 
 app.use(cookieParser());
 

@@ -13,21 +13,6 @@ export  default class Journal extends React.Component {
             "test": 1
         };
     };
-    
-    componentDidMount() {
-        this.setState({
-            "test": 2
-        })
-    };
-
-    componentDidUpdate(prevProps) {
-        if (this.props !== prevProps) {            
-            this.setState({
-                "test": 3
-            })
-
-        }
-    };   
 
     render() {
 
@@ -35,7 +20,7 @@ export  default class Journal extends React.Component {
             { field: 'id', headerName: 'ID'},
             { field: 'Name', headerName: 'Journal', width: 130}
         ]
-        
+
         const rows = [
             { id: 1, Name: "JOURNALNAME"}
         ];
