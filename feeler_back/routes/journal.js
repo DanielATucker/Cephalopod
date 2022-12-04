@@ -15,7 +15,7 @@ router.post('/', function(req, res) {
     console.log(username);
     console.log(data);
 
-    nodePromise = Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {body: '${data}'})-[Jo: JournalOf]->(JM) ON MATCH SET J.body = '${data}' RETURN (J)`);
+    let nodePromise = Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {body: '${data}'})-[Jo: JournalOf]->(JM) ON MATCH SET J.body = '${data}' RETURN (J)`);
 
     nodePromise.then((node) => {
         if ((typeof node !== 'undefined') && ( node != null)) {
