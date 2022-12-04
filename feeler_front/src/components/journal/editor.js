@@ -44,7 +44,7 @@ export default class Editor extends React.Component {
         onChange={ ( event, editor ) => {
           const data = editor.getData();
           this.setState({
-            "journalData": JSON.stringify(data)
+            "journalData": data
           });
         }}
         />
