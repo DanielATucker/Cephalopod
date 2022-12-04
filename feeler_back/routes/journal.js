@@ -13,7 +13,23 @@ router.post('/', function(req, res) {
 
     console.log(data);
 
-    Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${req.session.username}'}) MERGE (J: Journal {body: '${data}'})-[Jo: JournalOf]->(JM) ON MATCH  SET J.body = '${data}'`);
+    nodePromise = Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${req.session.username}'}) MERGE (J: Journal {body: '${data}'})-[Jo: JournalOf]->(JM) ON MATCH SET J.body = '${data}' RETURN (J)`);
+
+    nodePromise.then((node) => {
+        if ((typeof node !== 'undefined') && ( node != null)) {
+          if (node == "No Database found") {
+            res.json({
+              "doesExist" : "No Database found. Recommended, Start database"
+            })
+          }
+          else {
+            console.log(`Node: ${JSON.stringify(node)}`);
+          }
+        }
+        else {
+            console.log("No node found");
+        }
+      });
 
     res.send();
 });
