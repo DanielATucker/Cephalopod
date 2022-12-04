@@ -14,7 +14,7 @@ export default class Editor extends React.Component {
     };
 
     sendJournalData = (data) => {
-        fetch('https://100.69.19.3:3001/journal/get_journal', {
+        fetch('https://100.69.19.3:3001/journal/post_journal', {
             method: 'POST',
             mode: 'cors',
             headers: {
