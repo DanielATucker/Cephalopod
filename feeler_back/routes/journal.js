@@ -10,10 +10,13 @@ var router = express.Router();
 
 router.post('/', function(req, res) {    
     let data = req.body.journalData;
+    let username = req.session.username;
 
+    console.log(username);
     console.log(data);
 
-    nodePromise = Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${req.session.username}'}) MERGE (J: Journal {body: '${data}'})-[Jo: JournalOf]->(JM) ON MATCH SET J.body = '${data}' RETURN (J)`);
+    nodePromise = Database(`
+    MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {body: '${data}'})-[Jo: JournalOf]->(JM) ON MATCH SET J.body = '${data}' RETURN (J)`);
 
     nodePromise.then((node) => {
         if ((typeof node !== 'undefined') && ( node != null)) {
@@ -29,7 +32,7 @@ router.post('/', function(req, res) {
         else {
             console.log("No node found");
         }
-      });
+    });
 
     res.send();
 });
