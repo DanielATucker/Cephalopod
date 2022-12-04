@@ -36,9 +36,6 @@ export default class Editor extends React.Component {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                "journalData": data
-            }),
             credentials: "include"
         });
     };
