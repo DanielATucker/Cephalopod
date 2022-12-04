@@ -9,7 +9,7 @@ var router = express.Router();
 
 router.post('/', function(req, res, next) {    
     data = req.body.journalData
-    Database(`MATCH (U: User {name: ${req.session.username}}), (JM: JournalMaster) WHERE (JM)-[la: link]->(U) CREATE (J: Journal {body: ${data}}), (J)-[lb: Journal]-(JM)`);
+    Database(`MATCH (U: User {name: ${req.session.username}}), (JM: JournalMaster) WHERE (JM)-[la: link]->(U) MERGE (J: Journal {body: ${data}}), (J)-[lb: Journal]-(JM)`);
 
     res.send();
     
