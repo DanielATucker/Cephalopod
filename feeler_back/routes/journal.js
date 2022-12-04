@@ -12,6 +12,7 @@ router.post('/', function(req, res) {
     let data = req.body.journalData;
     let username = req.session.username;
 
+    console.log(req.session)
     console.log(username);
     console.log(data);
 
