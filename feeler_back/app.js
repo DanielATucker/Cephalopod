@@ -19,8 +19,8 @@ var logger = require('morgan');
 var cors = require('cors');
 
 // ssl init
-var privateKey = fs.readFileSync('./ssl/feeler_back.key');
-var certificate = fs.readFileSync('./ssl/feeler_back.crt');
+var privateKey = fs.readFileSync('./ssl/feeler_back_key.pem');
+var certificate = fs.readFileSync('./ssl/feeler_back_cert.pem');
 
 var credentials = {key: privateKey, cert: certificate};
 
