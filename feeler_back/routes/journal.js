@@ -8,7 +8,7 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/', function(req, res) {    
-    data = req.body.journalData;
+    let data = req.body.journalData;
 
     console.log(data);
 
