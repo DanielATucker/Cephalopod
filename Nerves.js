@@ -24,8 +24,8 @@ function init() {
 
 	const app = express();
 	const httpServer = createServer({
-		key: readFileSync("./ssl/Nerves.key"),
-		cert: readFileSync("./ssl/Nerves.crt")
+		key: readFileSync("./ssl/Nerves_key.pem"),
+		cert: readFileSync("./ssl/Nerves_cert.pem")
 	}, app);
 
 	const sessionMiddleware = session({
