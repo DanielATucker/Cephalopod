@@ -10,7 +10,7 @@ var express = require('express');
 
 var router = express.Router();
 
-router.post('/', function(req, res) {    
+router.post('/get_journal', function(req, res) {    
     let data = req.body.journalData;
     
     let username = req.session.username;
