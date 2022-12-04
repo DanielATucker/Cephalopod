@@ -2,6 +2,7 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+import Database from "../components/Database";
 
 var express = require('express');
 
