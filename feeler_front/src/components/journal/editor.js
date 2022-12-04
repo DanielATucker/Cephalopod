@@ -24,6 +24,7 @@ export default class Editor extends React.Component {
             body: JSON.stringify({
                 "journalData": data
             }),
+            credentials: "include"
         });
     };
 
