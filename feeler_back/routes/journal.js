@@ -12,7 +12,8 @@ router.post('/', function(req, res) {
     let data = req.body.journalData;
     let username = req.session.username;
 
-    Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal)-[Jo: JournalOf]->(JM) ON CREATE J.body = '${data}' ON MATCH SET J.body = '${data}'`);
+    con
+    Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal)-[Jo: JournalOf]->(JM) ON CREATE SET J.body = '${data}' ON MATCH SET J.body = '${data}'`);
 
     res.send();
 });
