@@ -30,7 +30,7 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    console.log(`Returned result: ${JSON.stringify(result)}`);
+    console.dir(result, {depth: null, colors: true});
 
     return result;
 
