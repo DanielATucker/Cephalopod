@@ -27,7 +27,7 @@ export  default class Journal extends React.Component {
             credentials: "include"
         });
 
-        let node = response.next();
+        let node = response.then();
 
         console.log(node);
     };
