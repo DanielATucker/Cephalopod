@@ -27,24 +27,29 @@ router.post('/post_journal', function(req, res) {
 router.get('/get_journal', function(req, res) {
     let nodePromise = Database(`MATCH (J: Journal)-[la]->(JM: JournalMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (J)`);
 
-    nodePromise.then((node) => {
-        if ((typeof node !== 'undefined') && ( node != null)) {
-          if (node == "No Database found") {
+    nodePromise.then((nodes) => {
+        if ((typeof nodes !== 'undefined') && ( nodes != null)) {
+          if (nodes == "No Database found") {
             res.json({
               "doesExist" : "No Database found. Recommended, Start database"
             });
           }
           else {
-            console.log(`Node: ${node}`);
+            let journalTitles = [];
 
-            res.json(JSON.stringify(node));
-          }
+            nodes.map((node)=> {
+                console.log(JSON.stringify(node));
+                journalTitles.concat(node);
+            });
+
+            res.json(JSON.stringify(journalTitles));
+          };
         }
         else {
             console.log("No node found");
 
             res.json(`No node found`)
-        }
+        };
     });
 });
 
