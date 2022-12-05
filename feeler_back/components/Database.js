@@ -34,7 +34,7 @@ export default async function Database(query) {
     
     let nodeList = []
     
-    result.records.map((record) => (nodeList) {
+    result.records.map((record) => (NodeList) => {
       let valuePromise = record.values();
 
       let valueDict = valuePromise.next()
