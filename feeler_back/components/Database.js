@@ -17,13 +17,9 @@ export default async function Database(query) {
 
   try {
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
+    
     session = driver.session();
-  }
-  catch (err) {
-    console.log(err);
-  }
 
-  try {
     let result = await session.run(query);
 
     let records = Object.values(result)[0];
