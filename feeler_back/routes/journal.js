@@ -27,7 +27,7 @@ router.post('/post_journal', function(req, res) {
 router.get('/get_journal', function(req, res) {
     let nodePromise = Database(`MATCH (J: Journal)-[la]->(JM: JournalMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (J)`);
 
-    nodePromise.then((result) => {
+    nodePromise.then((result, test) => {
         if ((typeof result !== 'undefined') && ( result != null)) {
           if (result == "No Database found") {
             res.json({
@@ -35,7 +35,8 @@ router.get('/get_journal', function(req, res) {
             });
           }
           else {
-            console.log(result.properties);
+            console.log(result);
+            console.log(test);
 
             res.json(JSON.stringify(result));
           };
