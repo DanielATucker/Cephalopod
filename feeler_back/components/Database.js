@@ -43,11 +43,11 @@ export default async function Database(query) {
 
       let properties = Object.values(node)[2];
 
-      console.log(properties);
-
       nodeList.concat(properties);
     });
 
+    console.log(nodeList);
+    
     return nodeList;
 
     /*
