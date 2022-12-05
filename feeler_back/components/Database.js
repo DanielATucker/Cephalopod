@@ -39,7 +39,10 @@ export default async function Database(query) {
 
       let valueDict = valuePromise.next()
 
-      console.log(Object.keys(valueDict)[0]);
+      let value = Object.values(valueDict)[0];
+
+
+      console.log(value);
 
       nodeList.concat(record);
     });
