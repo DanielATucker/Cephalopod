@@ -35,7 +35,7 @@ export default async function Database(query) {
     let nodeList = []
     
     result.records.map((record) => {
-      console.log(record);
+      console.log(record._fields[0]);
 
       nodeList.concat(record);
     });
