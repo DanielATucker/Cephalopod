@@ -37,10 +37,7 @@ export default async function Database(query) {
     result.records.map((record) => {
       let valuePromise = record.values();
 
-      valuePromise.next((value) => {
-        console.log(`Value: ${JSON.stringify(value)}`);
-        console.log(`Properties: ${value.properties}`);
-      });
+      console.log(valuePromise.next());
 
       nodeList.concat(record);
     });
