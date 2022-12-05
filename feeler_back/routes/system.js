@@ -99,6 +99,7 @@ router.post('/login', function (req, res) {
 
       now[nowRaw] = "Logged in";
 
+      console.log(node);
       
       let loginHistory = node.loginHistory;
 
