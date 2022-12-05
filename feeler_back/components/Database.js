@@ -30,7 +30,7 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    let nodes = result.records();
+    let nodes = result.get();
 
     return nodes;
 
