@@ -25,7 +25,9 @@ router.post('/post_journal', function(req, res) {
 });
 
 router.get('/get_journal', function(req, res) {
-    let nodePromise = Database(`MATCH (J: Journal)-[la]->(JM: JournalMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (J)`);
+    //let nodePromise = Database(`MATCH (J: Journal)-[la]->(JM: JournalMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (J)`);
+    let nodePromise = Database(`MATCH (n) RETURN (n)`);
+
 
     nodePromise.then((result) => {
         if ((typeof result !== 'undefined') && ( result != null)) {
@@ -36,8 +38,6 @@ router.get('/get_journal', function(req, res) {
           }
           else {
             console.log(result);
-
-            console.log(nodePromise);
             
             res.json(JSON.stringify(result));
           };
