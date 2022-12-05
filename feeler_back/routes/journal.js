@@ -35,14 +35,11 @@ router.get('/get_journal', function(req, res) {
             });
           }
           else {
-            let journalTitles = [];
+            console.log(result);
+            console.log(result[1]);
+            console.log(result.records);
 
-            result.forEach(function(node){
-                console.log(JSON.stringify(node));
-                journalTitles.concat(node);
-            });
-
-            res.json(JSON.stringify(journalTitles));
+            res.json(result);
           };
         }
         else {
