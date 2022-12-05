@@ -36,6 +36,8 @@ export default async function Database(query) {
     
     result.records.map((record) => {
       record = record.toObject();
+
+      record = record.properties;
       
       console.log(record);
 
