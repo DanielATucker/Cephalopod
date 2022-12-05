@@ -30,11 +30,12 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    //console.dir(result, {depth: null, colors: true});
+    console.dir(result, {depth: null, colors: true});
     
-    let nodeList = []
+    //let nodeList = []
     
-    result.records.map((record) => (nodeList) => {
+    /*
+    result.records.map((record) => {
       let valuePromise = record.values();
 
       let valueDict = valuePromise.next()
@@ -46,9 +47,11 @@ export default async function Database(query) {
       console.log(`Properties: ${properties}`);
 
       nodeList.concat(properties);
+      
     });
+    */
 
-    console.log(`NodeList ${nodeList}`);
+    //console.log(`NodeList ${nodeList}`);
 
     return nodeList;
 
