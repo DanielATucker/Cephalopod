@@ -34,7 +34,9 @@ export default async function Database(query) {
 
     let node = Object.values(fields);
 
-    console.log(node);
+    let properties = Object.values(node)[2];
+
+    console.log(properties);
 
 
 
