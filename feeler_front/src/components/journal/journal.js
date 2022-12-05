@@ -25,11 +25,11 @@ export  default class Journal extends React.Component {
         const response = await fetch('https://100.69.19.3:3001/journal/get_journal', {
             method: 'GET',
             credentials: "include"
-        }).then((node) => {
-            console.log(node);
-        }).catch((err) => {
-            console.log(err);
         });
+
+        let node = await response.json();
+        
+        console.log(node);
     };
 
     render() {
