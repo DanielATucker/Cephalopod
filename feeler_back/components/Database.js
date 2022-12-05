@@ -30,8 +30,6 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    console.log(JSON.stringify(result.records));
-
     let records = result.records;
 
     let nodeList = []
