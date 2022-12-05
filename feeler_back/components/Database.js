@@ -30,14 +30,10 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    let nodes = [];
-    
-    result.forEach((node) => {
-      nodes.concat(node);
-    });
+    let nodes = result.records();
 
     return nodes;
-    
+
     /*
     const singleRecord = result.records[0];
     
