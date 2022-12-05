@@ -25,7 +25,7 @@ export  default class Journal extends React.Component {
         const response = await fetch('https://100.69.19.3:3001/journal/get_journal', {
             method: 'GET',
             credentials: "include"
-        }).next((journalTitles) => {
+        }).then((journalTitles) => {
             console.log(JSON.stringify(journalTitles));
 
             this.setState({
