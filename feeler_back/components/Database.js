@@ -41,9 +41,9 @@ export default async function Database(query) {
 
       let node = Object.values(valueDict)[0];
 
-      let nodeValues = Object.values(node)[0];
+      let properties = Object.values(node)[2];
 
-      console.log(nodeValues);
+      console.log(properties);
 
       nodeList.concat(record);
     });
