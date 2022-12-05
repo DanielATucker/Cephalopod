@@ -31,7 +31,19 @@ export default async function Database(query) {
     result = await session.run(query);
 
     console.dir(result, {depth: null, colors: true});
-    
+
+    let records = Object.values(result)[0];
+
+    let record = Object.values(records)[0];
+
+    let fields = Object.values(record)[2];
+
+    let node = Object.values(fields);
+
+    console.log(node);
+
+
+
     //let nodeList = []
     
     /*
