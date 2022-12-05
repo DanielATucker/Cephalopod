@@ -28,8 +28,14 @@ router.get('/get_journal', function(req, res) {
     let nodePromise = Database(`MATCH (J: Journal)-[la]->(JM: JournalMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (J)`);
 
     nodePromise.then((result) => {
+        console.log(`Result in ${result}`);
+
         result = result[0];
-        
+        console.log(`Result[0] ${result[0]}`);
+
+        result = result._fields[0];
+        console.log(`Result._fields ${result._fields[0]}`);
+
         if ((typeof result !== 'undefined') && ( result != null)) {
           if (result == "No Database found") {
             res.json({
