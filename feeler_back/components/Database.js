@@ -37,10 +37,10 @@ export default async function Database(query) {
     result.records.map((record) => {
       let valuePromise = record.values();
 
-      valueDict = valuePromise.next()
+      let valueDict = valuePromise.next()
 
       console.log(valueDict[0]);
-      
+
       nodeList.concat(record);
     });
 
