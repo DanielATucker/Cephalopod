@@ -34,10 +34,10 @@ export default async function Database(query) {
     
     let nodeList = []
     
-    result.records.map((node) => {
-      console.log(node);
-      
-      nodeList.concat(node);
+    result.records.map((record) => {
+      console.log(record.properties);
+
+      nodeList.concat(record.properties);
     });
 
     return nodeList;
