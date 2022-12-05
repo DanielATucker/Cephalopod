@@ -38,8 +38,8 @@ export default async function Database(query) {
       let valuePromise = record.values();
 
       valuePromise.next((value) => {
-        console.log(value);
-        console.log(value.properties);
+        console.log(`Value: ${JSON.stringify(value)}`);
+        console.log(`Properties: ${value.properties}`);
       });
 
       nodeList.concat(record);
