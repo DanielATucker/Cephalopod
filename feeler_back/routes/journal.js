@@ -25,7 +25,7 @@ router.post('/post_journal', function(req, res) {
 });
 
 router.get('/get_journal', function(req, res) {
-    let nodePromise = Database(`MATCH (J: Journal)-[la]->(U: User {name: '${req.session.username}'} RETURN (J))`);
+    let nodePromise = Database(`MATCH (J: Journal)-[la]->(U: User {name: '${req.session.username}'}) RETURN (J))`);
 
     nodePromise.then((node) => {
         if ((typeof node !== 'undefined') && ( node != null)) {
@@ -42,7 +42,7 @@ router.get('/get_journal', function(req, res) {
         }
         else {
             console.log("No node found");
-            
+
             res.json(`No node found`)
         }
     });
