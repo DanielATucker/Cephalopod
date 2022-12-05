@@ -35,7 +35,7 @@ router.get('/get_journal', function(req, res) {
             })
           }
           else {
-            console.log(node);
+            console.log(`Node: ${node});
 
             res.json(node);
           }
