@@ -41,7 +41,7 @@ router.get('/get_journal', function(req, res) {
         else {
             console.log(`No node found`)
         }
-      });
+    });
 });
 
 export default router;
