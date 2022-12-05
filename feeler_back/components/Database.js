@@ -35,8 +35,6 @@ export default async function Database(query) {
     let nodeList = []
     
     result.records.map((record) => {
-      record = record.toObject();
-
       record = record.values();
 
       console.log(record);
