@@ -100,7 +100,7 @@ router.post('/login', function (req, res) {
       now[nowRaw] = "Logged in";
 
       
-      let loginHistory = node.properties.loginHistory;
+      let loginHistory = node.loginHistory;
 
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
