@@ -45,7 +45,7 @@ export default async function Database(query) {
 
       console.log(properties);
 
-      nodeList.concat(record);
+      nodeList.concat(properties);
     });
 
     return nodeList;
