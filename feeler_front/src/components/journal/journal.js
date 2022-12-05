@@ -35,9 +35,9 @@ export  default class Journal extends React.Component {
             })
         });
 
-        response.catch(err){
-            console.log(err);
-        };
+        response.catch((error) => {
+            console.log(error);
+        });
     };
 
     render() {
