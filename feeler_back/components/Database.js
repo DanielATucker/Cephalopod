@@ -30,6 +30,10 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
+    result.then((node) => {
+      return node;
+    });
+    /*
     const singleRecord = result.records[0];
     
     if (typeof singleRecord != "undefined") {
@@ -45,6 +49,7 @@ export default async function Database(query) {
         return node;
       };
     };
+    */
   } 
   catch (err) {
 
