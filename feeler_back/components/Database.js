@@ -23,14 +23,8 @@ export default async function Database(query) {
     console.log(err);
   }
 
-  let result = null;
-
-  let node = null;
-
   try {
-    result = await session.run(query);
-
-    console.dir(result, {depth: null, colors: true});
+    let result = await session.run(query);
 
     let records = Object.values(result)[0];
 
