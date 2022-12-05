@@ -35,9 +35,9 @@ router.get('/get_journal', function(req, res) {
             });
           }
           else {
-            console.log(`Result: ${result.properties}`);
+            console.log(`Result: ${result}`);
             
-            res.json(JSON.stringify(result.properties));
+            res.json(JSON.stringify(result));
           };
         }
         else {
