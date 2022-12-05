@@ -30,7 +30,9 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    let nodes = result.records;
+    console.log(JSON.stringify(result));
+    
+    let nodes = result;
 
     return nodes;
 
