@@ -7,11 +7,33 @@ import Editor from "./editor";
 
 export  default class Journal extends React.Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
-            "test": 1
-        };
+            "journalTitles": []
+        }
+    };
+
+    componentDidMount() {
+        this.getJournalData();
+
+        setInterval(this.getJournalData, 10000);
+    };
+
+
+    getJournalData = async () => {
+        const response = await fetch('https://100.69.19.3:3001/journal/get_journal', {
+            method: 'GET',
+            credentials: "include"
+        });
+
+        response.next((journalTitles) => {
+            console.log(JSON.stringify(journalTitles));
+
+            this.setState({
+                "journalTitles": journalTitles
+            })
+        });
     };
 
     render() {
