@@ -39,7 +39,7 @@ router.get('/get_journal', function(req, res) {
           }
         }
         else {
-            console.log(`No node found`)
+            res.json(`No node found`)
         }
     });
 });
