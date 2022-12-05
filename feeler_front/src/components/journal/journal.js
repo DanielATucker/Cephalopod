@@ -29,7 +29,7 @@ export  default class Journal extends React.Component {
 
         let node = await response.json();
         
-        console.log(node);
+        console.log(JSON.stringify(node), null, 2);
     };
 
     render() {

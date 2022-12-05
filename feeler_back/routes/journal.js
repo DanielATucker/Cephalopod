@@ -37,7 +37,7 @@ router.get('/get_journal', function(req, res) {
           else {
             console.log(`Journal ${result}`);
 
-            res.json(JSON.stringify(result), null, 2);
+            res.json(JSON.stringify(result));
           };
         }
         else {
