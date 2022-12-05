@@ -30,9 +30,15 @@ export default async function Database(query) {
   try {
     result = await session.run(query);
 
-    console.dir(result, {depth: null, colors: true});
+    //console.dir(result, {depth: null, colors: true});
+    
+    let nodeList = []
+    
+    result.records[0]["_fields"][0].map((node) => {
+      nodeList.concat(node);
+    });
 
-    return result;
+    return nodeList;
 
     /*
     const singleRecord = result.records[0];
