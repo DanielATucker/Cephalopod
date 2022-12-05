@@ -37,7 +37,7 @@ router.get('/get_journal', function(req, res) {
           else {
             let journalTitles = [];
 
-            result.records.forEach(function(node){
+            result.forEach(function(node){
                 console.log(JSON.stringify(node));
                 journalTitles.concat(node);
             });
