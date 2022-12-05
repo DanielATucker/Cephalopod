@@ -34,6 +34,8 @@ export default async function Database(query) {
 
     let nodeList = []
     records.map((node) => {
+      node = node.properties;
+      
       console.log(node);
       nodeList.concat(node)
     });
