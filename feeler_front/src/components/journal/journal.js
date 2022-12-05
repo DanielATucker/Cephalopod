@@ -34,6 +34,10 @@ export  default class Journal extends React.Component {
                 "journalTitles": journalTitles
             })
         });
+
+        response.catch(err){
+            console.log(err);
+        };
     };
 
     render() {
