@@ -38,7 +38,7 @@ export default async function Database(query) {
         
         let properties = fields.values(2);
 
-        console.log(`Second Properties: ${properties}`);
+        console.log(`Second Properties: ${properties.values()}`);
       }
       catch (err) {
         console.log("Blank");
