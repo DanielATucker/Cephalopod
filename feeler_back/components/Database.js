@@ -23,8 +23,9 @@ export default async function Database(query) {
     let records = Object.values(result)[0];
     let record = Object.values(records)[0];
     
-    try {
+    if (record.constructor == Object) {
       let fields = record._fields;
+
       let fields2 = fields[0]
       let properties = fields2.properties;
       
@@ -33,16 +34,16 @@ export default async function Database(query) {
       await session.close();
 
       await driver.close();
+
+      await session.close();
+
+      await driver.close();
+
+      return nodeList
     }
-    catch {
+    else {
       console.log("Request conformation")
-    }
-
-    await session.close();
-
-    await driver.close();
-
-    return nodeList
+    };
   } 
   catch (err) {
 
