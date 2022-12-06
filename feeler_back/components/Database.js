@@ -35,15 +35,11 @@ export default async function Database(query) {
     catch (err) {
       try{
         let fields = record._fields;
-        
-        let properties = fields.values(2);
 
-        properties.map((propertie) => {
-          console.log(propertie);
-        });
+        console.log(JSON.stringify(fields));
       }
       catch (err) {
-        console.log("Blank");
+        console.log(result);
       };
     }
 
