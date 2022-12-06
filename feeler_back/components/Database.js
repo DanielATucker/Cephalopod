@@ -15,7 +15,7 @@ export default async function Database(query) {
 
   try {
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
-    session = driver.session();
+    let session = driver.session();
 
     let result = await session.run(query);
 
