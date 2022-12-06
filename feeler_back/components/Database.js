@@ -41,7 +41,7 @@ export default async function Database(query) {
       catch (err) {
         console.log(`Second Err ${err}`);
 
-        console.log(`Second Err Record ${record}`);
+        console.log(`Second Err Record ${records}`);
       };
     }
 
