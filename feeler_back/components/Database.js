@@ -27,9 +27,7 @@ export default async function Database(query) {
       let fields = record._fields;
       let fields2 = fields[0]
       let properties = fields2.properties;
-
-      console.log(JSON.stringify(properties));
-
+      
       nodeList.concat(properties);
 
       await session.close();
