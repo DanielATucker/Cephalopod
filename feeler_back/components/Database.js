@@ -38,7 +38,9 @@ export default async function Database(query) {
         
         let properties = fields.values(2);
 
-        console.info(properties);
+        properties.map((propertie) => {
+          console.log(propertie);
+        });
       }
       catch (err) {
         console.log("Blank");
