@@ -20,11 +20,21 @@ export default async function Database(query) {
     let result = await session.run(query);
     let records = Object.values(result)[0];
     let record = Object.values(records)[0];
-    let fields = record._fields;
-    let fields2 = fields[0]
-    let properties = fields2.properties;
+    
+    try {
+      let fields = record._fields;
+      let fields2 = fields[0]
+      let properties = fields2.properties;
 
-    console.log(JSON.stringify(properties));
+      console.log(JSON.stringify(properties));
+
+     await session.close();
+
+     await driver.close();
+    }
+    catch {
+      console.log("Request conformation")
+    }
 
     await session.close();
 
