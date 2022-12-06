@@ -34,6 +34,9 @@ export default async function Database(query) {
     let properties = Object.values(node)[2];
 
     console.log(properties);
+
+    await session.close()
+    await driver.close()
   } 
   catch (err) {
 
@@ -44,8 +47,5 @@ export default async function Database(query) {
     else {
       console.log(err);
     }
-  } finally {
-    await session.close()
-    await driver.close()
-  }
+  };
 };
