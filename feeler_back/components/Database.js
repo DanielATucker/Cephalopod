@@ -34,11 +34,9 @@ export default async function Database(query) {
     }
     catch (err) {
       try{
-        let fieldsList = record._fields;
+        let fieldslist = record._fields;
 
-        fields = fieldsList[0];
-
-        console.log(fields.values())
+        console.log(JSON.stringify(fields[0]));
       }
       catch (err) {
         console.log(`Request Conformation`);
