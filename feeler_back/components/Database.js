@@ -39,9 +39,7 @@ export default async function Database(query) {
         console.log(`Second Fields: ${JSON.stringify(fields)}`);
       }
       catch (err) {
-        console.log(`Second Err ${err}`);
-
-        console.log(`Second Err Record ${records}`);
+        console.log("Blank");
       };
     }
 
