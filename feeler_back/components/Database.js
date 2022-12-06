@@ -27,8 +27,8 @@ export default async function Database(query) {
 
     let record = Object.values(records)[0];
 
-    console.log(record);
-    
+    console.log(Object.values(record));
+
     let fields = Object.values(record)[2];
 
     let node = Object.values(fields);
