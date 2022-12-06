@@ -30,16 +30,16 @@ export default async function Database(query) {
 
       let properties = Object.values(node)[2];
 
-      console.log(`First Properties: ${properties}`);
+      console.log(`First Properties: ${JSON.properties}`);
     }
     catch (err) {
       try{
         let fields = record._fields;
 
-        console.log(JSON.stringify(fields));
+        console.log(JSON.stringify(fields[0]));
       }
       catch (err) {
-        console.log(result);
+        console.log(`Request Conformation`);
       };
     }
 
