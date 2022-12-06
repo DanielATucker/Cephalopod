@@ -13,6 +13,8 @@ export default async function Database(query) {
 
   const uri = "bolt://100.69.19.3:7688";
 
+  let nodeList = [];
+
   try {
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
     let session = driver.session();
@@ -28,9 +30,11 @@ export default async function Database(query) {
 
       console.log(JSON.stringify(properties));
 
-     await session.close();
+      nodeList.concat(properties);
 
-     await driver.close();
+      await session.close();
+
+      await driver.close();
     }
     catch {
       console.log("Request conformation")
@@ -39,6 +43,8 @@ export default async function Database(query) {
     await session.close();
 
     await driver.close();
+
+    return nodeList
   } 
   catch (err) {
 
