@@ -16,18 +16,19 @@ export default async function Database(query) {
   let session = null;
 
   try {
-
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
-    
     session = driver.session();
+  }
+  catch (err) {
+    console.log(err);
+  }
 
+  try {
     let result = await session.run(query);
 
     let records = Object.values(result)[0];
 
     let record = Object.values(records)[0];
-
-    console.log(record);
 
     let fields = Object.values(record)[2];
 
@@ -37,8 +38,48 @@ export default async function Database(query) {
 
     console.log(properties);
 
-    await session.close()
-    await driver.close()
+
+
+    //let nodeList = []
+    
+    /*
+    result.records.map((record) => {
+      let valuePromise = record.values();
+
+      let valueDict = valuePromise.next()
+
+      let node = Object.values(valueDict)[0];
+
+      let properties = Object.values(node)[2];
+
+      console.log(`Properties: ${properties}`);
+
+      nodeList.concat(properties);
+      
+    });
+    */
+
+    //console.log(`NodeList ${nodeList}`);
+
+    return nodeList;
+
+    /*
+    const singleRecord = result.records[0];
+    
+    if (typeof singleRecord != "undefined") {
+      try {node = singleRecord.get(0);
+      }
+      catch (err) {
+
+        if (err)
+        console.log(err);
+      
+        node = "undefined";
+
+        return node;
+      };
+    };
+    */
   } 
   catch (err) {
 
@@ -49,5 +90,16 @@ export default async function Database(query) {
     else {
       console.log(err);
     }
-  };
+  } finally {
+    await session.close()
+  }
+
+  try {
+      return node
+  }
+  catch (err) {
+      console.log(err);
+  }
+  
+  await driver.close()
 };
