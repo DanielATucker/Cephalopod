@@ -36,7 +36,9 @@ export default async function Database(query) {
       try{
         let fields = record._fields;
         
-        console.log(`Second Fields: ${JSON.stringify(fields)}`);
+        let properties = fields.values(2);
+
+        console.log(`First Properties: ${properties}`);
       }
       catch (err) {
         console.log("Blank");
