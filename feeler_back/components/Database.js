@@ -35,7 +35,7 @@ export default async function Database(query) {
     catch (err) {
       console.log(`Error ${err}`);
 
-      console.log(`Second Record: ${JSON.stringify(record, null, 2)}`);
+      console.log(`Second Record: ${record.values()}`);
     }
 
     await session.close()
