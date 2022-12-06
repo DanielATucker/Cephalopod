@@ -33,13 +33,19 @@ export default async function Database(query) {
       console.log(`First Properties: ${properties}`);
     }
     catch (err) {
-      let fields = record._fields
-      console.log(`Second Fields: ${JSON.stringify(fields)}`);
+      try{
+        let fields = record._fields;
+        
+        console.log(`Second Fields: ${JSON.stringify(fields)}`);
+      }
+      catch (err) {
+        console.log(err);
+      };
     }
 
-    await session.close()
+    await session.close();
 
-    await driver.close()
+    await driver.close();
   } 
   catch (err) {
 
