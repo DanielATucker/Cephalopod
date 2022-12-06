@@ -23,6 +23,8 @@ export default async function Database(query) {
     let records = Object.values(result)[0];
     let record = Object.values(records)[0];
     
+    console.log(`Tpyeof: ${record}`);
+
     if (record.constructor == Object) {
       let fields = record._fields;
 
