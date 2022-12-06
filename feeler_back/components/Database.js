@@ -18,34 +18,13 @@ export default async function Database(query) {
     let session = driver.session();
 
     let result = await session.run(query);
-
     let records = Object.values(result)[0];
-
     let record = Object.values(records)[0];
+    let fields = record._fields;
+    let fields2 = fields[0]
+    let properties = fields2.properties;
 
-    try{
-      let values = record.values().next()
-
-      let node = Object.values(values)[2];
-
-      let properties = Object.values(node)[2];
-
-      console.log(`First Properties: ${JSON.properties}`);
-    }
-    catch (err) {
-      try{
-        let fields = record._fields;
-
-        let fields2 = fields[0]
-
-        let properties = fields2.properties;
-
-        console.log(JSON.stringify(properties));
-      }
-      catch (err) {
-        console.log(`Request Conformation`);
-      };
-    }
+    console.log(JSON.stringify(properties));
 
     await session.close();
 
