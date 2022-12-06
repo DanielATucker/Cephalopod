@@ -30,7 +30,7 @@ export default async function Database(query) {
 
       let properties = Object.values(node)[2];
 
-      console.log(`First Properties: ${JSON.stringify(properties)}`);
+      console.log(`First Properties: ${properties}`);
     }
     catch (err) {
       try{
@@ -38,7 +38,7 @@ export default async function Database(query) {
         
         let properties = fields.values(2);
 
-        console.log(`First Properties: ${JSON.stringify(properties)}`);
+        console.log(`Second Properties: ${properties}`);
       }
       catch (err) {
         console.log("Blank");
