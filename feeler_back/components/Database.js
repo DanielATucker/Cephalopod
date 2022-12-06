@@ -20,32 +20,29 @@ export default async function Database(query) {
     let session = driver.session();
 
     let result = await session.run(query);
+    
+    console.log(`Typeof: ${typeof(result)}`);
+    console.log(`result: ${result}`);
+
     let records = Object.values(result)[0];
+    
     let record = Object.values(records)[0];
     
-    console.log(`Tpyeof: ${record}`);
+    console.log(`Typeof: ${record}`);
+  
+    let fields = record._fields;
 
-    if (record.constructor == Object) {
-      let fields = record._fields;
+    let fields2 = fields[0]
+    
+    let properties = fields2.properties;
+    
+    nodeList.concat(properties);
 
-      let fields2 = fields[0]
-      let properties = fields2.properties;
-      
-      nodeList.concat(properties);
+    await session.close();
 
-      await session.close();
+    await driver.close();
 
-      await driver.close();
-
-      await session.close();
-
-      await driver.close();
-
-      return nodeList
-    }
-    else {
-      console.log("Request conformation")
-    };
+    return nodeList
   } 
   catch (err) {
 
@@ -57,4 +54,6 @@ export default async function Database(query) {
       console.log(err);
     }
   };
+
+
 };
