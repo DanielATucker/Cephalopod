@@ -23,13 +23,20 @@ export default async function Database(query) {
 
     let record = Object.values(records)[0];
 
-    let values = record.values().next()
+    try{
+      let values = record.values().next()
 
-    console.log(values);
+      let node = Object.values(values)[2];
 
-    let node = Object.values(values)[2];
+      let properties = Object.values(node)[2];
 
-    let properties = Object.values(node)[2];
+      console.log(`First Properties: ${properties}`);
+    }
+    catch (err) {
+      console.log(`Error ${err}`);
+
+      console.log(`Second Record: ${record}`);
+    }
 
     await session.close()
 
