@@ -23,7 +23,7 @@ export default async function Database(query) {
 
     let record = Object.values(records)[0];
 
-    console.log(record.values());
+    console.log(record.values().next());
 
     let fields = Object.values(record)[2];
 
