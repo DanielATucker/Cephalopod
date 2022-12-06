@@ -25,11 +25,11 @@ export default async function Database(query) {
 
     let values = record.values().next()
 
+    console.log(values);
+
     let node = Object.values(values)[2];
 
     let properties = Object.values(node)[2];
-
-    console.log(properties);
 
     await session.close()
 
