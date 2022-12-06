@@ -23,13 +23,13 @@ export default async function Database(query) {
 
     let record = Object.values(records)[0];
 
+    console.log(record.values());
+
     let fields = Object.values(record)[2];
 
     let node = Object.values(fields);
 
     let properties = Object.values(node)[2];
-
-    console.log(properties);
 
     await session.close()
 
