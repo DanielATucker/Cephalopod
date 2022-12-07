@@ -21,7 +21,7 @@ export default async function Database(query) {
     
     let records = Object.values(result)[0];
     
-    if (records.lenght === 1) {
+    if (records.lenght() === 1) {
       let record = Object.values(records)[0];
         
       let fields = record._fields;
@@ -31,7 +31,7 @@ export default async function Database(query) {
       let properties = fields2.properties;
 
       console.log(properties);
-      
+
       return properties;
     };
 
