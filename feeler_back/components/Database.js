@@ -50,8 +50,6 @@ export default async function Database(query) {
 
       await driver.close();
     });
-
-    console.log(JSON.stringify(nodeList));
   } 
   catch (err) {
 
@@ -63,6 +61,4 @@ export default async function Database(query) {
       console.log(err);
     }
   };
-
-
 };
