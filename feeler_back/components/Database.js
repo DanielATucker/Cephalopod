@@ -37,9 +37,17 @@ export default async function Database(query) {
     
     console.log(JSON.stringify(nodeList));
 
-    console.log(Object.keys(nodeList).length);
+    if (Object.keys(nodeList).length === 1){
+      console.log(nodeList[0]);
 
-    //return nodeList
+      return nodeList[0];
+    };
+
+    if (Object.keys(nodeList).length >= 2){
+      console.log(JSON.stringify(nodeList));
+
+      return nodeList;
+    };
   } 
   catch (err) {
 
