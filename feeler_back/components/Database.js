@@ -30,7 +30,7 @@ export default async function Database(query) {
       
       let properties = fields2.properties;
 
-      return properties;
+      return [properties];
     };
 
     if (records.lenght == 2) {
