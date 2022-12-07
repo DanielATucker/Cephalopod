@@ -21,8 +21,8 @@ export default async function Database(query) {
     
     let records = Object.values(result)[0];
     
-    console.log(records.keys.length);
-    
+    console.log(records.length);
+
     function get_record(record) {
       record = Object.values(records)[0];
         
