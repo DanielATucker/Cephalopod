@@ -37,7 +37,7 @@ export default async function Database(query) {
     
     console.log(JSON.stringify(nodeList));
 
-    console.log(result);
+    console.log(JSON.stringify(result), null, 2);
 
     if (Object.keys(nodeList).length === 1){
       console.log(nodeList[0]);
