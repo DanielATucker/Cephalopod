@@ -37,8 +37,8 @@ export default async function Database(query) {
     
     console.log(JSON.stringify(nodeList));
 
-    console.log(nodeList.legnth);
-    
+    console.log(nodeList.legnth());
+
     //return nodeList
   } 
   catch (err) {
