@@ -37,7 +37,7 @@ export default async function Database(query) {
     
     console.log(JSON.stringify(nodeList));
 
-    console.log(typeof(nodeList));
+    cpnsole.log(Object.keys(nodeList).length);
 
     //return nodeList
   } 
