@@ -13,8 +13,6 @@ export default async function Database(query) {
 
   const uri = "bolt://100.69.19.3:7688";
 
-  let nodeList = [];
-
   try {
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
     let session = driver.session();
@@ -22,9 +20,28 @@ export default async function Database(query) {
     let result = await session.run(query);
     
     let records = Object.values(result)[0];
-    
-    let nodeList = []
 
+    let nodeList = [];
+
+    records.map(get_record(nodeList))
+    
+    function get_record(record, nodeList) {
+      record = Object.values(records)[0];
+    
+      console.log(`Typeof: ${record}`);
+    
+      let fields = record._fields;
+
+      let fields2 = fields[0];
+      
+      let properties = fields2.properties;
+
+      console.log(`Properties: ${JSON.stringify(properties)}`);
+
+      console.log(`NodeList: ${nodeList}`)
+    };
+    
+    /*
     function nodeListCall(properties) {
       console.log(JSON.stringify(properties));
 
@@ -54,6 +71,8 @@ export default async function Database(query) {
 
       await driver.close();
     });
+    */
+
   } 
   catch (err) {
 
