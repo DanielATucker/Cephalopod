@@ -22,7 +22,7 @@ export default async function Database(query) {
     let result = await session.run(query);
     
     console.log(`Typeof: ${typeof(result)}`);
-    console.log(`result: ${JSON.stringify(result)}`);
+    console.log(`result: ${JSON.stringify(result, null, 2)}`);
 
     let records = Object.values(result)[0];
     
