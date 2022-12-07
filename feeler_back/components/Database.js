@@ -29,9 +29,13 @@ export default async function Database(query) {
       console.log(JSON.stringify(properties));
 
       nodeList.concat(properties);
+
+      console.log(this.nodeList);
       
       console.log(JSON.stringify(nodeList));
     };
+
+    nodeListCall.bind(this);
 
     records.map(async (record) => {
       record = Object.values(records)[0];
@@ -46,7 +50,7 @@ export default async function Database(query) {
       
       nodeListCall(properties);
 
-      console.log(`NodeList: ${this.nodeList}`)
+      console.log(`NodeList: ${nodeList}`)
       await session.close();
 
       await driver.close();
