@@ -6,7 +6,7 @@ require('dotenv').config()
 
 var neo4j = require('neo4j-driver')
 
-import { nodeList } from "./nodeList";
+import { nodeList } from "./nodeList.js";
 
 export default async function Database(query) {
   const Neo4jUser = process.env.Neo4jUser;
