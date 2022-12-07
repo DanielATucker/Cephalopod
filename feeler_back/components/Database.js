@@ -32,8 +32,6 @@ export default async function Database(query) {
       
       let properties = fields2.properties;
 
-      console.log(`Properties: ${JSON.stringify(properties)}`);
-
       return properties;
     };
 
@@ -41,38 +39,7 @@ export default async function Database(query) {
     
     console.log(JSON.stringify(nodeList));
 
-    /*
-    function nodeListCall(properties) {
-      console.log(JSON.stringify(properties));
-
-      nodeList.concat(properties);
-
-      console.log(nodeList);
-
-      console.log(JSON.stringify(nodeList));
-    };
-
-    records.forEach(async record  => {
-      record = Object.values(records)[0];
-    
-      console.log(`Typeof: ${record}`);
-    
-      let fields = record._fields;
-
-      let fields2 = fields[0];
-      
-      let properties = fields2.properties;
-      
-      nodeListCall(properties);
-
-      console.log(`NodeList: ${nodeList}`);
-
-      await session.close();
-
-      await driver.close();
-    });
-    */
-
+    //return nodeList
   } 
   catch (err) {
 
