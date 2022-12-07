@@ -21,8 +21,6 @@ export default async function Database(query) {
     let result = await session.run(query);
     
     let records = Object.values(result)[0];
-
-    records.map(get_record())
     
     function get_record(record) {
       record = Object.values(records)[0];
@@ -40,6 +38,8 @@ export default async function Database(query) {
       nodeList.concat(properties);
       console.log(`NodeList: ${nodeList}`)
     };
+
+    records.map(get_record());
     
     /*
     function nodeListCall(properties) {
