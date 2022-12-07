@@ -6,7 +6,7 @@ require('dotenv').config()
 
 var neo4j = require('neo4j-driver')
 
-nodeList = []
+let nodeList = []
 
 export default async function Database(query) {
   const Neo4jUser = process.env.Neo4jUser;
@@ -24,7 +24,7 @@ export default async function Database(query) {
 
     records.map(get_record())
     
-    function get_record(record, nodeList) {
+    function get_record(record) {
       record = Object.values(records)[0];
     
       console.log(`Typeof: ${record}`);
