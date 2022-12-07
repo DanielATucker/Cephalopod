@@ -6,7 +6,6 @@ require('dotenv').config()
 
 var neo4j = require('neo4j-driver')
 
-import { nodeList } from "./nodeList.js";
 
 export default async function Database(query) {
   const Neo4jUser = process.env.Neo4jUser;
@@ -35,12 +34,13 @@ export default async function Database(query) {
 
       console.log(`Properties: ${JSON.stringify(properties)}`);
 
-      nodeList.concat(properties);
-      console.log(`NodeList: ${JSON.stringify(nodeList)}`)
+      return properties;
     };
 
-    records.map(get_record);
+    let nodeList = records.map(get_record);
     
+    console.log(JSON.stringify(nodeList));
+
     /*
     function nodeListCall(properties) {
       console.log(JSON.stringify(properties));
