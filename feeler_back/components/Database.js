@@ -30,9 +30,9 @@ export default async function Database(query) {
 
       nodeList.concat(properties);
 
-      console.log(nodeList);
+      console.log(this.nodeList);
 
-      console.log(JSON.stringify(nodeList));
+      console.log(JSON.stringify(this.nodeList));
     };
 
     let nodeListCall1 = nodeListCall.bind(nodeList);
