@@ -39,7 +39,7 @@ export default async function Database(query) {
       console.log(`NodeList: ${nodeList}`)
     };
 
-    records.map(get_record());
+    records.map(get_record);
     
     /*
     function nodeListCall(properties) {
