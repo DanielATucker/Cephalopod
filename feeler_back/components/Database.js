@@ -35,7 +35,7 @@ export default async function Database(query) {
       console.log(JSON.stringify(nodeList));
     };
 
-    records.array.forEach(async record  => {
+    records.forEach(async record  => {
       record = Object.values(records)[0];
     
       console.log(`Typeof: ${record}`);
