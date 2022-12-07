@@ -36,7 +36,7 @@ export default async function Database(query) {
       console.log(`Properties: ${JSON.stringify(properties)}`);
 
       nodeList.concat(properties);
-      console.log(`NodeList: ${nodeList}`)
+      console.log(`NodeList: ${JSON.stringify(nodeList)}`)
     };
 
     records.map(get_record);
