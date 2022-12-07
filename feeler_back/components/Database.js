@@ -21,7 +21,7 @@ export default async function Database(query) {
     
     let records = Object.values(result)[0];
   
-    console.log(records.lenght);
+    console.log(Object.keys(records).length);
 
     if (Object.keys(records).length === 1) {
       let record = Object.values(records)[0];
@@ -37,7 +37,7 @@ export default async function Database(query) {
       return properties;
     };
 
-    if (records.lenght == 2) {
+    if (Object.keys(records).length === 2) {
       console.log(2);
       return 2
     };
