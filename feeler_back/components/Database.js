@@ -46,7 +46,7 @@ export default async function Database(query) {
       
       nodeListCall(properties);
 
-      console.log(`NodeList: ${nodeList}`)
+      console.log(`NodeList: ${this.nodeList}`)
       await session.close();
 
       await driver.close();
