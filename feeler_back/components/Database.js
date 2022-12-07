@@ -30,12 +30,12 @@ export default async function Database(query) {
 
       nodeList.concat(properties);
 
-      console.log(this.nodeList);
-      
+      console.log(nodeList);
+
       console.log(JSON.stringify(nodeList));
     };
 
-    nodeListCall.bind(this);
+    nodeListCall.bind(nodeList);
 
     records.map(async (record) => {
       record = Object.values(records)[0];
