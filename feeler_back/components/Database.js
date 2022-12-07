@@ -26,6 +26,8 @@ export default async function Database(query) {
     let nodeList = []
 
     let nodeListCall = (nodeList, properties) => {
+      console.log(JSON.stringify(properties));
+
       nodeList.concat(properties);
       
       console.log(JSON.stringify(nodeList));
