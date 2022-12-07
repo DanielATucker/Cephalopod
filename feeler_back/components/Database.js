@@ -23,9 +23,7 @@ export default async function Database(query) {
     
     function get_record(record) {
       record = Object.values(records)[0];
-    
-      console.log(`Typeof: ${record}`);
-    
+        
       let fields = record._fields;
 
       let fields2 = fields[0];
