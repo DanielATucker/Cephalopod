@@ -33,7 +33,7 @@ export default async function Database(query) {
       console.log(JSON.stringify(nodeList));
     };
 
-    records.map(nodeListCall(nodeList), async record => {
+    records.map(nodeListCall(), async record => {
       record = Object.values(records)[0];
     
       console.log(`Typeof: ${record}`);
