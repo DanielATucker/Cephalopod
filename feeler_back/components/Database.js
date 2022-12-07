@@ -21,28 +21,33 @@ export default async function Database(query) {
 
     let result = await session.run(query);
     
-    console.log(`Typeof: ${typeof(result)}`);
-    console.log(`result: ${JSON.stringify(result, null, 2)}`);
-
     let records = Object.values(result)[0];
     
-    let record = Object.values(records)[0];
+    let nodeList = []
+
+    let nodeListCall = (nodeList, node) => {
+      nodeList.concat(node);
+    };
+
+    records.map(async (record) => {
+      record = Object.values(records)[0];
     
-    console.log(`Typeof: ${record}`);
-  
-    let fields = record._fields;
-
-    let fields2 = fields[0]
+      console.log(`Typeof: ${record}`);
     
-    let properties = fields2.properties;
-    
-    nodeList.concat(properties);
+      let fields = record._fields;
 
-    await session.close();
+      let fields2 = fields[0]
+      
+      let properties = fields2.properties;
+      
+      nodeListCall(nodeList, properties);
 
-    await driver.close();
+      await session.close();
 
-    return nodeList
+      await driver.close();
+    });
+
+    console.log(nodeList);
   } 
   catch (err) {
 
