@@ -20,8 +20,10 @@ export default async function Database(query) {
     let result = await session.run(query);
     
     let records = Object.values(result)[0];
+  
+    console.log(records.lenght);
     
-    if (records.lenght() === 1) {
+    if (records.lenght === 1) {
       let record = Object.values(records)[0];
         
       let fields = record._fields;
