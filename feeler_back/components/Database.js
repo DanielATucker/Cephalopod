@@ -38,6 +38,8 @@ export default async function Database(query) {
       return 2
     };
 
+    /*
+
     let nodeList = []
      
     nodeList = records.map(get_record);
@@ -57,6 +59,7 @@ export default async function Database(query) {
 
       return nodeList;
     };
+    */
   } 
   catch (err) {
 
