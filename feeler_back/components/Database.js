@@ -21,6 +21,11 @@ export default async function Database(query) {
     
     let records = Object.values(result)[0];
     
+    for (let record in records) {
+      console.log(record);
+    };
+
+    /*
     function get_record(record) {
       record = Object.values(records)[0];
         
@@ -33,9 +38,7 @@ export default async function Database(query) {
       return properties;
     };
 
-    let nodeList = []
-    
-    nodeList.concat(() => records.map(get_record));
+    let nodeList = records.map(get_record);
     
     console.log(JSON.stringify(nodeList));
 
@@ -52,6 +55,8 @@ export default async function Database(query) {
 
       return nodeList;
     };
+
+    */
   } 
   catch (err) {
 
