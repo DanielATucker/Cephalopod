@@ -35,7 +35,7 @@ export default async function Database(query) {
       console.log(JSON.stringify(nodeList));
     };
 
-    let nodeListCall1.bind(nodeList);
+    let nodeListCall1 = nodeListCall.bind(nodeList);
 
     records.map(async (record) => {
       record = Object.values(records)[0];
