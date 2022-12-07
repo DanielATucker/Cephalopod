@@ -21,8 +21,8 @@ export default async function Database(query) {
     
     let records = Object.values(result)[0];
     
-    function get_record(record) {
-      record = Object.values(records)[0];
+    if (records.lenght === 1) {
+      let record = Object.values(records)[0];
         
       let fields = record._fields;
 
@@ -33,6 +33,11 @@ export default async function Database(query) {
       return properties;
     };
 
+    if (records.lenght == 2) {
+      console.log(2);
+      return 2
+    };
+
     let nodeList = []
      
     nodeList = records.map(get_record);
@@ -40,9 +45,6 @@ export default async function Database(query) {
     console.log(JSON.stringify(nodeList));
 
     console.log(JSON.stringify(result, null, 2));
-
-    console.log(records.length);
-
 
     if (Object.keys(nodeList).length === 1){
       console.log(nodeList[0]);
