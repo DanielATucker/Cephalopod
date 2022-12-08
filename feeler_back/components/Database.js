@@ -73,29 +73,6 @@ export default async function Database(query) {
       
       return finalList
     };
-
-    /*
-
-    let nodeList = []
-     
-    nodeList = records.map(get_record);
-    
-    console.log(JSON.stringify(nodeList));
-
-    console.log(JSON.stringify(result, null, 2));
-
-    if (Object.keys(nodeList).length === 1){
-      console.log(nodeList[0]);
-
-      return nodeList[0];
-    };
-
-    if (Object.keys(nodeList).length >= 2){
-      console.log(JSON.stringify(nodeList));
-
-      return nodeList;
-    };
-    */
   } 
   catch (err) {
 
