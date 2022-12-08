@@ -37,9 +37,40 @@ export default async function Database(query) {
       return properties;
     };
 
-    if (Object.keys(records).length === 2) {
+    if (Object.keys(records).length >= 2) {
+      let count = Object.keys(records).length;
+
       console.log(2);
-      return 2
+
+      console.log(count);
+
+      get_properties = async (records, countTimes) => {
+        let record = Object.values(records)[countTimes];
+        
+        let fields = record._fields;
+  
+        let fields2 = fields[0];
+        
+        let properties = fields2.properties;
+  
+        console.log(properties);
+  
+        return properties;
+      };
+
+      let finalList = [];
+
+      let countTimes = 0;
+
+      while (countTimes < count) {
+        finalList.concat(get_properties(records, countTimes));
+
+        countTimes++
+      };
+
+      console.log(finalList);
+      
+      return finalList
     };
 
     /*
