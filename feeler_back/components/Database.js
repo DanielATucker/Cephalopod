@@ -63,10 +63,10 @@ export default async function Database(query) {
       let countTimes = 0;
 
       while (countTimes < count) {
-        node = get_properties(records, countTimes);
+        let node = get_properties(records, countTimes);
 
         finalList.concat(node);
-        
+
         countTimes++
       };
 
