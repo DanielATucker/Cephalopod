@@ -44,7 +44,7 @@ export default async function Database(query) {
 
       console.log(count);
 
-      get_properties = async (records, countTimes) => {
+      let get_properties = async (records, countTimes) => {
         let record = Object.values(records)[countTimes];
         
         let fields = record._fields;
