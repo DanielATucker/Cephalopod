@@ -70,6 +70,8 @@ export default async function Database(query) {
       };
 
       console.log(finalList);
+
+      console.log(`DATA: ${records}`);
       
       return finalList
     };
