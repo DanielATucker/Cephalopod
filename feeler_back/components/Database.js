@@ -71,7 +71,7 @@ export default async function Database(query) {
 
       console.log(finalList);
 
-      console.log(`DATA: ${records}`);
+      console.log(`DATA: ${JSON.stringify(records)}`);
       
       return finalList
     };
