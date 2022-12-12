@@ -61,17 +61,19 @@ export default async function Database(query) {
 
       let countTimes = 0;
 
+      const async_concat = async(oldList, value) => {
+        return oldList.concat(value);
+      };
+
       while (countTimes < count) {
-        let node = get_properties(records, countTimes);
-
-        finalList.concat(node.then());
-
-        countTimes++
+        let node = await get_properties(records, countTimes);
+        finalList = await async_concat(finalList, node);
+        countTimes++       
       };
 
       console.log(finalList);
 
-      console.log(`DATA: ${JSON.stringify(records, null, 2)}`);
+      //console.log(`DATA: ${JSON.stringify(records, null, 2)}`);
       
       return finalList
     };
