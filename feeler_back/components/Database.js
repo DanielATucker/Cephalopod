@@ -22,8 +22,6 @@ export default async function Database(query) {
     
     let records = Object.values(result)[0];
   
-    console.log(Object.keys(records).length);
-
     if (Object.keys(records).length === 1) {
       let record = Object.values(records)[0];
         
@@ -33,17 +31,11 @@ export default async function Database(query) {
       
       let properties = fields2.properties;
 
-      console.log(properties);
-
       return properties;
     };
 
     if (Object.keys(records).length >= 2) {
       let count = Object.keys(records).length;
-
-      console.log(2);
-
-      console.log(count);
 
       let get_properties = async (records, countTimes) => {
         let record = Object.values(records)[countTimes];
@@ -53,9 +45,7 @@ export default async function Database(query) {
         let fields2 = fields[0];
         
         let properties = fields2.properties;
-  
-        console.log(properties);
-  
+    
         return properties;
       };
 
