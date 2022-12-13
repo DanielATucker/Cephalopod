@@ -46,13 +46,14 @@ export  default class Journal extends React.Component {
 
     componentDidUpdate(previousState){
         if ((this.state.journals != previousState.journals) && (this.state.journals.length != 0)) {
+            let journals = this.state.journals;
 
-            console.log(`Journals: ${this.state.journals}`);
+            console.log(`Journals: ${journals}`);
     
-            this.state.journals.forEach((journal, count) => {
+            journals.forEach((journal, count) => {
                 console.log(`Journal: ${journal}`);
                 console.log(`Count: ${count}`);
-                
+
                 let prevGrid = this.state.datagrid;
 
                 console.log(prevGrid);
