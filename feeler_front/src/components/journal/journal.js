@@ -52,7 +52,7 @@ export  default class Journal extends React.Component {
     
             this.state.journals.map((journal) => {
                 console.log(`Journal: ${journal}`);
-                
+
                 let prevGrid = this.state.datagrid;
 
                 console.log(prevGrid);
@@ -68,8 +68,6 @@ export  default class Journal extends React.Component {
             });
 
             console.log(`Updated DataGrid: ${JSON.stringify(this.state.datagrid)}`);
-
-            */
         };
     };
 
