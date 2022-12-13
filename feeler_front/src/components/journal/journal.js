@@ -54,6 +54,8 @@ export  default class Journal extends React.Component {
                 console.log(prevGrid);
                 console.log(prevGrid.rows);
 
+                console.log(journal);
+                
                 let newGrid = prevGrid.rows.concat({ id: count, Name: journal.name});
 
                 this.setState({
