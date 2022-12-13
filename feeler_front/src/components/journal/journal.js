@@ -44,13 +44,13 @@ export  default class Journal extends React.Component {
     };
 
     componentDidUpdate(previousState){
-        if (this.state.journals != previousState.journals) {
+        if ((this.state.journals != previousState.journals) && (this.state.journals.length != 0)) {
             this.state.journals.map((journal) => {
                 let prevGrid = this.state.datagrid;
 
                 console.log(prevGrid);
                 console.log(prevGrid.rows);
-                
+
                 let newGrid = prevGrid.rows.concat(journal);
 
                 this.setState({
