@@ -50,7 +50,7 @@ export  default class Journal extends React.Component {
 
             console.log(`Journals: ${this.state.journals}`);
     
-            this.state.journals.map((journal) => {
+            this.state.journals.map(journal => {
                 console.log(`Journal: ${journal}`);
 
                 let prevGrid = this.state.datagrid;
