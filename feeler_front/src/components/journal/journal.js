@@ -51,7 +51,7 @@ export  default class Journal extends React.Component {
             console.log(typeof journals);
             console.log(`Journals: ${journals}`);
     
-            Object.entries(journals).forEach(journal => {
+            Object.entries(journals).forEach((journal, count) => {
                 console.log(`Journal: ${journal}`);
                 console.log(`Count: ${count}`);
 
