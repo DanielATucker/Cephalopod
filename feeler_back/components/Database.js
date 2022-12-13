@@ -71,7 +71,7 @@ export default async function Database(query) {
   catch (err) {
 
     if (err.name == "Neo4jError") {
-      node = "No Database found"
+      let node = "No Database found"
       return node;
     }
     else {
