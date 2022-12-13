@@ -37,10 +37,11 @@ export  default class Journal extends React.Component {
         });
 
         let node = await response.json();
-        
-        this.setState({
-            "journals": this.state.journals.concat(node)
-        })
+        if (node != "No node found") {
+            this.setState({
+                "journals": this.state.journals.concat(node)
+            })
+        };
     };
 
     componentDidUpdate(previousState){
