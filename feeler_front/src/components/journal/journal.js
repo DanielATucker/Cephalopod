@@ -17,7 +17,7 @@ export  default class Journal extends React.Component {
                     { field: 'Name', headerName: 'Journal', width: 130}
                 ], 
                 "rows": [
-                    { id: 1, Name: "JOURNALNAME"}
+                    { id: 0, Name: "JOURNALNAME"}
                 ]
             }
         };
@@ -46,13 +46,13 @@ export  default class Journal extends React.Component {
 
     componentDidUpdate(previousState){
         if ((this.state.journals != previousState.journals) && (this.state.journals.length != 0)) {
-            let count = 2;
 
             console.log(`Journals: ${this.state.journals}`);
     
-            this.state.journals.forEach((journal) => {
+            this.state.journals.forEach((journal, count) => {
                 console.log(`Journal: ${journal}`);
-
+                console.log(`Count: ${count}`);
+                
                 let prevGrid = this.state.datagrid;
 
                 console.log(prevGrid);
