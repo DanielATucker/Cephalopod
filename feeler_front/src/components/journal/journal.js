@@ -48,6 +48,7 @@ export  default class Journal extends React.Component {
         if ((this.state.journals != previousState.journals) && (this.state.journals.length != 0)) {
             let journals = this.state.journals;
 
+            console.log(typeof journals);
             console.log(`Journals: ${journals}`);
     
             Object.entries(journals[0]).forEach((journal, count) => {
