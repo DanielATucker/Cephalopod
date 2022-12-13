@@ -10,7 +10,16 @@ export  default class Journal extends React.Component {
         super(props);
 
         this.state = {
-            "journalTitles": []
+            "journals": [], 
+            "datagrid": {
+                "columns": [
+                    { field: 'id', headerName: 'ID'},
+                    { field: 'Name', headerName: 'Journal', width: 130}
+                ], 
+                "rows": [
+                    { id: 1, Name: "JOURNALNAME"}
+                ]
+            }, 
         }
     };
 
@@ -29,20 +38,24 @@ export  default class Journal extends React.Component {
 
         let node = await response.json();
         
-        console.log(JSON.stringify(node, null, 2));
+        this.setState({
+            "journals": this.state.journals.concat(node)
+        })
+    };
+
+    componentDidUpdate(previousState){
+        if (this.state != previousState) {
+            this.state.journals.map((journal) => {
+                let prevgrid = this.state.datagrid;
+
+                prevgrid.rows.concat(journal);
+            });
+
+            console.log("Updated Journals")
+        };
     };
 
     render() {
-
-        const columns = [
-            { field: 'id', headerName: 'ID'},
-            { field: 'Name', headerName: 'Journal', width: 130}
-        ]
-
-        const rows = [
-            { id: 1, Name: "JOURNALNAME"}
-        ];
-
         return (
             <>
             
@@ -53,7 +66,7 @@ export  default class Journal extends React.Component {
                 <div style={{display: "inline-block", width: "20%", height: 700}}>
                     <DataGrid
                     rows={rows}
-                    columns={columns}
+                    columns={this.state.datagrid.columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection>
