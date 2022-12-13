@@ -65,7 +65,7 @@ export  default class Journal extends React.Component {
                 
                 <div style={{display: "inline-block", width: "20%", height: 700}}>
                     <DataGrid
-                    rows={rows}
+                    rows={this.state.datagrid.rows}
                     columns={this.state.datagrid.columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
