@@ -19,8 +19,8 @@ export  default class Journal extends React.Component {
                 "rows": [
                     { id: 1, Name: "JOURNALNAME"}
                 ]
-            }, 
-        }
+            }
+        };
     };
 
     componentDidMount() {
@@ -44,7 +44,7 @@ export  default class Journal extends React.Component {
     };
 
     componentDidUpdate(previousState){
-        if (this.state != previousState) {
+        if (this.state.journals != previousState.journals) {
             this.state.journals.map((journal) => {
                 let prevGrid = this.state.datagrid;
 
@@ -55,7 +55,7 @@ export  default class Journal extends React.Component {
                 });
             });
 
-            console.log(`Updated DataGrid: ${this.state.datagrid}`)
+            console.log(`Updated DataGrid: ${JSON.stringify(this.state.datagrid)}`)
         };
     };
 
