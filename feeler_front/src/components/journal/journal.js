@@ -46,7 +46,7 @@ export  default class Journal extends React.Component {
 
     componentDidUpdate(previousState){
         if ((this.state.journals != previousState.journals) && (this.state.journals.length != 0)) {
-            let count = 1;
+            let count = 2;
 
             this.state.journals.map((journal) => {
                 let prevGrid = this.state.datagrid;
