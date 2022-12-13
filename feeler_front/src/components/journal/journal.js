@@ -48,6 +48,9 @@ export  default class Journal extends React.Component {
             this.state.journals.map((journal) => {
                 let prevGrid = this.state.datagrid;
 
+                console.log(prevGrid);
+                console.log(prevGrid.rows);
+                
                 let newGrid = prevGrid.rows.concat(journal);
 
                 this.setState({
