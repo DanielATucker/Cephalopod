@@ -6,7 +6,6 @@ require('dotenv').config()
 
 var neo4j = require('neo4j-driver')
 
-let finalList = [];
 
 export default async function Database(query) {
   const Neo4jUser = process.env.Neo4jUser;
@@ -35,6 +34,8 @@ export default async function Database(query) {
     };
 
     if (Object.keys(records).length >= 2) {
+      let finalList = [];
+
       let count = Object.keys(records).length;
 
       let get_properties = async (records, countTimes) => {
