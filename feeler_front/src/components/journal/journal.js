@@ -49,15 +49,16 @@ export  default class Journal extends React.Component {
             let count = 2;
 
             console.log(`Journals: ${this.state.journals}`);
-            
-            /*
+    
             this.state.journals.map((journal) => {
+                console.log(`Journal: ${journal}`);
+                
                 let prevGrid = this.state.datagrid;
 
                 console.log(prevGrid);
                 console.log(prevGrid.rows);
 
-                let newGrid = prevGrid.rows.concat({ id: count, Name: journal[0].name});
+                let newGrid = prevGrid.rows.concat({ id: count, Name: journal.name});
 
                 this.setState({
                     "datagrid": newGrid
