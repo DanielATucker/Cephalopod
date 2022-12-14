@@ -74,9 +74,11 @@ export  default class Journal extends React.Component {
 
                 count++;
 
-                this.setState({
-                    "datagrid": newGrid
-                });
+                if (this.state) {
+                    this.setState({
+                        "datagrid": newGrid
+                    });
+                }
             });
 
             console.log(`Updated DataGrid: ${JSON.stringify(this.state.datagrid)}`);
