@@ -60,19 +60,21 @@ export  default class Journal extends React.Component {
 
                 console.log(`Journal array: ${JSON.stringify(journalArray)}`);
 
-                journalArray.forEach((journal)=> {
+                let prevGrid = this.state.datagrid;
+
+                console.log(prevGrid);
+                console.log(prevGrid.rows);
+
+                let newGrid = prevGrid;
+
+                journalArray.forEach((journal) => {
                     console.log(`Journal ${JSON.stringify(journal)}`);
 
-                    let prevGrid = this.state.datagrid;
+                    newGrid.rows.concat({ id: count++, Name: journal.name});
+                });
 
-                    console.log(prevGrid);
-                    console.log(prevGrid.rows);
-
-                    let newGrid = prevGrid.rows.concat({ id: count++, Name: journal.name});
-
-                    this.setState({
+                this.setState({
                     "datagrid": newGrid
-                    });
                 });
 
                 count++;
