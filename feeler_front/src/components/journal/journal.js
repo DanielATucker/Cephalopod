@@ -51,10 +51,10 @@ export  default class Journal extends React.Component {
             console.log(typeof journals);
             console.log(`Journals: ${journals}`);
 
-            journals = JSON.parse(journals);
+            newJournals = JSON.parse(journals);
     
-            console.log(typeof journals);
-            console.log(`Journals: ${journals}`);
+            console.log(typeof newJournals);
+            console.log(`New Journals: ${newJournals}`);
 
 
             /*
