@@ -68,7 +68,7 @@ export  default class Journal extends React.Component {
                     console.log(prevGrid);
                     console.log(prevGrid.rows);
 
-                    let newGrid = prevGrid.rows.concat({ id: count, Name: journal.name});
+                    let newGrid = prevGrid.rows.concat({ id: count++, Name: journal.name});
 
                     this.setState({
                     "datagrid": newGrid
