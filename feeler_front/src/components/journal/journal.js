@@ -53,10 +53,18 @@ export  default class Journal extends React.Component {
 
     
             Object.entries(journals).forEach((journal, count) => {
-                console.log(`Journal: ${typeof journal}`);
+                console.log(`Journal type: ${typeof journal}`);
                 console.log(`Journal: ${JSON.stringify(journal)}`);
 
-                console.log(`Count: ${count}`);
+                let journalArray = JSON.parse(journal[1]);
+
+                console.log(`Journal array: ${JSON.stringify(journalArray)}`);
+
+                console.log(`New Journal: ${JSON.stringify(journalArray[0])}`);
+
+
+
+
 
                 let prevGrid = this.state.datagrid;
 
