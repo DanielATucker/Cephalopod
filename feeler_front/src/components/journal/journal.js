@@ -50,9 +50,18 @@ export  default class Journal extends React.Component {
 
             console.log(typeof journals);
             console.log(`Journals: ${journals}`);
+
+            JSON.parse(journals);
     
+            console.log(typeof journals);
+            console.log(`Journals: ${journals}`);
+
+            
+            /*
             Object.entries(journals).forEach((journal, count) => {
+                console.log(`Journal: ${typeof journal}`);
                 console.log(`Journal: ${journal}`);
+
                 console.log(`Count: ${count}`);
 
                 let prevGrid = this.state.datagrid;
@@ -70,6 +79,9 @@ export  default class Journal extends React.Component {
             });
 
             console.log(`Updated DataGrid: ${JSON.stringify(this.state.datagrid)}`);
+            */
+
+
         };
     };
 
