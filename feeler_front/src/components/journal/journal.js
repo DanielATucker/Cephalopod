@@ -72,7 +72,7 @@ export  default class Journal extends React.Component {
             journalArray.forEach((journal) => {
                 console.log(`Journal ${JSON.stringify(journal)}`);
 
-                newGrid.rows.conc at({ id: count++, Name: journal.name});
+                newGrid.rows.concat({ id: count++, Name: journal.name});
             });
 
             count++;
