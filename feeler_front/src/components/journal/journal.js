@@ -76,6 +76,8 @@ export  default class Journal extends React.Component {
             count++;
         });
 
+        console.log(`New Gid: ${JSON.stringify(newGrid)}`);
+        
         if (this.state) {
             this.setState({
                 "datagrid": newGrid
