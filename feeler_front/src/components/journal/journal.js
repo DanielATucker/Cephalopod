@@ -73,7 +73,7 @@ export  default class Journal extends React.Component {
 
             console.log(`Count in: ${count}`);
 
-            count = count++
+            count = count + 1;
 
             console.log(`Count out: ${count}`);
 
