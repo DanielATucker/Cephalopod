@@ -67,7 +67,7 @@ export  default class Journal extends React.Component {
             console.log(`Journal type: ${typeof journal}`);
             console.log(`Journal: ${JSON.stringify(journal)}`);
 
-            let journalArray = JSON.parse(journal[1]);
+            let journalArray = journal[1];
 
             console.log(`Journal array: ${JSON.stringify(journalArray)}`);
 
