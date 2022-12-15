@@ -61,30 +61,27 @@ export  default class Journal extends React.Component {
         console.log(prevGrid);
         console.log(prevGrid.rows);
 
-        let newGrid = prevGrid;
-
         Object.entries(journals).forEach((journalObject, count) => {
-            console.log(`JournalObject type: ${typeof journalObject}`);
             console.log(`JournalObject: ${JSON.stringify(journalObject)}`);
 
             let journal = journalObject[1];
 
             console.log(`Journal: ${JSON.stringify(journal)}`);
 
-            console.log(`NewGrid Rows: ${JSON.stringify(newGrid.rows)}`);
+            console.log(`PrevGrid in: ${JSON.stringify(prevGrid)}`);
 
-            newGrid = prevGrid.rows.concat({ id: count++, Name: journal.name});
+            prevGrid.rows.push({ id: count++, Name: journal.name});
 
-            console.log(`NewGrid Rows out: ${JSON.stringify(newGrid.rows)}`);
+            console.log(`PrevGrid out: ${JSON.stringify(prevGrid)}`);
 
             count++;
         });
 
-        console.log(`New Gid out: ${JSON.stringify(newGrid)}`);
+        console.log(`Grid out: ${JSON.stringify(prevGrid)}`);
 
         if (this.state) {
             this.setState({
-                "datagrid": newGrid
+                "datagrid": prevGrid
             });
         };
 
