@@ -23,6 +23,8 @@ export  default class Journal extends React.Component {
         };
     };
 
+
+
     componentDidMount() {
         this.getJournalData();
 
@@ -42,47 +44,47 @@ export  default class Journal extends React.Component {
                 "journals": this.state.journals.concat(node)
             })
         };
+
+        this.journalsHandler(node);
     };
 
-    componentDidUpdate(previousState){
-        if ((this.state.journals != previousState.journals) && (this.state.journals.length != 0)) {
-            let journals = this.state.journals;
-
-            console.log(typeof journals);
-            console.log(`Journals: ${JSON.stringify(journals)}`);
+    journalsHandler = (node) => {
+        let journals = node
+        
+        console.log(typeof journals);
+        console.log(`Journals: ${JSON.stringify(journals)}`);
             
-            let prevGrid = this.state.datagrid;
+        let prevGrid = this.state.datagrid;
 
-            console.log(prevGrid);
-            console.log(prevGrid.rows);
+        console.log(prevGrid);
+        console.log(prevGrid.rows);
 
-            let newGrid = prevGrid;
+        let newGrid = prevGrid;
 
-            Object.entries(journals).forEach((journal, count) => {
-                console.log(`Journal type: ${typeof journal}`);
-                console.log(`Journal: ${JSON.stringify(journal)}`);
+        Object.entries(journals).forEach((journal, count) => {
+            console.log(`Journal type: ${typeof journal}`);
+            console.log(`Journal: ${JSON.stringify(journal)}`);
 
-                let journalArray = JSON.parse(journal[1]);
+            let journalArray = JSON.parse(journal[1]);
 
-                console.log(`Journal array: ${JSON.stringify(journalArray)}`);
+            console.log(`Journal array: ${JSON.stringify(journalArray)}`);
 
-                journalArray.forEach((journal) => {
-                    console.log(`Journal ${JSON.stringify(journal)}`);
+            journalArray.forEach((journal) => {
+                console.log(`Journal ${JSON.stringify(journal)}`);
 
-                    newGrid.rows.concat({ id: count++, Name: journal.name});
-                });
-
-                count++;
-
-                if (this.state) {
-                    this.setState({
-                        "datagrid": newGrid
-                    });
-                }
+                newGrid.rows.conc at({ id: count++, Name: journal.name});
             });
 
-            console.log(`Updated DataGrid: ${JSON.stringify(this.state.datagrid)}`);
-        };
+            count++;
+
+            if (this.state) {
+                this.setState({
+                    "datagrid": newGrid
+                });
+            }
+        });
+
+        console.log(`Updated DataGrid: ${JSON.stringify(this.state.datagrid)}`);
     };
 
     render() {
