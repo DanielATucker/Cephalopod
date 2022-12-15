@@ -4,6 +4,7 @@ import { fontSize } from "@mui/system";
 import { DataGrid } from '@mui/x-data-grid';
 
 import Editor from "./editor";
+import { FormControlUnstyledContext } from "@mui/base";
 
 export  default class Journal extends React.Component {
     constructor(props) {
@@ -70,7 +71,13 @@ export  default class Journal extends React.Component {
 
             console.log(`PrevGrid in: ${JSON.stringify(prevGrid)}`);
 
-            prevGrid.rows.push({ id: count++, Name: journal.name});
+            console.log(`Count in: ${count}`);
+
+            count = count++
+
+            console.log(`Count out: ${count}`);
+
+            prevGrid.rows.push({ id: count, Name: journal.name});
 
             console.log(`PrevGrid out: ${JSON.stringify(prevGrid)}`);
 
