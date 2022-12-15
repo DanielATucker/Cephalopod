@@ -56,7 +56,7 @@ export  default class Journal extends React.Component {
         console.log(typeof journals);
         console.log(`Journals: ${JSON.stringify(journals)}`);
             
-        let prevGrid = this.state.datagrid;
+        let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
         console.log(prevGrid);
         console.log(prevGrid.rows);
