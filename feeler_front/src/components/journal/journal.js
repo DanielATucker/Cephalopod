@@ -49,6 +49,8 @@ export  default class Journal extends React.Component {
     };
 
     journalsHandler = (node) => {
+        console.log(`Node: ${JSON.stringify(node)}`);
+
         let journals = JSON.parse(node);
         
         console.log(typeof journals);
