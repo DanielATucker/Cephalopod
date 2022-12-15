@@ -62,7 +62,7 @@ export  default class Journal extends React.Component {
         console.log(prevGrid);
         console.log(prevGrid.rows);
 
-        Object.entries(journals).forEach((journalObject, count) => {
+        Object.entries(journals).forEach((journalObject, count) => {           
             console.log(`JournalObject: ${JSON.stringify(journalObject)}`);
 
             let journal = journalObject[1];
@@ -70,6 +70,10 @@ export  default class Journal extends React.Component {
             console.log(`Journal: ${JSON.stringify(journal)}`);
 
             console.log(`PrevGrid in: ${JSON.stringify(prevGrid)}`);
+
+            if (prevGrid.rows.find(journalFound => journalFound.Name === journal.Name)){
+                console.log("FOUND JOURNAL");
+            }        
 
             console.log(`Count in: ${count}`);
 
