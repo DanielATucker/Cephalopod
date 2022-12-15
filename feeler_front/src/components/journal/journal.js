@@ -71,9 +71,11 @@ export  default class Journal extends React.Component {
 
             console.log(`Journal: ${JSON.stringify(journal)}`);
 
-            console.log(`NewGrid: ${JSON.stringify(newGrid)}`);
+            console.log(`NewGrid Rows: ${JSON.stringify(newGrid.rows)}`);
 
             newGrid.rows.concat({ id: count++, Name: journal.name});
+
+            console.log(`NewGrid Rows out: ${JSON.stringify(newGrid.rows)}`);
 
             count++;
         });
