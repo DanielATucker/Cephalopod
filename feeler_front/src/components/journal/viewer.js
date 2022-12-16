@@ -11,7 +11,7 @@ export default class Viewer extends React.Component {
             "foundJournal": ""
         };
 
-        watchJournal();
+        this.watchJournal();
     };
 
     watchJournal = () => {
