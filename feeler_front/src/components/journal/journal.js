@@ -37,18 +37,11 @@ export  default class Journal extends React.Component {
         });
 
         let node = await response.json();
-        if (node != "No node found") {
-            this.setState({
-                "journals": this.state.journals.concat(node)
-            })
-        };
 
         this.journalsHandler(node);
     };
 
     journalsHandler = (node) => {
-        console.log(`Node: ${JSON.stringify(node)}`);
-
         let journals = JSON.parse(node);
                     
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
@@ -63,6 +56,10 @@ export  default class Journal extends React.Component {
                 count = count + 1;
 
                 prevGrid.rows.push({ id: count, name: journal.name});
+                
+                this.setState({
+                    "journals": this.state.journals.concat(journal)
+                });
 
                 count++;
             };
