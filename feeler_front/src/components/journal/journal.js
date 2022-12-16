@@ -76,7 +76,7 @@ export  default class Journal extends React.Component {
         };
     };
 
-    journalClick = (params) => {
+    journalClick = async (params) => {
         console.log(`"${params.row.name}" clicked`);
         console.log(`Journals: ${JSON.stringify(this.state.journals)}`);
 
@@ -86,12 +86,10 @@ export  default class Journal extends React.Component {
 
         this.setState({
             "foundJournal": foundJournal
+        }, () => {
+            console.log(this.state.foundJournal);
         });
 
-    
-        if (this.state) {
-            console.log(`FoundJournal State: ${JSON.stringify(this.state.foundJournal)}`);
-        };
     };
 
     render() {
