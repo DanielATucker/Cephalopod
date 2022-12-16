@@ -8,7 +8,7 @@ export default class Viewer extends React.Component {
         super(props);
 
         this.state = {
-            "foundJournal": "No Journal Selected"
+            "foundJournal": ""
         };
     };
 
