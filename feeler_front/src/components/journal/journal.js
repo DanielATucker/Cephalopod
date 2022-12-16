@@ -87,6 +87,8 @@ export  default class Journal extends React.Component {
         this.setState({
             "foundJournal": foundJournal
         });
+
+        console.log(`FoundJournal State: ${JSON.stringify(this.state.foundJournal)}`);
     };
 
     render() {
