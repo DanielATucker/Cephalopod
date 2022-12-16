@@ -81,7 +81,7 @@ export  default class Journal extends React.Component {
 
                 console.log(`Count out: ${count}`);
 
-                prevGrid.rows.push({ id: count, Name: journal.name});
+                prevGrid.rows.push({ id: count, name: journal.name});
 
                 console.log(`PrevGrid out: ${JSON.stringify(prevGrid)}`);
 
