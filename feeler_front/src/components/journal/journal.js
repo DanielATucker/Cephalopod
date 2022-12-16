@@ -56,12 +56,14 @@ export  default class Journal extends React.Component {
                 count = count + 1;
 
                 prevGrid.rows.push({ id: count, name: journal.name});
-                
+
+                count++;
+            };
+
+            if (!(this.state.journals.some(foundJournal => foundJournal.name === journal.name))) {
                 this.setState({
                     "journals": this.state.journals.concat(journal)
                 });
-
-                count++;
             };
         });
 
@@ -73,7 +75,6 @@ export  default class Journal extends React.Component {
     };
 
     journalClick = (params) => {
-        console.log(`Prams: ${JSON.stringify(params)}`);
         console.log(`"${params.row.name}" clicked`);
         console.log(`Journals: ${JSON.stringify(this.state.journals)}`);
 
