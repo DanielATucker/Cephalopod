@@ -15,10 +15,10 @@ export  default class Journal extends React.Component {
             "datagrid": {
                 "columns": [
                     { field: 'id', headerName: 'ID'},
-                    { field: 'Name', headerName: 'Journal', width: 130}
+                    { field: 'name', headerName: 'Journal', width: 130}
                 ], 
                 "rows": [
-                    { id: 0, Name: "JOURNALNAME"}
+                    { id: 0, name: "JOURNALNAME"}
                 ]
             }
         };
