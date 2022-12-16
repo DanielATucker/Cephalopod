@@ -71,7 +71,7 @@ export  default class Journal extends React.Component {
 
             console.log(`PrevGrid Rows in: ${JSON.stringify(prevGrid.rows)}`);
 
-            if (Object.values(prevGrid.rows[0]).includes(journal.name)) {
+            if (prevGrid.rows.filter(found => found.name === journal.name)) {
                 console.log(`FOUND JOURNAL NAME: ${journal.name}`);
             }
             else{
