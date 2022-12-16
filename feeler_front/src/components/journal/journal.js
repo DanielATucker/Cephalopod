@@ -3,8 +3,9 @@ import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 import { DataGrid } from '@mui/x-data-grid';
 
-import Editor from "./editor";
-import { FormControlUnstyledContext } from "@mui/base";
+import Editor from "./editor.js";
+import Viewer from "./viewer.js";
+
 
 export  default class Journal extends React.Component {
     constructor(props) {
@@ -20,7 +21,8 @@ export  default class Journal extends React.Component {
                 "rows": [
                     { id: 0, name: "JOURNALNAME"}
                 ]
-            }
+            },
+            "foundJournal": "No Journal Selected"
         };
     };
 
@@ -80,7 +82,9 @@ export  default class Journal extends React.Component {
 
         let foundJournal = this.state.journals.find(foundJournal => foundJournal.name === params.row.name);
 
-        console.log(`FoundJournal: ${JSON.stringify(foundJournal)}`);
+        this.setState({
+            "foundJournal": foundJournal
+        });
     };
 
     render() {
@@ -108,7 +112,7 @@ export  default class Journal extends React.Component {
                 </div>
 
                 <div style={{display: "inline-block"}}>
-                    <Card variant="outlined"> Viewer </Card>
+                    <Viewer foundJournal = {this.state.foundJournal}></Viewer>
                 </div>
             </div>
 
