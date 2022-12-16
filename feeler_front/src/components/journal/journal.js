@@ -76,7 +76,7 @@ export  default class Journal extends React.Component {
     };
 
     journalClick = (params) => {
-        console.log(`Prams: ${prams}`);
+        console.log(`Prams: ${params}`);
         console.log(`"${params.row.name}" clicked`);
     };
 
@@ -95,7 +95,7 @@ export  default class Journal extends React.Component {
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                    onRowClick={journalClick}
+                    onRowClick={this.journalClick}
                     >
                     </DataGrid>
                 </div>
