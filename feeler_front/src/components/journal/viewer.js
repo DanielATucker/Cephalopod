@@ -8,20 +8,8 @@ export default class Viewer extends React.Component {
         super(props);
 
         this.state = {
-            "foundJournal": ""
+            "foundJournal": this.props.foundJournal
         };
-    };
-
-    componentDidMount() {
-        this.watchJournal();
-    };
-
-    watchJournal = () => {
-        useEffect(() => {
-            this.setState({
-                "foundJournal": this.props.foundJournal
-            });
-        }, [this.props.foundJournal]);
     };
 
     render() {
