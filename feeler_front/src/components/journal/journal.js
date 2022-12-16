@@ -82,8 +82,8 @@ export  default class Journal extends React.Component {
 
         let foundJournal = this.state.journals.find(foundJournal => foundJournal.name === params.row.name);
 
-        console.log(`Found Journal Final: ${foundJournal}`);
-        
+        console.log(`Found Journal Final: ${JSON.stringify(foundJournal)}`);
+
         this.setState({
             "foundJournal": foundJournal
         });
