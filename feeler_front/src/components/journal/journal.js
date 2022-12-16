@@ -78,7 +78,11 @@ export  default class Journal extends React.Component {
     journalClick = (params) => {
         console.log(`Prams: ${JSON.stringify(params)}`);
         console.log(`"${params.row.name}" clicked`);
-        console.log(`Journals: ${JSON.stringify(this.state.journals)}`)
+        console.log(`Journals: ${JSON.stringify(this.state.journals)}`);
+
+        let foundJournal = this.state.journals.find(foundJournal => foundJournal.name === params.row.name);
+
+        console.log(`FoundJournal: ${foundJournal}`);
     };
 
     render() {
