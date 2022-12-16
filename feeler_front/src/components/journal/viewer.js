@@ -10,7 +10,9 @@ export default class Viewer extends React.Component {
         this.state = {
             "foundJournal": ""
         };
+    };
 
+    componentDidMount() {
         this.watchJournal();
     };
 
