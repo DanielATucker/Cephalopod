@@ -3,16 +3,7 @@ import React, { useEffect} from "react";
 import Card from '@mui/material/Card';
 
 
-export default function Viewer (props) {
-    foundJournalWatcher(props);
-
-    let foundJournalWatcher = (props) => {
-        useEffect((props) => {
-            console.log(`Viewer props: ${props.foundJournal}`);
-    
-        }, [props.foundJournal]);
-    };
-    
+export default function Viewer (props) {    
     return (
         <>
         
