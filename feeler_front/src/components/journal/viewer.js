@@ -12,10 +12,6 @@ export default class Viewer extends React.Component {
         };
     };
 
-    componentDidMount() {
-        this.foundJournalWatcher();
-    };
-
     foundJournalWatcher = () => {
         useEffect(() => {
             console.log(`Viewer State ${this.state.foundJournal}`);
@@ -29,6 +25,8 @@ export default class Viewer extends React.Component {
     
 
     render() {
+        this.foundJournalWatcher();
+        
         return (
             <>
 
