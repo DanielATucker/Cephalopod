@@ -4,9 +4,9 @@ import Card from '@mui/material/Card';
 
 
 export default function Viewer (props) {
-    foundJournalWatcher();
+    foundJournalWatcher(props);
 
-    let foundJournalWatcher = () => {
+    let foundJournalWatcher = (props) => {
         useEffect(() => {
             console.log(`Viewer props: ${props.foundJournal}`);
     
