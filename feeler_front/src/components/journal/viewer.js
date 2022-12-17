@@ -7,7 +7,7 @@ export default function Viewer (props) {
     foundJournalWatcher(props);
 
     let foundJournalWatcher = (props) => {
-        useEffect(() => {
+        useEffect((props) => {
             console.log(`Viewer props: ${props.foundJournal}`);
     
         }, [props.foundJournal]);
