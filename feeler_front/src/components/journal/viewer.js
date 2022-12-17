@@ -3,22 +3,14 @@ import React, { useEffect} from "react";
 import Card from '@mui/material/Card';
 
 
-export default function Viewer () {
-    this.state = {
-        foundJournal: this.props.foundJournal
-    };
-    
-    this.foundJournalWatcher();
+export default function Viewer (props) {
+    foundJournalWatcher();
 
     let foundJournalWatcher = () => {
         useEffect(() => {
-            console.log(`Viewer State ${this.state.foundJournal}`);
-
-            this.setState({
-                "foundJournal": this.props.foundJournal
-            });
+            console.log(`Viewer props: ${props.foundJournal}`);
     
-        }, [this.props.foundJournal]);
+        }, [props.foundJournal]);
     };
     
     return (
@@ -27,7 +19,7 @@ export default function Viewer () {
         <Card variant="outlined">
             <h3> Viewer </h3>
 
-            <p> {this.state.foundJournal} </p>
+            <p> {props.foundJournal} </p>
         </Card>
 
         </>
