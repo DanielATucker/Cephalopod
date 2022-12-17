@@ -1,16 +1,14 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect} from "react";
 
 import Card from '@mui/material/Card';
 
 
-export default class Viewer extends React.Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            foundJournal: this.props.foundJournal
-        };
+export default function Viewer () {
+    this.state = {
+        foundJournal: this.props.foundJournal
     };
+    
+    this.foundJournalWatcher();
 
     foundJournalWatcher = () => {
         useEffect(() => {
@@ -23,20 +21,15 @@ export default class Viewer extends React.Component {
         }, [this.props.foundJournal]);
     };
     
-
-    render() {
-        this.foundJournalWatcher();
+    return (
+        <>
         
-        return (
-            <>
+        <Card variant="outlined">
+            <h3> Viewer </h3>
 
-            <Card variant="outlined">
-                <h3> Viewer </h3>
+            <p> {this.state.foundJournal} </p>
+        </Card>
 
-                <p> {this.state.foundJournal} </p>
-            </Card>
-
-            </>
-        );
-    };
+        </>
+    );    
 };
