@@ -10,7 +10,7 @@ export default function Viewer (props) {
         <Card variant="outlined">
             <h3> Viewer </h3>
 
-            <p> {props.foundJournal} </p>
+            <p> {JSON.stringify(props.foundJournal)} </p>
         </Card>
 
         </>
