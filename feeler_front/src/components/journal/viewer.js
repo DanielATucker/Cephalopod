@@ -12,11 +12,21 @@ export default class Viewer extends React.Component {
         };
     };
 
-    componentDidUpdate(previousState) {
-        if (this.state.foundJournal != previousState.foundJournal) {
-            console.log(`VIEWER STATE: ${this.state.foundJournal}`);
-        };
+    componentDidMount() {
+        this.foundJournalWatcher();
     };
+
+    foundJournalWatcher = () => {
+        useEffect(() => {
+            console.log(`Viewer State ${this.state.foundJournal}`);
+
+            this.setState({
+                "foundJournal": this.props.foundJournal
+            });
+    
+        }, [this.props.foundJournal]);
+    };
+    
 
     render() {
         return (
