@@ -10,7 +10,7 @@ export default function Viewer () {
     
     this.foundJournalWatcher();
 
-    foundJournalWatcher = () => {
+    let foundJournalWatcher = () => {
         useEffect(() => {
             console.log(`Viewer State ${this.state.foundJournal}`);
 
