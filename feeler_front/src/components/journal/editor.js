@@ -48,6 +48,7 @@ export default class Editor extends React.Component {
             "journalData": data
           });
         }}
+        value={"Test Value"}
         />
 
         </>
