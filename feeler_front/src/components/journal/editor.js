@@ -41,14 +41,14 @@ export default class Editor extends React.Component {
         <h3> Editor </h3>
 
         <CKEditor
-        editor={ ClassicEditor }        
+        editor={ ClassicEditor }
+        data="<p>Test Data </p>"    
         onChange={ ( event, editor ) => {
           const data = editor.getData();
           this.setState({
             "journalData": data
           });
         }}
-        value={"Test Value"}
         />
 
         </>
