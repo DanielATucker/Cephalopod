@@ -113,7 +113,9 @@ export  default class Journal extends React.Component {
                 </div>
 
                 <div style={{display: "inline-block"}}>
-                    <Editor></Editor>
+                    <Editor
+                    data= {this.state.foundJournal}
+                    ></Editor>
                 </div>
 
                 <div style={{display: "inline-block"}}>

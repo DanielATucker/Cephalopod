@@ -9,7 +9,8 @@ export default class Editor extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
-            "journalData": null
+            "journalData": null,
+            "data": this.props.data
         });
     };
 
@@ -42,7 +43,7 @@ export default class Editor extends React.Component {
 
         <CKEditor
         editor={ ClassicEditor }
-        data="<p>Test Data </p>"    
+        data={this.state.data}
         onChange={ ( event, editor ) => {
           const data = editor.getData();
           this.setState({
