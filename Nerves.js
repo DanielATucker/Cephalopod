@@ -10,6 +10,8 @@ import session from "express-session";
 import { io as Server_io } from 'socket.io-client';
 import { readFileSync } from "fs";
 
+var cookieSession = require('cookie-session');
+
 import { exec } from "node:child_process";
 
 // Cephalopod modules
@@ -23,6 +25,15 @@ function init() {
 	//init  Socketio Server
 
 	const app = express();
+
+	app.use(cookieSession({
+		name: 'session',
+		keys: [/* secret keys */],
+	  
+		// Cookie Options
+		maxAge: 24 * 60 * 60 * 1000 // 24 hours
+	}));
+
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Nerves_key.pem"),
 		cert: readFileSync("./ssl/Nerves_cert.pem")
@@ -35,14 +46,6 @@ function init() {
 	});
 
 	const io = new Server(httpServer, {
-		cookie: {
-			name: "io",
-			path: "/",
-			sameSite: "none",
-			secure: true,
-			maxAge: 86400
-		},
-
 		cors: {
 			origin: `*`,
 		},
