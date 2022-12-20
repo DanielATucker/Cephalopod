@@ -2,6 +2,7 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+var strftime = require('strftime')
 
 import Database from "../components/Database.js";
 
@@ -10,8 +11,8 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/post_journal/:journalName', function(req, res) {    
-    let journalTitle = req.params.journalName;
-
+    let journalTitle = req.body.journalName;
+    
     let data = req.body.journalData;
     
     let username = req.session.username;

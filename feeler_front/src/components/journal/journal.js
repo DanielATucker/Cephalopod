@@ -123,9 +123,9 @@ export default class Journal extends React.Component {
     };
 
     sendJournalData = async (journalName, data) => {
-        journalName = journalName.replace(/\s+/g, '');
+        let journalNameShort = journalName.replace(/\s+/g, '');
         
-        fetch(`https://100.69.19.3:3001/journal/post_journal/${journalName}`, {
+        fetch(`https://100.69.19.3:3001/journal/post_journal/${journalNameShort}`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -133,7 +133,8 @@ export default class Journal extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "journalData": data
+                "journalData": data,
+                "journalName": journalName
             }),
             credentials: "include"
         });
