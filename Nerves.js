@@ -26,66 +26,19 @@ function init() {
 
 	const app = express();
 
-	app.use(cookieSession({
-		name: 'session',
-		keys: [/* secret keys */],
-	  
-		// Cookie Options
-		maxAge: 24 * 60 * 60 * 1000 // 24 hours
-	}));
+	app.use(express.session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
+	
 
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Nerves_key.pem"),
 		cert: readFileSync("./ssl/Nerves_cert.pem")
 	}, app);
 
-	const sessionMiddleware = session({
-		secret: "a",
-		resave: false,
-		saveUninitialized: false
-	});
 
 	const io = new Server(httpServer, {
 		cors: {
 			origin: `*`,
-		},
-	
-		allowRequest: (req, callback) => {
-
-			// with HTTP long-polling, we have access to the HTTP response here, but this is not
-
-			// the case with WebSocket, so we provide a dummy response object
-
-			const fakeRes = {
-				
-				getHeader() {
-					return [];
-				},
-				
-				setHeader(key, values) {
-
-					req.cookieHolder = values[0];
-				},
-
-				writeHead() {},
-			};
-
-			sessionMiddleware(req, fakeRes, () => {
-
-				if (req.session) {
-
-					// trigger the setHeader() above
-
-					fakeRes.writeHead();
-
-					// manually save the session (normally triggered by res.end())
-
-					req.session.save();
-				}
-
-				callback(null, true);
-			});
-		},
+		}
 	});
 		
 	start(httpServer);
