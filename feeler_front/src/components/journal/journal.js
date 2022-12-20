@@ -29,7 +29,7 @@ export default class Journal extends React.Component {
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={this.props.data}
+                    data={"<p> No Data Selected </P"}
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
