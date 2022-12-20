@@ -81,8 +81,6 @@ export default class Journal extends React.Component {
                 this.setState({
                     "journals": this.state.journals.concat(journal)
                 });
-
-                this.updateJournal(journal.body);
             };
         });
 
@@ -93,13 +91,26 @@ export default class Journal extends React.Component {
         };
     };
 
-    journalClick = async (params) => {
-        console.log(`"${params.row.name}" clicked`);
-        
+    updateJournalData = async (params) => {
+        let journalName = params.row.name;
+
+        console.log(`"${journalName}" clicked`);
+
         this.getJournalData();
+
+        let journals = this.state.journals;
+
+        Object.entries(journals).forEach((journalObject, count) => {           
+            let journal = journalObject[1];
+
+            if (journal.name === journalName) {
+                console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
+                this.updateJournalState(journal.body);
+            };
+        });         
     };
 
-    updateJournal = (data) => {
+    updateJournalState = (data) => {
         this.setState({
             "editor": (
                 <CKEditor
@@ -109,14 +120,13 @@ export default class Journal extends React.Component {
                         const data = editor.getData();
 
                         this.sendJournalData(data);
-                        this.getJournalData();
                     }}
                 />
             )
         });
     };
 
-    sendJournalData = (data) => {
+    sendJournalData = async (data) => {
         fetch('https://100.69.19.3:3001/journal/post_journal', {
             method: 'POST',
             mode: 'cors',
@@ -129,6 +139,8 @@ export default class Journal extends React.Component {
             }),
             credentials: "include"
         });
+
+       await this.getJournalData();
     };
 
     render() {
@@ -146,7 +158,7 @@ export default class Journal extends React.Component {
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                    onRowClick={this.journalClick}
+                    onRowClick={this.updateJournalData}
                     >
                     </DataGrid>
                 </div>
