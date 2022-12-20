@@ -17,7 +17,9 @@ export default class Editor extends React.Component {
 
                         this.props.editorData(data);
 
-                        this.sendJournalData(this.state.journalData)
+                        this.sendJournalData(this.state.journalData);
+
+                        this.updateJournal();
                     }}
                 />
             )
@@ -36,6 +38,26 @@ export default class Editor extends React.Component {
                 "journalData": data
             }),
             credentials: "include"
+        });
+    };
+
+    updateJournal = () =>{
+        this.setState({
+            editor: (
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data={this.props.editorData}
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+
+                        this.props.editorData(data);
+
+                        this.sendJournalData(this.state.journalData);
+
+                        this.updateJournal()
+                    }}
+                />
+            )
         });
     };
 
