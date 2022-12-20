@@ -11,15 +11,15 @@ var express = require('express');
 var router = express.Router();
 
 router.post('/post_journal/:journalName', function(req, res) {    
-    let journalTitle = req.body.journalName;
+  let journalTitle = req.body.journalName;
     
-    let data = req.body.journalData;
+  let data = req.body.journalData;
     
-    let username = req.session.username;
+  let username = req.session.username;
 
-    Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
+  Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
 
-    res.send();
+  res.send();
 });
 
 router.get('/get_journal', function(req, res) {
