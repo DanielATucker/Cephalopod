@@ -104,7 +104,7 @@ export default class Journal extends React.Component {
             console.log(this.state.foundJournal);
         });
 
-        this.updateJournal(foundJournal.body)
+        this.updateJournal(this.state.foundJournal.body)
     };
 
     updateJournal = (data) => {
