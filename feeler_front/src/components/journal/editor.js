@@ -29,9 +29,15 @@ export default class Editor extends React.Component {
         });
     };
 
-    componentDidUpdate(previousState) {
+    componentDidUpdate(previousState, prevProps) {
         if ((this.state.journalData !== previousState.journalData) && (this.state.journalData !== null)) {
             this.sendJournalData(this.state.journalData)
+        };
+
+        if (this.state.data != this.props.data) {
+            this.setState({
+                "data": this.props.data
+            });
         };
     };
 
