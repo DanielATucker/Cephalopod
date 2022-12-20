@@ -41,8 +41,7 @@ function init() {
 			httpOnly: true,
 			sameSite: "none",
 			secure: true
-		},
-		
+		},		
 
 		cors: {
 			origin: `*`,
