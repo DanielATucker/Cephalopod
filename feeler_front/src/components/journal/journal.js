@@ -142,18 +142,6 @@ export default class Journal extends React.Component {
        await this.getJournalData();
     };
 
-    deselectRow = () => {
-        this.setState({
-            "editor": (
-                <CKEditor
-                    editor={ ClassicEditor }
-                    data={"<p> No Journal Selected </P"}
-                    disabled={true}
-                />
-            )
-        });
-    };
-
     render() {
         return (
             <>
@@ -168,9 +156,8 @@ export default class Journal extends React.Component {
                     columns={this.state.datagrid.columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    checkboxSelection
+                    checkboxSelection = {false}
                     onRowClick={this.setJournalData}
-                    disableSelectionOnClick = {this.deselectRow}
                     >
                     </DataGrid>
                 </div>
