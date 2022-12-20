@@ -17,7 +17,7 @@ router.post('/post_journal/:journalName', function(req, res) {
   
     console.log(`Title: ${JSON.stringify(journalTitle)}`);
 
-    let journalData = req.body.journalData;
+    let data = req.body.journalData;
 
     console.log(`Data: ${JSON.stringify(journalData)}`);
 
