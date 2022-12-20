@@ -122,7 +122,7 @@ export  default class Journal extends React.Component {
                 <div style={{display: "inline-block"}}>
                     <Editor
                     editorData={this.state.editorData}
-                    dataUpdate={this.dataUpdate(data)}
+                    dataUpdate={this.dataUpdate}
                     ></Editor>
                 </div>
 
