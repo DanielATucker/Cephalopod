@@ -22,7 +22,8 @@ export  default class Journal extends React.Component {
                     { id: 0, name: "JOURNALNAME"}
                 ]
             },
-            "foundJournal": "No Journal Selected"
+            "foundJournal": "No Journal Selected",
+            "editorData": "No Journal Selected"
         };
     };
 
@@ -92,6 +93,12 @@ export  default class Journal extends React.Component {
 
     };
 
+    dataUpdate = (data) => {
+        this.setState({
+            "editorData": data
+        });
+    };
+
     render() {
         return (
             <>
@@ -114,7 +121,8 @@ export  default class Journal extends React.Component {
 
                 <div style={{display: "inline-block"}}>
                     <Editor
-                    data= {this.state.foundJournal}
+                    editorData={this.state.editorData}
+                    dataUpdate={this.dataUpdate}
                     ></Editor>
                 </div>
 
