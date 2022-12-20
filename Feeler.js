@@ -1,5 +1,5 @@
 import { io } from "socket.io-client";
-import { parse } from "cookie";
+import { serialize, parse } from "cookie";
 
 // Allow require
 import { createRequire } from "module";
@@ -8,24 +8,18 @@ const require = createRequire(import.meta.url);
 const prompt = require("prompt-sync")({ sigint: true });
 
 const socket = io("http://localhost:3000");
-const COOKIE_NAME = "a";
 
-socket.io.on("open", () => {
-  socket.io.engine.transport.on("pollComplete", () => {
-    const request = socket.io.engine.transport.pollXhr.xhr;
-    const cookieHeader = request.getResponseHeader("set-cookie");
-    if (!cookieHeader) {
-      return;
-    }
-    cookieHeader.forEach(cookieString => {
-      if (cookieString.includes(`${COOKIE_NAME}=`)) {
-        const cookie = parse(cookieString);
-        socket.io.opts.extraHeaders = {
-          cookie: `${COOKIE_NAME}=${cookie[COOKIE_NAME]}`
-        }
-      }
-    });
-  });
+io.engine.on("initial_headers", (headers, request) => {
+  headers["set-cookie"] = serialize("uid", "1234");
+});
+
+// called for each HTTP request (including the WebSocket upgrade)
+io.engine.on("headers", (headers, request) => {
+  if (!request.headers.cookie) return;
+  const cookies = parse(request.headers.cookie);
+  if (!cookies.randomId) {
+    headers["set-cookie"] = serialize("randomId", "abc", { maxAge: 86400 });
+  }
 });
 
 socket.on('connect', async function () {
