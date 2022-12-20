@@ -45,10 +45,12 @@ export default class Editor extends React.Component {
         data={this.state.data}
         onChange={ ( event, editor ) => {
           const data = editor.getData();
+          
           this.setState({
-            "journalData": data,
-            "data": this.props.dataUpdate
+            "journalData": data
           });
+
+          this.props.dataUpdate(data);
         }}
         />
 
