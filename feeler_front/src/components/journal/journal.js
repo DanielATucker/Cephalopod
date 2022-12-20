@@ -123,6 +123,8 @@ export default class Journal extends React.Component {
     };
 
     sendJournalData = async (journalName, data) => {
+        journalName = journalName.replace(/\s+/g, '');
+        
         fetch(`https://100.69.19.3:3001/journal/post_journal/${journalName}`, {
             method: 'POST',
             mode: 'cors',
