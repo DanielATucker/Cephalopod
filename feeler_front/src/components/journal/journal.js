@@ -1,6 +1,9 @@
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
 
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
+
 import Editor from "./editor.js";
 import Viewer from "./viewer.js";
 
@@ -22,7 +25,18 @@ export default class Journal extends React.Component {
             },
             "foundJournal": {
                 "body": "No Journal Selected"
-            }
+            },
+            "editor": (
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data={this.props.data}
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+
+                        sendJournalData(data);
+                    }}
+                />
+            )
         };
     };
 
@@ -89,6 +103,24 @@ export default class Journal extends React.Component {
         }, () => {
             console.log(this.state.foundJournal);
         });
+
+        this.updateJournal(foundJournal.body)
+    };
+
+    updateJournal = (data) => {
+        this.setState({
+            "editor": (
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data={data}
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+
+                        sendJournalData(data);
+                    }}
+                />
+            )
+        });
     };
 
     render() {
@@ -113,7 +145,7 @@ export default class Journal extends React.Component {
 
                 <div style={{display: "inline-block"}}>
                     <Editor
-                        data = {this.state.foundJournal.body}
+                        editor = {this.state.editor}
                     ></Editor>
                 </div>
 
