@@ -23,19 +23,11 @@ export default class Journal extends React.Component {
                     { id: 0, name: "JOURNALNAME"}
                 ]
             },
-            "foundJournal": {
-                "body": "No Journal Selected"
-            },
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={"<p> No Data Selected </P"}
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-
-                        this.sendJournalData(data);
-                        this.getJournalData();
-                    }}
+                    data={"<p> No Journal Selected </P"}
+                    disabled = {true}
                 />
             )
         };
@@ -91,7 +83,7 @@ export default class Journal extends React.Component {
         };
     };
 
-    updateJournalData = async (params) => {
+    setJournalData = async (params) => {
         let journalName = params.row.name;
 
         console.log(`"${journalName}" clicked`);
@@ -105,21 +97,24 @@ export default class Journal extends React.Component {
 
             if (journal.name === journalName) {
                 console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
-                this.updateJournalState(journal.body);
+
+                this.updateJournalState(journal.name, journal.body);
             };
         });         
     };
 
-    updateJournalState = (data) => {
+    updateJournalState = (journalName, journalData) => {
         this.setState({
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={data}
+                    data={journalData}
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
-                        this.sendJournalData(data);
+                        this.updateJournalState(journalName, data);
+
+                        this.sendJournalData(journalName, data);
                     }}
                 />
             )
@@ -127,7 +122,7 @@ export default class Journal extends React.Component {
     };
 
     sendJournalData = async (data) => {
-        fetch('https://100.69.19.3:3001/journal/post_journal', {
+        fetch(`https://100.69.19.3:3001/journal/post_journal/${journalName}`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -141,6 +136,18 @@ export default class Journal extends React.Component {
         });
 
        await this.getJournalData();
+    };
+
+    deselectRow = () => {
+        this.setState({
+            "editor": (
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data={"<p> No Journal Selected </P"}
+                    disabled={true}
+                />
+            )
+        });
     };
 
     render() {
@@ -158,7 +165,8 @@ export default class Journal extends React.Component {
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     checkboxSelection
-                    onRowClick={this.updateJournalData}
+                    onRowClick={this.setJournalData}
+                    disableSelectionOnClick = {this.deselectRow}
                     >
                     </DataGrid>
                 </div>
@@ -167,10 +175,6 @@ export default class Journal extends React.Component {
                     <Editor
                         editor = {this.state.editor}
                     ></Editor>
-                </div>
-
-                <div style={{display: "inline-block"}}>
-                    <Viewer foundJournal = {this.state.foundJournal}></Viewer>
                 </div>
             </div>
 
