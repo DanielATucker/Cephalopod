@@ -7,7 +7,7 @@ export default function Editor (props) {
         
     <h3> Editor </h3>
 
-    {this.props.editor}
+    {props.editor}
 
     </>
     );
