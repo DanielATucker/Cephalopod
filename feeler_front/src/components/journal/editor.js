@@ -8,8 +8,22 @@ export default class Editor extends React.Component {
     constructor(props) {
         super(props);
         this.state = ({
-            "journalData": null,
-            "data": this.props.data
+            "journalData": {
+                "body" : "No Journal Selected"
+            },
+            "editor": (
+                <CKEditor
+                    editor={ ClassicEditor }
+                    data={this.state.journalData.body}
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+          
+                        this.setState({
+                            "journalData": data
+                        });
+                    }}
+                />
+            )
         });
     };
 
@@ -42,18 +56,7 @@ export default class Editor extends React.Component {
         
         <h3> Editor </h3>
 
-        <CKEditor
-        editor={ ClassicEditor }
-        data={this.state.journalData}
-        onChange={ ( event, editor ) => {
-          const data = editor.getData();
-          
-          this.setState({
-            "journalData": data
-          });
-          editor.editor.setData(data);
-        }}
-        />
+        {this.state.editor}
 
         </>
         );
