@@ -34,6 +34,7 @@ export default class Journal extends React.Component {
                         const data = editor.getData();
 
                         this.sendJournalData(data);
+                        this.getJournalData();
                     }}
                 />
             )
@@ -80,6 +81,8 @@ export default class Journal extends React.Component {
                 this.setState({
                     "journals": this.state.journals.concat(journal)
                 });
+
+                this.updateJournal(journal.body);
             };
         });
 
@@ -92,19 +95,8 @@ export default class Journal extends React.Component {
 
     journalClick = async (params) => {
         console.log(`"${params.row.name}" clicked`);
-        console.log(`Journals: ${JSON.stringify(this.state.journals)}`);
-
-        let foundJournal = this.state.journals.find(foundJournal => foundJournal.name === params.row.name);
-
-        console.log(`Found Journal Final: ${JSON.stringify(foundJournal)}`);
-
-        this.setState({
-            "foundJournal": foundJournal
-        }, () => {
-            console.log(this.state.foundJournal);
-        });
-
-        this.updateJournal(this.state.foundJournal.body)
+        
+        this.getJournalData();
     };
 
     updateJournal = (data) => {
@@ -117,6 +109,7 @@ export default class Journal extends React.Component {
                         const data = editor.getData();
 
                         this.sendJournalData(data);
+                        this.getJournalData();
                     }}
                 />
             )
