@@ -35,6 +35,15 @@ function init() {
 	});
 
 	const io = new Server(httpServer, {
+		cookie: {
+			name: "a",
+			path: "/",
+			httpOnly: true,
+			sameSite: "none",
+			secure: true
+		},
+		
+
 		cors: {
 			origin: `*`,
 		},
@@ -76,27 +85,6 @@ function init() {
 			});
 		},
 	});
-
-	// called during the handshake
-	io.engine.on("initial_headers", (headers, request) => {
-		headers["set-cookie"] = serialize("uid", "1234", { sameSite: "none", secure: true });
-  	});
-  
-  	// called for each HTTP request (including the WebSocket upgrade)
-  	io.engine.on("headers", (headers, request) => {
-		if (!request.headers.cookie) return;
-		const cookies = parse(request.headers.cookie);
-		if (!cookies.randomId) {
-	  	headers["set-cookie"] = serialize("randomId", "a", { maxAge: 86400 });
-		}
-  	});
-		
-	start(httpServer);
-	
-	init_events(io);
-
-	exec('python3 stats.py');
-}
 
 class user {
 	constructor(username, user_id) {
