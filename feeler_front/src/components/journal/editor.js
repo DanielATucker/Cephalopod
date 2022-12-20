@@ -31,7 +31,9 @@ export default class Editor extends React.Component {
 
     componentDidUpdate(previousState) {
         if ((this.state.journalData !== previousState.journalData) && (this.state.journalData !== null)) {
-            this.sendJournalData(this.state.journalData)
+            this.sendJournalData(this.state.journalData);
+
+            this.setState()
         };
     };
 
@@ -43,12 +45,13 @@ export default class Editor extends React.Component {
 
         <CKEditor
         editor={ ClassicEditor }
-        data={this.state.data}
+        data={this.state.journalData}
         onChange={ ( event, editor ) => {
           const data = editor.getData();
           this.setState({
             "journalData": data
           });
+          editor.setData(data);
         }}
         />
 
