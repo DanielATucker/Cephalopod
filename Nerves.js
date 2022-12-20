@@ -84,7 +84,7 @@ function init() {
 			});
 		},
 	});
-
+};
 class user {
 	constructor(username, user_id) {
 		this.username = username;
