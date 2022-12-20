@@ -36,11 +36,9 @@ export default class Editor extends React.Component {
     };
 
     render() {
-        useEffect(() => {
-            this.setState({
-                "data": this.props.data
-            })
-        },[this.props.data]);
+        this.setState({
+            "data": this.props.data
+        });
         return (
         <>
         
