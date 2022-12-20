@@ -11,7 +11,7 @@ export default class Editor extends React.Component {
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={this.props.editorData}
+                    data={this.props.data}
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 

@@ -1,13 +1,11 @@
-import React, { useEffect, useState, FlatList } from "react";
-import Card from '@mui/material/Card';
-import { fontSize } from "@mui/system";
+import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
 
 import Editor from "./editor.js";
 import Viewer from "./viewer.js";
 
 
-export  default class Journal extends React.Component {
+export default class Journal extends React.Component {
     constructor(props) {
         super(props);
 
@@ -22,8 +20,9 @@ export  default class Journal extends React.Component {
                     { id: 0, name: "JOURNALNAME"}
                 ]
             },
-            "foundJournal": "No Journal Selected",
-            "editorData": "No Journal Selected"
+            "foundJournal": {
+                "body": "No Journal Selected"
+            }
         };
     };
 
@@ -90,13 +89,6 @@ export  default class Journal extends React.Component {
         }, () => {
             console.log(this.state.foundJournal);
         });
-
-    };
-
-    dataUpdate = (data) => {
-        this.setState({
-            "editorData": data
-        });
     };
 
     render() {
@@ -121,8 +113,7 @@ export  default class Journal extends React.Component {
 
                 <div style={{display: "inline-block"}}>
                     <Editor
-                        editorData={this.state.editorData}
-                        dataUpdate={this.dataUpdate}
+                        data = {this.state.foundJournal.body}
                     ></Editor>
                 </div>
 
