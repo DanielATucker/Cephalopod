@@ -116,6 +116,7 @@ export default class Journal extends React.Component {
 
                         this.sendJournalData(journalName, data);
                     }}
+                    disabled = {false}
                 />
             )
         });
