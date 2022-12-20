@@ -36,12 +36,12 @@ function init() {
 
 	const io = new Server(httpServer, {
 		cookie: {
-			name: "a",
+			name: "io",
 			path: "/",
-			httpOnly: true,
 			sameSite: "none",
-			secure: true
-		},		
+			secure: true,
+			maxAge: 86400
+		},
 
 		cors: {
 			origin: `*`,
@@ -84,7 +84,14 @@ function init() {
 			});
 		},
 	});
-};
+		
+	start(httpServer);
+	
+	init_events(io);
+
+	exec('python3 stats.py');
+}
+
 class user {
 	constructor(username, user_id) {
 		this.username = username;
