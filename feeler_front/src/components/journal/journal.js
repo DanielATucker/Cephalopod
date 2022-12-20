@@ -33,7 +33,7 @@ export default class Journal extends React.Component {
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
-                        sendJournalData(data);
+                        this.sendJournalData(data);
                     }}
                 />
             )
@@ -116,10 +116,25 @@ export default class Journal extends React.Component {
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
-                        sendJournalData(data);
+                        this.sendJournalData(data);
                     }}
                 />
             )
+        });
+    };
+
+    sendJournalData = (data) => {
+        fetch('https://100.69.19.3:3001/journal/post_journal', {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                "journalData": data
+            }),
+            credentials: "include"
         });
     };
 
