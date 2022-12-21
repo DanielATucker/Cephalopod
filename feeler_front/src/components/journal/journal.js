@@ -138,7 +138,7 @@ export default class Journal extends React.Component {
     };
 
     componentDidUpdate(prevState){
-        if ((this.state.isLoggedIn != this.prevState.isLoggedIn) && (this.state.isLoggedIn === true)){
+        if ((this.state.isLoggedIn != prevState.isLoggedIn) && (this.state.isLoggedIn === true)){
             this.getJournalData();
         };
     };
