@@ -26,7 +26,8 @@ export default class System extends React.Component {
             
             <h1> System </h1>
 
-            <GraphInit>
+            <GraphInit
+            handleLogin = {this.props.handleLogin}>
             </GraphInit>
             
             </>

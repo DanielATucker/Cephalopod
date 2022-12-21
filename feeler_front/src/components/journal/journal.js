@@ -13,6 +13,7 @@ export default class Journal extends React.Component {
         super(props);
 
         this.state = {
+            "isLoggedIn": false,
             "journals": [], 
             "datagrid": {
                 "columns": [
@@ -134,6 +135,12 @@ export default class Journal extends React.Component {
         });
 
        await this.getJournalData();
+    };
+
+    componentDidUpdate(prevState){
+        if ((this.state.isLoggedIn != this.prevState.isLoggedIn) && (this.state.isLoggedIn === true)){
+            this.getJournalData();
+        };
     };
 
     render() {

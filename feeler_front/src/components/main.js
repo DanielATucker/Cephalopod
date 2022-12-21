@@ -14,6 +14,7 @@ export default class Main extends React.Component {
         super();
 
         this.state = {
+            "isLoggedIn": false,
             "messages": [],
             "stats": []
         };
@@ -33,6 +34,12 @@ export default class Main extends React.Component {
         });
     };
 
+    handleLogin = (data) =>{
+        this.setState({
+            "isLoggedIn": data
+        });
+    };
+
     render() {
         return (
             <>
@@ -47,13 +54,13 @@ export default class Main extends React.Component {
                 </body>
             </Card>
 
-            <System>
+            <System handleLogin = {this.handleLogin}>
             </System>
 
             <Stats stats={this.state.stats}>
             </Stats>
             
-            <Journal>
+            <Journal isLoggedIn = {this.state.isLoggedIn}>
             </Journal>
 
             <Terminal
