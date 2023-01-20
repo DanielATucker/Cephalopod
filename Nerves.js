@@ -24,10 +24,7 @@ let admin_list = [];
 function init() {
 	//init  Socketio Server
 
-	const app = express();
-
-	app.use(express.session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
-	
+	const app = express();	
 
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Nerves_key.pem"),
@@ -40,7 +37,14 @@ function init() {
 			origin: `*`,
 		},
 		
-		cookie: {maxAge: 24 * 60 * 60 * 1000}
+		cookie: {
+			maxAge: 24 * 60 * 60 * 1000,
+			secret: 'keyboard cat',
+  			httpOnly: true ,
+  			credentials: true,
+  			saveUninitialized: false,
+  			resave: true
+		}
 	});
 		
 	start(httpServer);
