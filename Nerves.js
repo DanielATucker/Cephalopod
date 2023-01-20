@@ -28,15 +28,6 @@ function init() {
 		cert: readFileSync("./ssl/Nerves_cert.pem")
 	}, app);
 
-	app.use(session({ 
-		secret: 'keyboard cat',
-		cookie: { maxAge:86400000,
-		httpOnly: true },
-		credentials: true,
-		saveUninitialized: false,
-		resave: true
-	}));
-
 	const sessionMiddleware = session({
 		secret: 'keyboard cat',
   		cookie: { maxAge: 86400000,
