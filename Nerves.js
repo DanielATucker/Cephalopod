@@ -30,7 +30,7 @@ function init() {
 
 	app.use(session({ 
 		secret: 'keyboard cat',
-		cookie: { maxAge:86400,
+		cookie: { maxAge:86400000,
 		httpOnly: true },
 		credentials: true,
 		saveUninitialized: false,
