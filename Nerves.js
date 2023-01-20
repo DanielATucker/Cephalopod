@@ -29,9 +29,11 @@ function init() {
 	}, app);
 
 	const sessionMiddleware = session({
-		secret: "a",
-		resave: false,
-		saveUninitialized: false
+		secret: 'keyboard cat',
+  		cookie: { maxAge: 60000, httpOnly: true },
+  		credentials: true,
+  		saveUninitialized: false,
+  		resave: true
 	});
 
 	const io = new Server(httpServer, {
