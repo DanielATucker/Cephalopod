@@ -30,7 +30,8 @@ function init() {
 
 	const sessionMiddleware = session({
 		secret: 'keyboard cat',
-  		cookie: { maxAge: 60000, httpOnly: true },
+  		cookie: { maxAge: 86400,
+		httpOnly: true },
   		credentials: true,
   		saveUninitialized: false,
   		resave: true
