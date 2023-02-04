@@ -57,6 +57,8 @@ class user {
 
 function init_events(io) {
 	io.on("connection", (socket) => {
+		console.log(`SOCKET ${socket}`);
+
 		const req = socket.request;
 		const session = socket.request.session;
 
@@ -64,7 +66,7 @@ function init_events(io) {
 
 		socket.join(socket.id);
 
-		io.sockets.to(socket.id).emit("message", "Welcome to the server!")
+		io.sockets.to(socket.id).emit("message", "Welcome to the server!");
 
 		socket.on("private_message", (Message) => {
 
