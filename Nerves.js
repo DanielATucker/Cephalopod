@@ -21,10 +21,10 @@ import User_list from './Cephalopod_modules/User_list.js'
 var Users = new User_list();
 let admin_list = [];
 
+const app = express();
+
 function init() {
 	//init  Socketio Server
-
-	const app = express();
 
 	app.use(express.session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
 	
