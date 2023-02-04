@@ -57,7 +57,7 @@ class user {
 
 function init_events(io) {
 	io.on("connection", (socket) => {
-		console.log(`SOCKET ${socket}`);
+		console.log(`SOCKET ${JSON.stringify(socket, null, 2)}`);
 
 		const req = socket.request;
 		const session = socket.request.session;
