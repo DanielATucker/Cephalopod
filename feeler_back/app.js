@@ -67,8 +67,7 @@ app.use(bodyParser.json());
 //Init session
 app.use(session({ 
   secret: 'keyboard cat',
-  cookie: { maxAge:86400000,
-  httpOnly: true },
+  cookie: { maxAge:  24 * 60 * 60 * 1000, httpOnly: true },
   credentials: true,
   saveUninitialized: false,
   resave: true
