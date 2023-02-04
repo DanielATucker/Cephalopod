@@ -24,3 +24,13 @@ sudo docker run --name Cephalopod_Dev \
     --publish=7475:7474 --publish=7688:7687 \
     --volume=$HOME/neo4j/data:/data \
     neo4j
+
+
+#Init ssl
+sudo apt-get install libssl-dev
+
+sudo sh ./ssl/Nerves_ssh.sh
+
+sudo sh ./feeler_back/ssl/feeler_back_ssh.sh
+
+sudo sh ./feeler_back/ssl/feeler_front_ssh.sh
