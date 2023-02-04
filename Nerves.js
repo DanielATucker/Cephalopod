@@ -26,7 +26,7 @@ const app = express();
 function init() {
 	//init  Socketio Server
 
-	app.use(express.session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
+	app.use(session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
 	
 
 	const httpServer = createServer({
