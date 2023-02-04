@@ -32,7 +32,7 @@ export default class SocketHandler extends React.Component{
     };
 
     componentDidMount() {
-        let manager = new Manager("https://100.69.19.3:3000");
+        let manager = new Manager("https://100.108.10.15:3000");
         const socket = manager.socket("/")        
 
         this.props.handleMessageChange(this.state.messages);

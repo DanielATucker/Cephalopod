@@ -35,7 +35,7 @@ export default class Journal extends React.Component {
     };
 
     getJournalData = async () => {
-        const response = await fetch('https://100.69.19.3:3001/journal/get_journal', {
+        const response = await fetch('https://100.108.10.15:3001/journal/get_journal', {
             method: 'GET',
             credentials: "include"
         });
@@ -120,7 +120,7 @@ export default class Journal extends React.Component {
     sendJournalData = async (journalName, data) => {
         let journalNameShort = journalName.replace(/\s+/g, '');
         
-        fetch(`https://100.69.19.3:3001/journal/post_journal/${journalNameShort}`, {
+        fetch(`https://100.108.10.15:3001/journal/post_journal/${journalNameShort}`, {
             method: 'POST',
             mode: 'cors',
             headers: {
