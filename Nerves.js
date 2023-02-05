@@ -14,6 +14,8 @@ var cookieSession = require('cookie-session');
 
 import { exec } from "node:child_process";
 
+import { toJSON } from "flatted";
+
 // Cephalopod modules
 import User_list from './Cephalopod_modules/User_list.js'
 
@@ -57,7 +59,7 @@ class user {
 
 function init_events(io) {
 	io.on("connection", (socket) => {
-		console.log(`SOCKET ${JSON.stringify(socket.request, null, 2)}`);
+		console.log(`SOCKET ${toJson(socket)}`);
 
 		const req = socket.request;
 		const session = socket.request.session;
