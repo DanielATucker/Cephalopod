@@ -14,8 +14,6 @@ var cookieSession = require('cookie-session');
 
 import { exec } from "node:child_process";
 
-import { toJSON } from "flatted";
-
 // Cephalopod modules
 import User_list from './Cephalopod_modules/User_list.js'
 
@@ -25,11 +23,11 @@ let admin_list = [];
 
 const app = express();
 
-app.use(session({ resave: false, saveUninitialized: false, secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
-
-
 function init() {
-	//init  Socketio Server	
+	//init  Socketio Server
+
+	app.use(session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
+	
 
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Nerves_key.pem"),
@@ -40,7 +38,30 @@ function init() {
 	const io = new Server(httpServer, {
 		cors: {
 			origin: `*`,
-		}
+		},
+
+		allowRequest: (req, callback) => {
+			// with HTTP long-polling, we have access to the HTTP response here, but this is not
+			// the case with WebSocket, so we provide a dummy response object
+			const fakeRes = {
+			  getHeader() {
+				return [];
+			  },
+			  setHeader(key, values) {
+				req.cookieHolder = values[0];
+			  },
+			  writeHead() {},
+			};
+			sessionMiddleware(req, fakeRes, () => {
+			  if (req.session) {
+				// trigger the setHeader() above
+				fakeRes.writeHead();
+				// manually save the session (normally triggered by res.end())
+				req.session.save();
+			  }
+			  callback(null, true);
+			});
+		  },
 	});
 		
 	start(httpServer);
