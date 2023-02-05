@@ -25,7 +25,7 @@ let admin_list = [];
 
 const app = express();
 
-app.use(session({ resave: false, secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
+app.use(session({ resave: false, saveUninitialized: false, secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
 
 
 function init() {
