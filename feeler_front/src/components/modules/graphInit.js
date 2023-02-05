@@ -205,11 +205,11 @@ export default class GraphInit extends React.Component {
                 console.log(1);
             };
 
-            if ((this.state.username != prevState.username) && (this.state.username === "Pending")){
+            if ((this.state.username !== prevState.username) && (this.state.username === "Pending")){
                 this.props.handleLogin(false);
             };
     
-            if ((this.state.username != prevState.username) && (this.state.username != "Pending")) {
+            if ((this.state.username !== prevState.username) && (this.state.username !== "Pending")) {
                 this.props.handleLogin(true);
             };
         };
