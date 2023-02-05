@@ -59,7 +59,7 @@ class user {
 
 function init_events(io) {
 	io.on("connection", (socket) => {
-		console.log(`SOCKET ${toJSON(socket.request.session)}`);
+		console.log(`SOCKET ${toJSON(socket.request)}`);
 
 		const req = socket.request;
 		const session = socket.request.session;
