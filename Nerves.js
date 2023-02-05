@@ -26,9 +26,15 @@ const app = express();
 function init() {
 	//init  Socketio Server
 
-	app.use(session({ secret: 'a',  cookie: {maxAge: 24 * 60 * 60 * 1000}}));
+	const sessionMiddleware = session({ 
+		secret: 'a',
+		cookie: {
+			maxAge: 24 * 60 * 60 * 1000
+		},
+		resave: false,
+		saveUninitialized: false
+	});
 	
-
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Nerves_key.pem"),
 		cert: readFileSync("./ssl/Nerves_cert.pem")
