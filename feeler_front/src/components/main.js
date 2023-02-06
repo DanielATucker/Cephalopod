@@ -47,9 +47,7 @@ export default class Main extends React.Component {
             <Card variant="outlined">
                 <title> Cephalopod </title>
                 
-                <body>
-                    <h1> Welcome to Cephalopod </h1>
-                </body>
+                <h1> Welcome to Cephalopod </h1>
             </Card>
 
             <System handleLogin = {this.handleLogin}>
