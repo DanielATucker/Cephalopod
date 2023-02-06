@@ -240,6 +240,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="username"
                     value={this.state.usernameInput} 
+                    autoComplete="username"
                     onChange={this.handleUsernameChange} />
                     
                     <p> New password </p>
@@ -247,7 +248,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="password"
                     type="password" 
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     value={this.state.passwordInput}
                     onChange={this.handlePasswordChange} />
                     
@@ -256,7 +257,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="password2" 
                     type="password"
-                    autocomplete="new-password"
+                    autoComplete="new-password"
                     value={this.state.password2Input}
                     onChange={this.handlePassword2Change} />
                     
@@ -278,8 +279,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="usernameLogin"
                     value={this.state.usernameInput}
-                    autocomplete="username"
-
+                    autoComplete="username"
                     onChange={this.handleUsernameChange} />
                     
                     <p> password </p>
@@ -288,7 +288,7 @@ export default class GraphInit extends React.Component {
                     name="passwordLogin"
                     type="password" 
                     value={this.state.passwordInput}
-                    autocomplete="current-password"
+                    autoComplete="current-password"
                     onChange={this.handlePasswordChange} />
 
                     </label>
