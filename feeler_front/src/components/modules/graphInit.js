@@ -247,6 +247,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="password"
                     type="password" 
+                    autocomplete="on"
                     value={this.state.passwordInput}
                     onChange={this.handlePasswordChange} />
                     
@@ -255,6 +256,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="password2" 
                     type="password"
+                    autocomplete="on"
                     value={this.state.password2Input}
                     onChange={this.handlePassword2Change} />
                     
