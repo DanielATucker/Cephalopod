@@ -278,6 +278,8 @@ export default class GraphInit extends React.Component {
                     <input
                     name="usernameLogin"
                     value={this.state.usernameInput}
+                    autocomplete="username"
+
                     onChange={this.handleUsernameChange} />
                     
                     <p> password </p>
