@@ -28,7 +28,6 @@ export default class Journal extends React.Component {
                 <CKEditor
                     editor={ ClassicEditor }
                     data={"<p> No Journal Selected </P"}
-                    disabled = {true}
                 />
             )
         };
