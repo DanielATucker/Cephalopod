@@ -29,13 +29,8 @@ export default class Journal extends React.Component {
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={"<p> No Data Selected </P"}
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-
-                        this.sendJournalData(data);
-                        this.getJournalData();
-                    }}
+                    data={"<p> No journal Selected </p>"}
+                    disabled = {true}
                 />
             )
         };
@@ -128,8 +123,8 @@ export default class Journal extends React.Component {
         });
     };
 
-    sendJournalData = async (data) => {
-        fetch('https://100.108.10.15:3001/journal/post_journal', {
+    sendJournalData = async (data, journalName) => {
+        fetch(`https://100.108.10.15:3001/journal/post_journal:${journalName}`, {
             method: 'POST',
             mode: 'cors',
             headers: {
