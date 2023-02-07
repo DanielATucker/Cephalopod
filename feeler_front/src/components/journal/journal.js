@@ -71,7 +71,7 @@ export default class Journal extends React.Component {
         }
 
         if (singleJournal !== null) {
-            journals.forEach(journal, count => {
+            journals.forEach((journal, count) => {
                 prevGrid.rows.push({ id: count, name: journal.name});
                 
                 this.setState({
