@@ -123,6 +123,7 @@ export default class Journal extends React.Component {
                 <CKEditor
                     editor={ ClassicEditor }
                     data={data}
+                    disabled = {false}
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
