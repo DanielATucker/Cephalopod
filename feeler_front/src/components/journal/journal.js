@@ -68,7 +68,7 @@ export default class Journal extends React.Component {
 
         if (journals.name !== "undefined") {
 
-            singleJournal = 1
+            singleJournal = true
         }
 
         if (singleJournal !== null) {
