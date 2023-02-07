@@ -66,12 +66,15 @@ export default class Journal extends React.Component {
 
         let singleJournal = null;
 
-        if (journals.name !== "undefined") {
+        if (journals.name == "undefined") {
 
-            singleJournal = true
+            singleJournal = false;
         }
+        else {
+            singleJournal = true;
+        };
 
-        if (singleJournal !== null) {
+        if (singleJournal == false) {
             journals.forEach((journal, count) => {
                 if (!(journal in this.state.journals)) {
                     prevGrid.rows.push({ id: count, name: journal.name});
