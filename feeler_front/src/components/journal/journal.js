@@ -66,7 +66,7 @@ export default class Journal extends React.Component {
 
         let journalCount = journals.length;
 
-        if (journalCount > 1) {
+        if (journalCount >= 2) {
             journals.forEach(journal => {
                 console.log(JSON.stringify(journal));
             });
