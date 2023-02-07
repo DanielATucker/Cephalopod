@@ -102,12 +102,12 @@ export default class Journal extends React.Component {
 
             if (journal.name === journalName) {
                 console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
-                this.updateJournalState(journal.body);
+                this.updateJournalState(journal.body, journal.name);
             };
         });         
     };
 
-    updateJournalState = (data) => {
+    updateJournalState = (data, journalName) => {
         this.setState({
             "editor": (
                 <CKEditor
@@ -116,7 +116,7 @@ export default class Journal extends React.Component {
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
-                        this.sendJournalData(data);
+                        this.sendJournalData(data, journalName);
                     }}
                 />
             )
