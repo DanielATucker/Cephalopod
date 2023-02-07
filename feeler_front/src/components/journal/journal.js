@@ -86,6 +86,8 @@ export default class Journal extends React.Component {
 
                 console.log(`SINGLE JOURNAL ${journals}`);
 
+                console.log(`Journal Name ${journals.name}`);
+                
                 prevGrid.rows.push({ id: 0, name: journals.name});
 
                 this.setState({
