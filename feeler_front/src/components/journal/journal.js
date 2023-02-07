@@ -61,14 +61,13 @@ export default class Journal extends React.Component {
         console.log(`Found NODE ${JSON.stringify(node)}`);
         
         let journals = JSON.parse(node);
-                    
+
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
         let singleJournal = null;
 
-        console.log(`Journal  ${Object.keys(journals)}`);
-
         if (journals.name !== "undefined") {
+
             singleJournal = 1
         }
 
