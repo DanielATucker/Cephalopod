@@ -1,17 +1,17 @@
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
 
-// Allow require
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
-var strftime = require('strftime')
-
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 import Editor from "./editor.js";
 import Viewer from "./viewer.js";
+
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+var strftime = require('strftime')
 
 
 export default class Journal extends React.Component {
