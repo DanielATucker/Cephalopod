@@ -64,40 +64,30 @@ export default class Journal extends React.Component {
                     
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
-        let journalCount = null;
+        let singleJournal = null;
 
         if (journals.name) {
-            journalCount = 1
+            singleJournal = 1
         }
 
-        if (journalCount >= 2) {
-            journals.forEach(journal => {
-                console.log(JSON.stringify(journal));
+        if (singleJournal !== null) {
+            journals.forEach(journal, count => {
+                prevGrid.rows.push({ id: count, name: journal.name});
+                
+                this.setState({
+                    "journals": this.state.journals.concat(journal)
+                });
             });
         }
         else {
             console.log(`SINGLE JOURNAL ${journals}`);
+
+            prevGrid.rows.push({ id: 0, name: journals.name});
+
+            this.setState({
+                "journals": this.state.journals.concat(journals)
+            });
         };
-
-        /*
-        Object.entries(journals).forEach((journalObject, count) => {           
-            console.log(`JOURNAL OBJECT ${JSON.stringify(journalObject)}`);
-
-            let journal = journalObject[1];
-
-            if (this.state.journals.some(foundJournal => foundJournal.name === journal.name)) {
-                this.setState({
-                    "journals": this.state.journals.concat(journal)
-                });
-
-                count = count + 1;
-
-                prevGrid.rows.push({ id: count, name: journal.name});
-
-                count++;
-            };
-        });
-        */
 
         if (this.state) {
             this.setState({
