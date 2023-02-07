@@ -7,10 +7,6 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Editor from "./editor.js";
 import Viewer from "./viewer.js";
 
-// Allow require
-import { createRequire } from "module";
-const require = createRequire(import.meta.url);
-
 var strftime = require('strftime');
 
 
