@@ -105,6 +105,9 @@ export default class Journal extends React.Component {
             if (journal.name === journalName) {
                 console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
                 this.updateJournalState(journal.body, journal.name);
+            }
+            else {
+                this.updateJournalState("", journalName);
             };
         });         
     };
