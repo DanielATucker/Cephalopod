@@ -99,17 +99,22 @@ export default class Journal extends React.Component {
 
         let journals = this.state.journals;
 
+        let found = false;
+
         Object.entries(journals).forEach((journalObject, count) => {           
             let journal = journalObject[1];
 
             if (journal.name === journalName) {
                 console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
                 this.updateJournalState(journal.body, journal.name);
+
+                found = true;
             }
-            else {
-                this.updateJournalState("", journalName);
-            };
-        });         
+        });
+        
+        if (found !== true) {
+            this.updateJournalState("", journalName);
+        };
     };
 
     updateJournalState = (data, journalName) => {
