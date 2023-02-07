@@ -12,12 +12,9 @@ var router = express.Router();
 
 router.post('/post_journal/:journalTitle', function(req, res) {    
   try{
-
-    console.log(`REQ ${req}`);
-
-    let journalTitle = req.params.journalTitle;
+    let journalTitle = req.body.journalName;
   
-    console.log(`Title: ${journalTitle}`);
+    console.log(`Title: ${journalName}`);
 
     let data = req.body.journalData;
 

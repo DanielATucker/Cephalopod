@@ -143,7 +143,8 @@ export default class Journal extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "journalData": data
+                "journalData": data,
+                "journalName": journalName
             }),
             credentials: "include"
         });
