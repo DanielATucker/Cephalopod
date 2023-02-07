@@ -13,6 +13,8 @@ var router = express.Router();
 router.post('/post_journal/:journalTitle', function(req, res) {    
   try{
 
+    console.log(`REQ Params ${JSON.stringify(req.params)}`);
+    
     let journalTitle = req.params.journalTitle;
   
     console.log(`Title: ${journalTitle}`);
