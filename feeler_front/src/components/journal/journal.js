@@ -64,6 +64,18 @@ export default class Journal extends React.Component {
                     
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
+        let journalCount = journals.length;
+
+        if (journalCount > 1) {
+            journals.forEach(journal => {
+                console.log(JSON.stringify(journal));
+            });
+        }
+        else {
+            console.log(`SINGLE JOURNAL ${journals}`);
+        };
+
+        /*
         Object.entries(journals).forEach((journalObject, count) => {           
             console.log(`JOURNAL OBJECT ${JSON.stringify(journalObject)}`);
 
@@ -81,6 +93,7 @@ export default class Journal extends React.Component {
                 count++;
             };
         });
+        */
 
         if (this.state) {
             this.setState({
