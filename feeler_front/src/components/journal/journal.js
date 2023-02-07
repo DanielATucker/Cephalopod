@@ -52,7 +52,7 @@ export default class Journal extends React.Component {
 
         let node = await response.json();
         
-        if (node !== "No node found") {
+        if ((node !== "No node found") && (node !== "undefined") ) {
             this.journalsHandler(node);
         }
     };
