@@ -67,6 +67,8 @@ export default class Journal extends React.Component {
         let singleJournal = null;
 
         if (journals.name) {
+            console.log(`Journal Name ${journals.name}`);
+
             singleJournal = 1
         }
 
@@ -87,7 +89,7 @@ export default class Journal extends React.Component {
                 console.log(`SINGLE JOURNAL ${journals}`);
 
                 console.log(`Journal Name ${journals.name}`);
-                
+
                 prevGrid.rows.push({ id: 0, name: journals.name});
 
                 this.setState({
