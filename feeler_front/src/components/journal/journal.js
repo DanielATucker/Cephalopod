@@ -11,7 +11,7 @@ import Viewer from "./viewer.js";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-var strftime = require('strftime')
+var strftime = require('strftime');
 
 
 export default class Journal extends React.Component {
