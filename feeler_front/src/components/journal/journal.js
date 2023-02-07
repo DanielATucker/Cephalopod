@@ -76,20 +76,20 @@ export default class Journal extends React.Component {
                     prevGrid.rows.push({ id: count, name: journal.name});
                     
                     this.setState({
-                        "journals": this.state.journals.concat(journal)
+                        "journals": this.state.journals.concat(journal.name)
                     });
                 };
             });            
         }
         else {
-            if (!(journals in this.state.journals)) {
+            if (!(journals.name in this.state.journals)) {
 
                 console.log(`SINGLE JOURNAL ${journals}`);
 
                 prevGrid.rows.push({ id: 0, name: journals.name});
 
                 this.setState({
-                    "journals": this.state.journals.concat(journals)
+                    "journals": this.state.journals.concat(journals.name)
                 });
             };
         };
