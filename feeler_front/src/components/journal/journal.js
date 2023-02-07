@@ -60,7 +60,7 @@ export default class Journal extends React.Component {
     journalsHandler = (node) => {
         console.log(`Found NODE ${JSON.stringify(node)}`);
         
-        let journals = node;
+        let journals = JSON.parse(node);
                     
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
