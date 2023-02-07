@@ -10,12 +10,12 @@ var express = require('express');
 
 var router = express.Router();
 
-router.post('/post_journal/:journalName', function(req, res) {    
+router.post('/post_journal/:journalTitle', function(req, res) {    
   try{
 
-    let journalTitle = req.params.journalName;
+    let journalTitle = req.params.journalTitle;
   
-    console.log(`Title: ${JSON.stringify(journalTitle)}`);
+    console.log(`Title: ${journalTitle}`);
 
     let data = req.body.journalData;
 
