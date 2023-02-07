@@ -13,7 +13,6 @@ export default class Journal extends React.Component {
         super(props);
 
         this.state = {
-            "isLoggedIn": false,
             "journals": [], 
             "datagrid": {
                 "columns": [
@@ -24,18 +23,32 @@ export default class Journal extends React.Component {
                     { id: 0, name: "JOURNALNAME"}
                 ]
             },
+            "foundJournal": {
+                "body": "No Journal Selected"
+            },
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={"<p> No Journal Selected </P"}
-                    disabled = {true}
+                    data={"<p> No Data Selected </P"}
+                    onChange={ ( event, editor ) => {
+                        const data = editor.getData();
+
+                        this.sendJournalData(data);
+                        this.getJournalData();
+                    }}
                 />
             )
         };
     };
 
+    componentDidMount() {
+        this.getJournalData();
+
+        setInterval(this.getJournalData, 10000);
+    };
+
     getJournalData = async () => {
-        const response = await fetch('https://100.108.10.15:3001/journal/get_journal', {
+        const response = await fetch('https://100.69.19.3:3001/journal/get_journal', {
             method: 'GET',
             credentials: "include"
         });
@@ -78,7 +91,7 @@ export default class Journal extends React.Component {
         };
     };
 
-    setJournalData = async (params) => {
+    updateJournalData = async (params) => {
         let journalName = params.row.name;
 
         console.log(`"${journalName}" clicked`);
@@ -92,35 +105,29 @@ export default class Journal extends React.Component {
 
             if (journal.name === journalName) {
                 console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
-
-                this.updateJournalState(journal.name, journal.body);
+                this.updateJournalState(journal.body);
             };
         });         
     };
 
-    updateJournalState = (journalName, journalData) => {
+    updateJournalState = (data) => {
         this.setState({
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={journalData}
+                    data={data}
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
-                        this.updateJournalState(journalName, data);
-
-                        this.sendJournalData(journalName, data);
+                        this.sendJournalData(data);
                     }}
-                    disabled = {false}
                 />
             )
         });
     };
 
-    sendJournalData = async (journalName, data) => {
-        let journalNameShort = journalName.replace(/\s+/g, '');
-        
-        fetch(`https://100.108.10.15:3001/journal/post_journal/${journalNameShort}`, {
+    sendJournalData = async (data) => {
+        fetch('https://100.69.19.3:3001/journal/post_journal', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -128,19 +135,12 @@ export default class Journal extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "journalData": data,
-                "journalName": journalName
+                "journalData": data
             }),
             credentials: "include"
         });
 
        await this.getJournalData();
-    };
-
-    componentDidUpdate(prevState){
-        if ((this.state.isLoggedIn !== prevState.isLoggedIn) && (this.state.isLoggedIn === true)){
-            this.getJournalData();
-        };
     };
 
     render() {
@@ -157,8 +157,8 @@ export default class Journal extends React.Component {
                     columns={this.state.datagrid.columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    checkboxSelection = {false}
-                    onRowClick={this.setJournalData}
+                    checkboxSelection
+                    onRowClick={this.updateJournalData}
                     >
                     </DataGrid>
                 </div>
@@ -167,6 +167,10 @@ export default class Journal extends React.Component {
                     <Editor
                         editor = {this.state.editor}
                     ></Editor>
+                </div>
+
+                <div style={{display: "inline-block"}}>
+                    <Viewer foundJournal = {this.state.foundJournal}></Viewer>
                 </div>
             </div>
 
