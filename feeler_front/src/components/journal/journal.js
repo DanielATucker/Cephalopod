@@ -22,7 +22,7 @@ export default class Journal extends React.Component {
                     { field: 'name', headerName: 'Journal', width: 130}
                 ], 
                 "rows": [
-                    { id: 0, name: strftime("%y%m%d")}
+                    { id: -1, name: strftime("%y%m%d")}
                 ]
             },
             "foundJournal": {
