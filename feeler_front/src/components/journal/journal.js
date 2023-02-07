@@ -1,5 +1,11 @@
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
 import React from "react";
 import { DataGrid } from '@mui/x-data-grid';
+
+var strftime = require('strftime')
 
 import { CKEditor } from '@ckeditor/ckeditor5-react';
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
@@ -20,7 +26,7 @@ export default class Journal extends React.Component {
                     { field: 'name', headerName: 'Journal', width: 130}
                 ], 
                 "rows": [
-                    { id: 0, name: "JOURNALNAME"}
+                    { id: 0, name: strftime("%y%m%d")}
                 ]
             },
             "foundJournal": {
