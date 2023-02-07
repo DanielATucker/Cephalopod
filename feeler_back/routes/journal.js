@@ -10,7 +10,7 @@ var express = require('express');
 
 var router = express.Router();
 
-router.post('/post_journal/:journalName', function(req, res) {    
+router.post('/post_journal:journalName', function(req, res) {    
   try{
 
     let journalTitle = req.params.journalName;
