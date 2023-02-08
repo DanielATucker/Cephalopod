@@ -148,9 +148,11 @@ export default class Journal extends React.Component {
 
             if (singleJournal == true){
                 journals.forEach(journal => {
-                    if (journal.name === journalName) {
-                        this.updateJournalState(journal.body, journal.name);
-                    }
+                    if (!(JSON.stringify(this.state.journals).includes(journal.name))) {
+                        if (journal.name === journalName) {
+                            this.updateJournalState(journal.body, journal.name);
+                        };
+                    };
                 });
             };
 
