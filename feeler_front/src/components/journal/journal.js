@@ -7,6 +7,8 @@ import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import Editor from "./editor.js";
 import Viewer from "./viewer.js";
 
+var strftime = require('strftime');
+
 
 export default class Journal extends React.Component {
     constructor(props) {
@@ -20,7 +22,7 @@ export default class Journal extends React.Component {
                     { field: 'name', headerName: 'Journal', width: 130}
                 ], 
                 "rows": [
-                    { id: 0, name: "JOURNALNAME"}
+                    { id: -1, name: strftime("%y%m%d")}
                 ]
             },
             "foundJournal": {
@@ -29,13 +31,8 @@ export default class Journal extends React.Component {
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
-                    data={"<p> No Data Selected </P"}
-                    onChange={ ( event, editor ) => {
-                        const data = editor.getData();
-
-                        this.sendJournalData(data);
-                        this.getJournalData();
-                    }}
+                    data={"<p> No journal Selected </p>"}
+                    disabled = {true}
                 />
             )
         };
@@ -48,41 +45,57 @@ export default class Journal extends React.Component {
     };
 
     getJournalData = async () => {
-        const response = await fetch('https://100.69.19.3:3001/journal/get_journal', {
+        const response = await fetch('https://100.108.10.15:3001/journal/get_journal', {
             method: 'GET',
             credentials: "include"
         });
 
         let node = await response.json();
-
-        this.journalsHandler(node);
+        
+        if ((node !== "No node found") && (node !== "undefined") ) {
+            this.journalsHandler(node);
+        }
     };
 
-    journalsHandler = (node) => {
+    journalsHandler = (node) => {        
         let journals = JSON.parse(node);
-                    
+
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
-        Object.entries(journals).forEach((journalObject, count) => {           
-            let journal = journalObject[1];
+        let singleJournal = null;
 
-            if (prevGrid.rows.some(found => found.name === journal.name)) {
-                console.log(`FOUND JOURNAL NAME: ${journal.name}`);
-            }
-            else{
-                count = count + 1;
+        if (journals.name == "undefined") {
 
-                prevGrid.rows.push({ id: count, name: journal.name});
+            singleJournal = false;
+        }
+        else {
+            singleJournal = true;
+        };
 
-                count++;
+        if (singleJournal == false) {
+            journals.forEach((journal, count) => {
+                if (!(journal in this.state.journals)) {
+                    count++
+
+                    prevGrid.rows.push({ id: count, name: journal.name});
+                    
+                    this.setState({
+                        "journals": this.state.journals.concat(journal.name)
+                    });
+                };
+            });            
+        }
+        else {
+            if (this.state) {
+                if (!(JSON.stringify(this.state.journals).includes(journals.name))) {
+                    prevGrid.rows.push({ id: 0, name: journals.name});
+
+                    this.setState({
+                        "journals": this.state.journals.concat(journals)
+                    });
+                };
             };
-
-            if (!(this.state.journals.some(foundJournal => foundJournal.name === journal.name))) {
-                this.setState({
-                    "journals": this.state.journals.concat(journal)
-                });
-            };
-        });
+        };
 
         if (this.state) {
             this.setState({
@@ -94,40 +107,64 @@ export default class Journal extends React.Component {
     updateJournalData = async (params) => {
         let journalName = params.row.name;
 
-        console.log(`"${journalName}" clicked`);
-
         this.getJournalData();
 
-        let journals = this.state.journals;
+        if (this.state) {
+            let journals = this.state.journals;
 
-        Object.entries(journals).forEach((journalObject, count) => {           
-            let journal = journalObject[1];
+            let singleJournal = null;
 
-            if (journal.name === journalName) {
-                console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
-                this.updateJournalState(journal.body);
+            if (journals.name == "undefined") {
+
+                singleJournal = false;
+            }
+            else {
+                singleJournal = true;
             };
-        });         
+
+            if (singleJournal == true){
+                journals.forEach((journal, count) => {
+                    if (journal.name === journalName) {
+                        this.updateJournalState(journal.body, journal.name);
+                    }
+                    else{
+                        this.updateJournalState("", journalName);
+                    }
+                })
+            };
+
+            if (singleJournal == false){
+                journals.forEach((journal, count) => {
+                    if (journal.name === journalName) {
+                        this.updateJournalState(journals[count], journal.name);
+                    }
+                    else{
+                        this.updateJournalState("", journalName);
+                    }
+                })
+            };
+        };
     };
 
-    updateJournalState = (data) => {
+    updateJournalState = (data, journalName) => {
         this.setState({
             "editor": (
                 <CKEditor
                     editor={ ClassicEditor }
                     data={data}
+                    disabled = {false}
                     onChange={ ( event, editor ) => {
                         const data = editor.getData();
 
-                        this.sendJournalData(data);
+                        this.sendJournalData(data, journalName);
                     }}
                 />
             )
         });
     };
 
-    sendJournalData = async (data) => {
-        fetch('https://100.69.19.3:3001/journal/post_journal', {
+    sendJournalData = async (data, journalName) => {
+        fetch(`https://100.108.10.15:3001/journal/post_journal/${journalName}`, {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -135,7 +172,8 @@ export default class Journal extends React.Component {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                "journalData": data
+                "journalData": data,
+                "journalName": journalName
             }),
             credentials: "include"
         });

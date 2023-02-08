@@ -21,11 +21,25 @@ import User_list from './Cephalopod_modules/User_list.js'
 var Users = new User_list();
 let admin_list = [];
 
+const app = express();
+
 function init() {
 	//init  Socketio Server
 
+<<<<<<< HEAD
 	const app = express();	
 
+=======
+	const sessionMiddleware = session({ 
+		secret: 'a',
+		cookie: {
+			maxAge: 24 * 60 * 60 * 1000
+		},
+		resave: false,
+		saveUninitialized: false
+	});
+	
+>>>>>>> JournalData
 	const httpServer = createServer({
 		key: readFileSync("./ssl/Nerves_key.pem"),
 		cert: readFileSync("./ssl/Nerves_cert.pem")
@@ -36,6 +50,7 @@ function init() {
 		cors: {
 			origin: `*`,
 		},
+<<<<<<< HEAD
 		
 		cookie: {
 			maxAge: 24 * 60 * 60 * 1000,
@@ -45,6 +60,31 @@ function init() {
   			saveUninitialized: false,
   			resave: true
 		}
+=======
+
+		allowRequest: (req, callback) => {
+			// with HTTP long-polling, we have access to the HTTP response here, but this is not
+			// the case with WebSocket, so we provide a dummy response object
+			const fakeRes = {
+			  getHeader() {
+				return [];
+			  },
+			  setHeader(key, values) {
+				req.cookieHolder = values[0];
+			  },
+			  writeHead() {},
+			};
+			sessionMiddleware(req, fakeRes, () => {
+			  if (req.session) {
+				// trigger the setHeader() above
+				fakeRes.writeHead();
+				// manually save the session (normally triggered by res.end())
+				req.session.save();
+			  }
+			  callback(null, true);
+			});
+		  },
+>>>>>>> JournalData
 	});
 		
 	start(httpServer);
@@ -70,7 +110,7 @@ function init_events(io) {
 
 		socket.join(socket.id);
 
-		io.sockets.to(socket.id).emit("message", "Welcome to the server!")
+		io.sockets.to(socket.id).emit("message", "Welcome to the server!");
 
 		socket.on("private_message", (Message) => {
 

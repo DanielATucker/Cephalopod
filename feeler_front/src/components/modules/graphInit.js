@@ -32,7 +32,7 @@ export default class GraphInit extends React.Component {
     };
 
     async get_username(){
-        let userResponse = await fetch('https://100.69.19.3:3001/system/getUsername', {
+        let userResponse = await fetch('https://100.108.10.15:3001/system/getUsername', {
             method: 'GET',
             credentials: "include"
         });
@@ -45,7 +45,7 @@ export default class GraphInit extends React.Component {
     };
 
     async doesExist(){
-        const response = await fetch('https://100.69.19.3:3001/system/doesExist', {
+        const response = await fetch('https://100.108.10.15:3001/system/doesExist', {
             method: 'GET',
         });
 
@@ -69,7 +69,7 @@ export default class GraphInit extends React.Component {
     };
 
     async doesUserExist() {
-        let userResponse = await fetch('https://100.69.19.3:3001/system/doesUserExist', {
+        let userResponse = await fetch('https://100.108.10.15:3001/system/doesUserExist', {
             method: 'GET',
         });
         
@@ -96,7 +96,7 @@ export default class GraphInit extends React.Component {
 
     async initSystem() {
         try {
-            const response = await fetch('https://100.69.19.3:3001/system/systeminit', {
+            const response = await fetch('https://100.108.10.15:3001/system/systeminit', {
                 method: 'GET',
             });
 
@@ -139,7 +139,7 @@ export default class GraphInit extends React.Component {
         if (this.state.passwordInput === this.state.password2Input) {
             console.log("Passwords are good");
 
-            fetch('https://100.69.19.3:3001/system/newUser', {
+            fetch('https://100.108.10.15:3001/system/newUser', {
                 method: 'POST',
                 mode: 'cors',
                 headers: {
@@ -160,7 +160,7 @@ export default class GraphInit extends React.Component {
     handleLoginFormSubmit(event) {
         event.preventDefault();
 
-        fetch('https://100.69.19.3:3001/system/login', {
+        fetch('https://100.108.10.15:3001/system/login', {
             method: 'POST',
             mode: 'cors',
             headers: {
@@ -195,7 +195,7 @@ export default class GraphInit extends React.Component {
         });
     };
 
-    componentDidUpdate(prevState) {
+    componentDidUpdate(prevProps, prevState) {
         if (this.state !== prevState) {
             
             if ((this.state.doesUserExist !== prevState.doesUserExist) && (this.state.doesUserExist === "No user found") && (this.state.doesExist === "System found.")) {
@@ -203,6 +203,10 @@ export default class GraphInit extends React.Component {
                     "usernameInitFormStatus": true
                 });
                 console.log(1);
+            };
+    
+            if ((this.state.username !== prevState.username) && (this.state.username !== "Pending")) {
+                this.props.handleLogin(true);
             };
         };
     };
@@ -236,6 +240,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="username"
                     value={this.state.usernameInput} 
+                    autoComplete="username"
                     onChange={this.handleUsernameChange} />
                     
                     <p> New password </p>
@@ -243,6 +248,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="password"
                     type="password" 
+                    autoComplete="new-password"
                     value={this.state.passwordInput}
                     onChange={this.handlePasswordChange} />
                     
@@ -251,6 +257,7 @@ export default class GraphInit extends React.Component {
                     <input
                     name="password2" 
                     type="password"
+                    autoComplete="new-password"
                     value={this.state.password2Input}
                     onChange={this.handlePassword2Change} />
                     
@@ -271,7 +278,8 @@ export default class GraphInit extends React.Component {
 
                     <input
                     name="usernameLogin"
-                    value={this.state.usernameInput} 
+                    value={this.state.usernameInput}
+                    autoComplete="username"
                     onChange={this.handleUsernameChange} />
                     
                     <p> password </p>
@@ -280,6 +288,7 @@ export default class GraphInit extends React.Component {
                     name="passwordLogin"
                     type="password" 
                     value={this.state.passwordInput}
+                    autoComplete="current-password"
                     onChange={this.handlePasswordChange} />
 
                     </label>

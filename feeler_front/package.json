@@ -13,15 +13,22 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "chart.js": "^3.9.1",
     "chartjs": "^0.3.24",
+    "ckeditor": "^4.12.1",
+    "mui": "^0.0.1",
     "react-chartjs-2": "^4.3.1",
     "react-scripts": "5.0.1",
     "react-uuid": "^2.0.0",
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
     "socket.io-client": "^4.5.4",
     "strftime": "^0.10.1",
 >>>>>>> Stashed changes
+=======
+    "socket.io-client": "^4.5.4",
+>>>>>>> JournalData
     "web-vitals": "^2.1.4",
     "webpack-dev-middleware": "^6.0.1"
   },

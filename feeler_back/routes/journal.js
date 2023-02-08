@@ -10,6 +10,7 @@ var express = require('express');
 
 var router = express.Router();
 
+<<<<<<< HEAD
 router.post('/post_journal', function(req, res) {
   let data = req.body.journalData;
     
@@ -22,6 +23,29 @@ router.post('/post_journal', function(req, res) {
   Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
 
   res.send();
+=======
+router.post('/post_journal/:journalTitle', function(req, res) {    
+  try{
+    let journalTitle = req.body.journalName;
+  
+    console.log(`Title: ${journalName}`);
+
+    let data = req.body.journalData;
+
+    console.log(`Data: ${JSON.stringify(data)}`);
+
+    let username = req.session.username;
+
+    let now = strftime('%y%m%d_%X');
+    
+    Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
+
+    res.send();
+  }
+  catch (err) {
+    console.log(`ERROR: ${err}`);
+  };
+>>>>>>> JournalData
 });
 
 router.get('/get_journal', function(req, res) {

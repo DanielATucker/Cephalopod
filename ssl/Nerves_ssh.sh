@@ -1,0 +1,1 @@
+openssl req -x509 -newkey rsa:4096 -keyout Nerves_key.pem -out Nerves_cert.pem -sha256 -days 365 -subj '/CN=100.69.19.3:3000' -nodes
