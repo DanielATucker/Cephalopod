@@ -70,6 +70,8 @@ export default class Journal extends React.Component {
         }
         else {
             singleJournal = true;
+
+            console.log(`NODE JOURNAL Name ${nodeJournals.name}`);
         };
 
         if (singleJournal == false) {
