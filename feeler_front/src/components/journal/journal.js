@@ -131,7 +131,15 @@ export default class Journal extends React.Component {
             };
 
             if (singleJournal == true){
-
+                journals.forEach((journal, count) => {
+                    if (journal.name === journalName) {
+                        console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
+                        this.updateJournalState(journals[count], journal.name);
+                    }
+                    else{
+                        this.updateJournalState("", journalName);
+                    }
+                })
             };
 
             if (singleJournal == false){
@@ -140,7 +148,7 @@ export default class Journal extends React.Component {
                 journals.forEach((journal, count) => {
                     if (journal.name === journalName) {
                         console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
-                        this.updateJournalState(journal.body, journal.name);
+                        this.updateJournalState(journals[count], journal.name);
                     }
                     else{
                         this.updateJournalState("", journalName);
