@@ -91,12 +91,11 @@ export default class Journal extends React.Component {
             let found = null;
 
             if (journals.name in this.state.journals) {
-                found = true;
-
                 console.log(`FOUND = true`);
-            };
+            }
+            else {
+                console.log(`FOUND = false`);
 
-            if (found !== null) {
                 prevGrid.rows.push({ id: 0, name: journals.name});
 
                 this.setState({
