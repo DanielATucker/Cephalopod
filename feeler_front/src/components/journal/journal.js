@@ -116,8 +116,8 @@ export default class Journal extends React.Component {
         this.getJournalData();
 
         if (this.state) {
-            console.log(`Journals state ${this.state.journals}`);
-            
+            console.log(`Journals state ${JSON.stringify(this.state.journals)}`);
+
             let journals = this.state.journals;
 
             let singleJournal = null;
@@ -135,6 +135,8 @@ export default class Journal extends React.Component {
             };
 
             if (singleJournal == false){
+                console.log(`Journals state ${JSON.stringify(journals)}`);
+
                 journals.forEach((journal, count) => {
                     if (!(JSON.stringify(journals).includes(journal.name))) {
                         if (journal.name === journalName) {
