@@ -78,7 +78,7 @@ export default class Journal extends React.Component {
             journals.forEach((journal, count) => {
                 if (!(journal in this.state.journals)) {
                     count++
-                    
+
                     prevGrid.rows.push({ id: count, name: journal.name});
                     
                     this.setState({
@@ -88,7 +88,15 @@ export default class Journal extends React.Component {
             });            
         }
         else {
-            if (!(journals.name in this.state.journals)) {
+            let found = null;
+
+            if (journals.name in this.state.journals) {
+                found = true;
+
+                console.log(`FOUND = true`);
+            };
+
+            if (found !== null) {
                 prevGrid.rows.push({ id: 0, name: journals.name});
 
                 this.setState({
