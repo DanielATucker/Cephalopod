@@ -89,13 +89,13 @@ export default class Journal extends React.Component {
         }
         else {
             if (this.state) {
-                if (!(this.state.journals.includes(journals.name))) {
+                if (!(JSON.stringify(this.state.journals).includes(journals.name))) {
                 console.log(`FOUND = false`);
 
                     prevGrid.rows.push({ id: 0, name: journals.name});
 
                     this.setState({
-                        "journals": this.state.journals.concat(journals.name)
+                        "journals": this.state.journals.concat(journals)
                     });
                 };
             };
@@ -117,7 +117,23 @@ export default class Journal extends React.Component {
 
         let journals = this.state.journals;
 
-        let found = false;
+        let singleJournal = null;
+
+        if (journals.name == "undefined") {
+
+            singleJournal = false;
+        }
+        else {
+            singleJournal = true;
+        };
+
+        if (singleJournal == true){
+
+        }
+
+        else{
+
+        }
 
         Object.entries(journals).forEach((journalObject, count) => {           
             let journal = journalObject[1];
