@@ -62,7 +62,7 @@ router.get('/doesUserExist', (req, res) => {
 });
 
 router.get('/systeminit', (req, res) => {
-  Database("CREATE (m: Main), (s: System), (S: SessionMaster), (S)-[a: link]->(s)-[b: link]->(m) SET m.name = 'Main', s.name = 'System', S.name = 'SessionMaster'");
+  Database("CREATE (m: Main) SET m.name = 'Main'");
 
   res.json(JSON.stringify({
     "status": "success",
@@ -80,19 +80,10 @@ router.post('/newUser', function (req, res) {
   res.end();
 });
 
-router.post('/login', function (req, res, next) {  
-  console.log(`Session in: ${JSON.stringify(req.session)}`);
-
-  console.log(`USERNAME in: ${JSON.stringify(req.session.username)}`);
-
+router.post('/login', function (req, res) {  
   if (!req.session.username) {
     req.session.username = req.body.username;
-  }
-  else {
-    console.log(`User found ${req.session.username}`)
   };
-
-  console.log(`USERNAME out: ${JSON.stringify(req.session.username)}`);
 
   let username = req.body.username;
 
@@ -100,7 +91,9 @@ router.post('/login', function (req, res, next) {
 
   let nodePromise = Database(`MATCH (n: User) WHERE n.name = '${username}' AND n.password = '${password}' RETURN (n)`);
 
-  nodePromise.then(node => {    
+  nodePromise.then(node => {
+    //node = node[0];
+
     if ((typeof node !== 'undefined') && ( node != null) && (node !== "No Database found")) {
       let nowRaw = strftime("%y%m%d_%X");
     
@@ -108,8 +101,9 @@ router.post('/login', function (req, res, next) {
 
       now[nowRaw] = "Logged in";
 
-      
-      let loginHistory = node.properties.loginHistory;
+      console.log(`Login node: ${node}`);
+
+      let loginHistory = node.loginHistory;
 
       loginHistory = loginHistory.concat(JSON.stringify(now)); 
 
@@ -118,8 +112,6 @@ router.post('/login', function (req, res, next) {
   });
 
   res.send();
-
-  next();
 });
 
 router.get('/getUsername', (req, res) => {

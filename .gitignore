@@ -7,3 +7,5 @@
 */.vs
 node_modules
 *.env
+*.pem
+.vscode/settings.json

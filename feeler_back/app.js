@@ -19,8 +19,8 @@ var logger = require('morgan');
 var cors = require('cors');
 
 // ssl init
-var privateKey = fs.readFileSync('./ssl/feeler_back.key');
-var certificate = fs.readFileSync('./ssl/feeler_back.crt');
+var privateKey = fs.readFileSync('./ssl/feeler_back_key.pem');
+var certificate = fs.readFileSync('./ssl/feeler_back_cert.pem');
 
 var credentials = {key: privateKey, cert: certificate};
 
@@ -30,6 +30,7 @@ var credentials = {key: privateKey, cert: certificate};
 import indexRouter from './routes/index.js';
 import usersRouter from './routes/users.js';
 import systemRouter from "./routes/system.js";
+import journalRouter from "./routes/journal.js"
 
 var app = express();
 var httpsServer = https.createServer(credentials, app);
@@ -66,7 +67,8 @@ app.use(bodyParser.json());
 //Init session
 app.use(session({ 
   secret: 'keyboard cat',
-  cookie: { maxAge: 60000, httpOnly: true },
+  cookie: { maxAge:86400000,
+  httpOnly: true },
   credentials: true,
   saveUninitialized: false,
   resave: true
@@ -76,6 +78,7 @@ app.use(session({
 app.use("/", indexRouter);
 app.use('/users', usersRouter);
 app.use("/system", systemRouter);
+app.use("/journal", journalRouter);
 
 app.use(cookieParser());
 

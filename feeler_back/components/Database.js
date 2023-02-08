@@ -13,58 +13,70 @@ export default async function Database(query) {
 
   const uri = "bolt://100.69.19.3:7688";
 
-  let session = null;
-
   try {
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));
-    session = driver.session();
-  }
-  catch (err) {
-    console.log(err);
-  }
+    let session = driver.session();
 
-  let result = null;
-
-  let node = null;
-
-  try {
-    result = await session.run(query);
-
-    const singleRecord = result.records[0];
+    let result = await session.run(query);
     
-    if (typeof singleRecord != "undefined") {
-      try {node = singleRecord.get(0);
-      }
-      catch (err) {
+    let records = Object.values(result)[0];
+  
+    if (Object.keys(records).length === 1) {
+      let record = Object.values(records)[0];
+        
+      let fields = record._fields;
 
-        if (err)
-        console.log(err);
+      let fields2 = fields[0];
       
-        node = "undefined";
+      let properties = fields2.properties;
 
-        return node;
+      return properties;
+    };
+
+    if (Object.keys(records).length >= 2) {
+      let finalList = [];
+
+      let count = Object.keys(records).length;
+
+      let get_properties = async (records, countTimes) => {
+        let record = Object.values(records)[countTimes];
+        
+        let fields = record._fields;
+  
+        let fields2 = fields[0];
+        
+        let properties = fields2.properties;
+    
+        return properties;
       };
+
+      let countTimes = 0;
+
+      const async_concat = async(oldList, value) => {
+        return oldList.concat(value);
+      };
+
+      while (countTimes < count) {
+        let node = await get_properties(records, countTimes);
+        finalList = await async_concat(finalList, node);
+        countTimes++       
+      };
+
+      console.log(finalList);
+
+      //console.log(`DATA: ${JSON.stringify(records, null, 2)}`);
+      
+      return finalList
     };
   } 
   catch (err) {
 
     if (err.name == "Neo4jError") {
-      node = "No Database found"
+      let node = "No Database found"
       return node;
     }
     else {
       console.log(err);
     }
-  } finally {
-    await session.close()
-  }
-
-  try {
-      return node
-  }
-  catch (err) {
-      console.log(err);
-  }
-  
-  await driver.close()
+  };
 };

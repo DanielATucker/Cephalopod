@@ -100,7 +100,7 @@ export default class GraphInit extends React.Component {
                 method: 'GET',
             });
 
-            response.next((node) => {
+            response.then((node) => {
                 console.log(node);
 
                 if (node.status === "success") {
