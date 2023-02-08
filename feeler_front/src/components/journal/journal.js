@@ -134,7 +134,7 @@ export default class Journal extends React.Component {
                 journals.forEach((journal, count) => {
                     if (journal.name === journalName) {
                         console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
-                        this.updateJournalState(journals[count], journal.name);
+                        this.updateJournalState(journal.body, journal.name);
                     }
                     else{
                         this.updateJournalState("", journalName);
