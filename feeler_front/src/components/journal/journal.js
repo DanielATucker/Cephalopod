@@ -79,6 +79,8 @@ export default class Journal extends React.Component {
                 console.log(`Node Journals ${JSON.stringify(nodeJournals)}`);
 
                 nodeJournals.forEach(nodeJournalsSingle => {            
+                    console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
+
                     this.state.journals.forEach((journal, count) => {
                         console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
                         
