@@ -57,9 +57,7 @@ export default class Journal extends React.Component {
         }
     };
 
-    journalsHandler = (node) => {
-        console.log(`Found NODE ${JSON.stringify(node)}`);
-        
+    journalsHandler = (node) => {        
         let journals = JSON.parse(node);
 
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
@@ -90,8 +88,6 @@ export default class Journal extends React.Component {
         else {
             if (this.state) {
                 if (!(JSON.stringify(this.state.journals).includes(journals.name))) {
-                console.log(`FOUND = false`);
-
                     prevGrid.rows.push({ id: 0, name: journals.name});
 
                     this.setState({
@@ -111,13 +107,9 @@ export default class Journal extends React.Component {
     updateJournalData = async (params) => {
         let journalName = params.row.name;
 
-        console.log(`"${journalName}" clicked`);
-
         this.getJournalData();
 
         if (this.state) {
-            console.log(`Journals state ${JSON.stringify(this.state.journals)}`);
-
             let journals = this.state.journals;
 
             let singleJournal = null;
@@ -133,7 +125,6 @@ export default class Journal extends React.Component {
             if (singleJournal == true){
                 journals.forEach((journal, count) => {
                     if (journal.name === journalName) {
-                        console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
                         this.updateJournalState(journal.body, journal.name);
                     }
                     else{
@@ -143,11 +134,8 @@ export default class Journal extends React.Component {
             };
 
             if (singleJournal == false){
-                console.log(`Journals state ${JSON.stringify(journals)}`);
-
                 journals.forEach((journal, count) => {
                     if (journal.name === journalName) {
-                        console.log(`FOUND CLICKED JOURNAL NAME: ${journal.name}`);
                         this.updateJournalState(journals[count], journal.name);
                     }
                     else{
