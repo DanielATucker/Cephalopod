@@ -89,7 +89,7 @@ export default class Journal extends React.Component {
         }
         else {
             if (this.state) {
-                if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
+                if (JSON.stringify(this.state.journals).includes(nodeJournals.name)) {
                     prevGrid.rows.push({ id: 0, name: nodeJournals.name});
 
                     this.setState({
