@@ -139,8 +139,7 @@ export default class Journal extends React.Component {
 
             let singleJournal = null;
 
-            if (journals.name == "undefined") {
-
+            if (typeof journals.name == "undefined") {
                 singleJournal = false;
             }
             else {
@@ -148,14 +147,11 @@ export default class Journal extends React.Component {
             };
 
             if (singleJournal == true){
-                journals.forEach((journal, count) => {
+                journals.forEach(journal => {
                     if (journal.name === journalName) {
                         this.updateJournalState(journal.body, journal.name);
                     }
-                    else{
-                        this.updateJournalState("", journalName);
-                    }
-                })
+                });
             };
 
             if (singleJournal == false){
