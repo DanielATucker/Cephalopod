@@ -88,14 +88,9 @@ export default class Journal extends React.Component {
             });            
         }
         else {
-            let found = null;
-
             if (this.state) {
                 if (!(this.state.journals.includes(journals.name))) {
-                    console.log(`FOUND = true`);
-                }
-                else {
-                    console.log(`FOUND = false`);
+                console.log(`FOUND = false`);
 
                     prevGrid.rows.push({ id: 0, name: journals.name});
 
