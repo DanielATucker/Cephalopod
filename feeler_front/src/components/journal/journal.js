@@ -75,26 +75,33 @@ export default class Journal extends React.Component {
         if (singleJournal == false) {
             nodeJournals.foreach(nodeJournalsSingle => {            
                 this.state.journals.forEach((journal, count) => {
-                    if (journal.name === nodeJournalsSingle.name) {
-                        count++
+                    if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
+                        if (journal.name === nodeJournalsSingle.name) {
+                            count++
 
-                        prevGrid.rows.push({ id: count, name: journal.name});
-                        
-                        this.setState({
-                            "journals": this.state.journals.concat(journal)
-                        });
+                            prevGrid.rows.push({ id: count, name: journal.name});
+                            
+                            this.setState({
+                                "journals": this.state.journals.concat(journal)
+                            });
+
+                            this.updateJournalState(journal.body, journal.name);
+
+                        };
                     };
                 });
             })            
         }
         else {
             if (this.state) {
-                if (JSON.stringify(this.state.journals).includes(nodeJournals.name)) {
+                if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
                     prevGrid.rows.push({ id: 0, name: nodeJournals.name});
 
                     this.setState({
                         "journals": this.state.journals.concat(nodeJournals)
                     });
+
+                    this.updateJournalState("", journalName);
                 };
             };
         };
