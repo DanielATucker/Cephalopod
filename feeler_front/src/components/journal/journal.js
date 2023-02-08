@@ -58,13 +58,13 @@ export default class Journal extends React.Component {
     };
 
     journalsHandler = (node) => {        
-        let journals = JSON.parse(node);
+        let nodeJournals = JSON.parse(node);
 
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
         let singleJournal = null;
 
-        if (journals.name == "undefined") {
+        if (nodeJournals.name == "undefined") {
 
             singleJournal = false;
         }
@@ -73,25 +73,27 @@ export default class Journal extends React.Component {
         };
 
         if (singleJournal == false) {
-            this.state.journals.forEach((journal, count) => {
-                if (journal.name === journalName) {
-                    count++
+            nodeJournals.foreach(nodeJournalsSingle => {            
+                this.state.journals.forEach((journal, count) => {
+                    if (journal.name === nodeJournalsSingle.name) {
+                        count++
 
-                    prevGrid.rows.push({ id: count, name: journal.name});
-                       
-                    this.setState({
-                        "journals": this.state.journals.concat(journal.name)
-                    });
-                };
-            });            
+                        prevGrid.rows.push({ id: count, name: journal.name});
+                        
+                        this.setState({
+                            "journals": this.state.journals.concat(journal)
+                        });
+                    };
+                });
+            })            
         }
         else {
             if (this.state) {
                 if (!(JSON.stringify(this.state.journals).includes(journals.name))) {
-                    prevGrid.rows.push({ id: 0, name: journals.name});
+                    prevGrid.rows.push({ id: 0, name: nodeJournals.name});
 
                     this.setState({
-                        "journals": this.state.journals.concat(journals)
+                        "journals": this.state.journals.concat(nodeJournals)
                     });
                 };
             };
