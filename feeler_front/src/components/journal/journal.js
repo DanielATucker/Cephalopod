@@ -73,9 +73,9 @@ export default class Journal extends React.Component {
         };
 
         if (singleJournal == false) {
-            nodeJournals.foreach(nodeJournalsSingle => {            
-                this.state.journals.forEach((journal, count) => {
-                    if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
+            if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
+                nodeJournals.foreach(nodeJournalsSingle => {            
+                    this.state.journals.forEach((journal, count) => {
                         if (journal.name === nodeJournalsSingle.name) {
                             count++
 
@@ -86,11 +86,10 @@ export default class Journal extends React.Component {
                             });
 
                             this.updateJournalState(journal.body, journal.name);
-
                         };
-                    };
-                });
-            })            
+                    });
+                })
+            };   
         }
         else {
             if (this.state) {
