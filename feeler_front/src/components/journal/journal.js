@@ -75,19 +75,19 @@ export default class Journal extends React.Component {
         };
 
         if (singleJournal == false) {
-            if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
-                console.log(`Node Journals ${JSON.stringify(nodeJournals)}`);
+            console.log(`Node Journals ${JSON.stringify(nodeJournals)}`);
+            
+            nodeJournals.forEach((nodeJournalsSingle, Count) => {            
+                console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
 
-                nodeJournals.forEach((nodeJournalsSingle, Count) => {            
-                    console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
+                console.log(`this.state.journals.length ${this.state.journals.length}`);
 
-                    console.log(`this.state.journals.length ${this.state.journals.length}`);
-
-                    if (this.state.journals.length >=1) {
-                        this.state.journals.forEach((journal, count) => {
-                            console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
-                            
-                            if (journal.name === nodeJournalsSingle.name) {
+                if (this.state.journals.length >=1) {
+                    this.state.journals.forEach((journal, count) => {
+                        console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
+                        
+                        if (journal.name === nodeJournalsSingle.name) {
+                            if (!(JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name))) {
                                 count++
 
                                 prevGrid.rows.push({ id: count, name: journal.name});
@@ -96,21 +96,21 @@ export default class Journal extends React.Component {
                                     "journals": this.state.journals.concat(journal)
                                 });
                             };
-                        });
-                    }
-                    else {
-                        Count++
+                        };
+                    });
+                }
+                else {
+                    Count++
 
-                        prevGrid.rows.push({ id: Count, name: nodeJournalsSingle.name});
-                        
-                        this.setState({
-                            "journals": this.state.journals.concat(nodeJournalsSingle)
-                        });
+                    prevGrid.rows.push({ id: Count, name: nodeJournalsSingle.name});
+                    
+                    this.setState({
+                        "journals": this.state.journals.concat(nodeJournalsSingle)
+                    });
 
-                        this.updateJournalState(nodeJournalsSingle.body, nodeJournalsSingle.name);
-                    };
-                });
-            };   
+                    this.updateJournalState(nodeJournalsSingle.body, nodeJournalsSingle.name);
+                };
+            }); 
         }
         else {
             if (this.state) {
