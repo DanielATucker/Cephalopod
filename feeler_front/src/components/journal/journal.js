@@ -116,7 +116,8 @@ export default class Journal extends React.Component {
         this.getJournalData();
 
         if (this.state) {
-            console.log(`Journals state ${this.state.journals}`)
+            console.log(`Journals state ${this.state.journals}`);
+            
             let journals = this.state.journals;
 
             let singleJournal = null;
