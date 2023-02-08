@@ -90,19 +90,22 @@ export default class Journal extends React.Component {
         else {
             let found = null;
 
-            console.log(`State Journals ${JSON.stringify(this.state.journals)}`);
-            
-            if (journals.name in this.state.journals) {
-                console.log(`FOUND = true`);
-            }
-            else {
-                console.log(`FOUND = false`);
+            if (this.state) {
 
-                prevGrid.rows.push({ id: 0, name: journals.name});
+                console.log(`State Journals ${JSON.stringify(this.state.journals)}`);
 
-                this.setState({
-                    "journals": this.state.journals.concat(journals.name)
-                });
+                if (journals.name in this.state.journals) {
+                    console.log(`FOUND = true`);
+                }
+                else {
+                    console.log(`FOUND = false`);
+
+                    prevGrid.rows.push({ id: 0, name: journals.name});
+
+                    this.setState({
+                        "journals": this.state.journals.concat(journals.name)
+                    });
+                };
             };
         };
 
