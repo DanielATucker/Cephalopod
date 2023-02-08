@@ -101,7 +101,7 @@ export default class Journal extends React.Component {
                         "journals": this.state.journals.concat(nodeJournals)
                     });
 
-                    this.updateJournalState("", journalName);
+                    this.updateJournalState("", nodeJournals.name);
                 };
             };
         };
