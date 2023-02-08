@@ -81,7 +81,7 @@ export default class Journal extends React.Component {
                 nodeJournals.forEach((nodeJournalsSingle, Count) => {            
                     console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
 
-                    if (this.state.journals.length <=1) {
+                    if (this.state.journals.length <=2) {
                         this.state.journals.forEach((journal, count) => {
                             console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
                             
