@@ -77,6 +77,8 @@ export default class Journal extends React.Component {
         if (singleJournal == false) {
             journals.forEach((journal, count) => {
                 if (!(journal in this.state.journals)) {
+                    count++
+                    
                     prevGrid.rows.push({ id: count, name: journal.name});
                     
                     this.setState({
@@ -87,11 +89,6 @@ export default class Journal extends React.Component {
         }
         else {
             if (!(journals.name in this.state.journals)) {
-
-                console.log(`SINGLE JOURNAL ${journals}`);
-
-                console.log(`Journal Name ${journals.name}`);
-
                 prevGrid.rows.push({ id: 0, name: journals.name});
 
                 this.setState({
