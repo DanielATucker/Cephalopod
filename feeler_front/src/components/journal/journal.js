@@ -90,6 +90,8 @@ export default class Journal extends React.Component {
         else {
             let found = null;
 
+            console.log(`State Journals ${JSON.stringify(this.state.journals)}`);
+            
             if (journals.name in this.state.journals) {
                 console.log(`FOUND = true`);
             }
