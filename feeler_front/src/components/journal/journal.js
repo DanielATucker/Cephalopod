@@ -34,7 +34,8 @@ export default class Journal extends React.Component {
                     data={"<p> No journal Selected </p>"}
                     disabled = {true}
                 />
-            )
+            ),
+            "idCount":1
         };
     };
 
@@ -80,15 +81,16 @@ export default class Journal extends React.Component {
                 console.log(`this.state.journals.length ${this.state.journals.length}`);
 
                 if (this.state.journals.length >=1) {
-                    this.state.journals.forEach((journal, count) => {
+                    this.state.journals.forEach(journal => {
                         console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
                         
                         if (journal.name === nodeJournalsSingle.name) {
                             if (!(JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name))) {
-                                count++
 
-                                prevGrid.rows.push({ id: count, name: nodeJournalsSingle.name});
+                                prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
                                 
+                                this.state.idCount++
+
                                 this.setState({
                                     "journals": this.state.journals.concat(journal)
                                 });
@@ -97,9 +99,9 @@ export default class Journal extends React.Component {
                     });
                 }
                 else {
-                    Count++
-
-                    prevGrid.rows.push({ id: Count, name: nodeJournalsSingle.name});
+                    prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
+            
+                    this.state.idCount++
                 };
             }); 
         }
