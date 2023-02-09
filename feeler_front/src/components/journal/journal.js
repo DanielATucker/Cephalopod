@@ -35,7 +35,7 @@ export default class Journal extends React.Component {
                     disabled = {true}
                 />
             ),
-            "idCount":1
+            "idCount": 1
         };
     };
 
@@ -75,7 +75,7 @@ export default class Journal extends React.Component {
         if (singleJournal == false) {
             console.log(`Node Journals ${JSON.stringify(nodeJournals)}`);
 
-            nodeJournals.forEach((nodeJournalsSingle, Count) => {            
+            nodeJournals.forEach(nodeJournalsSingle => {            
                 console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
 
                 console.log(`this.state.journals.length ${this.state.journals.length}`);
