@@ -40,6 +40,8 @@ export default class Journal extends React.Component {
     };
 
     componentDidMount() {
+        this.getJournalData();
+
         setInterval(this.getJournalData, 10000);
     };
 
@@ -50,7 +52,9 @@ export default class Journal extends React.Component {
         });
 
         let node = await response.json();
-        
+
+        console.log(`NODE IN: ${node strftime("%X")}`)
+
         if ((node !== "No node found") && (node !== "undefined") ) {
             this.journalsHandler(node);
         }
@@ -198,7 +202,6 @@ export default class Journal extends React.Component {
             credentials: "include"
         });
 
-       await this.getJournalData();
     };
 
     render() {
