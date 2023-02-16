@@ -40,9 +40,9 @@ export default class Journal extends React.Component {
     };
 
     componentDidMount() {
-        this.getJournalData();
-
-        setInterval(this.getJournalData, 10000);
+        setTimeout(() => {
+            setInterval(this.getJournalData, 1000);
+        }, 1000);
     };
 
     getJournalData = async () => {
