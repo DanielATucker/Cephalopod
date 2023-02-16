@@ -55,7 +55,7 @@ export default class Journal extends React.Component {
 
         console.log(`NODE IN TIME: ${strftime("%X")}`);
 
-        console.log(`NODE IN: ${JSON.stringify(node)}`);
+        console.log(`NODE IN: ${node}`);
 
 
         if ((node !== "No node found") && (node !== "undefined") ) {
@@ -82,10 +82,11 @@ export default class Journal extends React.Component {
 
             nodeJournals.forEach(nodeJournalsSingle => {            
                 if (this.state) {
-                    console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
+                    console.log(`nodeJournalsSingle.name: ${nodeJournalsSingle.name}`);
 
-                    console.log(`this.state.journals.length ${this.state.journals.length}`);
+                    console.log(`this.state.journals.length: ${this.state.journals.length}`);
 
+                    console.log(`IdCount: ${this.state.idCount}`);
 
                     if (!(JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name))) {
                         prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
