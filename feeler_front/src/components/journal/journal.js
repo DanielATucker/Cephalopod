@@ -105,11 +105,6 @@ export default class Journal extends React.Component {
                             };
                         });
                     }
-                    else {
-                        prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
-                
-                        this.state.idCount++
-                    };
                 }
             }); 
         }
