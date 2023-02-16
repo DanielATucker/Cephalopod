@@ -78,36 +78,39 @@ export default class Journal extends React.Component {
             console.log(`Node Journals ${JSON.stringify(nodeJournals)}`);
 
             nodeJournals.forEach(nodeJournalsSingle => {            
-                console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
+                
+                if (this.state) {
+                    console.log(`nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
 
-                console.log(`this.state.journals.length ${this.state.journals.length}`);
+                    console.log(`this.state.journals.length ${this.state.journals.length}`);
 
-                if (this.state.journals.length >=1) {
-                    this.state.journals.forEach(journal => {
-                        console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
-                        
-                        if (journal.name === nodeJournalsSingle.name) {
-                            if (this.state) {
-                                
-                                if (!(JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name))) {
-
-                                    prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
+                    if (this.state.journals.length >=1) {
+                        this.state.journals.forEach(journal => {
+                            console.log(`journal.name ${journal.name} nodeJournalsSingle.name ${nodeJournalsSingle.name}`);
+                            
+                            if (journal.name === nodeJournalsSingle.name) {
+                                if (this.state) {
                                     
-                                    this.state.idCount++
+                                    if (!(JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name))) {
 
-                                    this.setState({
-                                        "journals": this.state.journals.concat(journal)
-                                    });
+                                        prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
+                                        
+                                        this.state.idCount++
+
+                                        this.setState({
+                                            "journals": this.state.journals.concat(journal)
+                                        });
+                                    };
                                 };
                             };
-                        };
-                    });
+                        });
+                    }
+                    else {
+                        prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
+                
+                        this.state.idCount++
+                    };
                 }
-                else {
-                    prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
-            
-                    this.state.idCount++
-                };
             }); 
         }
         else {
