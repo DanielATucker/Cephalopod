@@ -41,7 +41,10 @@ export default class Journal extends React.Component {
 
     componentDidMount() {
         setTimeout(() => {
-            setInterval(this.getJournalData, 1000);
+            setTimeout(() => {
+                this.getJournalData();
+            })
+            setInterval(this.getJournalData, 10000);
         }, 1000);
     };
 
