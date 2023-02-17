@@ -153,7 +153,7 @@ export default class Journal extends React.Component {
                 
                 console.log(`Journals: ${JSON.stringify(journals)}`)
 
-                journals.forEach(journal => {
+                JSON.parse(journals).forEach(journal => {
                     console.log(`JOURNAL name: ${JSON.stringify(journal.name)}`)
                     console.log(`JOURNAL.BODY: ${JSON.stringify(journal.body)}`);
 
