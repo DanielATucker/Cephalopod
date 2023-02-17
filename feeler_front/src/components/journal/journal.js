@@ -96,9 +96,11 @@ export default class Journal extends React.Component {
                         
                         this.state.idCount++
 
-                        this.setState({
-                            "journals": this.state.journals.concat(nodeJournalsSingle)
-                        });
+                        if (this.state) {
+                            this.setState({
+                                "journals": this.state.journals.concat(nodeJournalsSingle)
+                            });
+                        };
                     };     
                 };
             }); 
