@@ -128,7 +128,7 @@ export default class Journal extends React.Component {
         //this.getJournalData();
 
         if (this.state) {
-            let journals = this.state.journals;
+            let journals = JSON.parse(this.state.journals);
 
             let singleJournal = null;
 
@@ -143,7 +143,7 @@ export default class Journal extends React.Component {
                 journals.forEach(journal => {
                     if (!(JSON.stringify(journals).includes(journal.name))) {
                         if (journal.name === journalName) {
-                            this.updateJournalState(JSON.parse(journal.body), journal.name);
+                            this.updateJournalState(journal.body, journal.name);
                         };
                     };
                 });
