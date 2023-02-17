@@ -177,6 +177,10 @@ export default class Journal extends React.Component {
     };
 
     updateJournalState = (data, journalName) => {
+        console.log(`UPDATE JOURNAL STATE DATA IN: ${data}`);
+        console.log(`UPDATE JOURNAL STATE NAME IN: ${journalName}`);
+
+        
         this.setState({
             "editor": (
                 <CKEditor
