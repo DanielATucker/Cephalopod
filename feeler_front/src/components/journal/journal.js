@@ -91,7 +91,7 @@ export default class Journal extends React.Component {
 
                     console.log(`IdCount: ${this.state.idCount}`);
 
-                    if (! JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name) {
+                    if (! JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name)) {
                         prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
                         
                         this.state.idCount++
