@@ -93,7 +93,7 @@ export default class Journal extends React.Component {
 
                     console.log(`IdCount: ${this.state.idCount}`);
 
-                    let TJournalName = JSON.stringify({"name": nodeJournalsSingle.name});
+                    let TJournalName = JSON.stringify("name": nodeJournalsSingle.name);
 
                     console.log(`TJOURNALNAME ${TJournalName}`);
 
