@@ -96,6 +96,8 @@ export default class Journal extends React.Component {
                     if (! JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name)) {
                         console.log(`NOT FOUND`);
                         
+                        console.log(`STATE ${JSON.stringify(this.state.journals)}`);
+
                         prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
                         
                         this.state.idCount++
@@ -108,6 +110,9 @@ export default class Journal extends React.Component {
                     }
                     else {
                         console.log(`FOUND`);
+
+                        console.log(`STATE ${JSON.stringify(this.state.journals)}`);
+
                     }
                 };
             }); 
