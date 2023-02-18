@@ -93,7 +93,7 @@ export default class Journal extends React.Component {
 
                     console.log(`IdCount: ${this.state.idCount}`);
 
-                    if (! JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name)) {
+                    if (! JSON.stringify(this.state.journals).includes(JSON.stringify({"name": nodeJournalsSingle.name}))) {
                         console.log(`NOT FOUND`);
                         
                         console.log(`STATE ${JSON.stringify(this.state.journals)}`);
