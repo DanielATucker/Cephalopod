@@ -100,7 +100,7 @@ export default class Journal extends React.Component {
 
                         if (this.state) {
                             this.setState({
-                                "journals": this.state.journals.concat(nodeJournalsSingle)
+                                "journals": this.state.journals.push(nodeJournalsSingle)
                             });
                         };
                     };     
