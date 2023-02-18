@@ -97,7 +97,7 @@ export default class Journal extends React.Component {
 
                     console.log(`TJOURNALNAME ${TJournalName}`);
 
-                    if (! TJournalName in this.state.journals) {
+                    if (! (TJournalName in this.state.journals)) {
                         console.log(`NOT FOUND`);
                         
                         console.log(`STATE ${JSON.stringify(this.state.journals)}`);
