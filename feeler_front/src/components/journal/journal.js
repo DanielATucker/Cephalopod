@@ -93,17 +93,22 @@ export default class Journal extends React.Component {
 
                     console.log(`IdCount: ${this.state.idCount}`);
 
-                    if (! JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name)) {
+                    if (JSON.stringify(this.state.journals).includes(nodeJournalsSingle.name)) {
+                        console.log(`FOUND`);
+                        
                         prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
                         
                         this.state.idCount++
 
                         if (this.state) {
                             this.setState({
-                                "journals": this.state.journals.push(nodeJournalsSingle)
+                                "journals": this.state.journals.concat(nodeJournalsSingle)
                             });
                         };
-                    };     
+                    }
+                    else {
+                        console.log(`NOT FOUND`);
+                    }
                 };
             }); 
         }
