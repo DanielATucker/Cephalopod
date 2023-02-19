@@ -150,7 +150,9 @@ export default class Journal extends React.Component {
                         };
 
                         if (found !== true) {
-                            console.log(`NEW ENTRY`)
+                            console.log(`NEW ENTRY`);
+
+                            console.log(`STATE ${this.state.journals}`);
                             
                             this.updateJournalState("", journalName);
                         }
