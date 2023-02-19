@@ -204,11 +204,6 @@ export default class Journal extends React.Component {
         this.getJournalData();
     };
 
-
-    onSelectionChange = (data) => {
-        console.log(`SELECT CHANGE: ${data}`);
-    }
-
     render() {
         return (
             <>
@@ -223,9 +218,7 @@ export default class Journal extends React.Component {
                     columns={this.state.datagrid.columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    checkboxSelection
                     onRowClick={this.updateJournalData}
-                    headerSelectionCheckboxChange = {this.onSelectionChange}
                     >
                     </DataGrid>
                 </div>
