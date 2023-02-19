@@ -180,6 +180,8 @@ export default class Journal extends React.Component {
                         console.log(`DATA OUT ${dataOut}`);
 
                         this.sendJournalData(dataOut, journalName);
+                        
+                        this.getJournalData();
                     }}
                 />
             )
@@ -200,8 +202,6 @@ export default class Journal extends React.Component {
             }),
             credentials: "include"
         });
-
-        this.getJournalData();
     };
 
     render() {
