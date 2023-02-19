@@ -12,6 +12,8 @@ var router = express.Router();
 
 router.post('/post_journal/:journalTitle', function(req, res) {    
   try{
+    console.log(`DATA ${req.body}`)
+
     let journalTitle = req.body.journalName;
   
     console.log(`Title: ${journalTitle}`);
