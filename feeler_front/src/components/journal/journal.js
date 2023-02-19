@@ -56,11 +56,6 @@ export default class Journal extends React.Component {
 
         let node = await response.json();
 
-        console.log(`NODE IN TIME: ${strftime("%X")}`);
-
-        console.log(`NODE IN: ${node}`);
-
-
         if ((node !== "No node found") && (node !== "undefined") ) {
             this.journalsHandler(node);
         }
@@ -81,10 +76,6 @@ export default class Journal extends React.Component {
         };
 
         if (singleJournal == false) {
-            console.log(`Node Journals ${JSON.stringify(nodeJournals)}`);
-
-            console.log(JSON.stringify(this.state.journals));
-
             nodeJournals.forEach(nodeJournalsSingle => {            
                 if (this.state) {
                     if (! (this.state.journals.some(item => item.name === nodeJournalsSingle.name))) {
