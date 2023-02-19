@@ -87,17 +87,7 @@ export default class Journal extends React.Component {
 
             nodeJournals.forEach(nodeJournalsSingle => {            
                 if (this.state) {
-                    console.log(`nodeJournalsSingle.name: ${nodeJournalsSingle.name}`);
-
-                    console.log(`this.state.journals.length: ${this.state.journals.length}`);
-
-                    console.log(`IdCount: ${this.state.idCount}`);
-
                     if (! (this.state.journals.some(item => item.name === nodeJournalsSingle.name))) {
-                        console.log(`NOT FOUND`);
-                        
-                        console.log(`STATE ${JSON.stringify(this.state.journals)}`);
-
                         prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
                         
                         this.state.idCount++
@@ -107,13 +97,7 @@ export default class Journal extends React.Component {
                                 "journals": this.state.journals.concat(nodeJournalsSingle)
                             });
                         };
-                    }
-                    else {
-                        console.log(`FOUND`);
-
-                        console.log(`STATE ${JSON.stringify(this.state.journals)}`);
-
-                    }
+                    };
                 };
             }); 
         }
@@ -148,13 +132,9 @@ export default class Journal extends React.Component {
 
             if (typeof journals.name == "undefined") {
                 singleJournal = false;
-                
-                console.log(`SINGLEJOURNAL FALSE `);
             }
             else {
                 singleJournal = true;
-
-                console.log(`SINGLEJOURNAL TRUE `);
             };
 
             if (singleJournal == true){
@@ -169,18 +149,8 @@ export default class Journal extends React.Component {
 
             if (singleJournal == false){
                 if (this.state){
-
-                    console.log(`Journals: ${JSON.stringify(journals)}`)
-
                     this.state.journals.forEach(journal => {
-                        console.log(`JOURNAL name: ${JSON.stringify(journal.name)}`);
-                        console.log(`JOURNAL.BODY: ${JSON.stringify(journal.body)}`);
-                        console.log(`JOURNALNAME to compare with: ${journalName}`);
-                        console.log(`JOURNAL ENTRIES: ${JSON.stringify(this.state.journals)}`);
-
                         if (journal.name === journalName) {
-                            console.log(`PASSED`);
-
                             this.updateJournalState(journal.body, journal.name);
                         };
                     });
@@ -190,11 +160,7 @@ export default class Journal extends React.Component {
         };
     };
 
-    updateJournalState = (data, journalName) => {
-        console.log(`UPDATE JOURNAL STATE DATA IN: ${data}`);
-        console.log(`UPDATE JOURNAL STATE NAME IN: ${journalName}`);
-
-        
+    updateJournalState = (data, journalName) => { 
         this.setState({
             "editor": (
                 <CKEditor
