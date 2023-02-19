@@ -80,7 +80,20 @@ export default class Journal extends React.Component {
         if (singleJournal == false) {
             nodeJournals.forEach(nodeJournalsSingle => {            
                 if (this.state) {
-                    if (! (this.state.journals.some(item => item.name === nodeJournalsSingle.name))) {
+                    if (this.state.journals.some(item => item.name === nodeJournalsSingle.name)) {
+                        currentJournals = this.state.journals;
+                        console.log(`CURRENT JOURNALS: ${currentJournals}`);
+
+                        console.log(`COMPARING ${nodeJournalsSingle}`;)
+
+                        if (this.state.journals.some(item => (item.name === nodeJournalsSingle.name) && (item.body === nodeJournalsSingle.body))) {
+                            console.log(`BODY SAME`);
+                        }
+                        else {
+                            console.log(`BODY NOT SAME`);
+                        }
+                    }
+                    else {
                         prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
                         
                         this.state.idCount++
@@ -90,7 +103,7 @@ export default class Journal extends React.Component {
                                 "journals": this.state.journals.concat(nodeJournalsSingle)
                             });
                         };
-                    };
+                    }
                 };
             }); 
         }
