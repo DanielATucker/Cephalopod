@@ -39,6 +39,14 @@ export default class Journal extends React.Component {
         };
     };
 
+    componentDidMount() {
+        this.getJournalData();
+
+        setTimeout(() => {
+            this.getJournalData();
+        }, 10000);
+    };
+
     getJournalData = async () => {
         const response = await fetch('https://100.108.10.15:3001/journal/get_journal', {
             method: 'GET',
