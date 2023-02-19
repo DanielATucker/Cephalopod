@@ -201,6 +201,7 @@ export default class Journal extends React.Component {
             credentials: "include"
         });
 
+        this.getJournalData();
     };
 
     render() {
