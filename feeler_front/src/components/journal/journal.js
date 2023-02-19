@@ -175,11 +175,11 @@ export default class Journal extends React.Component {
                     onChange={ ( event, editor ) => {
                         console.log(`EVENT ${event}`);
 
-                        const data = editor.getData();
+                        const dataOut = editor.getData();
 
-                        console.log(`DATA OUT ${data}`);
+                        console.log(`DATA OUT ${dataOut}`);
 
-                        this.sendJournalData(data, journalName);
+                        this.sendJournalData(dataOut, journalName);
                     }}
                 />
             )
