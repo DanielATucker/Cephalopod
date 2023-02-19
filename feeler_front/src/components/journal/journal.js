@@ -114,8 +114,7 @@ export default class Journal extends React.Component {
     updateJournalData = async (params) => {
         let journalName = params.row.name;
 
-        //this.getJournalData();
-
+        console.log(`Clicked ${journalName}`)
         if (this.state) {
             let journals = this.state.journals;
 
