@@ -115,6 +115,7 @@ export default class Journal extends React.Component {
         let journalName = params.row.name;
 
         console.log(`Clicked ${journalName}`)
+        
         if (this.state) {
             let journals = this.state.journals;
 
@@ -139,10 +140,20 @@ export default class Journal extends React.Component {
 
             if (singleJournal == false){
                 if (this.state){
+                    let found = null;
+
                     this.state.journals.forEach(journal => {
                         if (journal.name === journalName) {
                             this.updateJournalState(journal.body, journal.name);
+
+                            found = true;
                         };
+
+                        if (found !== true) {
+                            console.log(`NEW ENTRY`)
+                            
+                            this.updateJournalState("", journal.name);
+                        }
                     });
                 };
             
