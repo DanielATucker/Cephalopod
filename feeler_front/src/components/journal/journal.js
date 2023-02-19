@@ -64,6 +64,8 @@ export default class Journal extends React.Component {
     journalsHandler = (node) => {        
         let nodeJournals = JSON.parse(node);
 
+        console.log(`NODES IN: ${nodeJournals}`);
+
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
         let singleJournal = null;
