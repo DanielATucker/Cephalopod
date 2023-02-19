@@ -173,7 +173,6 @@ export default class Journal extends React.Component {
                     data={data}
                     disabled = {false}
                     onChange={ ( event, editor ) => {
-                        console.log(`DATA ${data}`);
                         console.log(`EVENT ${event}`);
 
                         const data = editor.getData();
