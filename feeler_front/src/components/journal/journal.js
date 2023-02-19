@@ -94,7 +94,7 @@ export default class Journal extends React.Component {
 
                             let prevJournals = this.state.journals;
 
-                            const index = Data.map(e => e.name).indexOf(nodeJournalsSingle.name);
+                            const index = prevJournals.map(e => e.name).indexOf(nodeJournalsSingle.name);
 
                             prevJournals[index].body = nodeJournalsSingle.body
 
