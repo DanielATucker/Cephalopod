@@ -82,9 +82,9 @@ export default class Journal extends React.Component {
                 if (this.state) {
                     if (this.state.journals.some(item => item.name === nodeJournalsSingle.name)) {
                         let currentJournals = this.state.journals;
-                        console.log(`CURRENT JOURNALS: ${currentJournals}`);
+                        console.log(`CURRENT JOURNALS: ${JSON.stringify(currentJournals, null, 2)}`);
 
-                        console.log(`COMPARING ${nodeJournalsSingle}`)
+                        console.log(`COMPARING ${JSON.stringify(nodeJournalsSingle)}`)
 
                         if (this.state.journals.some(item => (item.name === nodeJournalsSingle.name) && (item.body === nodeJournalsSingle.body))) {
                             console.log(`BODY SAME`);
