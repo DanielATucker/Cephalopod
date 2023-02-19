@@ -177,6 +177,8 @@ export default class Journal extends React.Component {
 
                         const data = editor.getData();
 
+                        console.log(`DATA OUT ${data}`);
+
                         this.sendJournalData(data, journalName);
                     }}
                 />
