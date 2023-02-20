@@ -136,9 +136,7 @@ export default class Journal extends React.Component {
     };
 
     updateJournalData = async (params) => {
-        setTimeout(() => {
-            this.getJournalData();
-        }, 1000);
+        this.getJournalData();
 
         let journalName = params.row.name;
 
