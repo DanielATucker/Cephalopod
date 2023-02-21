@@ -170,7 +170,7 @@ export default class Journal extends React.Component {
 
                     this.state.journals.forEach(journal => {
                         if (journal.name === journalName) {
-                            this.updateJournalState(journal.body, journal.name);
+                            this.updateJournalState(journal.body, journalName);
 
                             found = true;
                         };
