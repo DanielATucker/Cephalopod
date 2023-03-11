@@ -48,7 +48,7 @@ class Calendar extends React.Component {
 
   componentDidUpdate(prevState, prevProps) {
     if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
-      if (this.state.isLoggedIn == true){
+      if (this.props.isLoggedIn == true){
         this.getCalendarData();
       }
     }
