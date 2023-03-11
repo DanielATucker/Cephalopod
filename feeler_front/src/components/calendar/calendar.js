@@ -30,7 +30,7 @@ class Calendar extends React.Component {
 
   componentDidMount() {
     // load event data
-    this.config.update({
+    this.state.config.update({
       startDate: "2023-03-07",
       events: [
         {
