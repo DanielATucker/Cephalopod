@@ -38,6 +38,8 @@ class Calendar extends React.Component {
         }
       ]
     });
+
+    this.getCalendarData();
   };
 
   getCalendarData = async () => {
