@@ -7,7 +7,7 @@ import { Input } from 'smart-webcomponents-react/input';
 import { Tree, TreeItem, TreeItemsGroup } from 'smart-webcomponents-react/tree';
 import { Scheduler } from 'smart-webcomponents-react/scheduler';
 
-class Calendar extends React.Component {
+class Calendar1 extends React.Component {
 	constructor(props) {
 		super(props);
 
@@ -386,5 +386,5 @@ class Calendar extends React.Component {
 
 
 
-export default Calendar;
+export default Calendar1;
 	

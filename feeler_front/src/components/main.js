@@ -7,7 +7,7 @@ import SocketHandler from "./socketHandler";
 import Stats from "./stats";
 import Journal from "./journal/journal";
 import System from "./system";
-import Calendar from "./calendar/calendar.js";
+import Calendar1 from "./calendar/calendar.js";
 
 
 export default class Main extends React.Component {
@@ -60,7 +60,7 @@ export default class Main extends React.Component {
             <Journal isLoggedIn = {this.state.isLoggedIn}>
             </Journal>
 
-            <Calendar isLoggedIn = {this.state.isLoggedIn}>
+            <Calendar1 isLoggedIn = {this.state.isLoggedIn}>
             </Calendar>
 
             <Terminal
