@@ -22,7 +22,8 @@ class Calendar extends React.Component {
     this.state = {
       config: {
         viewType: "Week",
-        durationBarVisible: false
+        durationBarVisible: false,
+        calendar: null
       }
     };
   }
