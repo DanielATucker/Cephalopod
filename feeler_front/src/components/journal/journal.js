@@ -230,6 +230,10 @@ export default class Journal extends React.Component {
         });
     };
 
+    dataGridStateChange = (data) => {
+        console.log(JSON.stringify(data, null, 2));
+    };
+
     render() {
         return (
             <>
@@ -246,6 +250,7 @@ export default class Journal extends React.Component {
                     rowsPerPageOptions={[5]}
                     onRowClick={this.updateJournalData}
                     disableSelectionOnClick
+                    stateChange={this.dataGridStateChange}
                     >
                     </DataGrid>
                 </div>
