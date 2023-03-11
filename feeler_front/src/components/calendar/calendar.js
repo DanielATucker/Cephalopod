@@ -52,10 +52,6 @@ class Calendar extends React.Component {
         this.getCalendarData();
       }
     }
-    
-    if (this.state.calendarData !== prevState.state.calendarData) {
-      console.log(`Calendar Data ${JSON.stringify(this.state.calendarData, null, 2)}`);
-    }
   };
 
   getCalendarData = async () => {
