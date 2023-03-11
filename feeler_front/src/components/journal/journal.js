@@ -232,6 +232,7 @@ export default class Journal extends React.Component {
 
     dataGridStateChange = (data) => {
         console.log(JSON.stringify(data, null, 2));
+        
     };
 
     render() {
