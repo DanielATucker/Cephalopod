@@ -1,4 +1,6 @@
 import React from 'react';
+import {useEffect} from "react";
+
 import {DayPilot, DayPilotCalendar, DayPilotNavigator} from "@daypilot/daypilot-lite-react";
 import "./CalendarStyles.css";
 
@@ -24,7 +26,8 @@ class Calendar extends React.Component {
         viewType: "Week",
         durationBarVisible: false,
         calendar: null
-      }
+      },
+      calendarData: null
     };
   }
 
@@ -41,8 +44,18 @@ class Calendar extends React.Component {
         }
       ]
     });
+  };
 
-    this.getCalendarData();
+  componentDidUpdate(prevState, prevProps) {
+    if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
+      if (this.state.isLoggedIn == true){
+        this.getCalendarData();
+      }
+    }
+    
+    if (this.state.calendarData !== prevState.state.calendarData) {
+      console.log(`Calendar Data ${JSON.stringify(data, null, 2)}`);
+    }
   };
 
   getCalendarData = async () => {
