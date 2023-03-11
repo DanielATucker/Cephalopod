@@ -10,6 +10,7 @@ var express = require('express');
 
 var router = express.Router();
 
+
 router.post('/post_journal/:journalTitle', function(req, res) {    
   try{
     console.log(`DATA ${req.body}`)
