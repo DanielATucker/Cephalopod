@@ -230,7 +230,7 @@ export default class Journal extends React.Component {
         });
     };
 
-    dataGridStateChange = (data) => {
+    cellMouseUp = (data) => {
         console.log(JSON.stringify(data, null, 2));
         
     };
@@ -251,7 +251,7 @@ export default class Journal extends React.Component {
                     rowsPerPageOptions={[5]}
                     onRowClick={this.updateJournalData}
                     disableSelectionOnClick
-                    stateChange={this.dataGridStateChange}
+                    cellMouseUp={this.cellMouseUp}
                     >
                     </DataGrid>
                 </div>
