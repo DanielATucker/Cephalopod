@@ -20,14 +20,16 @@ class Calendar extends React.Component {
     super(props);
     this.calendarRef = React.createRef();
     this.state = {
-      viewType: "Week",
-      durationBarVisible: false
+      config: {
+        viewType: "Week",
+        durationBarVisible: false
+      }
     };
   }
 
   componentDidMount() {
     // load event data
-    this.calendar.update({
+    this.config.calendar.update({
       startDate: "2023-03-07",
       events: [
         {
@@ -65,7 +67,7 @@ class Calendar extends React.Component {
   }
 
   render() {
-    const {...config} = this.state;
+    const {...config} = this.state.config;
     return (
       <>
       <h1>Calendar</h1>
@@ -77,7 +79,7 @@ class Calendar extends React.Component {
             showMonths={3}
             skipMonths={3}
             onTimeRangeSelected={ args => {
-              this.calendar.update({
+              this.config.calendar.update({
                 startDate: args.day
               });
             }}

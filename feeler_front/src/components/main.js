@@ -60,7 +60,7 @@ export default class Main extends React.Component {
             <Journal isLoggedIn = {this.state.isLoggedIn}>
             </Journal>
 
-            <Calendar>
+            <Calendar isLoggedIn = {this.state.isLoggedIn}>
             </Calendar>
 
             <Terminal
