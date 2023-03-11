@@ -30,7 +30,7 @@ class Calendar extends React.Component {
 
   componentDidMount() {
     // load event data
-    this.config.calendar.update({
+    this.config.update({
       startDate: "2023-03-07",
       events: [
         {
@@ -80,7 +80,7 @@ class Calendar extends React.Component {
             showMonths={3}
             skipMonths={3}
             onTimeRangeSelected={ args => {
-              this.config.calendar.update({
+              config.update({
                 startDate: args.day
               });
             }}
