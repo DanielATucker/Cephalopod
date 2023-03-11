@@ -250,7 +250,6 @@ export default class Journal extends React.Component {
                     pageSize={5}
                     rowsPerPageOptions={[5]}
                     onRowClick={this.updateJournalData}
-                    disableSelectionOnClick
                     cellSelectionChange={this.cellSelectionChange}
                     >
                     </DataGrid>
