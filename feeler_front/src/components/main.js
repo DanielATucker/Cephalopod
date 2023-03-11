@@ -61,7 +61,7 @@ export default class Main extends React.Component {
             </Journal>
 
             <Calendar1 isLoggedIn = {this.state.isLoggedIn}>
-            </Calendar>
+            </Calendar1>
 
             <Terminal
             messages={this.state.messages}>
