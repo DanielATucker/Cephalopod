@@ -54,7 +54,7 @@ class Calendar extends React.Component {
     }
     
     if (this.state.calendarData !== prevState.state.calendarData) {
-      console.log(`Calendar Data ${JSON.stringify(data, null, 2)}`);
+      console.log(`Calendar Data ${JSON.stringify(this.state.calendarData, null, 2)}`);
     }
   };
 
