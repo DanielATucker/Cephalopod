@@ -40,6 +40,24 @@ class Calendar extends React.Component {
     });
   };
 
+  getCalendarData = async () => {
+    const response = await fetch('https://100.108.10.15:3001/calendar/get_events', {
+      method: 'GET',
+      credentials: "include"
+    });
+
+    let node = await response.json();
+
+    if ((node !== "No node found") && (node !== "undefined") ) {
+      this.calendarsHandler(node)
+    }
+  };
+
+  calendarsHandler = (node) => {        
+    console.log(JSON.stringify(`CALENDAR: ${node}`, null, 2));
+  }
+
+
   get calendar() {
     return this.calendarRef.current.control;
   }
