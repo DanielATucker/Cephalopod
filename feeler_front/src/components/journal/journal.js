@@ -10,6 +10,7 @@ import Viewer from "./viewer.js";
 var strftime = require('strftime');
 
 
+
 export default class Journal extends React.Component {
     constructor(props) {
         super(props);
