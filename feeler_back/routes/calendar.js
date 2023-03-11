@@ -12,7 +12,7 @@ router.get('/add_event', (req, res) => {
 });
 
 router.get('/get_events', (req, res) => {
-    res.send('working')
+    res.json('working')
   });
 
 export default router;
