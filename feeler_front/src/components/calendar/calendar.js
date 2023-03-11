@@ -47,6 +47,9 @@ class Calendar extends React.Component {
   render() {
     const {...config} = this.state;
     return (
+      <>
+      <h1>Calendar</h1>
+
       <div style={styles.wrap}>
         <div style={styles.left}>
           <DayPilotNavigator
@@ -60,6 +63,7 @@ class Calendar extends React.Component {
             }}
           />
         </div>
+        
         <div style={styles.main}>
         <DayPilotCalendar
           {...config}
@@ -67,6 +71,7 @@ class Calendar extends React.Component {
         />
         </div>
       </div>
+      </>
     );
   }
 }
