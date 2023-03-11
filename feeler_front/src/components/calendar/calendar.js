@@ -33,8 +33,8 @@ class Calendar extends React.Component {
         {
           id: 1,
           text: "Event 1",
-          start: "2023-03-07T10:30:00",
-          end: "2023-03-07T13:00:00"
+          start: "2023-03-11T10:30:00",
+          end: "2023-03-11T13:00:00"
         }
       ]
     });
