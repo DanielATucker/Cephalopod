@@ -126,8 +126,8 @@ class Calendar1 extends React.Component {
 	};
 
 	componentDidUpdate(prevProps) {
-		if (this.prevProps.isLoggedIn !== "undefined") {
-			if (this.propsa.isLoggedIn !== this.prevProps.isLoggedIn) {
+		if (this.prevProps !== "undefined") {
+			if (this.props.isLoggedIn !== this.prevProps.isLoggedIn) {
 				if (this.props.isLoggedIn === true) {
 					this.setState({
 						"isLoggedIn": true
