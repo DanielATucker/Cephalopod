@@ -41,7 +41,7 @@ class Calendar1 extends React.Component {
 		];
 	}
 
-	view = 'month';
+	view = 'week';
 
 	views = ['day',
 		{
