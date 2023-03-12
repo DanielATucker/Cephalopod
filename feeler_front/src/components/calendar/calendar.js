@@ -119,7 +119,7 @@ class Calendar1 extends React.Component {
 		
 		console.log(`Calendar: ${JSON.stringify(this.calendar, null, 2)}`);
 		
-		this.calendar.current.selectedDates = [event.detail.value];
+		this.scheduler.current.selectedDates = [event.detail.value];
 	}
 
 	init() {
