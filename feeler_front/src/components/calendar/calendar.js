@@ -43,14 +43,8 @@ class Calendar1 extends React.Component {
 		{
 			type: 'month',
 			hideWeekend: false,
-		}, 'agenda',
-		{
-			label: '4 days',
-			value: 'workWeek',
-			type: 'week',
-			shortcutKey: 'X',
-			hideWeekend: false,
-		}
+			shortcutKey: 'm',
+		}, 'agenda'
 	];
 
 	firstDayOfWeek = 1;
