@@ -159,8 +159,8 @@ class Calendar1 extends React.Component {
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
-						"eventData": eventItem.detail,
-						"eventTitle": eventItem.title
+						"eventData": JSON.stringify(eventItem.detail),
+						"eventTitle": JSON.stringify(eventItem.title)
 					}),
 					credentials: "include"
 				});
