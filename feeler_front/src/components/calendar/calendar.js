@@ -115,7 +115,7 @@ class Calendar1 extends React.Component {
 	}
 
 	handleDateChange(event) {
-		this.calendar.current.selectedDates = [event.detail.value];
+		this.calendar.selectedDates = [event.detail.value];
 	}
 
 	init() {
