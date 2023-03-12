@@ -146,7 +146,7 @@ class Calendar1 extends React.Component {
 						<section id="sideB">
 							<Scheduler ref={this.scheduler} id="scheduler" dataSource={this.data} view={this.view} views={this.views} nonworkingDays={this.nonworkingDays}
 								firstDayOfWeek={this.firstDayOfWeek}
-								disableDateMenu={this.disableDateMenu}
+								//disableDateMenu={this.disableDateMenu}
 								currentTimeIndicator={this.currentTimeIndicator}
 								scrollButtonsPosition={this.scrollButtonsPosition} onDragEnd={this.updateData.bind(this)}
 								onResizeEnd={this.updateData.bind(this)}
