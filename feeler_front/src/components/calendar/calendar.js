@@ -18,17 +18,9 @@ class Calendar1 extends React.Component {
 		this.primaryContainer = React.createRef();
 
 		const today = new Date(),
-			currentDate = today.getDate(),
-			currentYear = today.getFullYear(),
-			currentMonth = today.getMonth(),
-			currentHours = today.getHours(),
-			currentMinutes = today.getMinutes(),
-			thanksgiving = (() => {
-				const tempDate = new Date(currentYear, 10, 1);
-				//4th Thursday of November
-				tempDate.setDate(tempDate.getDate() - tempDate.getDay() + 25);
-				return tempDate;
-			})();
+		currentDate = today.getDate(),
+		currentYear = today.getFullYear(),
+		currentMonth = today.getMonth();
 
 		this.nonworkingDays = this.getPastThreeWeekdays(today.getDay());
 
