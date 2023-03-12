@@ -235,7 +235,7 @@ class Calendar1 extends React.Component {
 	handleItemInsert(event) {
 		console.log(`Insert: ${event.detail}`);
 
-		this.refreshData('insert', event.detail.item);
+		this.refreshData('insert', event.detail);
 	};
 
 	updateData(event) {
