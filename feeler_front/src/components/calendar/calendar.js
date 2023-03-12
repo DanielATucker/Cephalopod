@@ -223,7 +223,7 @@ class Calendar1 extends React.Component {
 	}
 
 	handleItemUpdate(event) {
-		this.refreshData('update', event.detail);
+		this.refreshData('update', event.detail.item);
 	};
 
 	handleItemRemove(event) {
@@ -231,7 +231,9 @@ class Calendar1 extends React.Component {
 	};
 
 	handleItemInsert(event) {
-		this.refreshData('insert', event.detail);
+		console.log(`Insert ${event.detail}`);
+
+		this.refreshData('insert', event.detail.item);
 	};
 
 	updateData(event) {
