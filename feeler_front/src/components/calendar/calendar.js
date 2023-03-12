@@ -125,7 +125,7 @@ class Calendar1 extends React.Component {
 		this.init();
 	};
 
-	componentDidUpdate(prevProps) {
+	componentDidUpdate(prevState, prevProps) {
 		if (this.props.isLoggedIn !== this.prevProps.isLoggedIn) {
 			if (this.props.isLoggedIn === true) {
 				this.setState({
@@ -133,7 +133,7 @@ class Calendar1 extends React.Component {
 				});
 
 				console.log(`Getting calendar data`);
-				
+
 				this.getCalendarData();
 			};
 		};
