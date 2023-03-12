@@ -11,7 +11,7 @@ var router = express.Router();
 /* GET home page. */
 router.post('/add_event/:eventTitle', function(req, res) {    
     try{
-      console.log(`ALL DATA: ${req.body}`)
+      console.log(`ALL DATA: ${JSON.stringify(req.body, null, 2)}`)
   
       let eventTitle = req.body.eventTitle;
     
