@@ -65,24 +65,6 @@ class Calendar1 extends React.Component {
 		return weekdays;
 	}
 
-	updateData(event) {
-		console.log(`Updated Data: ${JSON.stringify(event, null, 2)}`);
-
-		console.log(`Updated Data detail: ${JSON.stringify(event.detail, null, 2)}`);
-
-		const item = event.detail.item,
-			data = this.data;
-
-		for (let i = 0; i < data.length; i++) {
-			const dataItem = data[i];
-
-			if (dataItem.label === item.label && dataItem.class === item.class) {
-				event.type === 'itemRemove' ? this.data.splice(i, 1) : data.splice(i, 1, item);
-				return;
-			}
-		}
-	}
-
 	handleToggle() {
 		const primaryContainer = this.primaryContainer.current,
 			scheduler = this.scheduler.current;
@@ -152,6 +134,103 @@ class Calendar1 extends React.Component {
 		console.log(`Calendar in: ${JSON.stringify(node, null, 2)}`);
 	};
 
+	refreshData(action, eventItem) {
+		let newData;
+
+		switch (action) {
+			case 'update':
+				/*
+					action: 'update',
+					query: `SET Label = "${eventItem.label}", DateStart = "${eventItem.dateStart.toISOString()}", DateEnd = "${eventItem.dateEnd.toISOString()}", Description = "${eventItem.description}", AllDay = "${!!eventItem.allDay}" 
+							WHERE EventID = ${eventItem.id};`
+				*/
+				break;
+			case 'insert':
+				console.log(`Inserted ${JSON.stringify(eventItem, null, 2)}`);
+
+				fetch(`https://100.108.10.15:3001/calendar/add_event/:${eventItem.title}`, {
+					method: 'POST',
+					mode: 'cors',
+					headers: {
+						'Accept': 'application/json, text/plain, */*',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						"eventData": eventItem.detail,
+						"eventTitle": eventItem.title
+					}),
+					credentials: "include"
+				});
+				/*
+					action: 'insert',
+					query: `("${eventItem.label}","${eventItem.dateStart.toISOString()}","${eventItem.dateEnd.toISOString()}","${eventItem.description || ''}","${!!eventItem.allDay}");`
+				*/
+				break;
+			case 'delete':
+				/*
+				newData = window.demoServer.getData({
+					action: 'delete',
+					query: `EventID = ${eventItem.id};`
+				});
+				*/
+				break;
+			default:
+				console.log(JSON.stringify(newData, null, 2));
+				break;
+		}
+
+		if (newData) {
+			//Update the Scheduler
+			this.scheduler.current.dataSource = new window.Smart.DataAdapter({
+				dataSource: newData,
+				dataSourceType: 'array',
+				dataFields: [{
+					name: 'id',
+					map: 'EventID',
+					dataType: 'number'
+				},
+				{
+					name: 'label',
+					map: 'Label',
+					dataType: 'string'
+				},
+				{
+					name: 'dateStart',
+					map: 'DateStart',
+					dataType: 'string'
+				},
+				{
+					name: 'dateEnd',
+					map: 'DateEnd',
+					dataType: 'string'
+				},
+				{
+					name: 'description',
+					map: 'Description',
+					dataType: 'string'
+				},
+				{
+					name: 'allDay',
+					map: 'AllDay',
+					dataType: 'string'
+				}
+				]
+			});
+		}
+	}
+
+	handleItemUpdate(event) {
+		this.refreshData('update', event.detail.item);
+	};
+
+	handleItemRemove(event) {
+		this.refreshData('delete', event.detail.item);
+	};
+
+	handleItemInsert(event) {
+		this.refreshData('insert', event.detail.item);
+	};
+
 	render() {
 		return (
 			<div>
@@ -177,8 +256,9 @@ class Calendar1 extends React.Component {
 								currentTimeIndicator={this.currentTimeIndicator}
 								scrollButtonsPosition={this.scrollButtonsPosition} onDragEnd={this.updateData.bind(this)}
 								onResizeEnd={this.updateData.bind(this)}
-								onItemUpdate={this.updateData.bind(this)}
-								onItemRemove={this.updateData.bind(this)}
+								onItemUpdate={this.handleItemUpdate.bind(this)}
+								onItemRemove={this.handleItemRemove.bind(this)}
+								handleItemInsert={this.handleItemInsert.bind(this)}
 								onDateChange={this.handleDateChange.bind(this)}></Scheduler>
 						</section>
 					</div>
