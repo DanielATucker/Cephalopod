@@ -10,7 +10,7 @@ import { Scheduler } from 'smart-webcomponents-react/scheduler';
 
 class Calendar1 extends React.Component {
 	constructor(props) {
-		super();
+		super(props);
 
 		this.scheduler = React.createRef();
 		this.calendar = React.createRef();
@@ -125,16 +125,18 @@ class Calendar1 extends React.Component {
 		this.init();
 	};
 
-	componentDidUpdate(prevState, prevProps) {
-		if (this.props.isLoggedIn !== this.prevProps.isLoggedIn) {
-			if (this.props.isLoggedIn === true) {
-				this.setState({
-					"isLoggedIn": true
-				});
+	componentDidUpdate(prevProps) {
+		if (this.prevProps !== "undefined") {
+			if (this.props.isLoggedIn !== this.prevProps.isLoggedIn) {
+				if (this.props.isLoggedIn === true) {
+					this.setState({
+						"isLoggedIn": true
+					});
 
-				console.log(`Getting calendar data`);
+					console.log(`Getting calendar data`);
 
-				this.getCalendarData();
+					this.getCalendarData();
+				};
 			};
 		};
 	};
