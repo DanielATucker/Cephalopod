@@ -279,9 +279,9 @@ class Calendar1 extends React.Component {
 								currentTimeIndicator={this.currentTimeIndicator}
 								scrollButtonsPosition={this.scrollButtonsPosition} onDragEnd={this.updateData.bind(this)}
 								onResizeEnd={this.updateData.bind(this)}
-								onItemUpdate={this.handleItemUpdate.bind(this)}
-								onItemRemove={this.handleItemRemove.bind(this)}
-								handleItemInsert={this.handleItemInsert.bind(this)}
+								itemUpdate={this.handleItemUpdate.bind(this)}
+								itemRemove={this.handleItemRemove.bind(this)}
+								itemInsert={this.handleItemInsert.bind(this)}
 								onDateChange={this.handleDateChange.bind(this)}></Scheduler>
 						</section>
 					</div>
