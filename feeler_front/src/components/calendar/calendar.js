@@ -46,11 +46,11 @@ class Calendar1 extends React.Component {
 	views = ['day',
 		{
 			type: 'week',
-			hideWeekend: true,
+			hideWeekend: false,
 		},
 		{
 			type: 'month',
-			hideWeekend: true,
+			hideWeekend: false,
 		}, 'agenda',
 		{
 			label: '4 days',
@@ -82,7 +82,7 @@ class Calendar1 extends React.Component {
 
 	updateData(event) {
 		console.log(`Updated Data: ${JSON.stringify(event, null, 2)}`);
-		
+
 		const item = event.detail.item,
 			data = this.data;
 
