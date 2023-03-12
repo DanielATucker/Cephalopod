@@ -123,7 +123,38 @@ class Calendar1 extends React.Component {
 
 	componentDidMount() {
 		this.init();
-	}
+	};
+
+	componentDidUpdate(prevProps) {
+		if (this.props.isLoggedIn !== this.prevProps.isLoggedIn) {
+			if (this.props.isLoggedIn === true) {
+				this.setState({
+					"isLoggedIn": true
+				});
+
+				console.log(`Getting calendar data`);
+				
+				this.getCalendarData();
+			};
+		};
+	};
+
+	getCalendarData = async () => {
+        const response = await fetch('https://100.108.10.15:3001/calendar/get_events', {
+            method: 'GET',
+            credentials: "include"
+        });
+
+        let node = await response.json();
+
+        if ((node !== "No node found") && (node !== "undefined") ) {
+            this.calendarHandler(node);
+        }
+    };
+
+	calendarHandler = (node) => {
+		console.log(`Calendar in: ${JSON.stringify(node, null, 2)}`);
+	};
 
 	render() {
 		return (
