@@ -68,6 +68,8 @@ class Calendar1 extends React.Component {
 	updateData(event) {
 		console.log(`Updated Data: ${JSON.stringify(event, null, 2)}`);
 
+		console.log(`Updated Data detail: ${JSON.stringify(event.detail, null, 2)}`);
+
 		const item = event.detail.item,
 			data = this.data;
 
