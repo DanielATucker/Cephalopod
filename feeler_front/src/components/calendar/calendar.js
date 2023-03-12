@@ -231,6 +231,22 @@ class Calendar1 extends React.Component {
 		this.refreshData('insert', event.detail.item);
 	};
 
+	updateData(event) {
+		console.log(`Updated Data: ${JSON.stringify(event, null, 2)}`);
+
+		const item = event.detail.item,
+			data = this.data;
+
+		for (let i = 0; i < data.length; i++) {
+			const dataItem = data[i];
+
+			if (dataItem.label === item.label && dataItem.class === item.class) {
+				event.type === 'itemRemove' ? this.data.splice(i, 1) : data.splice(i, 1, item);
+				return;
+			}
+		}
+	};
+
 	render() {
 		return (
 			<div>
