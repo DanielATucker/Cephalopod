@@ -126,8 +126,10 @@ class Calendar1 extends React.Component {
 	};
 
 	componentDidUpdate(prevProps) {
-		if (this.props !== prevProps) {
-			console.log(`prevProps: ${JSON.stringify(prevProps, null, 2)}`);
+		if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
+			if (this.props.isLoggedIn === true) {
+				this.getCalendarData();
+			}
 		};
 	};
 
