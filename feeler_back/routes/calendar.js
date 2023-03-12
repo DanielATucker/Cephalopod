@@ -11,9 +11,9 @@ var router = express.Router();
 /* GET home page. */
 router.post('/add_event/:eventTitle', function(req, res) {    
     try{
-      console.log(`DATA ${req.body}`)
+      console.log(`ALL DATA: ${req.body}`)
   
-      let eventTitle = req.body.eventName;
+      let eventTitle = req.body.eventTitle;
     
       console.log(`Title: ${eventTitle}`);
   
@@ -27,7 +27,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
       
       //Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
   
-      res.json("working");
+      res.json("Insert working");
     }
     catch (err) {
       console.log(`ERROR: ${err}`);
