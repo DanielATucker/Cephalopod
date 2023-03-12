@@ -144,6 +144,9 @@ class Calendar1 extends React.Component {
 					query: `SET Label = "${eventItem.label}", DateStart = "${eventItem.dateStart.toISOString()}", DateEnd = "${eventItem.dateEnd.toISOString()}", Description = "${eventItem.description}", AllDay = "${!!eventItem.allDay}" 
 							WHERE EventID = ${eventItem.id};`
 				*/
+
+				console.log(`Updated ${JSON.stringify(eventItem, null, 2)}`);
+
 				break;
 			case 'insert':
 				console.log(`Inserted ${JSON.stringify(eventItem, null, 2)}`);
@@ -175,7 +178,7 @@ class Calendar1 extends React.Component {
 				*/
 				break;
 			default:
-				console.log(JSON.stringify(newData, null, 2));
+				console.log(JSON.stringify(`Default: ${newData}`, null, 2));
 				break;
 		}
 
