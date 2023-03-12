@@ -117,7 +117,7 @@ class Calendar1 extends React.Component {
 	handleDateChange(event) {
 		console.log(`Handle data change event: ${JSON.stringify(event, null, 2)}`);
 		
-		console.log(`Calendar: ${this.calendar}`);
+		console.log(`Calendar: ${JSON.stringify(this.calendar, null, 2)}`);
 		
 		this.calendar.current.selectedDates = [event.detail.value];
 	}
