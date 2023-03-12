@@ -151,7 +151,7 @@ class Calendar1 extends React.Component {
 			case 'insert':
 				console.log(`Inserted ${JSON.stringify(eventItem, null, 2)}`);
 
-				fetch(`https://100.108.10.15:3001/calendar/add_event/:${eventItem..item.title}`, {
+				fetch(`https://100.108.10.15:3001/calendar/add_event/:${eventItem.item.title}`, {
 					method: 'POST',
 					mode: 'cors',
 					headers: {
