@@ -49,7 +49,7 @@ class Calendar1 extends React.Component {
 
 	firstDayOfWeek = 1;
 
-	disableDateMenu = true;
+	disableDateMenu = false;
 
 	currentTimeIndicator = true;
 
