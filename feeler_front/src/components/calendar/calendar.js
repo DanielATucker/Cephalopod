@@ -10,7 +10,7 @@ import { Scheduler } from 'smart-webcomponents-react/scheduler';
 
 class Calendar1 extends React.Component {
 	constructor(props) {
-		super(props);
+		super();
 
 		this.scheduler = React.createRef();
 		this.calendar = React.createRef();

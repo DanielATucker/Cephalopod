@@ -164,7 +164,7 @@ export default class Journal extends React.Component {
                 });
             };
 
-            if (singleJournal == false){
+            if (singleJournal === false){
                 if (this.state){
                     let found = null;
 
@@ -232,7 +232,6 @@ export default class Journal extends React.Component {
 
     cellSelectionChange = (data) => {
         console.log(JSON.stringify(`DATA ${data}`, null, 2));
-        
     };
 
     render() {
