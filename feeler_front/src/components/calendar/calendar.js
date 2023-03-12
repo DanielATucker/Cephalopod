@@ -58,7 +58,6 @@ class Calendar1 extends React.Component {
 			type: 'week',
 			shortcutKey: 'X',
 			hideWeekend: false,
-			hideNonworkingWeekdays: true,
 		}
 	];
 
