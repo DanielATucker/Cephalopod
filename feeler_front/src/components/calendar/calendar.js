@@ -131,7 +131,7 @@ class Calendar1 extends React.Component {
     };
 
 	calendarHandler = (node) => {
-		console.log(`Calendar in: ${JSON.stringify(node, null, 2)}`);
+		console.log(`Calendar in: ${JSON.stringify(JSON.parse(node), null, 2)}`);
 	};
 
 	refreshData(action, eventItem) {
