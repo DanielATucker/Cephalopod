@@ -4,7 +4,7 @@ const require = createRequire(import.meta.url);
 
 import Database from "../components/Database.js";
 
-import {strftime} from "strftime";
+var strftime = require('strftime') 
 
 var express = require('express');
 var router = express.Router();
