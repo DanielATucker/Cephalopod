@@ -256,6 +256,23 @@ class Calendar1 extends React.Component {
 		}
 	};
 
+	windowCustomizationFunction(target, type, event) {
+		//We want to constomize the event window, so if the window is type 'confirm' return
+		if (type) {
+			return;
+		}
+
+		const scheduler = this.scheduler.current,
+		events = scheduler.events;
+
+		target.footerPosition = 'none';
+		target.label = 'Events';
+
+		let container = target.querySelector('.custom-container');
+
+		console.log(JSON.stringify(`Container: ${container}`, null, 2));
+	};
+
 	render() {
 		return (
 			<div>
@@ -284,7 +301,10 @@ class Calendar1 extends React.Component {
 								onItemUpdate={this.handleItemUpdate.bind(this)}
 								onItemRemove={this.handleItemRemove.bind(this)}
 								onItemInsert={this.handleItemInsert.bind(this)}
-								onDateChange={this.handleDateChange.bind(this)}></Scheduler>
+								onDateChange={this.handleDateChange.bind(this)}
+								windowCustomizationFunction={this.windowCustomizationFunction.bind(this)}
+								>
+								</Scheduler>
 						</section>
 					</div>
 				</div>
