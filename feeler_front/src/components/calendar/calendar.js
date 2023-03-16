@@ -272,7 +272,7 @@ class Calendar1 extends React.Component {
 
 		console.log(JSON.stringify(`Container: ${container}`, null, 2));
 		
-		console.log(JSON.stringify(`Events: ${events}`, null, 2));
+		console.log(`Events: ${JSON.stringify(events, null, 2)}`);
 	};
 
 	render() {
