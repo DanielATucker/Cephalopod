@@ -2,6 +2,8 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
+import GUN from "https://cdn.skypack.dev/gun";
+
 
 export default class Database extends React.Component {
     constructor(props) {
@@ -21,7 +23,7 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        var ws = new WebSocket('wss://localhost:3006');
+        var ws = new WebSocket('ws://localhost:3006');
         
         ws.onopen = function(o) { 
             console.log('open', o)
