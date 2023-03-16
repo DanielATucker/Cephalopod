@@ -4,23 +4,21 @@ const require = createRequire(import.meta.url);
 
 import Database from "../components/Database.js";
 
-import * as strftime from "strftime";
+import {strftime} from "strftime";
 
 var express = require('express');
 var router = express.Router();
   
 /* GET home page. */
 router.post('/add_event/:eventTitle', function(req, res) {    
-    try{
-      console.log(`ALL DATA: ${JSON.stringify(req.body, null, 2)}`);
-  
+    try{  
       let eventTitle = req.body.eventTitle;
     
       console.log(`Title: ${eventTitle}`);
   
       let data = req.body.eventData;
   
-      console.log(`Data: ${JSON.stringify(data)}`);
+      console.log(`Data: ${JSON.stringify(data, null, 2)}`);
   
       let username = req.session.username;
   
