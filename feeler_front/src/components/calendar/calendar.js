@@ -7,6 +7,9 @@ import { Input } from 'smart-webcomponents-react/input';
 import { Tree, TreeItem, TreeItemsGroup } from 'smart-webcomponents-react/tree';
 import { Scheduler } from 'smart-webcomponents-react/scheduler';
 
+import { ProgressBar } from 'smart-webcomponents-react/progressbar';
+import { Rating } from 'smart-webcomponents-react/rating';
+
 
 class Calendar1 extends React.Component {
 	constructor(props) {
@@ -256,24 +259,70 @@ class Calendar1 extends React.Component {
 		}
 	};
 
-	windowCustomizationFunction(target, type, event) {
-		//We want to constomize the event window, so if the window is type 'confirm' return
-		if (type) {
+	handleEditDialogOpen(event) {
+		const editors = event.detail.editors;
+
+		if (!editors) {
 			return;
 		}
 
-		const scheduler = this.scheduler.current,
-		events = scheduler.events;
+		const schedulerEvent = event.detail.item,
+			descriptionEditor = editors.description,
+			dateStartEditor = editors.dateStart,
+			dateEndEditor = editors.dateEnd,
+			labelEditor = editors.label,
+			allDayEditor = editors.allDay,
+			repeatEditor = editors.repeat,
+			editorsContainer = editors.description.parentElement;
 
-		target.footerPosition = 'none';
-		target.label = 'Events';
+		dateStartEditor.querySelector('.smart-element').disabled = true;
+		dateEndEditor.querySelector('.smart-element').disabled = true;
 
-		let container = target.querySelector('.custom-container');
+		repeatEditor.classList.add('smart-hidden');
+		allDayEditor.classList.add('smart-hidden');
 
-		console.log(JSON.stringify(`Container: ${container}`, null, 2));
-		
-		console.log(`Events: ${JSON.stringify(events, null, 2)}`);
-	};
+		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
+		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
+
+		//Rating Element
+		let ratingElement = editorsContainer.querySelector('#eventRating');
+
+		if (!ratingElement) {
+			const elementContainer = document.createElement('div');
+
+			ReactDOM.render(<div>
+				<label>Rating: </label>
+				<Rating id="eventRating"></Rating>
+			</div>, elementContainer, function () {
+				this.querySelector('#eventRating').value = schedulerEvent.rating || 1;
+			});
+
+			editorsContainer.appendChild(elementContainer);
+		}
+		else {
+			ratingElement.value = schedulerEvent.rating || 1;
+		}
+
+		//ProgressBar
+		let progressElement = editorsContainer.querySelector('#eventProgress');
+
+		if (!progressElement) {
+			const elementContainer = document.createElement('div');
+
+			ReactDOM.render(<div>
+				<label>Progress: </label>
+				<ProgressBar id="eventProgress" showProgressValue></ProgressBar>
+			</div>, elementContainer, function () {
+				this.querySelector('#eventProgress').value = schedulerEvent.progress || 0;
+			});
+
+			editorsContainer.appendChild(elementContainer);
+		}
+		else {
+			progressElement.value = schedulerEvent.progress || 0;
+		}
+	}
+
 
 	render() {
 		return (
@@ -304,7 +353,7 @@ class Calendar1 extends React.Component {
 								onItemRemove={this.handleItemRemove.bind(this)}
 								onItemInsert={this.handleItemInsert.bind(this)}
 								onDateChange={this.handleDateChange.bind(this)}
-								windowCustomizationFunction={this.windowCustomizationFunction.bind(this)}
+								handleEditDialogOpen={this.handleEditDialogOpen.bind(this)}
 								>
 								</Scheduler>
 						</section>
