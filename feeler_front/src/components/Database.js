@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
 
-export class Database extends React.Component {
+export default class Database extends React.Component {
     constructor(props) {
         super(props)
 
