@@ -271,6 +271,8 @@ class Calendar1 extends React.Component {
 		let container = target.querySelector('.custom-container');
 
 		console.log(JSON.stringify(`Container: ${container}`, null, 2));
+		
+		console.log(JSON.stringify(`Events: ${events}`, null, 2));
 	};
 
 	render() {
