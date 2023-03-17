@@ -2,7 +2,7 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
-import GUN from "gun";
+const GUN = require('gun');
 
 
 export default class Database extends React.Component {
@@ -23,21 +23,9 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        var ws = new WebSocket('wss://100.69.19.3:3006');
-        
-        ws.onopen = function(o) { 
-            console.log('open', o)
-        };
+        const gun = GUN();
 
-        ws.onclose = function(c) { 
-            console.log('close', c)
-        };
-
-        ws.onmessage = function(m) {
-            console.log('message', m.data)
-        };
-
-        ws.onerror = function(e) {console.log('error', e)};
+        console.log(`GUN: ${JSON.stringify(gun, null, 2)}`);
     };
 
 
