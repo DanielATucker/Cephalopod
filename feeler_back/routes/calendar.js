@@ -89,28 +89,25 @@ router.post('/add_event/:eventTitle', function(req, res) {
   });
 
 router.get('/get_events', (req, res) => {
-    let nodePromise = Database(`MATCH (E: Event)-[*]->(CM: CalendarMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (E)`);
+  let nodePromise = Database(`MATCH (E: Event)-[*]->(CM: CalendarMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (E)`);
 
-    nodePromise.then((result) => {
-        if ((typeof result !== 'undefined') && ( result != null)) {
-          if (result == "No Database found") {
-            res.json({
-              "doesExist" : "No Database found. Recommended, Start database"
-            });
-          }
-          else {
-            console.log(`Calendar: ${result}`);
+  nodePromise.then((result) => {
+    if ((typeof result !== 'undefined') && ( result != null)) {
+      if (result == "No Database found") {
+        res.json({
+          "doesExist" : "No Database found. Recommended, Start database"
+        });
+      }
+      else {
+        console.log(`Calendar: ${result}`);
 
-            //res.json(JSON.stringify(result));
-          };
-        }
-        else {
-            console.log("No node found");
-
-            res.json(`No node found`)
-        };
-    });
-    res.json({"status": "working"});
+        res.json(JSON.stringify(result));        };
+    }
+    else {
+      console.log("No node found");
+        res.json(`No node found`)
+    };
   });
+});
 
 export default router;
