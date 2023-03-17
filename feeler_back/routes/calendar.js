@@ -70,14 +70,14 @@ router.post('/add_event/:eventTitle', function(req, res) {
       Database(`MATCH (D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
       MERGE (E: Event {name: '${eventTitle}'})-[le: EventOf]->(D)\
       ON CREATE SET E.name = '${eventTitle}',\
-      E.allDay = '${allDayOut}'\
-      E.dateStart = '${dateStartOut}'\
-      E.dateEnd = '${dateEndOut}'\
-      E.label = '${labelOut}'\
-      E.description = '${descriptionOut}'\
-      E.conference = '${conferenceOut}'\
-      E.date = '${year}-${month}-${day}'\
-      E.time = '${hour}-${min}'\
+      E.allDay = '${allDayOut}',\
+      E.dateStart = '${dateStartOut}',\
+      E.dateEnd = '${dateEndOut}',\
+      E.label = '${labelOut}',\
+      E.description = '${descriptionOut}',\
+      E.conference = '${conferenceOut}',\
+      E.date = '${year}-${month}-${day}',\
+      E.time = '${hour}-${min}',\
       E.dateTimeAdded = '${now}'\
       `);
 
