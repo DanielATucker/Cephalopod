@@ -2,7 +2,7 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
-const GUN = require('gun');
+const GUN = require('gun/gun');
 
 
 export default class Database extends React.Component {

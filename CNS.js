@@ -3,7 +3,7 @@ import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
 
-import GUN from "gun";
+const GUN = require('gun/gun');
 
 export default function CNS() { 
 
