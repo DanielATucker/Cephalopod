@@ -23,7 +23,7 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        let gun = GUN("http://localhost");
+        let gun = GUN("localhost:8765");
 
         let alice = gun.get('alice');
     
