@@ -30,12 +30,34 @@ router.post('/add_event/:eventTitle', function(req, res) {
 
       let dateStart = dateArray[0];
 
-      let timeStart = dateArray[1].split(".")[0];
+      let dateStartArray = dateStart.split("-");
 
-      console.log(timeStart);
+      let year = dateStartArray[0];
 
+      let month = dateStartArray[1];
+
+      let day = dateStartArray[3];
+
+      Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
+      MERGE (Y: Year {name: '${year}'})-[lb: YearOf]->(CM)\
+      ON CREATE SET Y.name = '${year}',\
+      Y.body = '${year}'\
+      '`);
+
+      Database(`MATCH (Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
+      MERGE (M: Month {name: '${month}'})-[lc: MonthOf]->(Y)\
+      ON CREATE SET M.name = '${month}',\
+      M.body = '${year}-${month}'\
+      '`);
+
+      Database(`MATCH (M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
+      MERGE (D: Day {name: '${day}'})-[ld: DayOf]->(M)\
+      ON CREATE SET D.name = '${day}',\
+      D.body = '${year}-${month}-${day}'\
+      '`);
+      
       //Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
-  
+
       res.json("Insert working");
     }
     catch (err) {
