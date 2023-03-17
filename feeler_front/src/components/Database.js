@@ -2,6 +2,8 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
+import Button from '@mui/material/Button';
+
 const GUN = require('gun');
 
 
