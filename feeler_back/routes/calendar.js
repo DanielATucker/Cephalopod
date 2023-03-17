@@ -42,8 +42,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       MERGE (Y: Year {name: '${year}'})-[lb: YearOf]->(CM)\
       ON CREATE SET Y.name = '${year}',\
       Y.body = '${year}'\
-      '`);
-      
+      `);
+
       /*
       Database(`MATCH (Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
       MERGE (M: Month {name: '${month}'})-[lc: MonthOf]->(Y)\
