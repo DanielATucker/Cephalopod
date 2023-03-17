@@ -31,6 +31,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let dateStart = dateArray[0];
 
       console.log(dateStart);
+      
+      console.log(dateArray[1]);
 
       //Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
   
