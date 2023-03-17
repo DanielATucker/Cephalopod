@@ -12,7 +12,7 @@ export default class Database extends React.Component {
         super(props)
 
         this.state = {
-            "test": null
+            "gun": null
         };
     };
     
@@ -20,7 +20,7 @@ export default class Database extends React.Component {
         this.setState({
             "gun": GUN("localhost:8765")
         });
-        
+
         setTimeout(this.startDatabase(), 2000);
     };
 
