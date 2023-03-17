@@ -23,7 +23,7 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        var ws = new WebSocket('wss://100.108.10.15:3006');
+        var ws = new WebSocket('ws://100.108.10.15:3006');
         
         ws.onopen = function(o) { 
             console.log('open', o)
