@@ -14,7 +14,7 @@ export default class Database extends React.Component {
         if (!window.gunDb) {
             // You should use your own relay peers here
             console.log("> Gun constructor!");
-            window.gunDb = new GUN("localhost:8765/gun");
+            window.gunDb = new GUN("localhost:3006/gun");
         };
     };
     
