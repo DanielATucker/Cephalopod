@@ -2,6 +2,7 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+var ws = require('ws').Server;
 var https = require('https');
 var fs = require('fs');
 
