@@ -2,15 +2,24 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+const express = require('express')
+const Gun = require('gun')
 
-const GUN = require('gun');
 
-export default function CNS() { 
-
+export default function CNS() {
   let startServer = function() {
-    let gun = GUN();
+    const app = express()
+    const port = 8000
+
+    app.use(Gun.serve)
+
+    const server = app.listen(port, () => {
+      console.log("Listening at: http://localhost://" + port)
+    });
+
+    Gun({web: server});
     
-    let alice = gun.get('alice');
+    let alice = Gun.get('alice');
 
     alice.on(function(node){
       console.log('Alice Updated: ', node);
