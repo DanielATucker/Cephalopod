@@ -33,8 +33,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let day = dateStartArray[2];
 
       let timeArrayZ = dateArray[1];
-      let timeArrayC = timeArrayZ.split(".", 0);
-      let timeArray = timeArrayC[0].split(":");
+      let timeArrayC = timeArrayZ.split(".")[0];
+      let timeArray = timeArrayC.split(":");
       let hour = timeArray[0];
       let min = timeArray[1];
 
