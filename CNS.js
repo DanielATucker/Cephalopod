@@ -1,8 +1,12 @@
-import GUN from "https://cdn.skypack.dev/gun";
+// Allow require
+import { createRequire } from "module";
+const require = createRequire(import.meta.url);
+
+import GUN from "gun";
 
 
 var WebSocketServer = require('ws').Server
-  , wss = new WebSocketServer({ port: 3006 });
+, wss = new WebSocketServer({ port: 3006 });
 
 wss.on('connection', function connection(ws) {
   ws.on('message', function incoming(message) {
@@ -15,8 +19,8 @@ wss.on('connection', function connection(ws) {
   }, 1000);
 });
 
-startServer= () => {
-  gun = GUN();
-};
+let startServer = function() {
+  let gun = GUN();
+}
 
 startServer();
