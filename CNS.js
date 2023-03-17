@@ -9,7 +9,7 @@ const Gun = require('gun')
 export default function CNS() {
   let startServer = function() {
     const app = express()
-    const port = 8000
+    const port = 3006
 
     app.use(Gun.serve)
 
@@ -18,13 +18,7 @@ export default function CNS() {
     });
 
     Gun({web: server});
-    
-    let alice = Gun.get('alice');
-
-    alice.on(function(node){
-      console.log('Alice Updated: ', node);
-    });
-  }
+  };
 
   startServer();
 };
