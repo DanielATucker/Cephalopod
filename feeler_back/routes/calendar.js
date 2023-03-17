@@ -43,7 +43,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       ON CREATE SET Y.name = '${year}',\
       Y.body = '${year}'\
       '`);
-
+      
+      /*
       Database(`MATCH (Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
       MERGE (M: Month {name: '${month}'})-[lc: MonthOf]->(Y)\
       ON CREATE SET M.name = '${month}',\
@@ -55,6 +56,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       ON CREATE SET D.name = '${day}',\
       D.body = '${year}-${month}-${day}'\
       '`);
+
+      */
       
       //Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
 
