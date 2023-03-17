@@ -31,7 +31,7 @@ export default class Database extends React.Component {
     };
 
     alice() {
-        window.gunDb.get('alice').put({name: 'alice', age: 24});
+        window.gunDb.get('alice').put({name: 'alice', age: 25});
     };
 
     render() {
