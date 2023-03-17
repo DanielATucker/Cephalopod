@@ -28,7 +28,7 @@ export default function CNS() {
   server.listen(3006);
 
 
-  var wss = new ws({httpServer:server});
+  var wss = new ws({httpServer:server, port: 3006});
 
   console.log(`CNS Online`)
 
