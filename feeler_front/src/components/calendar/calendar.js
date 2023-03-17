@@ -27,13 +27,16 @@ class Calendar1 extends React.Component {
 
 		this.nonworkingDays = this.getPastThreeWeekdays(today.getDay());
 
-		this.data = [{
-			label: 'Update Employees Information',
-			dateStart: new Date(currentYear, currentMonth, currentDate, 14, 0),
-			dateEnd: new Date(currentYear, currentMonth, currentDate, 16, 45),
-			class: 'event'
-		}
-		];
+		this.state ={
+			"data":  [
+				{
+					label: 'Update Employees Information',
+					dateStart: new Date(currentYear, currentMonth, currentDate, 14, 0),
+					dateEnd: new Date(currentYear, currentMonth, currentDate, 16, 45),
+					class: 'event'
+				}
+			]
+		};
 	}
 
 	view = 'week';
@@ -131,6 +134,10 @@ class Calendar1 extends React.Component {
 
 		if (Array.isArray(node)) {
 			console.log(JSON.stringify(node, null, 2));
+
+			this.setState({
+				"data": node
+			})
 		}
 		else {
 			console.log(`Calendar in: ${JSON.stringify(node, null, 2)}`);
@@ -343,7 +350,7 @@ class Calendar1 extends React.Component {
 						</section>
 
 						<section id="sideB">
-							<Scheduler ref={this.scheduler} id="scheduler" dataSource={this.data} view={this.view} views={this.views} nonworkingDays={this.nonworkingDays}
+							<Scheduler ref={this.scheduler} id="scheduler" dataSource={this.state.data} view={this.view} views={this.views} nonworkingDays={this.nonworkingDays}
 								firstDayOfWeek={this.firstDayOfWeek}
 								//disableDateMenu={this.disableDateMenu}
 								currentTimeIndicator={this.currentTimeIndicator}

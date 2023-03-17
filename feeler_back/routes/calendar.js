@@ -78,6 +78,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.conference = '${conferenceOut}',\
       E.date = '${year}-${month}-${day}',\
       E.time = '${hour}-${min}',\
+      E.class = 'event',\
+
       E.dateTimeAdded = '${now}'\
       `);
 
