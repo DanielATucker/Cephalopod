@@ -17,15 +17,14 @@ export default class Database extends React.Component {
     };
     
     componentDidMount() {
+        this.setState({
+            "gun": GUN("localhost:8765")
+        });
+        
         setTimeout(this.startDatabase(), 2000);
     };
 
     startDatabase() {
-        this.setState({
-            "gun": GUN("localhost:8765")
-        });
-
-
         let alice = this.state.gun.get('alice');
     
         alice.on(function(node){
