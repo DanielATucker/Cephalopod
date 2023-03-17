@@ -108,7 +108,7 @@ class Calendar1 extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
 			if (this.props.isLoggedIn === true) {
-				setTimeout(this.getCalendarData, 3000);
+				setInterval(this.getCalendarData, 3000);
 			}
 		};
 	};
