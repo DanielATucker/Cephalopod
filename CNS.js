@@ -2,22 +2,15 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-const express = require('express')
-const Gun = require('gun')
+import * as http from 'http'; //ES 6
+const Gun = require('gun');
 
 
 export default function CNS() {
   let startServer = function() {
-    const app = express()
-    const port = 3006
-
-    app.use(Gun.serve)
-
-    const server = app.listen(port, () => {
-      console.log("Listening at: http://localhost://" + port)
-    });
-
-    Gun({web: server});
+    var server = require('http').createServer().listen(8080);
+    
+    var gun = Gun({web: server});
   };
 
   startServer();
