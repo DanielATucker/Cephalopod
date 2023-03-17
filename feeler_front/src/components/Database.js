@@ -17,10 +17,6 @@ export default class Database extends React.Component {
     };
     
     componentDidMount() {
-        this.setState({
-            "test": 2
-        });
-
         setTimeout(this.startDatabase(), 2000);
     };
 
