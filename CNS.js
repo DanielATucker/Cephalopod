@@ -2,7 +2,9 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+var https = require('https');
 var fs = require('fs');
+
 import GUN from "gun";
 
 
