@@ -12,7 +12,7 @@ var WebSocketServer = require('ws').Server;
 
 export default function CNS() { 
   var options = {
-    key:fs.readFileSync('./ssl/Nerves.key'),
+    key:fs.readFileSync('./ssl/Nerves_key.pem'),
     cert:fs.readFileSync('./ssl/Nerves_cert.pem')
   };
   
