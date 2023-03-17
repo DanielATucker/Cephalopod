@@ -81,9 +81,6 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.dateTimeAdded = '${now}'\
       `);
 
-      
-      //Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
-
       res.json("Insert working");
     }
     catch (err) {
