@@ -23,23 +23,40 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        let gun = GUN("localhost:8765");
+        this.setState({
+            "gun": GUN("localhost:8765")
+        });
 
-        let alice = gun.get('alice');
+
+        let alice = this.state.gun.get('alice');
     
         alice.on(function(node){
           console.log('Subscribed to Alice!', node);
         });
     };
 
+    alice() {
+        let alice = this.state.gun.get('alice');
+    
+        alice.on(function(node){
+          console.log('Subscribed to Alice!', node);
+        });
+        
+        this.state.gun.get('alice').put({name: 'alice', age: 22});
 
+        console.log(`Clicked`);
+    };
     render() {
         return (
             <>
             
             <h1> Test</h1>
 
-
+            <Button
+            onClick={this.alice()}
+            >
+                Click me
+            </Button>
             
             </>
         );
