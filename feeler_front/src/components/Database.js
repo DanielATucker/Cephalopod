@@ -2,7 +2,7 @@ import React, { useEffect, useState, FlatList } from "react";
 import Card from '@mui/material/Card';
 import { fontSize } from "@mui/system";
 
-const GUN = require('gun/gun');
+const GUN = require('gun');
 
 
 export default class Database extends React.Component {
@@ -23,7 +23,7 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        let gun = GUN();
+        let gun = GUN("http://localhost");
 
         let alice = gun.get('alice');
     
