@@ -16,7 +16,7 @@ export default function CNS() {
     handler: function (request, response) {
       // request handler (optional)
     },
-    port: 3006, // default, optional
+    port: 8080, // default, optional
     server: new http.Server(), // optional
     options: {
       // this is passed to the gun constructor
