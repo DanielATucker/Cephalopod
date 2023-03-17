@@ -11,8 +11,10 @@ export default class Database extends React.Component {
     constructor(props) {
         super(props)
 
-        this.state = {
-            "gun": GUN("localhost:8765")
+        if (!window.gunDb) {
+            // You should use your own relay peers here
+            console.log("> Gun constructor!");
+            window.gunDb = new GUN("localhost:8765");
         };
     };
     
@@ -21,7 +23,7 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        let alice = this.state.gun.get('alice');
+        let alice = window.gunDb.get('alice');
     
         alice.on(function(node){
           console.log('Subscribed to Alice!', node);
@@ -29,15 +31,13 @@ export default class Database extends React.Component {
     };
 
     alice() {
-        let gun = this.state.gun;
-
-        let alice = gun.get('alice');
+        let alice = window.gunDb.get('alice');
     
         alice.on(function(node){
           console.log('Subscribed to Alice!', node);
         });
         
-        this.state.gun.get('alice').put({name: 'alice', age: 22});
+        window.gunDb.get('alice').put({name: 'alice', age: 22});
 
         console.log(`Clicked`);
     };
