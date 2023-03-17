@@ -5,7 +5,7 @@ const require = createRequire(import.meta.url);
 const GUN = require('gun');
 
 let gun = GUN({
-    "peers": ["localhost/gun"]
+    "peers": ["localhost:3006/gun"]
 });
 
 let alice = gun.get('alice');

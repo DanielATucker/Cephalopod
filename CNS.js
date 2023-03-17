@@ -8,7 +8,7 @@ const Gun = require('gun');
 
 export default function CNS() {
   let startServer = function() {
-    var server = require('http').createServer().listen(8080);
+    var server = require('http').createServer().listen(3006);
     
     var gun = Gun({web: server});
   };
