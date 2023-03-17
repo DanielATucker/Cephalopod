@@ -29,7 +29,9 @@ export default class Database extends React.Component {
     };
 
     alice() {
-        let alice = this.state.gun.get('alice');
+        let gun = this.state.gun;
+
+        let alice = gun.get('alice');
     
         alice.on(function(node){
           console.log('Subscribed to Alice!', node);
