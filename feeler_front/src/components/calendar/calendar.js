@@ -105,17 +105,10 @@ class Calendar1 extends React.Component {
 		this.scheduler.current.selectedDates = [event.detail.value];
 	}
 
-	init() {
-	}
-
-	componentDidMount() {
-		this.init();
-	};
-
 	componentDidUpdate(prevProps) {
 		if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
 			if (this.props.isLoggedIn === true) {
-				this.getCalendarData();
+				setTimeout(this.getCalendarData, 3000);
 			}
 		};
 	};
