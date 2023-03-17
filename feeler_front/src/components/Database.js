@@ -23,9 +23,13 @@ export default class Database extends React.Component {
     };
 
     startDatabase() {
-        const gun = GUN();
+        let gun = GUN();
 
-        console.log(`GUN: ${JSON.stringify(gun, null, 2)}`);
+        let alice = gun.get('alice');
+    
+        alice.on(function(node){
+          console.log('Subscribed to Alice!', node);
+        });
     };
 
 
