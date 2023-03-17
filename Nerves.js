@@ -2,6 +2,8 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+import CNS from "./CNS.js";
+
 const SerAny = require('serialize-anything');
 import { createServer } from "https";
 import { Server } from 'socket.io';
@@ -204,4 +206,6 @@ function start(httpServer) {
 	);
 }
 
+
+CNS();
 init();
