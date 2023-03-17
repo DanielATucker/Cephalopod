@@ -12,7 +12,7 @@ export default class Database extends React.Component {
         super(props)
 
         this.state = {
-            "test": 1
+            "gun": null
         };
     };
     
