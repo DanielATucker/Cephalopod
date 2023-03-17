@@ -19,7 +19,7 @@ export default class Database extends React.Component {
             "test": 2
         });
 
-        this.startDatabase();
+        setTimeout(this.startDatabase(), 2000);
     };
 
     startDatabase() {
