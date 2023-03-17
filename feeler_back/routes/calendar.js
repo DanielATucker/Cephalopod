@@ -36,7 +36,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
 
       let month = dateStartArray[1];
 
-      let day = dateStartArray[3];
+      let day = dateStartArray[2];
 
       Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
       MERGE (Y: Year {name: '${year}'})-[lb: YearOf]->(CM)\
