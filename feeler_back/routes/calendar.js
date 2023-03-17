@@ -17,7 +17,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
       console.log(`Title: ${eventTitle}`);
   
       let data = req.body.eventData;
-  
+
       console.log(`Data: ${JSON.stringify(data, null, 2)}`);
   
       let username = req.session.username;
@@ -25,18 +25,20 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let now = strftime('%y%m%d_%X');
 
       let dateStartIn = data.dateStart;
-
       let dateArray = dateStartIn.split("T");
-
       let dateStart = dateArray[0];
-
       let dateStartArray = dateStart.split("-");
-
       let year = dateStartArray[0];
-
       let month = dateStartArray[1];
-
       let day = dateStartArray[2];
+
+      let timeArrayZ = dateArray[1];
+      let timeArrayC = timeArrayZ.split(".", 0);
+      let timeArray = timeArrayC.split(":");
+      let hour = timeArray[0];
+      let min = timeArray[1];
+
+      // Add Date to calendar
 
       Database(`MATCH (CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
       MERGE (Y: Year {name: '${year}'})-[lb: YearOf]->(CM)\
@@ -54,6 +56,29 @@ router.post('/add_event/:eventTitle', function(req, res) {
       MERGE (D: Day {name: '${day}'})-[ld: DayOf]->(M)\
       ON CREATE SET D.name = '${day}',\
       D.body = '${year}-${month}-${day}'\
+      `);
+
+      // Add event to calendar
+
+      let allDayOut = data.allDay;
+      let dateStartOut = data.dateStart;
+      let dateEndOut = data.dateEnd;
+      let labelOut = data.label;
+      let descriptionOut = data.label;
+      let conferenceOut = data.conference; 
+
+      Database(`MATCH (D: Day)-[ld: Day {name '${day}'}]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
+      MERGE (E: Event {name: '${eventTitle}'})-[le: EventOf]->(D)\
+      ON CREATE SET E.name = '${eventTitle}',\
+      D.allDay = '${allDayOut}'\
+      D.dateStart = '${dateStartOut}'\
+      D.dateEnd = '${dateEndOut}'\
+      D.label = '${labelOut}'\
+      D.description = '${descriptionOut}'\
+      D.conference = '${conferenceOut}'\
+      D.date = '${year}-${month}-${day}'\
+      D.time = '${hour}-${min}'\
+      D.dateTimeAdded = '${now}'\
       `);
 
       
