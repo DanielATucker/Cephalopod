@@ -13,3 +13,7 @@ let alice = gun.get('alice');
 alice.on(function(node){
     console.log('Alice Updated: ', node);
 });
+
+gun.get('alice').once(function(node){
+    console.log('Alice in:', node);
+});
