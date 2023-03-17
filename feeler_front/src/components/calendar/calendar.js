@@ -137,7 +137,7 @@ class Calendar1 extends React.Component {
 
 			this.setState({
 				"data": node
-			})
+			});
 		}
 		else {
 			console.log(`Calendar in: ${JSON.stringify(node, null, 2)}`);
