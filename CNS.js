@@ -24,7 +24,4 @@ export default function CNS() {
       file: 'data.json' // default
     }
   });
-
-
-  startServer();
 };
