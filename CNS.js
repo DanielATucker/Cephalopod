@@ -24,9 +24,6 @@ export default function CNS() {
       res.end();
     }
   );
-  
-  server.listen(3006);
-
 
   var wss = new ws({httpServer:server, port: 3006});
 
