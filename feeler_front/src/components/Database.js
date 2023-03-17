@@ -55,7 +55,7 @@ export default class Database extends React.Component {
             <h1> Test</h1>
 
             <Button
-            onClick={this.alice()}
+            onClick={this.alice}
             >
                 Click me
             </Button>
