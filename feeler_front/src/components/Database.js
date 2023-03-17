@@ -26,21 +26,14 @@ export default class Database extends React.Component {
         let alice = window.gunDb.get('alice');
     
         alice.on(function(node){
-          console.log('Subscribed to Alice!', node);
+          console.log('Alice Updated:', node);
         });
     };
 
     alice() {
-        let alice = window.gunDb.get('alice');
-    
-        alice.on(function(node){
-          console.log('Subscribed to Alice!', node);
-        });
-        
-        window.gunDb.get('alice').put({name: 'alice', age: 22});
-
-        console.log(`Clicked`);
+        window.gunDb.get('alice').put({name: 'alice', age: 23});
     };
+
     render() {
         return (
             <>

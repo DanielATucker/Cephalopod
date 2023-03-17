@@ -13,7 +13,7 @@ export default function CNS() {
     let alice = gun.get('alice');
 
     alice.on(function(node){
-      console.log('Subscribed to Alice!', node);
+      console.log('Alice Updated: ', node);
     });
   }
 
