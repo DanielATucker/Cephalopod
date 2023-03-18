@@ -242,11 +242,11 @@ class Calendar1 extends React.Component {
 			repeatEditor = editors.repeat,
 			editorsContainer = editors.description.parentElement;
 
-		dateStartEditor.querySelector('.smart-element').disabled = true;
-		dateEndEditor.querySelector('.smart-element').disabled = true;
+		dateStartEditor.querySelector('.smart-element').disabled = false;
+		dateEndEditor.querySelector('.smart-element').disabled = false;
 
-		repeatEditor.classList.add('smart-hidden');
-		allDayEditor.classList.add('smart-hidden');
+		// repeatEditor.classList.add('smart-hidden');
+		// allDayEditor.classList.add('smart-hidden');
 
 		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
 		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
