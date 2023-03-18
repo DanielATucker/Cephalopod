@@ -139,9 +139,7 @@ class Calendar1 extends React.Component {
 				"data": node
 			});
 		}
-		else {
-			console.log(`Calendar in: ${JSON.stringify(node, null, 2)}`);
-			
+		else {			
 			this.setState({
 				"data": node
 			});
@@ -182,9 +180,7 @@ class Calendar1 extends React.Component {
 				});
 
 				break;
-			case 'delete':
-				console.log(`EventItem: ${JSON.stringify(eventItem, null, 2)}`);
-				
+			case 'delete':				
 				fetch(`https://100.108.10.15:3001/calendar/del_event`, {
 					method: 'POST',
 					mode: 'cors',
@@ -209,8 +205,6 @@ class Calendar1 extends React.Component {
 	}
 
 	handleItemUpdate(event) {
-		console.log(`Update: ${event.detail}`);
-
 		this.refreshData('update', event.detail.item);
 	};
 
@@ -219,14 +213,10 @@ class Calendar1 extends React.Component {
 	};
 
 	handleItemInsert(event) {
-		console.log(`Insert: ${event.detail}`);
-
 		this.refreshData('insert', event.detail);
 	};
 
 	updateData(event) {
-		console.log(`Updated Data: ${JSON.stringify(event, null, 2)}`);
-
 		const item = event.detail.item,
 			data = this.data;
 

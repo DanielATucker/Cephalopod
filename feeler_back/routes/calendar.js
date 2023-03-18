@@ -16,12 +16,8 @@ import { v4 as uuidv4 } from 'uuid';
 router.post('/add_event/:eventTitle', function(req, res) {    
     try{  
       let eventTitle = req.body.eventTitle;
-    
-      console.log(`Title: ${eventTitle}`);
-  
+      
       let data = req.body.eventData;
-
-      console.log(`Data: ${JSON.stringify(data, null, 2)}`);
   
       let username = req.session.username;
   
@@ -105,8 +101,6 @@ router.get('/get_events', (req, res) => {
         });
       }
       else {
-        console.log(`Calendar: ${result}`);
-
         res.json(JSON.stringify(result));       
       };
     }
