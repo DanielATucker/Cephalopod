@@ -130,7 +130,7 @@ router.post('/del_event', function(req, res) {
     let dateTimeAdded = data.dateTimeAdded;
 
     Database(`MATCH (E: Event WHERE E.dateTimeAdded = '${dateTimeAdded}')-[*]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}), \
-    CREATE E.Working = 'true' \
+    SET E.Working = 'true' \
     `);
   }
   catch (err) {
