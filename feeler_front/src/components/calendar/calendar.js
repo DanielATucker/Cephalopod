@@ -244,8 +244,11 @@ class Calendar1 extends React.Component {
 		dateStartEditor.querySelector('.smart-element').disabled = false;
 		dateEndEditor.querySelector('.smart-element').disabled = false;
 
-		// labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
-		// descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
+		repeatEditor.classList.add('smart-hidden');
+		allDayEditor.classList.add('smart-hidden');
+
+		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
+		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
 
 		//Rating Element
 		let ratingElement = editorsContainer.querySelector('#eventRating');
