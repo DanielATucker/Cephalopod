@@ -76,7 +76,7 @@ router.post('/newUser', function (req, res) {
 
   let now = strftime("%y%m%d_%X");
 
-  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (CT: CalendarTrash), (TC: TaskCompleted), (CM: CalendarMaster), (u)-[r: link]->(m), (CM)-[s: TrashOf]->(CM), (T)-[t: link]->(u), (TC)-[l: link]->(T), (CM)-[CML: CalendarLink]->(u) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', T.name = 'TaskMaster', J.name = 'JournalMaster', TC.name = 'TaskCompleted', CM.name = 'CalendarMaster'`);
+  Database(`MATCH (m: Main) CREATE (u: User), (T: TaskMaster), (CT: CalendarTrash), (TC: TaskCompleted), (CM: CalendarMaster), (u)-[r: link]->(m), (CM)-[s: TrashOf]->(CM), (T)-[t: link]->(u), (TC)-[l: link]->(T), (CM)-[CML: CalendarLink]->(u) SET u.name = '${username}', u.password = '${password}', u.privileges = 'user', u.loginHistory = '${JSON.stringify([{"createdTime": now}])}', u.createdTime = '${now}', T.name = 'TaskMaster', CT.name = 'CalendarTrash', TC.name = 'TaskCompleted', CM.name = 'CalendarMaster'`);
   res.end();
 });
 
