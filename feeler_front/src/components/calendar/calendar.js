@@ -10,6 +10,8 @@ import { Scheduler } from 'smart-webcomponents-react/scheduler';
 import { ProgressBar } from 'smart-webcomponents-react/progressbar';
 import { Rating } from 'smart-webcomponents-react/rating';
 
+import "smart-webcomponents/source/modules/smart.rating.js";
+
 
 class Calendar1 extends React.Component {
 	constructor(props) {
