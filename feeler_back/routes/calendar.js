@@ -113,7 +113,7 @@ router.get('/get_events', (req, res) => {
   });
 });
 
-router.post('/del_event/:eventTitle', function(req, res) {    
+router.post('/del_event', function(req, res) {    
   let data = req.body.eventData;
 
   let dateStartIn = data.dateStart;
@@ -129,6 +129,8 @@ router.post('/del_event/:eventTitle', function(req, res) {
   DELETE le\
   CREATE (E)-[lg: TrashOf]->(CT)\
   `);
+
+  res.json({"Status":"Del working"});
 
   
 });
