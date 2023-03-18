@@ -243,7 +243,7 @@ class Calendar1 extends React.Component {
 			repeatEditor = editors.repeat,
 			editorsContainer = editors.description.parentElement;
 
-		console.log(`Event: ${JSON.stringify(schedulerEvent, null, 2)}`);
+		console.log(`Editors: ${JSON.stringify(editors, null, 2)}`);
 
 		dateStartEditor.querySelector('.smart-element').disabled = false;
 		dateEndEditor.querySelector('.smart-element').disabled = false;
@@ -253,25 +253,6 @@ class Calendar1 extends React.Component {
 
 		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
 		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
-
-		<Rating id="eventRating"></Rating>
-
-		//ProgressBar
-		let progressElement = editorsContainer.querySelector('#eventProgress');
-
-		if (!progressElement) {
-			const elementContainer = document.createElement('div');
-
-			<div>
-				<label>Progress: </label>
-				<ProgressBar id="eventProgress" showProgressValue></ProgressBar>
-			</div>
-
-			editorsContainer.appendChild(elementContainer);
-		}
-		else {
-			progressElement.value = schedulerEvent.progress || 0;
-		}
 	}
 
 	render() {
