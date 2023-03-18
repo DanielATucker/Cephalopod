@@ -114,21 +114,26 @@ router.get('/get_events', (req, res) => {
 });
 
 router.post('/del_event', function(req, res) {    
-  let data = req.body.eventData;
+  try {
+    let data = req.body.eventData;
 
-  let dateStartIn = data.dateStart;
-  let dateArray = dateStartIn.split("T");
-  let dateStart = dateArray[0];
-  let dateStartArray = dateStart.split("-");
-  let year = dateStartArray[0];
-  let month = dateStartArray[1];
-  let day = dateStartArray[2];
+    let dateStartIn = data.dateStart;
+    let dateArray = dateStartIn.split("T");
+    let dateStart = dateArray[0];
+    let dateStartArray = dateStart.split("-");
+    let year = dateStartArray[0];
+    let month = dateStartArray[1];
+    let day = dateStartArray[2];
 
-  Database(`MATCH (E)-[le: EventOf]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}),\
-  (CT: CalendarTrash)-[lf: *]->(CM)\
-  DELETE le\
-  CREATE (E)-[lg: TrashOf]->(CT)\
-  `);
+    Database(`MATCH (E)-[le: EventOf]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}),\
+    (CT: CalendarTrash)-[lf: *]->(CM)\
+    DELETE le\
+    CREATE (E)-[lg: TrashOf]->(CT)\
+    `);
+  }
+  catch (err) {
+    console.log(`Error: ${err}`)
+  }
 
   res.json({"Status":"Del working"});
 
