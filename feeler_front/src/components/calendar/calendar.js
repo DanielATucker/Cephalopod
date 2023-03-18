@@ -253,6 +253,27 @@ class Calendar1 extends React.Component {
 
 		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
 		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
+
+		//Rating Element
+		let ratingElement = editorsContainer.querySelector('#eventRating');
+
+		if (!ratingElement) {
+			const elementContainer = document.createElement('div'),
+			label = document.createElement('label');
+ 
+			label.textContent = 'Rating: ';
+ 
+			elementContainer.classList.add('smart-scheduler-window-editor');
+			elementContainer.appendChild(label);
+ 
+			ratingElement = document.createElement('smart-rating');
+			ratingElement.id = 'eventRating';
+ 
+			elementContainer.append(ratingElement);
+			editorsContainer.appendChild(elementContainer);
+		}
+ 
+		ratingElement.value = schedulerEvent.rating || 1;
 	}
 
 	render() {
