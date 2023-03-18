@@ -233,6 +233,7 @@ class Calendar1 extends React.Component {
 			return;
 		}
 
+
 		const schedulerEvent = event.detail.item,
 			descriptionEditor = editors.description,
 			dateStartEditor = editors.dateStart,
@@ -241,6 +242,8 @@ class Calendar1 extends React.Component {
 			allDayEditor = editors.allDay,
 			repeatEditor = editors.repeat,
 			editorsContainer = editors.description.parentElement;
+
+		console.log(`Event: ${JSON.stringify(schedulerEvent, null, 2)}`);
 
 		dateStartEditor.querySelector('.smart-element').disabled = false;
 		dateEndEditor.querySelector('.smart-element').disabled = false;
@@ -252,7 +255,7 @@ class Calendar1 extends React.Component {
 		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
 
 		//Rating Element
-		let ratingElement = editorsContainer.querySelector('#eventRating');
+		let ratingElement = schedulerEvent.rating;
 
 		if (!ratingElement) {
 			const elementContainer = document.createElement('div');
