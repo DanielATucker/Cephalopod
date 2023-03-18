@@ -262,7 +262,7 @@ class Calendar1 extends React.Component {
 		if (!progressElement) {
 			const elementContainer = document.createElement('div');
 
-			ReactDOM.render(<div>
+			<div>
 				<label>Progress: </label>
 				<ProgressBar id="eventProgress" showProgressValue></ProgressBar>
 			</div>, elementContainer, function () {
