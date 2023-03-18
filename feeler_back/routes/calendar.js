@@ -129,9 +129,8 @@ router.post('/del_event', function(req, res) {
 
     let dateTimeAdded = data.dateTimeAdded;
 
-    Database(`MATCH (E: Event)-[le: *]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}), \
+    Database(`MATCH (E: Event WHERE E.dateTimeAdded = '${dateTimeAdded}')-[le: *]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}), \
     (CT) \
-    WHERE E.dateTimeAdded = '${dateTimeAdded}'\
     CREATE E.Working = 'true' \
     `);
   }
