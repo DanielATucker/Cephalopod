@@ -73,9 +73,10 @@ class Calendar1 extends React.Component {
 
 	handleToggle() {
 		const primaryContainer = this.primaryContainer.current,
-			scheduler = this.scheduler.current;
+		scheduler = this.scheduler.current;
 
 		primaryContainer.classList.toggle('collapse');
+		
 		scheduler.disableDateMenu = !primaryContainer.classList.contains('collapse');
 	}
 
@@ -292,9 +293,8 @@ class Calendar1 extends React.Component {
 		else {
 			progressElement.value = schedulerEvent.progress || 0;
 		}
-	}
-
-
+	};
+	
 	render() {
 		return (
 			<div>
