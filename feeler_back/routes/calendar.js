@@ -103,13 +103,34 @@ router.get('/get_events', (req, res) => {
       else {
         console.log(`Calendar: ${result}`);
 
-        res.json(JSON.stringify(result));        };
+        res.json(JSON.stringify(result));       
+      };
     }
     else {
       console.log("No node found");
         res.json(`No node found`)
     };
   });
+});
+
+router.post('/del_event/:eventTitle', function(req, res) {    
+  let data = req.body.eventData;
+
+  let dateStartIn = data.dateStart;
+  let dateArray = dateStartIn.split("T");
+  let dateStart = dateArray[0];
+  let dateStartArray = dateStart.split("-");
+  let year = dateStartArray[0];
+  let month = dateStartArray[1];
+  let day = dateStartArray[2];
+
+  Database(`MATCH (E)-[le: EventOf]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}),\
+  (CT: CalendarTrash)-[lf: *]->(CM)\
+  DELETE le\
+  CREATE (E)-[lg: TrashOf]->(CT)\
+  `);
+
+  
 });
 
 export default router;

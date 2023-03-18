@@ -147,20 +147,6 @@ class Calendar1 extends React.Component {
 	refreshData(action, eventItem) {
 		switch (action) {
 			case 'update':
-				/*
-					action: 'update',
-					query: `SET Label = "${eventItem.label}", DateStart = "${eventItem.dateStart.toISOString()}", DateEnd = "${eventItem.dateEnd.toISOString()}", Description = "${eventItem.description}", AllDay = "${!!eventItem.allDay}" 
-							WHERE EventID = ${eventItem.id};`
-				*/
-
-				console.log(`Updated ${JSON.stringify(eventItem, null, 2)}`);
-
-				break;
-			case 'insert':
-				console.log(`Inserting ${JSON.stringify(eventItem, null, 2)}`);
-
-				console.log(JSON.stringify(eventItem.detail, null, 2));
-				
 				fetch(`https://100.108.10.15:3001/calendar/add_event/:${eventItem.item.title}`, {
 					method: 'POST',
 					mode: 'cors',
@@ -174,18 +160,39 @@ class Calendar1 extends React.Component {
 					}),
 					credentials: "include"
 				});
-				/*
-					action: 'insert',
-					query: `("${eventItem.label}","${eventItem.dateStart.toISOString()}","${eventItem.dateEnd.toISOString()}","${eventItem.description || ''}","${!!eventItem.allDay}");`
-				*/
+
+				break;
+			case 'insert':				
+				fetch(`https://100.108.10.15:3001/calendar/add_event/:${eventItem.item.title}`, {
+					method: 'POST',
+					mode: 'cors',
+					headers: {
+						'Accept': 'application/json, text/plain, */*',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						"eventData": eventItem.item,
+						"eventTitle": eventItem.item.label
+					}),
+					credentials: "include"
+				});
+
 				break;
 			case 'delete':
-				/*
-				newData = window.demoServer.getData({
-					action: 'delete',
-					query: `EventID = ${eventItem.id};`
+				fetch(`https://100.108.10.15:3001/calendar/del_event/:${eventItem.item.title}`, {
+					method: 'POST',
+					mode: 'cors',
+					headers: {
+						'Accept': 'application/json, text/plain, */*',
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify({
+						"eventData": eventItem.item,
+						"eventTitle": eventItem.item.label
+					}),
+					credentials: "include"
 				});
-				*/
+
 				break;
 			default:
 				console.log(JSON.stringify(`Default:`, null, 2));
