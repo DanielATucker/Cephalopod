@@ -82,7 +82,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.date = '${year}-${month}-${day}',\
       E.time = '${hour}-${min}',\
       E.class = 'event',\
-      E.uuid = '${uuidv4()}'
+      E.uuid = '${uuidv4()}',\
 
       E.dateTimeAdded = '${now}'\
       `);
