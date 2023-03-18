@@ -254,24 +254,7 @@ class Calendar1 extends React.Component {
 		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
 		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
 
-		//Rating Element
-		let ratingElement = schedulerEvent.rating;
-
-		if (!ratingElement) {
-			const elementContainer = document.createElement('div');
-
-			ReactDOM.render(<div>
-				<label>Rating: </label>
-				<Rating id="eventRating"></Rating>
-			</div>, elementContainer, function () {
-				this.querySelector('#eventRating').value = schedulerEvent.rating || 1;
-			});
-
-			editorsContainer.appendChild(elementContainer);
-		}
-		else {
-			ratingElement.value = schedulerEvent.rating || 1;
-		}
+		<Rating id="eventRating"></Rating>
 
 		//ProgressBar
 		let progressElement = editorsContainer.querySelector('#eventProgress');
