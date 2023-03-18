@@ -117,6 +117,8 @@ router.post('/del_event', function(req, res) {
   try {
     let data = req.body.eventData;
 
+    let username = req.session.username;
+
     let dateStartIn = data.dateStart;
     let dateArray = dateStartIn.split("T");
     let dateStart = dateArray[0];
