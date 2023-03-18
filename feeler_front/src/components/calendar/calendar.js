@@ -192,7 +192,7 @@ class Calendar1 extends React.Component {
 				break;
 		}
 
-		this.getCalendarData();
+		setTimeout(this.getCalendarData, 3000);
 	}
 
 	handleItemUpdate(event) {
