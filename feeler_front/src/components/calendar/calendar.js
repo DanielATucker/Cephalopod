@@ -1,4 +1,3 @@
-import 'smart-webcomponents-react/source/styles/smart.default.css';
 import React from "react";
 import ReactDOM from 'react-dom/client';
 import { Button, RepeatButton, ToggleButton, PowerButton } from 'smart-webcomponents-react/button';
@@ -29,12 +28,7 @@ class Calendar1 extends React.Component {
 
 		this.state ={
 			"data":  [
-				{
-					label: 'Update Employees Information',
-					dateStart: new Date(currentYear, currentMonth, currentDate, 14, 0),
-					dateEnd: new Date(currentYear, currentMonth, currentDate, 16, 45),
-					class: 'event'
-				}
+				{}
 			]
 		};
 	}
@@ -247,14 +241,11 @@ class Calendar1 extends React.Component {
 			repeatEditor = editors.repeat,
 			editorsContainer = editors.description.parentElement;
 
-		dateStartEditor.querySelector('.smart-element').disabled = true;
-		dateEndEditor.querySelector('.smart-element').disabled = true;
+		dateStartEditor.querySelector('.smart-element').disabled = false;
+		dateEndEditor.querySelector('.smart-element').disabled = false;
 
-		repeatEditor.classList.add('smart-hidden');
-		allDayEditor.classList.add('smart-hidden');
-
-		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
-		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
+		// labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
+		// descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
 
 		//Rating Element
 		let ratingElement = editorsContainer.querySelector('#eventRating');
