@@ -111,7 +111,7 @@ class Calendar1 extends React.Component {
 	componentDidUpdate(prevProps) {
 		if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
 			if (this.props.isLoggedIn === true) {
-				setInterval(this.getCalendarData, 3000);
+				this.getCalendarData();
 			}
 		};
 	};
@@ -145,8 +145,6 @@ class Calendar1 extends React.Component {
 	};
 
 	refreshData(action, eventItem) {
-		let newData;
-
 		switch (action) {
 			case 'update':
 				/*
@@ -190,48 +188,11 @@ class Calendar1 extends React.Component {
 				*/
 				break;
 			default:
-				console.log(JSON.stringify(`Default: ${newData}`, null, 2));
+				console.log(JSON.stringify(`Default:`, null, 2));
 				break;
 		}
 
-		if (newData) {
-			//Update the Scheduler
-			this.scheduler.current.dataSource = new window.Smart.DataAdapter({
-				dataSource: newData,
-				dataSourceType: 'array',
-				dataFields: [{
-					name: 'id',
-					map: 'EventID',
-					dataType: 'number'
-				},
-				{
-					name: 'label',
-					map: 'Label',
-					dataType: 'string'
-				},
-				{
-					name: 'dateStart',
-					map: 'DateStart',
-					dataType: 'string'
-				},
-				{
-					name: 'dateEnd',
-					map: 'DateEnd',
-					dataType: 'string'
-				},
-				{
-					name: 'description',
-					map: 'Description',
-					dataType: 'string'
-				},
-				{
-					name: 'allDay',
-					map: 'AllDay',
-					dataType: 'string'
-				}
-				]
-			});
-		}
+		this.getCalendarData();
 	}
 
 	handleItemUpdate(event) {
