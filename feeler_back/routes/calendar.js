@@ -8,6 +8,9 @@ var strftime = require('strftime')
 
 var express = require('express');
 var router = express.Router();
+
+import { v4 as uuidv4 } from 'uuid';
+
   
 /* GET home page. */
 router.post('/add_event/:eventTitle', function(req, res) {    
@@ -79,6 +82,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.date = '${year}-${month}-${day}',\
       E.time = '${hour}-${min}',\
       E.class = 'event',\
+      E.uuid = '${uuidv4()}'
 
       E.dateTimeAdded = '${now}'\
       `);
@@ -127,9 +131,9 @@ router.post('/del_event', function(req, res) {
     let month = dateStartArray[1];
     let day = dateStartArray[2];
 
-    let dateTimeAdded = data.dateTimeAdded;
+    let uuid = data.uuid;
 
-    Database(`MATCH (E: Event WHERE E.dateTimeAdded = '${dateTimeAdded}') \
+    Database(`MATCH (E: Event WHERE E.uuid = '${uuid}') \
     SET E.Working = 'true' \
     `);
   }
