@@ -127,8 +127,13 @@ router.post('/del_event', function(req, res) {
     let month = dateStartArray[1];
     let day = dateStartArray[2];
 
-    Database(`MATCH (E)-[le: *]->(D: Day {name: '${day}'})-[ld: *]->(M: Month {name: '${month}'})-[lc: *]->(Y: Year {name: '${year}'})-[lb: *]->(CM: CalendarMaster)-[la: *]->(U: User {name: '${username}'})\
-    CREATE (E)-[lf: TrashOf]->(CT: CalendarTrash)->[lg: *]->(CM)\
+    let dateTimeAdded = data.dateTimeAdded;
+
+    Database(`MATCH (E: Event)-[le: *]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}), \
+    (CT) \
+    WHERE E.dateTimeAdded = '${dateTimeAdded}',\
+    CT.name = 'CalendarTrash' \
+    CREATE (E)-[lf: TrashOf]->(CT) \
     `);
   }
   catch (err) {
