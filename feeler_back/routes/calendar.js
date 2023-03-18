@@ -133,8 +133,16 @@ router.post('/del_event', function(req, res) {
 
     let uuid = data.uuid;
 
+    // Remove Database connection to date
+
     Database(`MATCH (E: Event {uuid: '${uuid}'})-[l: EventOf]->(D: Day) \
     DELETE l \
+    `);
+
+    // Add Database connection to trash
+    Database(`MATCH (E: Event {uuid: '${uuid}'}), \
+    (CT: CalendarTrash)-[: TrashOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}) \
+    CREATE (E)-[T: TrashOf]->(CT) \
     `);
   }
   catch (err) {
