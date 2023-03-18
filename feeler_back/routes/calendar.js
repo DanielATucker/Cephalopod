@@ -95,7 +95,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
   });
 
 router.get('/get_events', (req, res) => {
-  let nodePromise = Database(`MATCH (E: Event)-[*]->(CM: CalendarMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (E)`);
+  let nodePromise = Database(`MATCH (E: Event)-[*]->(: Year)-[*]->(CM: CalendarMaster)-[lb]->(U: User {name: '${req.session.username}'}) RETURN (E)`);
 
   nodePromise.then((result) => {
     if ((typeof result !== 'undefined') && ( result != null)) {
