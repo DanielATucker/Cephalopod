@@ -10,8 +10,6 @@ import { Scheduler } from 'smart-webcomponents-react/scheduler';
 import { ProgressBar } from 'smart-webcomponents-react/progressbar';
 import { Rating } from 'smart-webcomponents-react/rating';
 
-import "smart-webcomponents/source/modules/smart.rating.js";
-
 
 class Calendar1 extends React.Component {
 	constructor(props) {
@@ -245,7 +243,7 @@ class Calendar1 extends React.Component {
 			repeatEditor = editors.repeat,
 			editorsContainer = editors.description.parentElement;
 
-		console.log(`Editors: ${JSON.stringify(editors, null, 2)}`);
+		console.log(`Event: ${JSON.stringify(schedulerEvent, null, 2)}`);
 
 		dateStartEditor.querySelector('.smart-element').disabled = false;
 		dateEndEditor.querySelector('.smart-element').disabled = false;
@@ -256,26 +254,26 @@ class Calendar1 extends React.Component {
 		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
 		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
 
-		//Rating Element
-		let ratingElement = editorsContainer.querySelector('#eventRating');
+		<Rating id="eventRating"></Rating>
 
-		if (!ratingElement) {
-			const elementContainer = document.createElement('div'),
-			label = document.createElement('label');
- 
-			label.textContent = 'Rating: ';
- 
-			elementContainer.classList.add('smart-scheduler-window-editor');
-			elementContainer.appendChild(label);
- 
-			ratingElement = document.createElement('smart-rating');
-			ratingElement.id = 'eventRating';
- 
-			elementContainer.append(ratingElement);
+		//ProgressBar
+		let progressElement = editorsContainer.querySelector('#eventProgress');
+
+		if (!progressElement) {
+			const elementContainer = document.createElement('div');
+
+			ReactDOM.createRoot(<div>
+				<label>Progress: </label>
+				<ProgressBar id="eventProgress" showProgressValue></ProgressBar>
+			</div>, elementContainer, function () {
+				this.querySelector('#eventProgress').value = schedulerEvent.progress || 0;
+			});
+
 			editorsContainer.appendChild(elementContainer);
 		}
- 
-		ratingElement.value = schedulerEvent.rating || 1;
+		else {
+			progressElement.value = schedulerEvent.progress || 0;
+		}
 	}
 
 	render() {
