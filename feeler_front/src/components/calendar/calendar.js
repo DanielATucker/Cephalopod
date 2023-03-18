@@ -267,7 +267,6 @@ class Calendar1 extends React.Component {
 				<ProgressBar id="eventProgress" showProgressValue></ProgressBar>
 			</div>, elementContainer, function () {
 				this.querySelector('#eventProgress').value = schedulerEvent.progress || 0;
-			});
 
 			editorsContainer.appendChild(elementContainer);
 		}
