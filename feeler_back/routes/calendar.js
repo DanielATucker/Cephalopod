@@ -134,7 +134,7 @@ router.post('/del_event', function(req, res) {
     let uuid = data.uuid;
 
     Database(`MATCH (E: Event WHERE E.uuid = '${uuid}') \
-    SET E.Working = 'true' \
+    SET E.Working = 'true1' \
     `);
   }
   catch (err) {
