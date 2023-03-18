@@ -1,3 +1,4 @@
+import 'smart-webcomponents-react/source/styles/smart.default.css';
 import React from "react";
 import ReactDOM from 'react-dom/client';
 import { Button, RepeatButton, ToggleButton, PowerButton } from 'smart-webcomponents-react/button';
@@ -318,7 +319,7 @@ class Calendar1 extends React.Component {
 								onItemRemove={this.handleItemRemove.bind(this)}
 								onItemInsert={this.handleItemInsert.bind(this)}
 								onDateChange={this.handleDateChange.bind(this)}
-								// onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
+								onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
 								>
 								</Scheduler>
 						</section>
