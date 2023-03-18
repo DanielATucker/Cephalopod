@@ -134,7 +134,7 @@ router.post('/del_event', function(req, res) {
     let uuid = data.uuid;
 
     Database(`MATCH (E: Event WHERE E.uuid = '${uuid}')-[le: *]->(D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'}), \
-    (CT)->[lf: TrashOf]->(CM) \
+    (CT)->[lf: TrashOf]->(:CalendarMaster)-[x]->(: User {name: '${username}'}) \
     CREATE (E)-[lg: TrashOf]-(CT) \
     `);
   }
