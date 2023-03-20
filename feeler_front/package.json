@@ -23,6 +23,7 @@
     "react-uuid": "^2.0.0",
     "smart-webcomponents-react": "^15.0.3",
     "socket.io-client": "^4.5.4",
+    "strftime": "^0.10.1",
     "web-vitals": "^2.1.4",
     "webpack-dev-middleware": "^6.0.1"
   },
