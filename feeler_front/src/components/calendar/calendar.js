@@ -161,7 +161,7 @@ class Calendar1 extends React.Component {
 
 				break;
 			case 'insert':				
-				fetch(`https://100.108.10.15:3001/calendar/add_event/:${eventItem.item.title}`, {
+				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.item.title}`, {
 					method: 'POST',
 					mode: 'cors',
 					headers: {
