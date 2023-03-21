@@ -15,7 +15,7 @@ import { v4 as uuidv4 } from 'uuid';
 /* GET home page. */
 router.post('/add_event/:eventTitle', function(req, res) {    
     try{  
-      let eventTitle = req.body.eventTitle;
+      let eventTitle = req.body.label;
       
       let data = req.body.eventData;
 
@@ -81,7 +81,6 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.time = '${hour}-${min}',\
       E.class = 'event',\
       E.uuid = '${uuidv4()}',\
-
       E.dateTimeAdded = '${now}'\
       `);
 
