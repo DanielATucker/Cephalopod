@@ -145,7 +145,7 @@ class Calendar1 extends React.Component {
 	refreshData(action, eventItem) {
 		switch (action) {
 			case 'update':
-				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.item.title}`, {
+				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.item.label}`, {
 					method: 'POST',
 					mode: 'cors',
 					headers: {
