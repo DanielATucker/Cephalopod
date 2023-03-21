@@ -79,7 +79,19 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.time = '${hour}-${min}',\
       E.class = 'event',\
       E.uuid = '${uuidv4()}',\
-      E.dateTimeAdded = '${now}'\
+      E.dateTimeAdded = '${now}' \
+      ON MERGE SET E.name = '${labelOut}',\
+      E.allDay = '${allDayOut}',\
+      E.dateStart = '${dateStartOut}',\
+      E.dateEnd = '${dateEndOut}',\
+      E.label = '${labelOut}',\
+      E.description = '${descriptionOut}',\
+      E.conference = '${conferenceOut}',\
+      E.date = '${year}-${month}-${day}',\
+      E.time = '${hour}-${min}',\
+      E.class = 'event',\
+      E.uuid = '${uuidv4()}',\
+      E.lastEdit = '${now}'
       `);
 
       res.json("Insert working");
