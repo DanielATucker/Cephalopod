@@ -80,7 +80,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
       E.class = 'event',\
       E.uuid = '${uuidv4()}',\
       E.dateTimeAdded = '${now}' \
-      ON MERGE SET E.name = '${labelOut}',\
+      ON MATCH SET E.name = '${labelOut}',\
       E.allDay = '${allDayOut}',\
       E.dateStart = '${dateStartOut}',\
       E.dateEnd = '${dateEndOut}',\
