@@ -63,7 +63,7 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let dateStartOut = data.dateStart;
       let dateEndOut = data.dateEnd;
       let labelOut = data.label;
-      let descriptionOut = data.label;
+      let descriptionOut = data.description;
       let conferenceOut = data.conference; 
 
       Database(`MATCH (D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
