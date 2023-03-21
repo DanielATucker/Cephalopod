@@ -14,9 +14,7 @@ import { v4 as uuidv4 } from 'uuid';
   
 /* GET home page. */
 router.post('/add_event/:eventTitle', function(req, res) {    
-    try{  
-      let eventTitle = req.body.label;
-      
+    try{       
       let data = req.body.eventData;
 
       console.log(`Data: ${JSON.stringify(data)}`)
@@ -69,8 +67,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let conferenceOut = data.conference; 
 
       Database(`MATCH (D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
-      MERGE (E: Event {name: '${eventTitle}'})-[le: EventOf]->(D)\
-      ON CREATE SET E.name = '${eventTitle}',\
+      MERGE (E: Event {name: '${labelOut}'})-[le: EventOf]->(D)\
+      ON CREATE SET E.name = '${labelOut}',\
       E.allDay = '${allDayOut}',\
       E.dateStart = '${dateStartOut}',\
       E.dateEnd = '${dateEndOut}',\
