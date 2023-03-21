@@ -145,6 +145,8 @@ class Calendar1 extends React.Component {
 	refreshData(action, eventItem) {
 		switch (action) {
 			case 'update':
+				console.log(`Event Item update: ${eventItem}`);
+
 				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.label}`, {
 					method: 'POST',
 					mode: 'cors',
@@ -160,7 +162,9 @@ class Calendar1 extends React.Component {
 				});
 
 				break;
-			case 'insert':				
+			case 'insert':		
+			console.log(`Event Item insert: ${eventItem}`);
+
 				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.label}`, {
 					method: 'POST',
 					mode: 'cors',
