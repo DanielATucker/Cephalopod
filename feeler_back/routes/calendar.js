@@ -18,6 +18,8 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let eventTitle = req.body.eventTitle;
       
       let data = req.body.eventData;
+
+      console.log(`Data: ${JSON.stringify(data)}`)
   
       let username = req.session.username;
   
