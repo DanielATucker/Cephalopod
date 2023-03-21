@@ -10,25 +10,14 @@ var express = require('express');
 
 var router = express.Router();
 
-<<<<<<< HEAD
-router.post('/post_journal', function(req, res) {
-  let data = req.body.journalData;
-    
-  let username = req.session.username;
 
-  let now = strftime('%y%m%d_%X');
-
-  let journalTitle = (`Journal ${strftime('%y%m%d')}`);
-
-  Database(`MATCH (JM: JournalMaster)-[la: link]->(U: User {name: '${username}'}) MERGE (J: Journal {name: '${journalTitle}'})-[Jo: JournalOf]->(JM) ON CREATE SET J.name = '${journalTitle}', J.body = '${data}', J.createdOn = '${now}' ON MATCH SET J.body = '${data}', J.lastEdit = '${now}'`);
-
-  res.send();
-=======
 router.post('/post_journal/:journalTitle', function(req, res) {    
   try{
+    console.log(`DATA ${req.body}`)
+
     let journalTitle = req.body.journalName;
   
-    console.log(`Title: ${journalName}`);
+    console.log(`Title: ${journalTitle}`);
 
     let data = req.body.journalData;
 

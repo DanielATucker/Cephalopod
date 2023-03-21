@@ -5,8 +5,9 @@ import Card from '@mui/material/Card';
 import Terminal from "./terminal";
 import SocketHandler from "./socketHandler";
 import Stats from "./stats";
-import Journal from "./journal/journal"
-import System from "./system"
+import Journal from "./journal/journal";
+import System from "./system";
+import Calendar1 from "./calendar/calendar.js";
 
 
 export default class Main extends React.Component {
@@ -58,6 +59,9 @@ export default class Main extends React.Component {
             
             <Journal isLoggedIn = {this.state.isLoggedIn}>
             </Journal>
+
+            <Calendar1 isLoggedIn = {this.state.isLoggedIn}>
+            </Calendar1>
 
             <Terminal
             messages={this.state.messages}>

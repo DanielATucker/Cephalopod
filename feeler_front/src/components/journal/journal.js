@@ -34,14 +34,17 @@ export default class Journal extends React.Component {
                     data={"<p> No journal Selected </p>"}
                     disabled = {true}
                 />
-            )
+            ),
+            "idCount": 1
         };
     };
 
     componentDidMount() {
         this.getJournalData();
 
-        setInterval(this.getJournalData, 10000);
+        setTimeout(() => {
+            this.getJournalData();
+        }, 10000);
     };
 
     getJournalData = async () => {
@@ -51,21 +54,22 @@ export default class Journal extends React.Component {
         });
 
         let node = await response.json();
-        
+
         if ((node !== "No node found") && (node !== "undefined") ) {
             this.journalsHandler(node);
         }
     };
 
     journalsHandler = (node) => {        
-        let journals = JSON.parse(node);
+        let nodeJournals = JSON.parse(node);
+
+        console.log(`NODES IN: ${JSON.stringify(nodeJournals)}`);
 
         let prevGrid = JSON.parse(JSON.stringify(this.state.datagrid));
 
         let singleJournal = null;
 
-        if (journals.name == "undefined") {
-
+        if (typeof nodeJournals.name == "undefined") {
             singleJournal = false;
         }
         else {
@@ -73,25 +77,52 @@ export default class Journal extends React.Component {
         };
 
         if (singleJournal == false) {
-            journals.forEach((journal, count) => {
-                if (!(journal in this.state.journals)) {
-                    count++
+            nodeJournals.forEach(nodeJournalsSingle => {            
+                if (this.state) {
+                    if (this.state.journals.some(item => item.name === nodeJournalsSingle.name)) {
+                        let currentJournals = this.state.journals;
+                        console.log(`CURRENT JOURNALS: ${JSON.stringify(currentJournals, null, 2)}`);
 
-                    prevGrid.rows.push({ id: count, name: journal.name});
-                    
-                    this.setState({
-                        "journals": this.state.journals.concat(journal.name)
-                    });
+                        console.log(`COMPARING ${JSON.stringify(nodeJournalsSingle)}`)
+
+                        if (this.state.journals.some(item => (item.name === nodeJournalsSingle.name) && (item.body === nodeJournalsSingle.body))) {
+                            //console.log(`BODY SAME`);
+                        }
+                        else {
+                            console.log(`BODY NOT SAME`);
+
+                            let prevJournals = this.state.journals;
+
+                            const index = prevJournals.map(e => e.name).indexOf(nodeJournalsSingle.name);
+
+                            prevJournals[index].body = nodeJournalsSingle.body
+
+                            this.setState({
+                                "Journals": prevJournals
+                            })
+                        }
+                    }
+                    else {
+                        prevGrid.rows.push({ id: this.state.idCount, name: nodeJournalsSingle.name});
+                        
+                        this.state.idCount++
+
+                        if (this.state) {
+                            this.setState({
+                                "journals": this.state.journals.concat(nodeJournalsSingle)
+                            });
+                        };
+                    }
                 };
-            });            
+            }); 
         }
         else {
             if (this.state) {
-                if (!(JSON.stringify(this.state.journals).includes(journals.name))) {
-                    prevGrid.rows.push({ id: 0, name: journals.name});
+                if (!(JSON.stringify(this.state.journals).includes(nodeJournals.name))) {
+                    prevGrid.rows.push({ id: 0, name: nodeJournals.name});
 
                     this.setState({
-                        "journals": this.state.journals.concat(journals)
+                        "journals": this.state.journals.concat(nodeJournals)
                     });
                 };
             };
@@ -105,48 +136,62 @@ export default class Journal extends React.Component {
     };
 
     updateJournalData = async (params) => {
-        let journalName = params.row.name;
-
         this.getJournalData();
 
+        let journalName = params.row.name;
+
+        console.log(`Clicked ${journalName}`)
+        
         if (this.state) {
             let journals = this.state.journals;
 
             let singleJournal = null;
 
-            if (journals.name == "undefined") {
-
+            if (typeof journals.name === "undefined") {
                 singleJournal = false;
             }
             else {
                 singleJournal = true;
             };
 
-            if (singleJournal == true){
-                journals.forEach((journal, count) => {
-                    if (journal.name === journalName) {
-                        this.updateJournalState(journal.body, journal.name);
-                    }
-                    else{
-                        this.updateJournalState("", journalName);
-                    }
-                })
+            if (singleJournal === true){
+                journals.forEach(journal => {
+                    if (!(JSON.stringify(journals).includes(journal.name))) {
+                        if (journal.name === journalName) {
+                            this.updateJournalState(journal.body, journal.name);
+                        };
+                    };
+                });
             };
 
-            if (singleJournal == false){
-                journals.forEach((journal, count) => {
-                    if (journal.name === journalName) {
-                        this.updateJournalState(journals[count], journal.name);
-                    }
-                    else{
-                        this.updateJournalState("", journalName);
-                    }
-                })
+            if (singleJournal === false){
+                if (this.state){
+                    let found = null;
+
+                    this.state.journals.forEach(journal => {
+                        if (journal.name === journalName) {
+                            this.updateJournalState(journal.body, journalName);
+
+                            found = true;
+                        };
+
+                        if (found !== true) {
+                            console.log(`NEW ENTRY`);
+
+                            console.log(`STATE ${JSON.stringify(this.state.journals)}`);
+                            
+                            this.updateJournalState("", journalName);
+                        }
+                    });
+                };
+            
             };
         };
     };
 
-    updateJournalState = (data, journalName) => {
+    updateJournalState = (data, journalName) => { 
+        console.log(`DATA ${data}`);
+        
         this.setState({
             "editor": (
                 <CKEditor
@@ -154,9 +199,15 @@ export default class Journal extends React.Component {
                     data={data}
                     disabled = {false}
                     onChange={ ( event, editor ) => {
-                        const data = editor.getData();
+                        console.log(`EVENT ${JSON.stringify(event), null, 2}`);
 
-                        this.sendJournalData(data, journalName);
+                        const dataOut = editor.getData();
+
+                        console.log(`DATA OUT ${dataOut}`);
+
+                        this.sendJournalData(dataOut, journalName);
+                        
+                        this.getJournalData();
                     }}
                 />
             )
@@ -177,8 +228,10 @@ export default class Journal extends React.Component {
             }),
             credentials: "include"
         });
+    };
 
-       await this.getJournalData();
+    cellSelectionChange = (data) => {
+        console.log(JSON.stringify(`DATA ${data}`, null, 2));
     };
 
     render() {
@@ -195,8 +248,8 @@ export default class Journal extends React.Component {
                     columns={this.state.datagrid.columns}
                     pageSize={5}
                     rowsPerPageOptions={[5]}
-                    checkboxSelection
                     onRowClick={this.updateJournalData}
+                    cellSelectionChange={this.cellSelectionChange}
                     >
                     </DataGrid>
                 </div>
