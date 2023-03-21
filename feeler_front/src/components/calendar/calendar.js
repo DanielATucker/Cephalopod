@@ -145,7 +145,7 @@ class Calendar1 extends React.Component {
 	refreshData(action, eventItem) {
 		switch (action) {
 			case 'update':
-				console.log(`Event Item update: ${eventItem}`);
+				console.log(`Event Item update: ${JSON.stringify(eventItem)}`);
 
 				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.label}`, {
 					method: 'POST',
@@ -163,7 +163,7 @@ class Calendar1 extends React.Component {
 
 				break;
 			case 'insert':		
-			console.log(`Event Item insert: ${eventItem}`);
+			console.log(`Event Item insert: ${JSON.stringify(eventItem)}`);
 
 				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.label}`, {
 					method: 'POST',
