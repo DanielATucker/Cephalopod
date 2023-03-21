@@ -65,9 +65,10 @@ router.post('/add_event/:eventTitle', function(req, res) {
       let labelOut = data.label;
       let descriptionOut = data.description;
       let conferenceOut = data.conference; 
+      let uuidOut = data.uuid;
 
       Database(`MATCH (D: Day {name: '${day}'})-[ld: DayOf]->(M: Month {name: '${month}'})-[lc: MonthOf]->(Y: Year {name: '${year}'})-[lb: YearOf]->(CM: CalendarMaster)-[la]->(U: User {name: '${username}'})\
-      MERGE (E: Event {name: '${labelOut}'})-[le: EventOf]->(D)\
+      MERGE (E: Event {uuid: '${uuidOut}'})-[le: EventOf]->(D)\
       ON CREATE SET E.name = '${labelOut}',\
       E.allDay = '${allDayOut}',\
       E.dateStart = '${dateStartOut}',\
