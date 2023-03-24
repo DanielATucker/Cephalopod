@@ -15,6 +15,7 @@
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.13",
     "cookie-session": "^2.0.0",
+    "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "express-session": "^1.17.3",
     "neo4j-driver": "^5.1.0",
