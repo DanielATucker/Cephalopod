@@ -2,7 +2,8 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-require('dotenv').config()
+import * as dotenv from 'dotenv';
+require('dotenv').config({path:__dirname+'/.env'});
 
 var neo4j = require('neo4j-driver')
 
@@ -11,7 +12,7 @@ export default async function Database(query) {
   const Neo4jUser = process.env.Neo4jUser;
   const Neo4jPass = process.env.Neo4jPass;
   
-  const uri = "bolt://100.108.10.15:7688";
+  const uri = `bolt://${process.env.host}:${process.env.neo4j_production}`;
 
   try {
     const driver = neo4j.driver(uri, neo4j.auth.basic(Neo4jUser, Neo4jPass));

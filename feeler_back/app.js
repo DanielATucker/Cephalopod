@@ -18,6 +18,10 @@ const session = require('express-session');
 var logger = require('morgan');
 var cors = require('cors');
 
+import * as dotenv from 'dotenv';
+require('dotenv').config({path:__dirname+'/.env'});
+
+
 // ssl init
 var privateKey = fs.readFileSync('./ssl/feeler_back_key.pem');
 var certificate = fs.readFileSync('./ssl/feeler_back_cert.pem');
@@ -43,7 +47,7 @@ app.use(cors({
   credentials: true
 }));
 
-app.set('port', process.env.PORT || 3001)
+app.set('port', process.env.feeler_back_port)
 
 httpsServer.listen(app.get('port'), () => {
   console.log(`Express server listening on port ${app.get('port')}`);

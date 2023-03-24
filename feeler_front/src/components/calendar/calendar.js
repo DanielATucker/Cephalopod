@@ -1,6 +1,10 @@
 import 'smart-webcomponents-react/source/styles/smart.default.css';
 import React from "react";
 import ReactDOM from 'react-dom/client';
+
+import * as dotenv from 'dotenv';
+
+
 import { Button, RepeatButton, ToggleButton, PowerButton } from 'smart-webcomponents-react/button';
 import { Calendar } from 'smart-webcomponents-react/calendar';
 import { Input } from 'smart-webcomponents-react/input';
@@ -10,6 +14,7 @@ import { Scheduler } from 'smart-webcomponents-react/scheduler';
 import { ProgressBar } from 'smart-webcomponents-react/progressbar';
 import { Rating } from 'smart-webcomponents-react/rating';
 
+dotenv.config();
 
 class Calendar1 extends React.Component {
 	constructor(props) {
@@ -113,7 +118,7 @@ class Calendar1 extends React.Component {
 	};
 
 	getCalendarData = async () => {
-        const response = await fetch('https://100.108.10.15:3001/calendar/get_events', {
+        const response = await fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/get_events`, {
             method: 'GET',
             credentials: "include"
         });
@@ -129,8 +134,6 @@ class Calendar1 extends React.Component {
 		node = JSON.parse(node);
 
 		if (Array.isArray(node)) {
-			console.log(JSON.stringify(node, null, 2));
-
 			this.setState({
 				"data": node
 			});
@@ -145,7 +148,7 @@ class Calendar1 extends React.Component {
 	refreshData(action, eventItem) {
 		switch (action) {
 			case 'update':
-				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.label}`, {
+				fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/add_event/${eventItem.label}`, {
 					method: 'POST',
 					mode: 'cors',
 					headers: {
@@ -161,7 +164,7 @@ class Calendar1 extends React.Component {
 
 				break;
 			case 'insert':		
-				fetch(`https://100.108.10.15:3001/calendar/add_event/${eventItem.item.label}`, {
+				fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/add_event/${eventItem.item.label}`, {
 					method: 'POST',
 					mode: 'cors',
 					headers: {
@@ -177,7 +180,7 @@ class Calendar1 extends React.Component {
 
 				break;
 			case 'delete':				
-				fetch(`https://100.108.10.15:3001/calendar/del_event`, {
+				fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/del_event`, {
 					method: 'POST',
 					mode: 'cors',
 					headers: {
@@ -317,6 +320,4 @@ class Calendar1 extends React.Component {
 }
 
 
-
 export default Calendar1;
-	

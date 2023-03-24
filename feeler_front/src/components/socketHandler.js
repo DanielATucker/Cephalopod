@@ -6,6 +6,9 @@ import { v4 as uuidv4 } from 'uuid';
 import { Manager } from "socket.io-client";
 import { formControlLabelClasses } from "@mui/material";
 
+import * as dotenv from 'dotenv';
+dotenv.config();
+
 
 export default class SocketHandler extends React.Component{
     constructor(props) {
@@ -32,7 +35,7 @@ export default class SocketHandler extends React.Component{
     };
 
     componentDidMount() {
-        let manager = new Manager("https://100.108.10.15:3000");
+        let manager = new Manager(`https://${process.env.host}:${process.env.nerves_port}`);
         const socket = manager.socket("/")        
 
         this.props.handleMessageChange(this.state.messages);

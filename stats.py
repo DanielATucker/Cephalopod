@@ -4,7 +4,9 @@ import time
 from datetime import datetime
 
 import socketio
+from dotenv import load_dotenv
 
+load_dotenv()
 
 
 def get_stats(sio):
@@ -69,7 +71,7 @@ def get_stats(sio):
         
 def start_sio():
     sio = socketio.Client(ssl_verify=False)
-    sio.connect('https://localhost:3000')
+    sio.connect(f'https://{os.getenv("host")}:{os.getenv("nerves_port")}')
     
     return sio
     
