@@ -203,6 +203,9 @@ function username_to_id(io, socket, username) {
 function start(httpServer) {
 	const PORT = process.env.nerves_port;
 
+	console.log(`Port: ${PORT}`);
+	console.log(`Env: ${process.env.nerves_port}`);
+
 	httpServer.listen(PORT, () =>
 		console.log(`server listening at https://localhost:${PORT}`)
 	);
