@@ -20,8 +20,8 @@ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 sudo systemctl start docker
 
 #Docker install neo4j
-sudo docker run --name Cephalopod_Dev \
-    --publish=7475:7474 --publish=7688:7687 \
+sudo docker run --name Cephalopod \
+    --publish=7475:7475 --publish=7688:7688 \
     --volume=$HOME/neo4j/data:/data \
     neo4j
 
