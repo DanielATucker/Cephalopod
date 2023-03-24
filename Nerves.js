@@ -2,8 +2,6 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
-import * as dotenv from 'dotenv';
-
 const SerAny = require('serialize-anything');
 import { createServer } from "https";
 import { Server } from 'socket.io';
@@ -18,8 +16,6 @@ import { exec } from "node:child_process";
 
 // Cephalopod modules
 import User_list from './Cephalopod_modules/User_list.js';
-
-dotenv.config();
 
 
 var Users = new User_list();
