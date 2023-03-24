@@ -2,6 +2,8 @@
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 
+import * as dotenv from 'dotenv';
+
 const SerAny = require('serialize-anything');
 import { createServer } from "https";
 import { Server } from 'socket.io';
@@ -16,6 +18,8 @@ import { exec } from "node:child_process";
 
 // Cephalopod modules
 import User_list from './Cephalopod_modules/User_list.js';
+
+dotenv.config();
 
 
 var Users = new User_list();
@@ -198,9 +202,6 @@ function username_to_id(io, socket, username) {
 
 function start(httpServer) {
 	const PORT = process.env.nerves_port;
-
-	console.log(`Port: ${PORT}`);
-	console.log(`Env: ${process.env.nerves_port}`);
 
 	httpServer.listen(PORT, () =>
 		console.log(`server listening at https://localhost:${PORT}`)
