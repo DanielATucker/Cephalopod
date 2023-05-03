@@ -1,0 +1,1 @@
+openssl req -x509 -newkey rsa:4096 -keyout wade_key.pem -out wade_cert.pem -sha256 -days 365 -subj '/CN=192.168.0.135:3001' -nodes

@@ -6,15 +6,17 @@ import Navbar from './shared/Navbar';
 import Sidebar from './shared/Sidebar';
 import Footer from './shared/Footer';
 
+import { allContext } from "./contexts.js";
 
 class App extends Component {
   constructor(props) {
     super(props);
     
     this.state = {
-      "is_loggedin": null
+      "Context": {
+        "is_loggedin": "Not Initialized"
+      }
     };
-
   };
 
   componentDidMount() {
@@ -39,7 +41,9 @@ class App extends Component {
           { navbarComponent }
           <div className="main-panel">
             <div className="content-wrapper">
-              <AppRoutes/>
+              <allContext.Provider value = {this.state.Context}>
+                <AppRoutes/>
+              </allContext.Provider>
             </div>
             { footerComponent }
           </div>

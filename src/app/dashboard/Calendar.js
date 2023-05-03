@@ -1,323 +1,370 @@
-import 'smart-webcomponents-react/source/styles/smart.default.css';
+import "smart-webcomponents-react/source/styles/smart.default.css";
 import React from "react";
-import ReactDOM from 'react-dom/client';
+import { ReactDOM } from "react";
 
-import * as dotenv from 'dotenv';
+import * as dotenv from "dotenv";
 
+import {
+  Button,
+  RepeatButton,
+  ToggleButton,
+  PowerButton,
+} from "smart-webcomponents-react/button";
+import { Calendar } from "smart-webcomponents-react/calendar";
+import { Input } from "smart-webcomponents-react/input";
+import { Tree, TreeItem, TreeItemsGroup } from "smart-webcomponents-react/tree";
+import { Scheduler } from "smart-webcomponents-react/scheduler";
 
-import { Button, RepeatButton, ToggleButton, PowerButton } from 'smart-webcomponents-react/button';
-import { Calendar } from 'smart-webcomponents-react/calendar';
-import { Input } from 'smart-webcomponents-react/input';
-import { Tree, TreeItem, TreeItemsGroup } from 'smart-webcomponents-react/tree';
-import { Scheduler } from 'smart-webcomponents-react/scheduler';
-
-import { ProgressBar } from 'smart-webcomponents-react/progressbar';
-import { Rating } from 'smart-webcomponents-react/rating';
+import { ProgressBar } from "smart-webcomponents-react/progressbar";
+import { Rating } from "smart-webcomponents-react/rating";
 
 dotenv.config();
 
 class Calendar1 extends React.Component {
-	constructor(props) {
-		super(props);
+  constructor(props) {
+    super(props);
 
-		this.scheduler = React.createRef();
-		this.calendar = React.createRef();
-		this.tree = React.createRef();
-		this.primaryContainer = React.createRef();
+    this.scheduler = React.createRef();
+    this.calendar = React.createRef();
+    this.tree = React.createRef();
+    this.primaryContainer = React.createRef();
 
-		const today = new Date(),
-		currentDate = today.getDate(),
-		currentYear = today.getFullYear(),
-		currentMonth = today.getMonth();
+    const today = new Date(),
+      currentDate = today.getDate(),
+      currentYear = today.getFullYear(),
+      currentMonth = today.getMonth();
 
-		this.nonworkingDays = this.getPastThreeWeekdays(today.getDay());
+    this.nonworkingDays = this.getPastThreeWeekdays(today.getDay());
 
-		this.state ={
-			"data":  [
-				{}
-			]
-		};
-	}
-
-	view = 'week';
-
-	views = ['day',
-		{
-			type: 'week',
-			hideWeekend: false,
-		},
-		{
-			type: 'month',
-			hideWeekend: false,
-			shortcutKey: 'm',
-		}, 'agenda'
-	];
-
-	firstDayOfWeek = 1;
-
-	disableDateMenu = false;
-
-	currentTimeIndicator = true;
-
-	scrollButtonsPosition = 'far';
-
-	getPastThreeWeekdays(weekday) {
-		let weekdays = [];
-
-		for (let i = 0; i < 3; i++) {
-			weekdays.push((weekday - i + 7) % 7);
-		}
-
-		return weekdays;
-	}
-
-	handleToggle() {
-		const primaryContainer = this.primaryContainer.current,
-		scheduler = this.scheduler.current;
-
-		primaryContainer.classList.toggle('collapse');
-		
-		scheduler.disableDateMenu = !primaryContainer.classList.contains('collapse');
-	}
-
-	addNew() {
-		this.scheduler.current.openWindow({
-			class: 'event'
-		});
-	}
-
-	handleCalendarChange(event) {
-		this.scheduler.current.dateCurrent = event.detail.value;
-	}
-
-	handleTreeChange() {
-		const tree = this.tree.current;
-		let selectedIndexes = tree.selectedIndexes, types = [];
-
-		for (let i = 0; i < selectedIndexes.length; i++) {
-			tree.getItem(selectedIndexes[i]).then(result => {
-				types.push(result.value);
-
-				if (i === selectedIndexes.length - 1) {
-					this.scheduler.current.dataSource = this.data.filter(d => types.indexOf(d.class) > -1);
-				}
-			});
-		}
-	}
-
-	handleDateChange(event) {
-		this.scheduler.current.selectedDates = [event.detail.value];
-	}
-
-	componentDidUpdate(prevProps) {
-		if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
-			if (this.props.isLoggedIn === true) {
-				setTimeout(this.getCalendarData, 3000);
-			}
-		};
-	};
-
-	getCalendarData = async () => {
-        const response = await fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/get_events`, {
-            method: 'GET',
-            credentials: "include"
-        });
-
-        let node = await response.json();
-
-        if ((node !== "No node found") && (node !== "undefined") ) {
-            this.calendarHandler(node);
-        }
+    this.state = {
+      data: [{}],
     };
+  }
 
-	calendarHandler = (node) => {
-		node = JSON.parse(node);
+  view = "week";
 
-		if (Array.isArray(node)) {
-			this.setState({
-				"data": node
-			});
-		}
-		else {			
-			this.setState({
-				"data": node
-			});
-		}
-	};
+  views = [
+    "day",
+    {
+      type: "week",
+      hideWeekend: false,
+    },
+    {
+      type: "month",
+      hideWeekend: false,
+      shortcutKey: "m",
+    },
+    "agenda",
+  ];
 
-	refreshData(action, eventItem) {
-		switch (action) {
-			case 'update':
-				fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/add_event/${eventItem.label}`, {
-					method: 'POST',
-					mode: 'cors',
-					headers: {
-						'Accept': 'application/json, text/plain, */*',
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						"eventData": eventItem,
-						"eventTitle": eventItem.label
-					}),
-					credentials: "include"
-				});
+  firstDayOfWeek = 1;
 
-				break;
-			case 'insert':		
-				fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/add_event/${eventItem.item.label}`, {
-					method: 'POST',
-					mode: 'cors',
-					headers: {
-						'Accept': 'application/json, text/plain, */*',
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						"eventData": eventItem.item,
-						"eventTitle": eventItem.item.label
-					}),
-					credentials: "include"
-				});
+  disableDateMenu = false;
 
-				break;
-			case 'delete':				
-				fetch(`https://${process.env.host}:${process.env.feeler_back_port}/calendar/del_event`, {
-					method: 'POST',
-					mode: 'cors',
-					headers: {
-						'Accept': 'application/json, text/plain, */*',
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						"eventData": eventItem,
-						"eventTitle": eventItem.label
-					}),
-					credentials: "include"
-				});
+  currentTimeIndicator = true;
 
-				break;
-			default:
-				console.log(JSON.stringify(`Default:`, null, 2));
-				break;
-		}
+  scrollButtonsPosition = "far";
 
-		setTimeout(this.getCalendarData, 3000);
-	}
+  getPastThreeWeekdays(weekday) {
+    let weekdays = [];
 
-	handleItemUpdate(event) {
-		this.refreshData('update', event.detail.item);
-	};
+    for (let i = 0; i < 3; i++) {
+      weekdays.push((weekday - i + 7) % 7);
+    }
 
-	handleItemRemove(event) {
-		this.refreshData('delete', event.detail.item);
-	};
+    return weekdays;
+  }
 
-	handleItemInsert(event) {
-		this.refreshData('insert', event.detail);
-	};
+  handleToggle() {
+    const primaryContainer = this.primaryContainer.current,
+      scheduler = this.scheduler.current;
 
-	updateData(event) {
-		const item = event.detail.item,
-			data = this.data;
+    primaryContainer.classList.toggle("collapse");
 
-		for (let i = 0; i < data.length; i++) {
-			const dataItem = data[i];
+    scheduler.disableDateMenu =
+      !primaryContainer.classList.contains("collapse");
+  }
 
-			if (dataItem.label === item.label && dataItem.class === item.class) {
-				event.type === 'itemRemove' ? this.data.splice(i, 1) : data.splice(i, 1, item);
-				return;
-			}
-		}
-	};
+  addNew() {
+    this.scheduler.current.openWindow({
+      class: "event",
+    });
+  }
 
-	handleEditDialogOpen(event) {
-		const editors = event.detail.editors;
+  handleCalendarChange(event) {
+    this.scheduler.current.dateCurrent = event.detail.value;
+  }
 
-		if (!editors) {
-			return;
-		}
+  handleTreeChange() {
+    const tree = this.tree.current;
+    let selectedIndexes = tree.selectedIndexes,
+      types = [];
 
+    for (let i = 0; i < selectedIndexes.length; i++) {
+      tree.getItem(selectedIndexes[i]).then((result) => {
+        types.push(result.value);
 
-		const schedulerEvent = event.detail.item,
-			descriptionEditor = editors.description,
-			dateStartEditor = editors.dateStart,
-			dateEndEditor = editors.dateEnd,
-			labelEditor = editors.label,
-			allDayEditor = editors.allDay,
-			repeatEditor = editors.repeat,
-			editorsContainer = editors.description.parentElement;
+        if (i === selectedIndexes.length - 1) {
+          this.scheduler.current.dataSource = this.data.filter(
+            (d) => types.indexOf(d.class) > -1
+          );
+        }
+      });
+    }
+  }
 
-		console.log(`Event: ${JSON.stringify(schedulerEvent, null, 2)}`);
+  handleDateChange(event) {
+    this.scheduler.current.selectedDates = [event.detail.value];
+  }
 
-		dateStartEditor.querySelector('.smart-element').disabled = false;
-		dateEndEditor.querySelector('.smart-element').disabled = false;
+  componentDidUpdate(prevProps) {
+    if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
+      if (this.props.isLoggedIn === true) {
+        setTimeout(this.getCalendarData, 3000);
+      }
+    }
+  }
 
-		// repeatEditor.classList.add('smart-hidden');
-		// allDayEditor.classList.add('smart-hidden');
+  getCalendarData = async () => {
+    const response = await fetch(
+      `https://${process.env.host}:${process.env.feeler_back_port}/calendar/get_events`,
+      {
+        method: "GET",
+        credentials: "include",
+      }
+    );
 
-		labelEditor.querySelector('.smart-element').placeholder = 'Enter a label...';
-		descriptionEditor.querySelector('.smart-element').placeholder = 'Enter a description for the event..';
+    let node = await response.json();
 
-		<Rating id="eventRating"></Rating>
+    if (node !== "No node found" && node !== "undefined") {
+      this.calendarHandler(node);
+    }
+  };
 
-		//ProgressBar
-		let progressElement = editorsContainer.querySelector('#eventProgress');
+  calendarHandler = (node) => {
+    node = JSON.parse(node);
 
-		if (!progressElement) {
-			const elementContainer = document.createElement('div');
+    if (Array.isArray(node)) {
+      this.setState({
+        data: node,
+      });
+    } else {
+      this.setState({
+        data: node,
+      });
+    }
+  };
 
-			ReactDOM.createRoot(<div>
-				<label>Progress: </label>
-				<ProgressBar id="eventProgress" showProgressValue></ProgressBar>
-			</div>, elementContainer, function () {
-				this.querySelector('#eventProgress').value = schedulerEvent.progress || 0;
-			});
+  refreshData(action, eventItem) {
+    switch (action) {
+      case "update":
+        fetch(
+          `http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/update_event`,
+          {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              Accept: "application/json, text/plain, */*",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              eventData: eventItem,
+              eventTitle: eventItem.label,
+            }),
+            credentials: "include",
+          }
+        );
 
-			editorsContainer.appendChild(elementContainer);
-		}
-		else {
-			progressElement.value = schedulerEvent.progress || 0;
-		}
-	}
+        break;
+      case "insert":
+        fetch(
+          `http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/event_insert`,
+          {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              Accept: "application/json, text/plain, */*",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              eventData: eventItem.item,
+              eventTitle: eventItem.item.label,
+            }),
+            credentials: "include",
+          }
+        );
 
-	render() {
-		return (
-			<div>
-				<div id="primaryContainer" ref={this.primaryContainer}>
-					<div id="header">
-						<Button id="toggleButton" onClick={this.handleToggle.bind(this)}></Button>
-						<div id="title">Scheduler</div>
-						<Button id="addNew" className="floating" onClick={this.addNew.bind(this)}><span>Create</span>
-						</Button>
-					</div>
+        break;
+      case "delete":
+        fetch(
+          `https://${process.env.host}:${process.env.feeler_back_port}/calendar/del_event`,
+          {
+            method: "POST",
+            mode: "cors",
+            headers: {
+              Accept: "application/json, text/plain, */*",
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              eventData: eventItem,
+              eventTitle: eventItem.label,
+            }),
+            credentials: "include",
+          }
+        );
 
-					<div className="content">
-						<section id="sideA">
-							<div className="button-container">
-								<div id="logo"></div>
-							</div>
-						</section>
+        break;
+      default:
+        console.log(JSON.stringify(`Default:`, null, 2));
+        break;
+    }
 
-						<section id="sideB">
-							<Scheduler ref={this.scheduler} id="scheduler" dataSource={this.state.data} view={this.view} views={this.views} nonworkingDays={this.nonworkingDays}
-								firstDayOfWeek={this.firstDayOfWeek}
-								//disableDateMenu={this.disableDateMenu}
-								currentTimeIndicator={this.currentTimeIndicator}
-								scrollButtonsPosition={this.scrollButtonsPosition} onDragEnd={this.updateData.bind(this)}
-								onResizeEnd={this.updateData.bind(this)}
-								onItemUpdate={this.handleItemUpdate.bind(this)}
-								onItemRemove={this.handleItemRemove.bind(this)}
-								onItemInsert={this.handleItemInsert.bind(this)}
-								onDateChange={this.handleDateChange.bind(this)}
-								// onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
-								>
-								</Scheduler>
-						</section>
-					</div>
-				</div>
-			</div>
-		);
-	}
+    setTimeout(this.getCalendarData, 3000);
+  }
+
+  handleItemUpdate(event) {
+    this.refreshData("update", event.detail.item);
+  }
+
+  handleItemRemove(event) {
+    this.refreshData("delete", event.detail.item);
+  }
+
+  handleItemInsert(event) {
+    this.refreshData("insert", event.detail);
+	
+	console.log(`Event: ${JSON.stringify(event.detail, null, 2)}`)
+  }
+
+  updateData(event) {
+    const item = event.detail.item,
+      data = this.data;
+
+    for (let i = 0; i < data.length; i++) {
+      const dataItem = data[i];
+
+      if (dataItem.label === item.label && dataItem.class === item.class) {
+        event.type === "itemRemove"
+          ? this.data.splice(i, 1)
+          : data.splice(i, 1, item);
+        return;
+      }
+    }
+  }
+
+  handleEditDialogOpen(event) {
+    const editors = event.detail.editors;
+
+    if (!editors) {
+      return;
+    }
+
+    const schedulerEvent = event.detail.item,
+      descriptionEditor = editors.description,
+      dateStartEditor = editors.dateStart,
+      dateEndEditor = editors.dateEnd,
+      labelEditor = editors.label,
+      allDayEditor = editors.allDay,
+      repeatEditor = editors.repeat,
+      editorsContainer = editors.description.parentElement;
+
+    console.log(`Event: ${JSON.stringify(schedulerEvent, null, 2)}`);
+
+    dateStartEditor.querySelector(".smart-element").disabled = false;
+    dateEndEditor.querySelector(".smart-element").disabled = false;
+
+    // repeatEditor.classList.add('smart-hidden');
+    // allDayEditor.classList.add('smart-hidden');
+
+    labelEditor.querySelector(".smart-element").placeholder =
+      "Enter a label...";
+    descriptionEditor.querySelector(".smart-element").placeholder =
+      "Enter a description for the event..";
+
+    //ProgressBar
+    let progressElement = editorsContainer.querySelector("#eventProgress");
+
+    if (!progressElement) {
+      const elementContainer = document.createElement("div");
+
+      ReactDOM.createRoot(
+        <div>
+          <Rating id="eventRating"></Rating>
+
+          <label>Progress: </label>
+          <ProgressBar id="eventProgress" showProgressValue></ProgressBar>
+        </div>,
+        elementContainer,
+        function () {
+          this.querySelector("#eventProgress").value =
+            schedulerEvent.progress || 0;
+        }
+      );
+
+      editorsContainer.appendChild(elementContainer);
+    } else {
+      progressElement.value = schedulerEvent.progress || 0;
+    }
+  }
+
+  render() {
+    return (
+      <div className="row">
+        <div className="col-md grid-margin stretch-card">
+          <div className="card">
+            <div className="card-body">
+              <div id="primaryContainer" ref={this.primaryContainer}>
+                <div id="header">
+                  <Button
+                    id="toggleButton"
+                    onClick={this.handleToggle.bind(this)}
+                  ></Button>
+                  <div id="title">Scheduler</div>
+                  <Button
+                    id="addNew"
+                    className="floating"
+                    onClick={this.addNew.bind(this)}
+                  >
+                    <span>Create</span>
+                  </Button>
+                </div>
+
+                <div className="content">
+                  <section id="sideA">
+                    <div className="button-container">
+                      <div id="logo"></div>
+                    </div>
+                  </section>
+
+                  <section id="sideB">
+                    <Scheduler
+                      ref={this.scheduler}
+                      id="scheduler"
+                      dataSource={this.state.data}
+                      view={this.view}
+                      views={this.views}
+                      nonworkingDays={this.nonworkingDays}
+                      firstDayOfWeek={this.firstDayOfWeek}
+                      //disableDateMenu={this.disableDateMenu}
+                      currentTimeIndicator={this.currentTimeIndicator}
+                      scrollButtonsPosition={this.scrollButtonsPosition}
+                      onDragEnd={this.updateData.bind(this)}
+                      onResizeEnd={this.updateData.bind(this)}
+                      onItemUpdate={this.handleItemUpdate.bind(this)}
+                      onItemRemove={this.handleItemRemove.bind(this)}
+                      onItemInsert={this.handleItemInsert.bind(this)}
+                      onDateChange={this.handleDateChange.bind(this)}
+                      // onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
+                    ></Scheduler>
+                  </section>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 }
-
 
 export default Calendar1;

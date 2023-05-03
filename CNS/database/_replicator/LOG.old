@@ -1,0 +1,13 @@
+2023/05/03-08:33:18.792 2acc Recovering log #12
+2023/05/03-08:33:18.792 2acc Level-0 table #14: started
+2023/05/03-08:33:18.838 2acc Level-0 table #14: 287 bytes OK
+2023/05/03-08:33:18.886 2acc Delete type=0 #12
+2023/05/03-08:33:18.886 2acc Delete type=3 #10
+2023/05/03-08:33:18.921 2410 Compacting 4@0 + 0@1 files
+2023/05/03-08:33:18.991 2410 Generated table #16@0: 5 keys, 2355 bytes
+2023/05/03-08:33:18.991 2410 Compacted 4@0 + 0@1 files => 2355 bytes
+2023/05/03-08:33:19.036 2410 compacted to: files[ 0 1 0 0 0 0 0 ]
+2023/05/03-08:33:19.037 2410 Delete type=2 #5
+2023/05/03-08:33:19.037 2410 Delete type=2 #8
+2023/05/03-08:33:19.037 2410 Delete type=2 #11
+2023/05/03-08:33:19.037 2410 Delete type=2 #14

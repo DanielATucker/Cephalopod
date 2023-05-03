@@ -28,15 +28,28 @@ export function Database_init_start() {
                     }).catch(function(err) {
                         console.log(`Error: ${JSON.stringify(err, null, 2)}`);
                     }).then(function() {
+                        //Put Main file
                         account_db.put({
                             "_id": "Main",
                             "users": {},
                             "system": {},
+                            "calendar": {}
                         }).then(function (result) {
                             console.log(`Created Main: ${JSON.stringify(result, null, 2)}`);
                         }).catch(function(err) {
                             console.log(`Error: ${JSON.stringify(err, null, 2)}`);
                         });
+
+                        // Put Calendar file
+                        account_db.put({
+                            "_id": "Calendar",
+                            "events": {}
+                        }).then(function (result) {
+                            console.log(`Created Calendar: ${JSON.stringify(result, null, 2)}`);
+                        }).catch(function(err) {
+                            console.log(`Error: ${JSON.stringify(err, null, 2)}`);
+                        });
+
                     });
                 } else {
                     console.log(`Error: ${JSON.stringify(err, null, 2)}`);

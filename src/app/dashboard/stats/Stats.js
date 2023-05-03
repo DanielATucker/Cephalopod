@@ -1,11 +1,17 @@
 import React, { Component } from "react";
 
+import { allContext } from "../../contexts.js"
+
+
 export class Stats extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
-  }
+    let Context = allContext._currentValue
+
+    this.state = {"Context": Context
+    };
+  };
 
   render() {
     return (
@@ -17,7 +23,7 @@ export class Stats extends Component {
                 <h4 className="card-title">Stats</h4>
               </div>
               
-              <p> isLoggedin: no.</p>
+              <p> isLoggedin: {this.state.Context.is_loggedin} </p>
             </div>            
           </div>
         </div>

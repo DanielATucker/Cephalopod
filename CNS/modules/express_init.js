@@ -22,7 +22,20 @@ var FileStore = require('session-file-store')(session);
 import * as dotenv from 'dotenv';
 
 import System from "./routes/system.js"
+import Calendar from "./routes/calendar.js"
 
+//ssl
+
+/*
+// ssl init
+var privateKey = fs.readFileSync('./ssl/feeler_back_key.pem');
+var certificate = fs.readFileSync('./ssl/feeler_back_cert.pem');
+
+var credentials = {key: privateKey, cert: certificate};
+
+var https = require('https');
+
+*/
 dotenv.config();
 
 export function Express_Init_Start() {
@@ -82,6 +95,8 @@ export function Express_Init_Start() {
     app.disable('etag');
 
     app.use('/system', System);
+    app.use('/calendar', Calendar);
+
 
     app.use(function(req, res, next) {
         next(createError(404));
@@ -99,7 +114,19 @@ export function Express_Init_Start() {
 
     let port = process.env.port;
 
+    /*
+    // ssl
+    app.set('port', process.env.feeler_back_port)
+
+    httpsServer.listen(app.get('port'), () => {
+        console.log(`Express server listening on port ${app.get('port')}`);
+    });
+    
+    */
+   
     app.listen(port);
+
+  
 
     console.log(`Server listening on port: ${port}`);
 };

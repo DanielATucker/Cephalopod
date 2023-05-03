@@ -9,7 +9,7 @@ var strftime = require('strftime')
 var express = require('express');
 var router = express.Router();
 
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from 'uuidv4';
 
   
 /* GET home page. */
