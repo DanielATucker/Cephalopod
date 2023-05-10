@@ -90,17 +90,17 @@
     ]
   },
   "devDependencies": {
-    "@babel/core": "^7.21.8",
-    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
-    "react-refresh": "^0.14.0",
-    "url-loader": "^4.1.1",
-    "webpack-cli": "^5.0.2",
     "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.21.8",
     "@babel/plugin-proposal-decorators": "^7.14.5",
     "@babel/plugin-syntax-jsx": "^7.14.5",
     "@babel/polyfill": "^7.12.1",
-    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-env": "^7.21.5",
     "@craco/craco": "^5.6.4",
-    "node-sass": "^6.0.1"
+    "@pmmmwh/react-refresh-webpack-plugin": "^0.5.10",
+    "node-sass": "^6.0.1",
+    "react-refresh": "^0.14.0",
+    "url-loader": "^4.1.1",
+    "webpack-cli": "^5.1.1"
   }
 }

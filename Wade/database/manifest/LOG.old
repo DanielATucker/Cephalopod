@@ -1,5 +1,5 @@
-2023/05/09-09:51:28.644 32cc Recovering log #292
-2023/05/09-09:51:28.644 32cc Level-0 table #294: started
-2023/05/09-09:51:28.738 32cc Level-0 table #294: 237 bytes OK
-2023/05/09-09:51:28.801 32cc Delete type=0 #292
-2023/05/09-09:51:28.801 32cc Delete type=3 #290
+2023/05/10-14:34:40.390 2d00 Recovering log #305
+2023/05/10-14:34:40.390 2d00 Level-0 table #307: started
+2023/05/10-14:34:40.979 2d00 Level-0 table #307: 237 bytes OK
+2023/05/10-14:34:41.937 2d00 Delete type=0 #305
+2023/05/10-14:34:41.937 2d00 Delete type=3 #303
