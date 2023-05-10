@@ -11,7 +11,6 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
   
-/* GET home page. */
 router.post('/register_admin', (req, res) => {
   try {
     let username = req.body.username;
@@ -24,7 +23,7 @@ router.post('/register_admin', (req, res) => {
   
     console.log(`Data: ${JSON.stringify(data, null, 2)}`)
       
-    var main_db = new PouchDB(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
+    var main_db = new PouchDB(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
     
     main_db.info().then(function (info) {
       console.log(`Info: ${JSON.stringify(info)}`);
@@ -85,6 +84,10 @@ router.get('/is_loggedin', (req, res) => {
 });
 
 router.post('/login_admin', (req, res) => {
+setTimeout(Login_Admin(req, res), 3000);
+});
+
+function Login_Admin(req, res) {
   try {
     console.log(`Session in: ${JSON.stringify(req.session)}`);
 
@@ -94,7 +97,7 @@ router.post('/login_admin', (req, res) => {
 
     let password = req.body.password;
     
-    var main_db = new PouchDB(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
+    var main_db = new PouchDB(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
       
       main_db.info().then(function (info) {
         main_db.get("Main").then(function (result) {
@@ -103,17 +106,15 @@ router.post('/login_admin', (req, res) => {
           if (!(JSON.stringify(result).includes(username))) {
             console.log(`Username ${username} not found`);      
           } else {
-            console.log(`Username found: ${JSON.stringify(username, null, 2)}`);
+            console.log(`Username found: ${JSON.stringify({"username": username}, null, 2)}`);
             
             if (!req.session.username) {
-              req.session.username = req.body.username;
-              req.session.save();
-              console.log(`Username Set: ${req.body.username}`);
+              req.session.username = {"username": req.body.username};
+              console.log(`Username Set: ${req.session.username}`);
             }
 
             console.log(`USERNAME out: ${JSON.stringify(req.session.username)}`);
 
-            res.send(`User: ${username} logged in`);
           }
         }).catch(function (err) {
           console.log(`Error: ${err}`);
@@ -122,7 +123,7 @@ router.post('/login_admin', (req, res) => {
   } catch (err) {
     console.log(`Error: ${err}`)
   }
-});
+};
 
 
 export default router;

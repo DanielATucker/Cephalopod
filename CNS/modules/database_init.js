@@ -1,21 +1,34 @@
 // Allow require
 import { createRequire } from "module";
-const require = createRequire(import.meta.url);
 
 import * as dotenv from 'dotenv';
+
+const require = createRequire(import.meta.url);
+
 dotenv.config();
+
 
 var PouchDB = require("pouchdb");
 
 export function Database_init_start() {
-    var account_db = new PouchDB(`http://${process.env.host}:${process.env.host_port}/database/manifest`)
-
-    account_db.info().then(function () {
+    var account_db = new PouchDB(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
+    account_db.info().then(function (info) {
+        console.log(`Info: ${JSON.stringify(info)}`);
+    });
+    account_db.info().catch (function (err) {
+        console.log(`Error: ${err}`);
+    });
+    
+    /*
+    .then(function () {
         account_db.get("Manifest").then(function (result) {
             console.log(`Returned Manifest: ${JSON.stringify(result, null, 2)}`);
         }).then(function () {
             account_db.get("Main").then(function (main) {
                 console.log(`Returned Main: ${JSON.stringify(main, null, 2)}`);
+
+                console.log(`\n Database Online!\n\n`);
+            
             });
         }).catch(function (err) {
             if (err) {
@@ -25,8 +38,6 @@ export function Database_init_start() {
                         "data": {}
                     }).then(function (result) {
                         console.log(`Created Manifest: ${JSON.stringify(result, null, 2)}`);
-                    }).catch(function(err) {
-                        console.log(`Error: ${JSON.stringify(err, null, 2)}`);
                     }).then(function() {
                         //Put Main file
                         account_db.put({
@@ -50,13 +61,17 @@ export function Database_init_start() {
                             console.log(`Error: ${JSON.stringify(err, null, 2)}`);
                         });
 
+                    }).catch(function(err) {
+                        console.log(`Error!: ${JSON.stringify(err, null, 2)}`);
                     });
                 } else {
-                    console.log(`Error: ${JSON.stringify(err, null, 2)}`);
+                    console.log(`Error!: ${JSON.stringify(err, null, 2)}`);
                 };
             };
         });
     }).catch(function(err) {
-        console.log(`Error: ${JSON.stringify(err, null, 2)}`);
+        console.log(`Error:! ${JSON.stringify(err, null, 2)}`);
     });
+
+    */
 };

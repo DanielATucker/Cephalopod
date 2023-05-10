@@ -1,13 +1,24 @@
 // Allow require
 import { createRequire } from "module";
+
+
+import * as dotenv from 'dotenv';
+
+import System from "./routes/system.js";
+import Calendar from "./routes/calendar.js";
+import Music from "./routes/music.js";
+
+import  * as evs from 'express-video-stream'; 
+
+import { fileURLToPath } from 'url';
+
+
 const require = createRequire(import.meta.url);
 
-import express from 'express';
 
 var path = require('path');
 var fs = require('fs');
 
-import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -19,23 +30,17 @@ var cors = require('cors');
 var FileStore = require('session-file-store')(session);
 
 
-import * as dotenv from 'dotenv';
+// Express Video Stream
 
-import System from "./routes/system.js"
-import Calendar from "./routes/calendar.js"
 
-//ssl
-
-/*
-// ssl init
-var privateKey = fs.readFileSync('./ssl/feeler_back_key.pem');
-var certificate = fs.readFileSync('./ssl/feeler_back_cert.pem');
+var privateKey = fs.readFileSync('./ssl/wade_key.pem');
+var certificate = fs.readFileSync('./ssl/wade_cert.pem');
 
 var credentials = {key: privateKey, cert: certificate};
 
 var https = require('https');
 
-*/
+
 dotenv.config();
 
 export function Express_Init_Start() {
@@ -44,7 +49,9 @@ export function Express_Init_Start() {
     var express = require('express');
     var app = express();
 
-    app.use(cookieParser());
+    var httpsServer = https.createServer(credentials, app);
+
+    app.use(cookieParser('This is a secret'));
 
     // set a cookie
     app.use(function (req, res, next) {
@@ -64,15 +71,16 @@ export function Express_Init_Start() {
     });
 
     app.use(session({ 
-        secret: 'keyboard cat',
         cookie: { maxAge:  24 * 60 * 60 * 1000, httpOnly: true },
         credentials: true,
         saveUninitialized: false,
         resave: true,
-        store: new FileStore()
+        store: new FileStore(),
+        secret: `This is a secret`
     }));
 
     app.use(cors({
+        //origin: true,
         origin: true,
         optionsSuccessStatus: 200,
         credentials: true
@@ -96,11 +104,10 @@ export function Express_Init_Start() {
 
     app.use('/system', System);
     app.use('/calendar', Calendar);
+    app.use('/music', Music);
 
+    app.use(evs.middleware); //Use streaming middleware
 
-    app.use(function(req, res, next) {
-        next(createError(404));
-    });
 
     app.use(function(err, req, res, next) {
         // set locals, only providing error in development
@@ -112,21 +119,12 @@ export function Express_Init_Start() {
         res.render('error');
     });
 
-    let port = process.env.port;
+    let port = 3001;
 
-    /*
-    // ssl
-    app.set('port', process.env.feeler_back_port)
-
-    httpsServer.listen(app.get('port'), () => {
-        console.log(`Express server listening on port ${app.get('port')}`);
+    httpsServer.listen(port, () => {
+        console.log(`Express server listening on port ${port}`);
     });
     
-    */
-   
-    app.listen(port);
-
-  
-
-    console.log(`Server listening on port: ${port}`);
+    //app.listen(port);
+    //console.log(`Server listening on port: ${port}`);
 };

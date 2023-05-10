@@ -18,7 +18,7 @@ export class RegisterAdmin extends Component {
     if (this.state.password === this.state.password2) {
       console.log(`Passwords good`)
 
-      fetch(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/register_admin`, {
+      fetch(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/register_admin`, {
         method: 'POST',
         mode: 'cors',
         headers: {
@@ -39,13 +39,13 @@ export class RegisterAdmin extends Component {
   };
 
   async doesUserExist() {
-    let is_loggedin = await fetch(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/is_loggedin`, {credentials: "include"}, {
+    let is_loggedin = await fetch(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/is_loggedin`, {credentials: "include"}, {
       method: 'GET',
     });
     
     let is_loggedinBack = await is_loggedin.json();
 
-    console.log(`is_loggedinBack ${is_loggedinBack.username}`);
+    console.log(`is_loggedinBack ${JSON.stringify(is_loggedinBack, null, 2)}`);
 
     this.setState({
       "is_loggedin": is_loggedinBack.username

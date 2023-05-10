@@ -4,7 +4,6 @@ import { Form } from 'react-bootstrap';
 
 import * as dotenv from 'dotenv';
 
-const PouchDB = require('pouchdb-browser').default;
 
 dotenv.config();
 
@@ -19,6 +18,7 @@ export class LoginAdmin extends Component {
       "password2": null
     }
 
+    this.doesUserExist = this.doesUserExist.bind(this);
   };
 
   usernameChange(username) {
@@ -38,13 +38,19 @@ export class LoginAdmin extends Component {
   };
 
   async doesUserExist() {
-    let is_loggedin = await fetch(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/is_loggedin`, {credentials: "include"}, {
+    let is_loggedin = await fetch(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/is_loggedin`, {credentials: "include"}, {
       method: 'GET',
+      mode: 'cors',  
+      headers: {
+        'Accept': 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+        'credentials': "include"
+      }
     });
     
     let is_loggedinBack = await is_loggedin.json();
 
-    console.log(`is_loggedinBack ${is_loggedinBack.username}`);
+    console.log(`is_loggedinBack ${JSON.stringify(is_loggedinBack.username, null, 2)}`);
 
     this.setState({
       "is_loggedin": is_loggedinBack.username
@@ -56,7 +62,7 @@ export class LoginAdmin extends Component {
 
     console.log(`username: ${this.state.username}`);
 
-    let usernameBack = fetch(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/login_admin`, {
+    fetch(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/login_admin`, {
       method: 'POST',
       mode: 'cors',
       headers: {
@@ -68,11 +74,11 @@ export class LoginAdmin extends Component {
         "username": this.state.username,
         "password": this.state.password
       })
-    }).then(function(response) { 
-      console.log(`Response: ${JSON.stringify(response)}`);
     }).catch(function (err) {
       console.log(`Error: ${err}`);
     });
+
+    setTimeout(this.doesUserExist, 3000);
   };
 
   componentDidMount(prevState) {

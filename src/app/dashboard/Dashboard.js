@@ -5,8 +5,9 @@ import { TodoListComponent } from "../apps/TodoList";
 import { VectorMap } from "react-jvectormap";
 
 import Chat from "../chat/Chat.js";
-import Calendar1 from "./Calendar";
-import Stats from "./stats/Stats";
+import Calendar1 from "./Calendar.js";
+import Stats from "./stats/Stats.js";
+import MusicPlayer from "./music/MusicPlayer.js";
 
 const mapData = {
   BZ: 75.0,
@@ -37,6 +38,8 @@ export class Dashboard extends Component {
         <Chat></Chat>
 
         <Calendar1></Calendar1>
+
+        <MusicPlayer></MusicPlayer>
 
         <div className="row">
           <div className="col-md grid-margin stretch-card">
