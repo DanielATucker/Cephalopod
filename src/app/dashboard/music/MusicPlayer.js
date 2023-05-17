@@ -100,7 +100,7 @@ export class MusicPlayer extends Component {
                         <audio
                         id="audio1"
                         controls
-                        src="https://localhost:3001/music/vidChunk?id=failed_state"
+                        src="https://localhost:3001/vidChunk?id=failed_state"
                         //onPlay={this.playPause}
                         >
                         {" "}

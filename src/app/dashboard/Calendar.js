@@ -37,7 +37,22 @@ class Calendar1 extends React.Component {
     this.nonworkingDays = this.getPastThreeWeekdays(today.getDay());
 
     this.state = {
-      data: [{}],
+      data: [{
+        "events": [ {
+          "Test": {
+            "allDay": true,
+            "dateStart": "2023-05-16T04:00:00.000Z",
+            "dateEnd": "2023-05-17T03:59:59.999Z",
+            "label": "Test",
+            "description": "Test",
+            "conference": "",
+            "Time_in": "230516_12:44:28 PM",
+            "Event_time": "20230516_04:00",
+            "uuid": "f3977b11-a915-4d0b-9b25-4c6d804e094c"
+          }
+        }
+        ]
+      }],
     };
   }
 
@@ -117,49 +132,42 @@ class Calendar1 extends React.Component {
     this.scheduler.current.selectedDates = [event.detail.value];
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
-      if (this.props.isLoggedIn === true) {
-        setTimeout(this.getCalendarData, 3000);
-      }
-    }
-  }
-
   getCalendarData = async () => {
     const response = await fetch(
-      `https://${process.env.host}:${process.env.feeler_back_port}/calendar/get_events`,
+      `https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/get_events`,
       {
         method: "GET",
         credentials: "include",
       }
     );
 
-    let node = await response.json();
+    let calendarData = await response.json();
 
-    if (node !== "No node found" && node !== "undefined") {
-      this.calendarHandler(node);
+    //console.log(`GetCalendarData: ${JSON.stringify(calendarData, null, 2)}`);
+
+    this.calendarHandler(calendarData);
+
+    if (this.state) {
+      //console.log(`Calendar data state: ${JSON.stringify(this.state.data, null, 2)} `);
+    };
+  };
+
+  calendarHandler(calendarData) {
+    delete calendarData["_id"];
+    delete calendarData["_rev"];
+
+    if (calendarData !== this.state.data) {
+      this.setState({
+        data: calendarData,
+      });
     }
   };
 
-  calendarHandler = (node) => {
-    node = JSON.parse(node);
-
-    if (Array.isArray(node)) {
-      this.setState({
-        data: node,
-      });
-    } else {
-      this.setState({
-        data: node,
-      });
-    }
-  };
-
-  refreshData(action, eventItem) {
+  refreshData (action, eventItem) {
     switch (action) {
       case "update":
         fetch(
-          `http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/update_event`,
+          `https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/update_event`,
           {
             method: "POST",
             mode: "cors",
@@ -178,7 +186,7 @@ class Calendar1 extends React.Component {
         break;
       case "insert":
         fetch(
-          `http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/event_insert`,
+          `https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/calendar/insert_event`,
           {
             method: "POST",
             mode: "cors",
@@ -197,7 +205,7 @@ class Calendar1 extends React.Component {
         break;
       case "delete":
         fetch(
-          `https://${process.env.host}:${process.env.feeler_back_port}/calendar/del_event`,
+          `https://${process.env.host}:${process.env.feeler_back_port}/calendar/delete_event`,
           {
             method: "POST",
             mode: "cors",
@@ -220,23 +228,23 @@ class Calendar1 extends React.Component {
     }
 
     setTimeout(this.getCalendarData, 3000);
-  }
+  };
 
-  handleItemUpdate(event) {
+  handleItemUpdate = (event) => {
     this.refreshData("update", event.detail.item);
   }
 
-  handleItemRemove(event) {
+  handleItemRemove = (event) => {
     this.refreshData("delete", event.detail.item);
   }
 
-  handleItemInsert(event) {
+  handleItemInsert = (event) => {
     this.refreshData("insert", event.detail);
-	
-	console.log(`Event: ${JSON.stringify(event.detail, null, 2)}`)
+
+    console.log(`Event: ${JSON.stringify(event.detail, null, 2)}`);
   }
 
-  updateData(event) {
+  updateData = (event) => {
     const item = event.detail.item,
       data = this.data;
 
@@ -252,7 +260,7 @@ class Calendar1 extends React.Component {
     }
   }
 
-  handleEditDialogOpen(event) {
+  handleEditDialogOpen = (event) => {
     const editors = event.detail.editors;
 
     if (!editors) {
@@ -307,25 +315,46 @@ class Calendar1 extends React.Component {
     }
   }
 
-  render() {
+  componentDidUpdate(prevProps) {
+    /*
+    if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
+      if (this.props.isLoggedIn === true) {
+        setTimeout(this.getCalendarData, 3000);
+      }
+    }
+    */
+  };
+
+  componentDidMount() {
+    setInterval(this.getCalendarData, 20000);
+  };
+
+  render = () => {
+    let data = this.state.data;
+    
     return (
       <div className="row">
         <div className="col-md grid-margin stretch-card">
           <div className="card">
             <div className="card-body">
+              <div className="d-flex flex-row justify-content-between">
+                <h4 className="card-title"> Calendar </h4>
+              </div>
+
               <div id="primaryContainer" ref={this.primaryContainer}>
                 <div id="header">
                   <Button
                     id="toggleButton"
                     onClick={this.handleToggle.bind(this)}
-                  ></Button>
-                  <div id="title">Scheduler</div>
+                  >
+                    Toggle
+                  </Button>
+
                   <Button
                     id="addNew"
-                    className="floating"
                     onClick={this.addNew.bind(this)}
                   >
-                    <span>Create</span>
+                    New
                   </Button>
                 </div>
 
@@ -340,7 +369,7 @@ class Calendar1 extends React.Component {
                     <Scheduler
                       ref={this.scheduler}
                       id="scheduler"
-                      dataSource={this.state.data}
+                      dataSource={data}
                       view={this.view}
                       views={this.views}
                       nonworkingDays={this.nonworkingDays}
@@ -354,7 +383,7 @@ class Calendar1 extends React.Component {
                       onItemRemove={this.handleItemRemove.bind(this)}
                       onItemInsert={this.handleItemInsert.bind(this)}
                       onDateChange={this.handleDateChange.bind(this)}
-                      // onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
+                    // onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
                     ></Scheduler>
                   </section>
                 </div>
@@ -365,6 +394,6 @@ class Calendar1 extends React.Component {
       </div>
     );
   }
-}
+};
 
 export default Calendar1;

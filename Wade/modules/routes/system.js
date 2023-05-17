@@ -91,8 +91,6 @@ function Login_Admin(req, res) {
   try {
     console.log(`Session in: ${JSON.stringify(req.session)}`);
 
-    console.log(`USERNAME in: ${JSON.stringify(req.session.username)}`);
-
     let username = req.body.username;
 
     let password = req.body.password;
@@ -101,7 +99,7 @@ function Login_Admin(req, res) {
       
       main_db.info().then(function (info) {
         main_db.get("Main").then(function (result) {
-          console.log(`Main: ${JSON.stringify(result, null, 2)}`);
+          console.log(`Main: `);
         
           if (!(JSON.stringify(result).includes(username))) {
             console.log(`Username ${username} not found`);      
@@ -109,7 +107,7 @@ function Login_Admin(req, res) {
             console.log(`Username found: ${JSON.stringify({"username": username}, null, 2)}`);
             
             if (!req.session.username) {
-              req.session.username = {"username": req.body.username};
+              req.session.username = req.body.username;
               console.log(`Username Set: ${req.session.username}`);
             }
 

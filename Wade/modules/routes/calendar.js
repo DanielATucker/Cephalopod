@@ -1,24 +1,25 @@
 // Allow require
 import { createRequire } from "module";
-const require = createRequire(import.meta.url);
 
+import { v4 as uuidv4 } from 'uuid';
+import * as dotenv from 'dotenv';
+
+//End require
+const require = createRequire(import.meta.url);
 var PouchDB = require("pouchdb");
 
 var express = require('express');
 var router = express.Router();
 
-import { v4 as uuidv4 } from 'uuid';
 var strftime = require('strftime') 
-
-
-import * as dotenv from 'dotenv';
 
 dotenv.config();
   
-router.post('/event_insert', (req, res) => {
+
+router.post('/insert_event', (req, res) => {
   try {
     let event = req.body.eventData
-    let eventName = req.body.eventLabel
+    let eventName = req.body.eventTitle
 
     let now = strftime('%y%m%d_%X');
 
@@ -44,7 +45,7 @@ router.post('/event_insert', (req, res) => {
 
     console.log(`Event: ${JSON.stringify(event, null, 2)}`)
       
-    var main_db = new PouchDB(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
+    var main_db = new PouchDB(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
     
     main_db.info().then(function (info) {
       console.log(`Info: ${JSON.stringify(info)}`);
@@ -80,7 +81,7 @@ router.post('/update_event', (req, res) => {
   
       console.log(`Event: ${JSON.stringify(event, null, 2)}`)
         
-      var main_db = new PouchDB(`http://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
+      var main_db = new PouchDB(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
       
       main_db.info().then(function (info) {
         console.log(`Info: ${JSON.stringify(info)}`);
@@ -107,6 +108,43 @@ router.post('/update_event', (req, res) => {
     } catch (err) {
       console.log(`Error: ${err}`);
     };
+});
+
+router.post('/delete_event', (req, res) => {
+  try {
+    let event = req.body.eventData
+    let eventName = req.body.eventLabel
+
+    console.log(`Event: ${JSON.stringify(event, null, 2)}`);
+
+
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  }
+});
+
+
+router.post('/insert_event', (req, res) => {
+  try {
+    let event = req.body.eventData
+    let eventName = req.body.eventTitle
+
+    console.log(`Event: ${JSON.stringify(event, null, 2)}`);
+
+  } catch (err) {
+    console.log(`Error: ${err}`);
+  };
+});
+
+router.get('/get_events', (req, res) => {
+  var main_db = new PouchDB(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/database/manifest`);
+      
+  main_db.info().then(function () {
+    main_db.get("Calendar").then(function (result) {
+      res.json(result);
+      res.end();
+    });
   });
+});
 
 export default router;

@@ -7,6 +7,8 @@ import * as dotenv from 'dotenv';
 import System from "./routes/system.js";
 import Calendar from "./routes/calendar.js";
 import Music from "./routes/music.js";
+import Sync from "./routes/sync.js";
+
 
 import  * as evs from 'express-video-stream'; 
 
@@ -100,11 +102,17 @@ export function Express_Init_Start() {
         prefix: './database/'
     })));
 
+    app.use('/sync', require('express-pouchdb')(PouchDB.defaults({
+        prefix: './database/'
+    })));
+
     app.disable('etag');
 
     app.use('/system', System);
     app.use('/calendar', Calendar);
     app.use('/music', Music);
+    app.use('/syncIn', Sync);
+
 
     app.use(evs.middleware); //Use streaming middleware
 
@@ -127,4 +135,6 @@ export function Express_Init_Start() {
     
     //app.listen(port);
     //console.log(`Server listening on port: ${port}`);
+
+    return true;
 };

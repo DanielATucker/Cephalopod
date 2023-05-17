@@ -1,37 +1,7 @@
 import React, { Component } from "react";
-import { Doughnut } from "react-chartjs-2";
 
-import { row, column } from "./Home.css";
 
 export class Education extends Component {
-  transactionHistoryData = {
-    labels: ["Software", "Personnel"],
-    datasets: [
-      {
-        data: [50, 50],
-        backgroundColor: ["#111111", "#00d25b", "#ffab00"],
-      },
-    ],
-  };
-
-  transactionHistoryOptions = {
-    responsive: true,
-    maintainAspectRatio: true,
-    segmentShowStroke: false,
-    cutoutPercentage: 70,
-    elements: {
-      arc: {
-        borderWidth: 0,
-      },
-    },
-    legend: {
-      display: false,
-    },
-    tooltips: {
-      enabled: true,
-    },
-  };
-
   render() {
     return (
       <div>
@@ -253,8 +223,7 @@ export class Education extends Component {
         </div>
       </div>
     );
-  }
-}
+  };
+};
 
 export default Education;
-

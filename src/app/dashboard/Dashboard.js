@@ -8,6 +8,16 @@ import Chat from "../chat/Chat.js";
 import Calendar1 from "./Calendar.js";
 import Stats from "./stats/Stats.js";
 import MusicPlayer from "./music/MusicPlayer.js";
+import Sync from "./sync/Sync.js";
+import Kanban1 from "./kanban/kanban.js";
+
+import
+{
+ProSidebarProvider
+}
+from
+"react-pro-sidebar"
+;
 
 const mapData = {
   BZ: 75.0,
@@ -33,11 +43,13 @@ export class Dashboard extends Component {
   render() {
     return (
       <div>
-        <Stats></Stats>
-
-        <Chat></Chat>
+        <ProSidebarProvider>
+           <Chat></Chat>
+        </ProSidebarProvider>
 
         <Calendar1></Calendar1>
+
+        <Kanban1></Kanban1>
 
         <MusicPlayer></MusicPlayer>
 
@@ -150,6 +162,11 @@ export class Dashboard extends Component {
             </div>
           </div>
         </div>
+
+        <Stats></Stats>
+
+        <Sync></Sync>
+
       </div>
     );
   }
