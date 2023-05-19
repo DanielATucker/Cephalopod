@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { Doughnut } from "react-chartjs-2";
-import Slider from "react-slick";
-import { TodoListComponent } from "../apps/TodoList";
+
 import { VectorMap } from "react-jvectormap";
 
 import Chat from "../chat/Chat.js";
@@ -11,13 +9,7 @@ import MusicPlayer from "./music/MusicPlayer.js";
 import Sync from "./sync/Sync.js";
 import Kanban1 from "./kanban/kanban.js";
 
-import
-{
-ProSidebarProvider
-}
-from
-"react-pro-sidebar"
-;
+import { ProSidebarProvider } from "react-pro-sidebar";
 
 const mapData = {
   BZ: 75.0,
