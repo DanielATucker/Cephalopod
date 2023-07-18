@@ -116,52 +116,52 @@ class Calendar1 extends React.Component {
     this.scheduler.current.selectedDates = [event.detail.value];
   }
 
-  getCalendarData() {
-    let data = axios
+  getCalendarData = () => {
+    axios
       .get(`${process.env.Wade_host}/calendar/get_events`)
-      .then(function (returned) {
+      .then((returned) => {
         console.log(
           `Axios returned: ${JSON.stringify(returned.data, null, 2)}`
         );
 
-        return returned.data;
+        this.calendarHandler(returned.data);
       });
-
-    this.calendarHandler(data);
-  }
+  };
 
   calendarHandler = (calendarData) => {
     delete calendarData["_id"];
     delete calendarData["_rev"];
 
-    if (calendarData !== this.state.data) {
+    let oldData = this.state.data;
+
+    if (calendarData !== oldData) {
+      console.log(
+        `CalendarData data: ${JSON.stringify(calendarData, null, 2)}`
+      );
+
       this.setState({
-        data: this.state.data.push(calendarData),
+        data: oldData.concat(calendarData.events),
       });
+
+      if (this.state) {
+        console.log(`STATE: ${JSON.stringify(this.state, null, 2)}`);
+      }
     }
   };
 
   refreshData(action, eventItem) {
     switch (action) {
       case "update":
-        fetch(
-          `https://${process.env.Wade_host}:${process.env.Wade_port}/calendar/update_event`,
-          {
-            method: "POST",
-            mode: "cors",
-            headers: {
-              Accept: "application/json, text/plain, */*",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              eventData: eventItem,
-              eventTitle: eventItem.label,
-            }),
-            credentials: "include",
-          }
-        );
-
+        axios
+          .post(`${process.env.Wade_host}/calendar/update_event`, {
+            eventData: eventItem.item,
+            eventTitle: eventItem.item.label,
+          })
+          .then(function (result) {
+            console.log(`Axios update: ${result}`);
+          });
         break;
+
       case "insert":
         axios
           .post(`${process.env.Wade_host}/calendar/insert_event`, {
@@ -173,25 +173,19 @@ class Calendar1 extends React.Component {
           });
 
         break;
+
       case "delete":
-        fetch(
-          `https://${process.env.Wade_host}:${process.env.Wade_port}/calendar/delete_event`,
-          {
-            method: "POST",
-            mode: "cors",
-            headers: {
-              Accept: "application/json, text/plain, */*",
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              eventData: eventItem,
-              eventTitle: eventItem.label,
-            }),
-            credentials: "include",
-          }
-        );
+        axios
+          .post(`${process.env.Wade_host}/calendar/delete_event`, {
+            eventData: eventItem.item,
+            eventTitle: eventItem.item.label,
+          })
+          .then(function (result) {
+            console.log(`Axios insert: ${result}`);
+          });
 
         break;
+
       default:
         console.log(JSON.stringify(`Default:`, null, 2));
         break;
@@ -201,11 +195,16 @@ class Calendar1 extends React.Component {
   }
 
   handleItemUpdate = (event) => {
-    this.refreshData("update", event.detail.item);
+    this.refreshData("update", event.detail);
+
+    console.log(`ITEM UPDATE:${JSON.stringify(event.detail, null, 2)}`);
   };
 
   handleItemRemove = (event) => {
-    this.refreshData("delete", event.detail.item);
+    this.refreshData("delete", event.detail);
+
+    console.log(`Delete: ${JSON.stringify(event, null, 2)}`);
+    console.log(`Delete: ${JSON.stringify(event.detail, null, 2)}`);
   };
 
   handleItemInsert = (event) => {
