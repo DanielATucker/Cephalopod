@@ -1,5 +1,6 @@
 import "smart-webcomponents-react/source/styles/smart.default.css";
 import React from "react";
+import ReactDOM from "react-dom/client";
 
 import {
   Button,
@@ -7,7 +8,6 @@ import {
   ToggleButton,
   PowerButton,
 } from "smart-webcomponents-react/button";
-import { Calendar } from "smart-webcomponents-react/calendar";
 import { Input } from "smart-webcomponents-react/input";
 import { Tree, TreeItem, TreeItemsGroup } from "smart-webcomponents-react/tree";
 import { Scheduler } from "smart-webcomponents-react/scheduler";
@@ -120,10 +120,6 @@ class Calendar1 extends React.Component {
     axios
       .get(`${process.env.Wade_host}/calendar/get_events`)
       .then((returned) => {
-        console.log(
-          `Axios returned: ${JSON.stringify(returned.data, null, 2)}`
-        );
-
         this.calendarHandler(returned.data);
       });
   };
@@ -135,17 +131,9 @@ class Calendar1 extends React.Component {
     let oldData = this.state.data;
 
     if (calendarData !== oldData) {
-      console.log(
-        `CalendarData data: ${JSON.stringify(calendarData, null, 2)}`
-      );
-
       this.setState({
         data: oldData.concat(calendarData.events),
       });
-
-      if (this.state) {
-        console.log(`STATE: ${JSON.stringify(this.state, null, 2)}`);
-      }
     }
   };
 
@@ -202,9 +190,6 @@ class Calendar1 extends React.Component {
 
   handleItemRemove = (event) => {
     this.refreshData("delete", event.detail);
-
-    console.log(`Delete: ${JSON.stringify(event, null, 2)}`);
-    console.log(`Delete: ${JSON.stringify(event.detail, null, 2)}`);
   };
 
   handleItemInsert = (event) => {
@@ -229,61 +214,6 @@ class Calendar1 extends React.Component {
     }
   };
 
-  handleEditDialogOpen = (event) => {
-    const editors = event.detail.editors;
-
-    if (!editors) {
-      return;
-    }
-
-    const schedulerEvent = event.detail.item,
-      descriptionEditor = editors.description,
-      dateStartEditor = editors.dateStart,
-      dateEndEditor = editors.dateEnd,
-      labelEditor = editors.label,
-      allDayEditor = editors.allDay,
-      repeatEditor = editors.repeat,
-      editorsContainer = editors.description.parentElement;
-
-    console.log(`Event: ${JSON.stringify(schedulerEvent, null, 2)}`);
-
-    dateStartEditor.querySelector(".smart-element").disabled = false;
-    dateEndEditor.querySelector(".smart-element").disabled = false;
-
-    // repeatEditor.classList.add('smart-hidden');
-    // allDayEditor.classList.add('smart-hidden');
-
-    labelEditor.querySelector(".smart-element").placeholder =
-      "Enter a label...";
-    descriptionEditor.querySelector(".smart-element").placeholder =
-      "Enter a description for the event..";
-
-    //ProgressBar
-    let progressElement = editorsContainer.querySelector("#eventProgress");
-
-    if (!progressElement) {
-      const elementContainer = document.createElement("div");
-
-      ReactDOM.createRoot(
-        <div>
-          <Rating id="eventRating"></Rating>
-
-          <label>Progress: </label>
-          <ProgressBar id="eventProgress" showProgressValue></ProgressBar>
-        </div>,
-        elementContainer,
-        function () {
-          this.querySelector("#eventProgress").value =
-            schedulerEvent.progress || 0;
-        }
-      );
-
-      editorsContainer.appendChild(elementContainer);
-    } else {
-      progressElement.value = schedulerEvent.progress || 0;
-    }
-  };
-
   componentDidUpdate(prevProps) {
     /*
     if (this.props.isLoggedIn !== prevProps.isLoggedIn) {
@@ -297,6 +227,83 @@ class Calendar1 extends React.Component {
   componentDidMount() {
     //setInterval(this.getCalendarData, 20000);
     this.getCalendarData();
+
+    const scheduler = document.querySelector('smart-scheduler');
+    
+    scheduler.addEventListener("editDialogOpen", function (event) {
+      const editors = event.detail.editors;
+
+      if (!editors) {
+        return;
+      }
+
+      const schedulerEvent = event.detail.item,
+        descriptionEditor = editors.description,
+        dateStartEditor = editors.dateStart,
+        dateEndEditor = editors.dateEnd,
+        labelEditor = editors.label,
+        allDayEditor = editors.allDay,
+        repeatEditor = editors.repeat,
+        editorsContainer = editors.description.parentElement;
+
+      dateStartEditor.querySelector(".smart-element").disabled = true;
+      dateEndEditor.querySelector(".smart-element").disabled = true;
+
+      repeatEditor.classList.add("smart-hidden");
+      allDayEditor.classList.add("smart-hidden");
+
+      labelEditor.querySelector(".smart-element").placeholder =
+        "Enter a label...";
+
+      descriptionEditor.querySelector(".smart-element").placeholder =
+        "Enter a description for the event..";
+
+      //Rating Element
+      let ratingElement = editorsContainer.querySelector("#eventRating");
+
+      if (!ratingElement) {
+        const elementContainer = document.createElement("div"),
+          label = document.createElement("label");
+
+        label.textContent = "Rating: ";
+
+        elementContainer.classList.add("smart-scheduler-window-editor");
+        elementContainer.appendChild(label);
+
+        ratingElement = document.createElement("smart-rating");
+        ratingElement.id = "eventRating";
+        ratingElement.disabled = false;
+        ratingElement.rating = 4;
+        ratingElement.max = 4;
+
+        elementContainer.append(ratingElement);
+        editorsContainer.appendChild(elementContainer);
+      }
+
+
+      //ProgressBar
+      let progressElement = editorsContainer.querySelector("#eventProgress");
+
+      if (!progressElement) {
+        const elementContainer = document.createElement("div"),
+          label = document.createElement("label");
+
+        label.textContent = "Progress: ";
+
+        elementContainer.classList.add("smart-scheduler-window-editor");
+        elementContainer.appendChild(label);
+
+        progressElement = document.createElement("smart-progress-bar");
+        progressElement.id = "eventProgress";
+        progressElement.showProgressValue = true;
+
+        elementContainer.appendChild(progressElement);
+
+        editorsContainer.appendChild(elementContainer);
+      }
+
+      progressElement.value = schedulerEvent.progress || 4;
+    });
   }
 
   render = () => {
@@ -350,7 +357,6 @@ class Calendar1 extends React.Component {
                       onItemRemove={this.handleItemRemove.bind(this)}
                       onItemInsert={this.handleItemInsert.bind(this)}
                       onDateChange={this.handleDateChange.bind(this)}
-                      // onEditDialogOpen={this.handleEditDialogOpen.bind(this)}
                     ></Scheduler>
                   </section>
                 </div>
