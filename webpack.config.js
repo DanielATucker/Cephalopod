@@ -20,6 +20,7 @@ module.exports = {
     static: {
       directory: path.join(__dirname, "build"),
     },
+    host: "192.168.2.16",
     port: 5000,
   },
   module: {
