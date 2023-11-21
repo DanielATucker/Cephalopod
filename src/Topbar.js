@@ -58,6 +58,19 @@ export default class TopBar extends React.Component {
           <Button
             onClick={() => {
               if (this.state) {
+                this.returnComponent("Journal");
+              }
+            }}
+          >
+            {" "}
+            Journal
+          </Button>
+        </div>
+
+        <div class="col">
+          <Button
+            onClick={() => {
+              if (this.state) {
                 this.returnComponent("Notifications");
               }
             }}

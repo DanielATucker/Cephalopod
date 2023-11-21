@@ -1,9 +1,8 @@
-import { Button, THEME_ID } from "@mui/material";
 import React from "react";
-import { Menu, MenuItem, Sidebar } from "react-pro-sidebar";
 import Music from "./basic/home/Music";
 import Chat from "./basic/dashboard/chat/Chat";
 import RSS from "./basic/dashboard/RSS/RSS";
+import Journal from "./basic/Journal/Journal";
 
 export default class BottomBar extends React.Component {
   constructor(props) {
@@ -21,12 +20,14 @@ export default class BottomBar extends React.Component {
       return <RSS />;
     } else if (this.props.BottomBarComponent === "Notifications") {
       return <h1> Notifications</h1>;
+    } else if (this.props.BottomBarComponent === "Journal") {
+      return <Journal />;
     }
   };
 
   render() {
     return (
-      <div class="row position-fixed ">{this.renderBottomComponent()}</div>
+      <div class="row">{this.renderBottomComponent()}</div>
     );
   }
 }
