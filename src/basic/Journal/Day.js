@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Card, CardContent } from "@mui/material";
 
 import MoodChart from "./MoodChart.js";
-
+import MoodSelector from "./MoodSelector.js";
 
 var dateOptions = {
   weekday: "long",
@@ -26,7 +26,7 @@ export default class Day extends Component {
         <Card>
           <CardContent>
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
-
+            <MoodSelector />
             <MoodChart />
           </CardContent>
         </Card>
