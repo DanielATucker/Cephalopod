@@ -23,7 +23,7 @@ export default class Day extends Component {
   render() {
     return (
       <>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
             <MoodSelector />

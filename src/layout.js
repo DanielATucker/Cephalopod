@@ -60,11 +60,7 @@ export default class Layout extends React.Component {
 
   renderBottomBar = () => {
     if (this.state.is_loggedin === true) {
-      return (
-        <div className="row" style={{ backgroundColor: "#000000" }}>
-          <BottomBar BottomBarComponent={this.state.BottomBarComponent} />
-        </div>
-      );
+      return <BottomBar BottomBarComponent={this.state.BottomBarComponent} />;
     }
   };
 
@@ -136,10 +132,9 @@ export default class Layout extends React.Component {
       this.setState({ BottomBarComponent: "Messages" });
     } else if (component === "RSS") {
       this.setState({ BottomBarComponent: "RSS" });
-    }  else if (component === "Journal") {
+    } else if (component === "Journal") {
       this.setState({ BottomBarComponent: "Journal" });
     }
-    
   };
 
   admin_created = () => {
