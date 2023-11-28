@@ -131,7 +131,7 @@ export default class MoodSelector extends Component {
 
             <br />
 
-            <Button onClick={this.submit()}>Submit</Button>
+            <Button onClick={this.submit}>Submit</Button>
           </CardContent>
         </Card>
       </>
