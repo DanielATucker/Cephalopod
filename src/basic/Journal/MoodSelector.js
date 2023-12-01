@@ -8,6 +8,9 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import axios from "axios";
 
+axios.defaults.withCredentials = true;
+
+
 export default class MoodSelector extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +31,7 @@ export default class MoodSelector extends Component {
     console.log(`Submit ${JSON.stringify(data, null, 2)}`);
 
     axios
-      .post(`http://localhost:5001/Moodchart/in`, {
+      .post(`http://localhost:5001/moodchart/in`, {
         data: data,
       })
       .then((result) => {
