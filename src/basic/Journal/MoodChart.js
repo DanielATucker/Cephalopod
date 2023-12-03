@@ -44,14 +44,38 @@ export default class MoodChart extends Component {
     axios
       .put(`http://localhost:5001/moodchart/out`, { withCredentials: true })
       .then((result) => {
-        console.log(`MoodChartOut update: ${JSON.stringify(result.data)}`);
+        console.log(`MoodChartOut update: ${JSON.stringify(result)}`);
 
         let MoodChartData = {
-          Anxiety: result.data.Anxiety,
-          Depression: result.data.Depression,
-          Mood: result.data.Mood,
-          Energy: result.data.Energy,
+          Anxiety: [],
+          Depression: [],
+          Mood: [],
+          Energy: [],
         };
+
+        console.log(`MoodChartData: ${JSON.stringify(MoodChartData, null, 2)}`);
+
+        Object.values(result.data).forEach((mood, moodVal) => {
+          let moodName = Object.keys(MoodChartData)[moodVal];
+
+          console.log(`Mood: ${JSON.stringify(mood)} MoodName: ${moodName}`);
+
+          Object.values(mood).forEach((entry) => {
+            Object.values(entry).forEach((point, pointNameVal) => {
+              let pointName = Object.keys(entry)[pointNameVal];
+
+              console.log(`PointName: ${pointName}`);
+
+              if (pointName === "x") {
+                console.log(`Entry: ${JSON.stringify(entry, null, 2)}`);
+                entry.x = new Date(entry.x);
+
+                console.log(`Final Entry: ${JSON.stringify(entry, null, 2)}`);
+              }
+            });
+          });
+          MoodChartData[moodName] = mood;
+        });
 
         let NewOptions = {
           animationEnabled: true,
@@ -62,22 +86,23 @@ export default class MoodChart extends Component {
           },
           axisY: {
             title: "Mood Val",
-            suffix: "%",
           },
           axisX: {
             title: "Time",
-            prefix: "T",
             interval: 2,
           },
           data: [
             {
               type: "line",
-              toolTipContent: "Week {x}: {y}%",
+              toolTipContent: "Week",
               dataPoints: MoodChartData.Anxiety,
             },
           ],
         };
 
+        console.log(
+          `DataPonts: ${JSON.stringify(NewOptions.data[0].dataPoints, null, 2)}`
+        );
         this.setState({ options: NewOptions });
       })
       .catch((err) => {
