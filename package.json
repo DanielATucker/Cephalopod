@@ -19,7 +19,6 @@
     "dev": "webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
   },
   "dependencies": {
-    "@babel/plugin-syntax-flow": "^7.22.5",
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@canvasjs/charts": "^3.7.27",
     "@canvasjs/react-charts": "^1.0.0",
@@ -55,6 +54,7 @@
     "geo-three": "^0.1.14",
     "html-webpack-tags-plugin": "^3.0.2",
     "nodemailer": "^6.9.3",
+    "npx": "^10.2.2",
     "os": "^0.1.2",
     "path": "^0.12.7",
     "react": "^18.2.0",

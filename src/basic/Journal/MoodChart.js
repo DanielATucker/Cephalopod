@@ -11,7 +11,7 @@ var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 export default class MoodChart extends Component {
   constructor(props) {
     super(props);
-
+    
     this.state = {
       options: {
         animationEnabled: true,
@@ -55,7 +55,7 @@ export default class MoodChart extends Component {
 
         console.log(`MoodChartData: ${JSON.stringify(MoodChartData, null, 2)}`);
 
-        if (result.data) {
+        if (result.data.Anxiety) {
           Object.values(result.data).forEach((mood, moodVal) => {
             let moodName = Object.keys(MoodChartData)[moodVal];
 
@@ -128,7 +128,7 @@ export default class MoodChart extends Component {
             <div>
               <CanvasJSChart
                 options={this.state.options}
-                /* onRef={ref => this.chart = ref} */
+              /* onRef={ref => this.chart = ref} */
               />
             </div>
           </CardContent>
