@@ -118,7 +118,7 @@ class Calendar1 extends React.Component {
 
   getCalendarData = () => {
     axios
-      .get(`http://localhost:5001/calendar/get_events`)
+      .get(`http://${process.env.host}:5001/calendar/get_events`)
       .then((returned) => {
         this.calendarHandler(returned.data);
       });
@@ -141,7 +141,7 @@ class Calendar1 extends React.Component {
     switch (action) {
       case "update":
         axios
-          .post(`http://localhost:5001/calendar/update_event`, {
+          .post(`http://${process.env.host}:5001/calendar/update_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
@@ -152,7 +152,7 @@ class Calendar1 extends React.Component {
 
       case "insert":
         axios
-          .post(`http://localhost:5001/calendar/insert_event`, {
+          .post(`http://${process.env.host}:5001/calendar/insert_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })
@@ -164,7 +164,7 @@ class Calendar1 extends React.Component {
 
       case "delete":
         axios
-          .post(`http://localhost:5001/calendar/delete_event`, {
+          .post(`http://${process.env.host}:5001/calendar/delete_event`, {
             eventData: eventItem.item,
             eventTitle: eventItem.item.label,
           })

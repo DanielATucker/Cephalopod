@@ -25,7 +25,7 @@ export class Login extends Component {
     axios.defaults.withCredentials = true;
 
     axios
-      .post(`http://localhost:5001/system/login`, {
+      .post(`http://${process.env.host}:5001/system/login`, {
         username: username,
         password: password,
       })
