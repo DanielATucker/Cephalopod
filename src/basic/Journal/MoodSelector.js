@@ -40,6 +40,8 @@ export default class MoodSelector extends Component {
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
+
+    setTimeout(this.props.getMoodChart, 500);
   };
 
   moodChange = (event) => {
