@@ -18,19 +18,22 @@ export class Programmer extends Component {
         </div>
         <div style={{ textAlign: "center" }}>
           Work in Node js to build the backend for
-          LeftistMediaGroup.org and Sophia
+          LeftistMediaGroup.org and other LMG projects like Wade, Spphia ect.
+
+          No programming experience required. Will train.
           <br />
         </div>
 
         <div style={{ textAlign: "left" }}>
           <br />
-          Time Requirement: <br />
-          <ul>
-            <li>1 Hour a week</li>
-          </ul>
-          Position Requirements:
+
+          Preferred skills:
           <ul>
             <li>Experience with front and backend development</li>
+            <li>Node JS</li>
+            <li>React</li>
+            <li>HTML</li>
+            <li>Linux</li>
           </ul>
         </div>
       </CardContent>

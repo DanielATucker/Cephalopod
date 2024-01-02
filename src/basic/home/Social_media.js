@@ -33,11 +33,8 @@ export class Social_media extends Component {
 
                     <div style={{ textAlign: "left" }}>
                       <br />
-                      Time Requirement: <br />
-                      <ul>
-                        <li>1 Hour a week</li>
-                      </ul>
-                      Position Requirements:
+
+                      Preferred skills:
                       <ul>
                         <li>
                           Facebook, Instagram, Reddit, Media Trends, Brand

@@ -2,14 +2,13 @@ import React, { Component } from "react";
 
 import { Card, CardContent } from "@mui/material";
 
-export class Mentorship extends Component {
+export default  class LMGAsSocialMedia extends Component {
   render() {
     return (
-      <>
         <Card>
           <CardContent>
             <div style={{ textAlign: "center" }}>
-              <h4>Leftist Media Group for social media</h4>
+              <h4>Leftist Media Group as a social media platform</h4>
             </div>
 
             <br />
@@ -133,40 +132,6 @@ export class Mentorship extends Component {
                           open a chat with the donor to thank them. <p />{" "}
                         </div>
                       </div>
-
-                      <div style={{ textAlign: "center" }}>Positions</div>
-
-                      <div className="row">
-                        <div className="col">
-                          <Card variant="outlined">
-                            <CardContent>
-                              <div style={{ textAlign: "center" }}>
-                                <h4> Node js Programer</h4>
-                              </div>
-                              <div style={{ textAlign: "center" }}>
-                                Work in Node js to build the backend for
-                                LeftistMediaGroup.org and Sophia
-                                <br />
-                              </div>
-
-                              <div style={{ textAlign: "left" }}>
-                                <br />
-                                Time Requirement: <br />
-                                <ul>
-                                  <li>1 Hour a week</li>
-                                </ul>
-                                Position Requirements:
-                                <ul>
-                                  <li>
-                                    Experience with front and backend
-                                    development
-                                  </li>
-                                </ul>
-                              </div>
-                            </CardContent>
-                          </Card>
-                        </div>
-                      </div>
                     </div>
                   </div>
                 </div>
@@ -174,9 +139,6 @@ export class Mentorship extends Component {
             </div>
           </CardContent>
         </Card>
-      </>
     );
   }
 }
-
-export default Mentorship;

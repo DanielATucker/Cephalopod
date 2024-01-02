@@ -34,11 +34,7 @@ export class LMG_memes extends Component {
 
                     <div style={{ textAlign: "left" }}>
                       <br />
-                      Time Requirement: <br />
-                      <ul>
-                        <li>1 Hour a week</li>
-                      </ul>
-                      Position Requirements:
+                      Preferred skills:
                       <ul>
                         <li>Experience with Facebook</li>
                         <li>Preferred - Experience with Facebook Pages</li>

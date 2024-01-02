@@ -11,9 +11,10 @@ import Social_media from "./home/Social_media.js";
 import Sophia from "./home/Sophia.js";
 import Wade from "./home/Wade.js";
 import Music from "./home/Music.js";
-import Mentorship from "./home/Mentorship.js";
 import Contact from "./home/Contact.js";
 import Programmer from "./home/Programmer.js";
+import LMGAsSocialMedia from "./home/LMGAsSocialMedia.js";
+import CommunitySupportNetwork from "./home/CommunitySupportNetwork.js";
 
 export class Home extends Component {
   render() {
@@ -58,8 +59,7 @@ export class Home extends Component {
                     <Card variant="outlined">
                       <CardContent>
                         <p>
-                          We are nearing the end of our fascist leadership path
-                          and our escalating climate catastrophe.
+                          Due to our escalating climate catastrophe we are nearing the end of our fascist leadership path.
                         </p>
                       </CardContent>
                     </Card>
@@ -84,21 +84,21 @@ export class Home extends Component {
             <CardContent style={{ borderColor: "red" }}>
               <h4>Projects</h4>
 
-              <p>All projects need volunteers</p>
-
               <p>
                 All projects are focused on a specific avenue of dismantling
                 Capitalism one brick at a time.
               </p>
 
-              <div className="row">
-                <div className="col" style={{ padding: 15 }}>
-                  <LMG_memes />
-                </div>
+              <div className="col" style={{ padding: 15 }}>
+                <LMG_memes />
+              </div>
 
-                <div className="col" style={{ padding: 15 }}>
-                  <Social_media />
-                </div>
+              <div className="col" style={{ padding: 15 }}>
+                <CommunitySupportNetwork/>
+              </div>
+
+              <div className="col" style={{ padding: 15 }}>
+                <Social_media />
               </div>
 
               <div className="col" style={{ padding: 15 }}>
@@ -120,7 +120,7 @@ export class Home extends Component {
               </div>
 
               <div className="col" style={{ padding: 15 }}>
-                <Mentorship />
+                <LMGAsSocialMedia />
               </div>
 
               <div className="row-centered">
