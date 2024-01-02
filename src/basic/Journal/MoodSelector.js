@@ -30,7 +30,7 @@ export default class MoodSelector extends Component {
     console.log(`Submit ${JSON.stringify(data, null, 2)}`);
 
     axios
-      .post(`http://localhost:5001/moodchart/in`, {
+      .post(`http://${process.env.host}:5001/moodchart/in`, {
         data: data,
       })
       .then((result) => {
@@ -39,6 +39,8 @@ export default class MoodSelector extends Component {
       .catch((err) => {
         console.log(`Error: ${err}`);
       });
+
+    setTimeout(this.props.getMoodChart, 500);
   };
 
   moodChange = (event) => {

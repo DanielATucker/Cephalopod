@@ -117,7 +117,7 @@ export default class MoodChart extends Component {
   };
 
   componentDidMount() {
-    this.getMoodChart();
+    this.props.getMoodChart();
   }
   render() {
     return (

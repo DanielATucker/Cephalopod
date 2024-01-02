@@ -17,7 +17,7 @@ export default class RSS extends Component {
 
   getFeed = () => {
     axios
-      .get(`http://localhost:5001/rss/get_rss`, {
+      .get(`http://${process.env.host}:5001/rss/get_rss`, {
         withCredentials: true,
       })
       .then((result) => {

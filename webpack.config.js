@@ -7,7 +7,7 @@ const cesiumWorkers = "../Build/Cesium/Workers";
 
 const CopywebpackPlugin = require("copy-webpack-plugin");
 const Visualizer = require("webpack-visualizer-plugin2");
-
+const Dotenv = require('dotenv-webpack');
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -57,6 +57,7 @@ module.exports = {
     new Visualizer({
       filename: path.join("..", "WebpackStatistics.html"),
     }),
+    new Dotenv(),
   ],
   devServer: {
     historyApiFallback: true,

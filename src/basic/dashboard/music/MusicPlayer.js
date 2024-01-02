@@ -24,7 +24,7 @@ export class MusicPlayer extends Component {
 
     let audioContext = new AudioContext();
 
-    let audio1 = new Audio("https://http://localhost:5001:5001/vidChunk?id=failed_state");
+    let audio1 = new Audio("https://http://${process.env.host}:5001:5001/vidChunk?id=failed_state");
 
     let audioSource = audioContext.createMediaElementSource(audio1);
 
@@ -100,7 +100,7 @@ export class MusicPlayer extends Component {
                         <audio
                         id="audio1"
                         controls
-                        src="https://http://localhost:5001:5001/vidChunk?id=failed_state"
+                        src="https://http://${process.env.host}:5001:5001/vidChunk?id=failed_state"
                         //onPlay={this.playPause}
                         >
                         {" "}
