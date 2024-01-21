@@ -21,7 +21,32 @@ export default class Day extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+    this.state = {
+      options: {
+        animationEnabled: true,
+        exportEnabled: true,
+        theme: "light2", // "light1", "dark1", "dark2"
+        title: {
+          text: "Moods",
+        },
+        axisY: {
+          title: "Mood Val",
+          suffix: "%",
+        },
+        axisX: {
+          title: "Time",
+          prefix: "T",
+          interval: 2,
+        },
+        data: [
+          {
+            type: "line",
+            toolTipContent: "Week {x}: {y}%",
+            dataPoints: [{ x: new Date(), y: 64 }],
+          },
+        ],
+      },
+    };
   }
 
   getMoodChart = () => {
@@ -107,7 +132,7 @@ export default class Day extends Component {
           <CardContent>
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
             <MoodSelector getMoodChart={this.getMoodChart} />
-            <MoodChart getMoodChart={this.getMoodChart} />
+            <MoodChart getMoodChart={this.getMoodChart} options={this.state.options} />
           </CardContent>
         </Card>
       </>

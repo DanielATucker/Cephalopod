@@ -32,6 +32,7 @@ export default class MoodSelector extends Component {
     axios
       .post(`http://${process.env.host}:5001/moodchart/in`, {
         data: data,
+        withCredentials: true
       })
       .then((result) => {
         console.log(`MoodChart update: ${JSON.stringify(result)}`);
