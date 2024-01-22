@@ -3,643 +3,643 @@
     "Artist": "Monty Protest",
     "Summary": "Summary",
     "Title": "2-Chord Protest Song",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=2-Chord_Protest_Song"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=2-Chord_Protest_Song"
   },
 
   "5 Million Ways To Kill A C.E.O.": {
     "Artist": "The Coup",
     "Summary": "Summary",
     "Title": "5 Million Ways To Kill A C.E.O.",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=5_Million_Ways_To_Kill_A_C.E.O."
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=5_Million_Ways_To_Kill_A_C.E.O."
   },
 
   "16 Tons": {
     "Artist": "Tom Morello: the Nightwatchman",
     "Summary": "Summary",
     "Title": "16 Tons",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=16_Tons"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=16_Tons"
   },
 
   "27 Million": {
     "Artist": "Agent of Change, Marcel Cartier ",
     "Summary": "Summary",
     "Title": "27 Million",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=27_Million"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=27_Million"
   },
 
   "A.M.E.R.I.C.a. (Truth Part 3)": {
     "Artist": "Diabolic",
     "Summary": "Summary",
     "Title": "A.M.E.R.I.C.a. (Truth Part 3)",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=A.M.E.R.I.C.a._(Truth_Part_3)"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=A.M.E.R.I.C.a._(Truth_Part_3)"
   },
 
   "After the Revolution": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "After the Revolution",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=After_the_Revolution"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=After_the_Revolution"
   },
 
   "Baby, I'm an Anarchist!": {
     "Artist": "Against Me!",
     "Summary": "Summary",
     "Title": "Baby, I'm an Anarchist!",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Baby,_I'm_an_Anarchist!"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Baby,_I'm_an_Anarchist!"
   },
 
   "Bang! Bang!": {
     "Artist": "Le Tigre",
     "Summary": "Summary",
     "Title": "Bang! Bang!",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Bang!_Bang!"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Bang!_Bang!"
   },
 
   "Behind The Barricades": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Behind The Barricades",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Behind_The_Barricades"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Behind_The_Barricades"
   },
 
   "Black Flag Flying": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Black Flag Flying",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Black_Flag_Flying"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Black_Flag_Flying"
   },
 
   "Burn It All!": {
     "Artist": "RENT STRIKE",
     "Summary": "Summary",
     "Title": "Burn It All!",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Burn_It_All!"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Burn_It_All!"
   },
 
   "Burn It Down": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Burn It Down",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Burn_It_Down"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Burn_It_Down"
   },
 
   "Call The Cops": {
     "Artist": "The Muslims",
     "Summary": "Summary",
     "Title": "Call The Cops",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Call_The_Cops"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Call_The_Cops"
   },
 
   "Caught In The Hustle": {
     "Artist": "Immortal Technique; ",
     "Summary": "Summary",
     "Title": "Caught In The Hustle",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Caught_In_The_Hustle"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Caught_In_The_Hustle"
   },
 
   "Communist Agenda": {
     "Artist": "Menteroja",
     "Summary": "Summary",
     "Title": "Communist Agenda",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Communist_Agenda"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Communist_Agenda"
   },
 
   "Comrades": {
     "Artist": "Bambu",
     "Summary": "Summary",
     "Title": "Comrades",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Comrades"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Comrades"
   },
 
   "Cops": {
     "Artist": "Ankle Grease",
     "Summary": "Summary",
     "Title": "Cops",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Cops"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Cops"
   },
 
   "Democrats Make Me Wanna Vomit": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Democrats Make Me Wanna Vomit",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Democrats_Make_Me_Wanna_Vomit"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Democrats_Make_Me_Wanna_Vomit"
   },
 
   "Don't Panic": {
     "Artist": "The Haymarket Squares",
     "Summary": "Summary",
     "Title": "Don't Panic",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Don't_Panic"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Don't_Panic"
   },
 
   "Failed State": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Failed State",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Failed_State"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Failed_State"
   },
 
   "Fanon": {
     "Artist": "Menteroja",
     "Summary": "Summary",
     "Title": "Fanon",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Fanon"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Fanon"
   },
 
   "Fight Like It's 1917": {
     "Artist": "Marcel Cartier, Agent of Change",
     "Summary": "Summary",
     "Title": "Fight Like It's 1917",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Fight_Like_It's_1917"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Fight_Like_It's_1917"
   },
 
   "Free Palestine": {
     "Artist": "Genocide",
     "Summary": "Summary",
     "Title": "Free Palestine",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Free_Palestine"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Free_Palestine"
   },
 
   "Fuck Authority": {
     "Artist": "Pennywise",
     "Summary": "Summary",
     "Title": "Fuck Authority",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Fuck_Authority"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Fuck_Authority"
   },
 
   "Fuck the Cistem": {
     "Artist": "The Muslims",
     "Summary": "Summary",
     "Title": "Fuck the Cistem",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Fuck_the_Cistem"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Fuck_the_Cistem"
   },
 
   "Handlebars": {
     "Artist": "Flobots",
     "Summary": "Summary",
     "Title": "Handlebars",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Handlebars"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Handlebars"
   },
 
   "Harlem Renaissance": {
     "Artist": "Immortal Technique, DJ Green Lantern",
     "Summary": "Summary",
     "Title": "Harlem Renaissance",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Harlem_Renaissance"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Harlem_Renaissance"
   },
 
   "I Just Wanna Lay Around All Day In Bed With You": {
     "Artist": "The Coup",
     "Summary": "Summary",
     "Title": "I Just Wanna Lay Around All Day In Bed With You",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=I_Just_Wanna_Lay_Around_All_Day_In_Bed_With_You"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=I_Just_Wanna_Lay_Around_All_Day_In_Bed_With_You"
   },
 
   "I Need A Dollar": {
     "Artist": "Aloe Blacc",
     "Summary": "Summary",
     "Title": "I Need A Dollar",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=I_Need_A_Dollar"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=I_Need_A_Dollar"
   },
 
   "I'm a Better Anarchist Than You": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "I'm a Better Anarchist Than You",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=I'm_a_Better_Anarchist_Than_You"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=I'm_a_Better_Anarchist_Than_You"
   },
 
   "I'm a Socialist": {
     "Artist": "Marcel Cartier",
     "Summary": "Summary",
     "Title": "I'm a Socialist",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=I'm_a_Socialist"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=I'm_a_Socialist"
   },
 
   "It's Okay (To Punch Nazis)": {
     "Artist": "Cheap Perfume; ",
     "Summary": "Summary",
     "Title": "It's Okay (To Punch Nazis)",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=It's_Okay_(To_Punch_Nazis)"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=It's_Okay_(To_Punch_Nazis)"
   },
 
   "Land Of The Free": {
     "Artist": "Monty Protest",
     "Summary": "Summary",
     "Title": "Land Of The Free",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Land_Of_The_Free"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Land_Of_The_Free"
   },
 
   "Let's Start a Riot": {
     "Artist": "The Haymarket Squares",
     "Summary": "Summary",
     "Title": "Let's Start a Riot",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Let's_Start_a_Riot"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Let's_Start_a_Riot"
   },
 
   "Letter to My Landlord (Live)": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Letter to My Landlord (Live)",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Letter_to_My_Landlord_(Live)"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Letter_to_My_Landlord_(Live)"
   },
 
   "Long Live Palestine": {
     "Artist": "Lowkey",
     "Summary": "Summary",
     "Title": "Long Live Palestine",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Long_Live_Palestine"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Long_Live_Palestine"
   },
 
   "Lyndon Johnson Told the Nation": {
     "Artist": "Tom Paxton",
     "Summary": "Summary",
     "Title": "Lyndon Johnson Told the Nation",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Lyndon_Johnson_Told_the_Nation"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Lyndon_Johnson_Told_the_Nation"
   },
 
   "March of the Jobless Corps": {
     "Artist": "Daniel Kahn, Painted Bird",
     "Summary": "Summary",
     "Title": "March of the Jobless Corps",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=March_of_the_Jobless_Corps"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=March_of_the_Jobless_Corps"
   },
 
   "Mayday!!!": {
     "Artist": "Flobots",
     "Summary": "Summary",
     "Title": "Mayday!!!",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Mayday!!!"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Mayday!!!"
   },
 
   "My Favorite Mutiny": {
     "Artist": "The Coup",
     "Summary": "Summary",
     "Title": "My Favorite Mutiny",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=My_Favorite_Mutiny"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=My_Favorite_Mutiny"
   },
 
   "Obama Nation": {
     "Artist": "Lowkey",
     "Summary": "Summary",
     "Title": "Obama Nation",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Obama_Nation"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Obama_Nation"
   },
 
   "Oligarchy": {
     "Artist": "The Haymarket Squares",
     "Summary": "Summary",
     "Title": "Oligarchy",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Oligarchy"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Oligarchy"
   },
 
   "Peruvian Cocaine": {
     "Artist": "Immortal Technique, Poison Pen, Pumpkinhead, Diabolic, C-Rayz Walz, Loucipher, Tonedeff",
     "Summary": "Summary",
     "Title": "Peruvian Cocaine",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Peruvian_Cocaine"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Peruvian_Cocaine"
   },
 
   "Pipe Bomb Song": {
     "Artist": "Monty Protest",
     "Summary": "Summary",
     "Title": "Pipe Bomb Song",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Pipe_Bomb_Song"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Pipe_Bomb_Song"
   },
 
   "Point Of No Return": {
     "Artist": "Immortal Technique",
     "Summary": "Summary",
     "Title": "Point Of No Return",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Point_Of_No_Return"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Point_Of_No_Return"
   },
 
   "Police State": {
     "Artist": "Dead Prez, Chairman Omali Yeshitela",
     "Summary": "Summary",
     "Title": "Police State",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Police_State"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Police_State"
   },
 
   "Pork And Beef": {
     "Artist": "The Coup",
     "Summary": "Summary",
     "Title": "Pork And Beef",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Pork_And_Beef"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Pork_And_Beef"
   },
 
   "Propaganda": {
     "Artist": "Dead Prez",
     "Summary": "Summary",
     "Title": "Propaganda",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Propaganda"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Propaganda"
   },
 
   "Rät": {
     "Artist": "Penelope Scott",
     "Summary": "Summary",
     "Title": "Rät",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Rät"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Rät"
   },
 
   "Reagan": {
     "Artist": "Killer Mike",
     "Summary": "Summary",
     "Title": "Reagan",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Reagan"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Reagan"
   },
 
   "Red Flag Revival": {
     "Artist": "Marcel Cartier, Agent of Change",
     "Summary": "Summary",
     "Title": "Red Flag Revival",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Red_Flag_Revival"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Red_Flag_Revival"
   },
 
   "Resistance": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "Resistance",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Resistance"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Resistance"
   },
 
   "Revolt Resist Rebel": {
     "Artist": "The Haymarket Squares",
     "Summary": "Summary",
     "Title": "Revolt Resist Rebel",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Revolt_Resist_Rebel"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Revolt_Resist_Rebel"
   },
 
   "Rise": {
     "Artist": "Flobots; ",
     "Summary": "Summary",
     "Title": "Rise",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Rise"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Rise"
   },
 
   "Run (Run Run Run)": {
     "Artist": "Flobots",
     "Summary": "Summary",
     "Title": "Run (Run Run Run)",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Run_(Run_Run_Run)"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Run_(Run_Run_Run)"
   },
 
   "Sleepwalker": {
     "Artist": "Ludlow",
     "Summary": "Summary",
     "Title": "Sleepwalker",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Sleepwalker"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Sleepwalker"
   },
 
   "Socialism or Extinction": {
     "Artist": "Marcel Cartier; ",
     "Summary": "Summary",
     "Title": "Socialism or Extinction",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Socialism_or_Extinction"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Socialism_or_Extinction"
   },
 
   "Solidarity Forever": {
     "Artist": "Tom Morello: the Nightwatchman",
     "Summary": "Summary",
     "Title": "Solidarity Forever",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Solidarity_Forever"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Solidarity_Forever"
   },
 
   "Sometimes You Have To": {
     "Artist": "Pedals On Our Pirate Ships",
     "Summary": "Summary",
     "Title": "Sometimes You Have To",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Sometimes_You_Have_To"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Sometimes_You_Have_To"
   },
 
   "Song Of The Old Communist": {
     "Artist": "Leon Rosselson",
     "Summary": "Summary",
     "Title": "Song Of The Old Communist",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Song_Of_The_Old_Communist"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Song_Of_The_Old_Communist"
   },
 
   "Song of the United Front": {
     "Artist": "Kaiser Cat Cinema",
     "Summary": "Summary",
     "Title": "Song of the United Front",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Song_of_the_United_Front"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Song_of_the_United_Front"
   },
 
   "Sound of da Police": {
     "Artist": "KRS-One",
     "Summary": "Summary",
     "Title": "Sound of da Police",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Sound_of_da_Police"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Sound_of_da_Police"
   },
 
   "Stand Up": {
     "Artist": "Flobots",
     "Summary": "Summary",
     "Title": "Stand Up",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Stand_Up"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Stand_Up"
   },
 
   "Starbucks Employee": {
     "Artist": "Monty Protest",
     "Summary": "Summary",
     "Title": "Starbucks Employee",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Starbucks_Employee"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Starbucks_Employee"
   },
 
   "Steal from Walmart": {
     "Artist": "Fire Ant Season",
     "Summary": "Summary",
     "Title": "Steal from Walmart",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Steal_from_Walmart"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Steal_from_Walmart"
   },
 
   "Take Care of Each Other": {
     "Artist": "Communism",
     "Summary": "Summary",
     "Title": "Take Care of Each Other",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Take_Care_of_Each_Other"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Take_Care_of_Each_Other"
   },
 
   "The 4th Branch": {
     "Artist": "Immortal Technique",
     "Summary": "Summary",
     "Title": "The 4th Branch",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_4th_Branch"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_4th_Branch"
   },
 
   "The Anti-Capitalistic Mentality": {
     "Artist": "Sun Rise Above",
     "Summary": "Summary",
     "Title": "The Anti-Capitalistic Mentality",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Anti-Capitalistic_Mentality"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Anti-Capitalistic_Mentality"
   },
 
   "The Bigger Picture": {
     "Artist": "Lil Baby; ",
     "Summary": "Summary",
     "Title": "The Bigger Picture",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Bigger_Picture"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Bigger_Picture"
   },
 
   "The Commonwealth of Toil": {
     "Artist": "Joe Glazer",
     "Summary": "Summary",
     "Title": "The Commonwealth of Toil",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Commonwealth_of_Toil"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Commonwealth_of_Toil"
   },
 
   "The Fine Print": {
     "Artist": "The Stupendium",
     "Summary": "Summary",
     "Title": "The Fine Print",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Fine_Print"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Fine_Print"
   },
 
   "The Guillotine": {
     "Artist": "The Coup",
     "Summary": "Summary",
     "Title": "The Guillotine",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Guillotine"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Guillotine"
   },
 
   "The Kids Are Alt-Right": {
     "Artist": "Bad Religion",
     "Summary": "Summary",
     "Title": "The Kids Are Alt-Right",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Kids_Are_Alt-Right"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Kids_Are_Alt-Right"
   },
 
   "The Left is Right": {
     "Artist": "Desaparecidos",
     "Summary": "Summary",
     "Title": "The Left is Right",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Left_is_Right"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Left_is_Right"
   },
 
   "The Poverty Of Philosophy": {
     "Artist": "Immortal Technique",
     "Summary": "Summary",
     "Title": "The Poverty Of Philosophy",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Poverty_Of_Philosophy"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Poverty_Of_Philosophy"
   },
 
   "The Revolution Will Not Be Televised": {
     "Artist": "Gil Scott-Heron",
     "Summary": "Summary",
     "Title": "The Revolution Will Not Be Televised",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Revolution_Will_Not_Be_Televised"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Revolution_Will_Not_Be_Televised"
   },
 
   "The Thieves Banquet": {
     "Artist": "Akala",
     "Summary": "Summary",
     "Title": "The Thieves Banquet",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Thieves_Banquet"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Thieves_Banquet"
   },
 
   "The Tramp": {
     "Artist": "Cisco Houston",
     "Summary": "Summary",
     "Title": "The Tramp",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=The_Tramp"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=The_Tramp"
   },
 
   "This Land is Not Our Land": {
     "Artist": "Utah Phillips",
     "Summary": "Summary",
     "Title": "This Land is Not Our Land",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=This_Land_is_Not_Our_Land"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=This_Land_is_Not_Our_Land"
   },
 
   "This Machine Kills Fascists": {
     "Artist": "Anti-Flag",
     "Summary": "Summary",
     "Title": "This Machine Kills Fascists",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=This_Machine_Kills_Fascists"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=This_Machine_Kills_Fascists"
   },
 
   "Trans-Queer Resistance": {
     "Artist": "Monty Protest",
     "Summary": "Summary",
     "Title": "Trans-Queer Resistance",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Trans-Queer_Resistance"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Trans-Queer_Resistance"
   },
 
   "Trust No Cop": {
     "Artist": "Ludlow",
     "Summary": "Summary",
     "Title": "Trust No Cop",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Trust_No_Cop"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Trust_No_Cop"
   },
 
   "Uncle Sam Goddamn": {
     "Artist": "Brother Ali",
     "Summary": "Summary",
     "Title": "Uncle Sam Goddamn",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Uncle_Sam_Goddamn"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Uncle_Sam_Goddamn"
   },
 
   "Union Town": {
     "Artist": "Tom Morello: the Nightwatchman",
     "Summary": "Summary",
     "Title": "Union Town",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Union_Town"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Union_Town"
   },
 
   "Vultures of Culture": {
     "Artist": "Nahko And Medicine For The People",
     "Summary": "Summary",
     "Title": "Vultures of Culture",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Vultures_of_Culture"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Vultures_of_Culture"
   },
 
   "War on the Workers": {
     "Artist": "Anne Feeney; ",
     "Summary": "Summary",
     "Title": "War on the Workers",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=War_on_the_Workers"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=War_on_the_Workers"
   },
 
   "We Are The Ones": {
     "Artist": "The Coup",
     "Summary": "Summary",
     "Title": "We Are The Ones",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=We_Are_The_Ones"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=We_Are_The_Ones"
   },
 
   "We Want Freedom": {
     "Artist": "Dead Prez",
     "Summary": "Summary",
     "Title": "We Want Freedom",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=We_Want_Freedom"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=We_Want_Freedom"
   },
 
   "White Flag Warrior": {
     "Artist": "Flobots; Flobots, Tim McIlrath",
     "Summary": "Summary",
     "Title": "White Flag Warrior",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=White_Flag_Warrior"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=White_Flag_Warrior"
   },
 
   "With Masks Upon Their Faces and Leaf-Blowers in Their Hands": {
     "Artist": "David Rovics",
     "Summary": "Summary",
     "Title": "With Masks Upon Their Faces and Leaf-Blowers in Their Hands",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=With_Masks_Upon_Their_Faces_and_Leaf-Blowers_in_Their_Hands"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=With_Masks_Upon_Their_Faces_and_Leaf-Blowers_in_Their_Hands"
   },
 
   "Workingman Unite": {
     "Artist": "Joe Glazer",
     "Summary": "Summary",
     "Title": "Workingman Unite",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Workingman_Unite"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Workingman_Unite"
   },
 
   "Worst Comes To Worst - Edited": {
     "Artist": "Dilated Peoples",
     "Summary": "Summary",
     "Title": "Worst Comes To Worst - Edited",
-    "Url": "https://http://${process.env.host}:5001:5001/vidChunk?id=Worst_Comes_To_Worst_-_Edited"
+    "Url": "https://https://${process.env.host}:5001:5001/vidChunk?id=Worst_Comes_To_Worst_-_Edited"
   }
 }

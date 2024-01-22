@@ -28,7 +28,7 @@ export class Kanban1 extends Component {
     console.log(`Task Added: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://http://${process.env.host}:5001/Kanban/task_add`,
+      `https://https://${process.env.host}:5001/Kanban/task_add`,
       {
         method: "POST",
         mode: "cors",
@@ -49,7 +49,7 @@ export class Kanban1 extends Component {
     console.log(`Task Updated: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://http://${process.env.host}:5001/Kanban/task_update`,
+      `https://https://${process.env.host}:5001/Kanban/task_update`,
       {
         method: "POST",
         mode: "cors",
@@ -69,7 +69,7 @@ export class Kanban1 extends Component {
     console.log(`Task Removed: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://http://${process.env.host}:5001/Kanban/task_remove`,
+      `https://https://${process.env.host}:5001/Kanban/task_remove`,
       {
         method: "POST",
         mode: "cors",
@@ -89,7 +89,7 @@ export class Kanban1 extends Component {
     console.log(`Column Added: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://http://${process.env.host}:5001/Kanban/column_add`,
+      `https://https://${process.env.host}:5001/Kanban/column_add`,
       {
         method: "POST",
         mode: "cors",
@@ -109,7 +109,7 @@ export class Kanban1 extends Component {
     console.log(`Column Updated: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://http://${process.env.host}:5001/Kanban/column_update`,
+      `https://https://${process.env.host}:5001/Kanban/column_update`,
       {
         method: "POST",
         mode: "cors",
@@ -129,7 +129,7 @@ export class Kanban1 extends Component {
     console.log(`Column Removed: ${JSON.stringify(event.detail, null, 2)}`);
 
     fetch(
-      `https://http://${process.env.host}:5001/Kanban/column_removed`,
+      `https://https://${process.env.host}:5001/Kanban/column_removed`,
       {
         method: "POST",
         mode: "cors",
