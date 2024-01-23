@@ -22,6 +22,7 @@ import Dashboard from "./basic/dashboard/Dashboard.js";
 import { Margin } from "@mui/icons-material";
 import Education from "./basic/Education.js";
 import BottomBar from "./BottomBar.js";
+import Music from "./basic/home/Music.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -102,6 +103,8 @@ export default class Layout extends React.Component {
       return <Dashboard username={this.state.username} />;
     } else if (this.state.component === "AdminDashboard") {
       return <AdminDashboard username={this.state.username} />;
+    } else if (this.state.component === "Music") {
+      return <Music/>;
     }
   };
 
@@ -122,6 +125,8 @@ export default class Layout extends React.Component {
       this.setState({ component: "Resources" });
     } else if (component === "AdminDashboard") {
       this.setState({ component: "AdminDashboard" });
+    }else if (component === "Muisc") {
+      this.setState({ component: "Music" });
     }
   };
 
@@ -134,6 +139,8 @@ export default class Layout extends React.Component {
       this.setState({ BottomBarComponent: "RSS" });
     } else if (component === "Journal") {
       this.setState({ BottomBarComponent: "Journal" });
+    } else if (component === "Music") {
+      this.setState({ BottomBarComponent: "Music" });
     }
   };
 

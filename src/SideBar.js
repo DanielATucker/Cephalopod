@@ -125,6 +125,18 @@ export default class SideBar extends React.Component {
           </Button>
         </div>
 
+        <div class="row ">
+          <Button
+            onClick={() => {
+              if (this.state) {
+                this.returnComponent("Music");
+              }
+            }}
+          >
+            Music
+          </Button>
+        </div>
+
         <div className="row ">
           <Button
             onClick={() => {
