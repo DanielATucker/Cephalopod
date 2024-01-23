@@ -1726,6 +1726,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudflare/stream-react@npm:^1.9.1":
+  version: 1.9.1
+  resolution: "@cloudflare/stream-react@npm:1.9.1"
+  peerDependencies:
+    react: ">=16"
+  checksum: 7468bdb77cee81db62f5e289ef3942fcca721ac48022402993dc3e64ecae8fd48f8f24b1b0c23e9b5428a76667054f4591e670238437e7a2ce34c23046d4771b
+  languageName: node
+  linkType: hard
+
 "@csstools/normalize.css@npm:*":
   version: 12.1.1
   resolution: "@csstools/normalize.css@npm:12.1.1"
@@ -11982,6 +11991,7 @@ __metadata:
     "@canvasjs/charts": ^3.7.27
     "@canvasjs/react-charts": ^1.0.0
     "@canvasjs/stockcharts": ^1.7.28
+    "@cloudflare/stream-react": ^1.9.1
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
     "@mui/icons-material": ^5.11.16

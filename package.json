@@ -24,6 +24,7 @@
     "@canvasjs/charts": "^3.7.27",
     "@canvasjs/react-charts": "^1.0.0",
     "@canvasjs/stockcharts": "^1.7.28",
+    "@cloudflare/stream-react": "^1.9.1",
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.11.16",
