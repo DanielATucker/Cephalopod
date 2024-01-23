@@ -147,7 +147,7 @@ export default class Layout extends React.Component {
           this.props.setadmin_created(true);
         } else {
           this.props.setadmin_created(false);
-        }
+        };
       })
       .catch((err) => {
         console.log(`Error: ${err}`);
