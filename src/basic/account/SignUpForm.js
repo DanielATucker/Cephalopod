@@ -29,7 +29,7 @@ export class SignUpForm extends Component {
 
       axios
         .put(
-          `https://${process.env.host}:5001/system/register_user`,
+          `https://${process.env.host}/system/register_user`,
           {
             password: password,
             email: email,
