@@ -139,9 +139,7 @@ export default class Layout extends React.Component {
       this.setState({ BottomBarComponent: "RSS" });
     } else if (component === "Journal") {
       this.setState({ BottomBarComponent: "Journal" });
-    } else if (component === "Music") {
-      this.setState({ BottomBarComponent: "Music" });
-    }
+    } 
   };
 
   admin_created = () => {
