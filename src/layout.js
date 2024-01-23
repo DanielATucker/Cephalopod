@@ -125,7 +125,7 @@ export default class Layout extends React.Component {
       this.setState({ component: "Resources" });
     } else if (component === "AdminDashboard") {
       this.setState({ component: "AdminDashboard" });
-    }else if (component === "Muisc") {
+    }else if (component === "Music") {
       this.setState({ component: "Music" });
     }
   };
