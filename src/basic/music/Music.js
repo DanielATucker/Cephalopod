@@ -18,6 +18,13 @@ export default class Music extends Component {
 
   getEndpoints() {
     axios
+      .get(`https://${process.env.host}/system/admin_created`, {
+        withCredentials: true,
+      }).then((data) => {
+        console.log(`ADMIN: ${data}`)
+      });
+
+    axios
       .get(`https://${process.env.host}/music/getEndpoints`, {
         withCredentials: true,
       }).then((data) => {
@@ -55,19 +62,19 @@ export default class Music extends Component {
               </Card>
               <Card>
                 <CardContent>
-                  <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for playlist!</a>
+                  <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for Spotify playlist!</a>
                 </CardContent>
               </Card>
             </>
 
             <Card>
               <CardContent>
-              <div>
-              <Stream controls src={this.state.token} />
-            </div>
+                <div>
+                  <Stream controls src={this.state.token} />
+                </div>
               </CardContent>
             </Card>
-           
+
           </CardContent>
         </Card>
       </>
