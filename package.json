@@ -41,7 +41,7 @@
     "@types/three": "^0.156.0",
     "ag-grid-community": "^30.2.1",
     "ag-grid-react": "^30.2.1",
-    "axios": "^1.5.0",
+    "axios": "^1.6.5",
     "bootstrap": "^5.3.0",
     "buffer": "^6.0.3",
     "canvasjs-react-charts": "^1.0.5",
