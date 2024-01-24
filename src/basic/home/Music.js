@@ -4,6 +4,21 @@ import { Card, CardContent } from "@mui/material";
 
 
 export class Music extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state={};
+  }
+
+  getEndpoints() => {
+    axios
+      .get(`https://${process.env.host}/music/getEndpoints`, {
+        withCredentials: true,
+      }).then((data) => {
+        console.log(data);
+      })
+  };
+
   render() {
     return (
       <>
