@@ -18,7 +18,7 @@ export default class Music extends Component {
 
   getEndpoints() {
     axios
-      .get(`https://${process.env.host}/system/admin_created`, {
+      .get(`https://${process.env.host}/music/getEndpoints`, {
         withCredentials: true,
       }).then((data) => {
         console.log(`ADMIN: ${data}`)
