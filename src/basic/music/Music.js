@@ -50,12 +50,12 @@ export default class Music extends Component {
 
             <Card>
               <CardContent>
-                <div>
-                  <Stream controls src={this.state.token} />
-                </div>
+              <div>
+              <Stream controls src={this.state.token} />
+            </div>
               </CardContent>
             </Card>
-
+           
           </CardContent>
         </Card>
       </>
