@@ -10,15 +10,6 @@ export class Music extends Component {
     this.state={};
   }
 
-  getEndpoints() => {
-    axios
-      .get(`https://${process.env.host}/music/getEndpoints`, {
-        withCredentials: true,
-      }).then((data) => {
-        console.log(data);
-      })
-  };
-
   render() {
     return (
       <>

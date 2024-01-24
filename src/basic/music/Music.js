@@ -11,7 +11,18 @@ export default class Music extends Component {
     this.state = {
       token: "47c51e41d6b1efbed0461761dcf01747"
     };
+
+    this.getEndpoints();
   }
+
+  getEndpoints() {
+    axios
+      .get(`https://${process.env.host}/music/getEndpoints`, {
+        withCredentials: true,
+      }).then((data) => {
+        console.log(data);
+      })
+  };
 
   render() {
     return (

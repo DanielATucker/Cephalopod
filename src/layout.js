@@ -22,7 +22,8 @@ import Dashboard from "./basic/dashboard/Dashboard.js";
 import { Margin } from "@mui/icons-material";
 import Education from "./basic/Education.js";
 import BottomBar from "./BottomBar.js";
-import Music from "./basic/home/music/Music.js";
+import Music from "./basic/music/Music.js";
+
 
 const darkTheme = createTheme({
   palette: {
