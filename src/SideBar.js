@@ -31,30 +31,34 @@ export default class SideBar extends React.Component {
     } else {
       return (
         <>
-          <div class="row ">
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("SignUp");
-                }
-              }}
-            >
-              {" "}
-              SignUp
-            </Button>
-          </div>
+          <div class="row" style={{ margin: 0 }}>
+            <div class="col-sm-3" style={{ margin: 0 }}>
+              <div class="row" style={{ margin: 0 }}>
+                <Button
+                  onClick={() => {
+                    if (this.state) {
+                      this.returnComponent("SignUp");
+                    }
+                  }}
+                >
+                  {" "}
+                  SignUp
+                </Button>
+              </div>
 
-          <div class="row ">
-            <Button
-              onClick={() => {
-                if (this.state) {
-                  this.returnComponent("LogIn");
-                }
-              }}
-            >
-              {" "}
-              Login
-            </Button>
+              <div class="row ">
+                <Button
+                  onClick={() => {
+                    if (this.state) {
+                      this.returnComponent("LogIn");
+                    }
+                  }}
+                >
+                  {" "}
+                  Login
+                </Button>
+              </div>
+            </div>
           </div>
         </>
       );
@@ -99,7 +103,7 @@ export default class SideBar extends React.Component {
 
   render() {
     return (
-      <div className="col sidebar"  style={{margin: 0}}>
+      <div className="col sidebar" style={{ margin: 0 }}>
         <div class="row ">
           <Button
             onClick={() => {
