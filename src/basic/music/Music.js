@@ -18,7 +18,7 @@ export default class Music extends Component {
     this.getEndpoints();
   }
 
-  getEndpoints() {
+  getEndpoints = () => {
     let playlist = {};
 
     axios
@@ -75,7 +75,13 @@ export default class Music extends Component {
                     </div>
 
                     <div class="row">
-                      <Stream controls src={this.state.token} />
+                      <Stream controls
+                        src={this.state.token}
+                        height="720"
+                        width="1280"
+                        allowfullscreen="true"
+
+                      />
 
                     </div>
                   </CardContent>
