@@ -25,7 +25,7 @@ export default class Music extends Component {
       .get(`https://${process.env.host}/music/getEndpoints`, {
         withCredentials: true,
       }).then((data) => {
-        console.log(`DATA: ${data.data}`);
+        console.log(`DATA: ${JSON.stringify(data.data, null, 2)}`);
         this.setState({ playlist: data.data });
       });
   };
