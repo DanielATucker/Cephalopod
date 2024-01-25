@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Card, CardContent } from "@mui/material";
 import { Stream } from "@cloudflare/stream-react";
 import axios from "axios";
+import { ValueService } from "ag-grid-community";
 
 
 export default class Music extends Component {
@@ -10,26 +11,23 @@ export default class Music extends Component {
     super(props);
 
     this.state = {
-      token: "47c51e41d6b1efbed0461761dcf01747"
+      token: "47c51e41d6b1efbed0461761dcf01747",
+      playlist: {}
     };
 
     this.getEndpoints();
   }
 
   getEndpoints() {
-    axios
-      .get(`https://${process.env.host}/music/getEndpoints`, {
-        withCredentials: true,
-      }).then((data) => {
-        console.log(`ADMIN: ${data}`)
-      });
+    let playlist = {};
 
     axios
       .get(`https://${process.env.host}/music/getEndpoints`, {
         withCredentials: true,
       }).then((data) => {
-        console.log(data);
-      })
+        console.log(`DATA: ${data.data}`);
+        this.setState({ playlist: data.data });
+      });
   };
 
   render() {
@@ -69,9 +67,19 @@ export default class Music extends Component {
 
             <Card>
               <CardContent>
-                <div>
-                  <Stream controls src={this.state.token} />
-                </div>
+
+                <Card>
+                  <CardContent>
+                    <div className="col-sm-3">
+                      <h1> Library</h1>
+                    </div>
+
+                    <div class="row">
+                      <Stream controls src={this.state.token} />
+
+                    </div>
+                  </CardContent>
+                </Card>
               </CardContent>
             </Card>
 
