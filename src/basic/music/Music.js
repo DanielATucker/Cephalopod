@@ -51,8 +51,8 @@ export default class Music extends Component {
           </CardContent>
         </Card>
 
-        <div>
-          <div class="col-3">
+        <div class="row">
+          <div class="col-4">
             <Playlists playlist={this.state.playlist} />
           </div>
           <div class="col">
