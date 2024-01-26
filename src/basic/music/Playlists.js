@@ -44,7 +44,7 @@ export default class Playlists extends Component {
                 </p>
 
                 <p>
-                  {this.props.playlist}
+                  {JSON.stringify(this.props.playlist, null, 2)}
                 </p>
               </CardContent>
             </Card>
