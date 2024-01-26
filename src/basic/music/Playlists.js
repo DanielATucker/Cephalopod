@@ -12,8 +12,8 @@ export default class Playlists extends Component {
   }
 
   renderSongs = () => {
-    Object.values(this.props.playlist).map((song) => {
-      <div class="row ">
+    Object.values(this.props.playlist).map((song) =>
+      <div class="row">
         <Button
           onClick={() => {
             if (this.state) {
@@ -25,7 +25,7 @@ export default class Playlists extends Component {
         </Button>
       </div>
 
-    })
+    )
   }
 
 
