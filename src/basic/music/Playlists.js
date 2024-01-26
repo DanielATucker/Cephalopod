@@ -13,19 +13,18 @@ export default class Playlists extends Component {
 
   renderSongs = () => {
     Object.values(this.props.playlist).map((song) => {
-      return (
-        <div class="row ">
-          <Button
-            onClick={() => {
-              if (this.state) {
-                this.props.returnSong(song);
-              }
-            }}
-          >
-            {JSON.stringify(song.Name)}
-          </Button>
-        </div>
-      )
+      <div class="row ">
+        <Button
+          onClick={() => {
+            if (this.state) {
+              this.props.returnSong(song);
+            }
+          }}
+        >
+          {JSON.stringify(song.Name)}
+        </Button>
+      </div>
+
     })
   }
 
