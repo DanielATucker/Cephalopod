@@ -12,7 +12,7 @@ export default class Playlists extends Component {
   }
 
   renderSongs = () => {
-    Object.values(this.props.playlist).forEach((song) => {
+    Object.values(this.props.playlist).map((song) => {
       return (
         <div class="row ">
           <Button
