@@ -29,6 +29,7 @@ export default class Music extends Component {
       }).then((data) => {
         console.log(`DATA: ${JSON.stringify(data.data, null, 2)}`);
         this.setState({ playlist: data.data });
+        this.forceUpdate();
       });
   };
 
@@ -44,7 +45,7 @@ export default class Music extends Component {
             <h4>Leftism Through Music</h4>
 
             <p>
-              80+ downloadable leftist songs
+              80+ leftist songs
             </p>
 
             <a href="https://open.spotify.com/playlist/0Of0TS1QSKmeb7G8DrR40x?si=276bb70e04c94dda" target="_blank">Click here for Spotify playlist!</a>
