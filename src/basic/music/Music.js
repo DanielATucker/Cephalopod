@@ -52,7 +52,7 @@ export default class Music extends Component {
         </Card>
 
         <div>
-          <div class="col-sm-2">
+          <div class="col-3">
             <Playlists playlist={this.state.playlist} />
           </div>
           <div class="col">
