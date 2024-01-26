@@ -35,12 +35,16 @@ export default class Playlists extends Component {
       <>
         <Card>
           <CardContent>
-            <h1>Playlists</h1>
+            <h1>Playlist</h1>
 
             <Card>
               <CardContent>
                 <p>
                   {this.renderSongs()}
+                </p>
+
+                <p>
+                  {this.props.playlist}
                 </p>
               </CardContent>
             </Card>
