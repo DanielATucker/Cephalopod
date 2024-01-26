@@ -22,7 +22,7 @@ export default class Playlists extends Component {
               }
             }}
           >
-            {song.Name()}
+            {song.Name}
           </Button>
         </div>
       )
