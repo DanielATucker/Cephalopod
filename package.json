@@ -19,7 +19,7 @@
     "dev": "webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
   },
   "dependencies": {
-    "@babel/plugin-syntax-flow": "^7.22.5",
+    "@babel/plugin-syntax-flow": "^7.23.3",
     "@babel/plugin-transform-react-jsx": "^7.22.15",
     "@canvasjs/charts": "^3.7.27",
     "@canvasjs/react-charts": "^1.0.0",
@@ -51,6 +51,7 @@
     "dotenv": "^16.3.1",
     "dotenv-webpack": "^8.0.1",
     "encoding": "^0.1.13",
+    "eslint-config-react-app": "^7.0.1",
     "fs": "^0.0.1-security",
     "fusioncharts": "^3.21.1",
     "geo-three": "^0.1.14",
