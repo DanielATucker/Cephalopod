@@ -25,7 +25,7 @@ export default class RevolutionTelevision extends Component {
             <h3>{this.props.song.Name}</h3>
 
             <Stream controls
-              src={this.props.song.url}
+              src={this.props.song.uid}
               height="720"
               width="1280"
               allowfullscreen="true" />
