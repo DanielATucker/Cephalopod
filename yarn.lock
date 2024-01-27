@@ -12043,7 +12043,7 @@ __metadata:
     react-fusioncharts: ^4.0.0
     react-helmet: ^6.1.0
     react-jvectormap: ^0.0.16
-    react-player: ^2.12.0
+    react-player: ^2.14.1
     react-pro-sidebar: ^1.1.0-alpha.1
     react-router: 6.15.0
     react-router-dom: 6.15.0
@@ -15556,7 +15556,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-player@npm:^2.12.0":
+"react-player@npm:^2.14.1":
   version: 2.14.1
   resolution: "react-player@npm:2.14.1"
   dependencies:

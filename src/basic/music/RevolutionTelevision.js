@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import { Card, CardContent } from "@mui/material";
-import { Stream } from "@cloudflare/stream-react";
-
+import ReactPlayer from 'react-player'
 
 export default class RevolutionTelevision extends Component {
   constructor(props) {
@@ -23,12 +22,11 @@ export default class RevolutionTelevision extends Component {
           <div class="row">
 
             <h3>{this.props.song.Name}</h3>
-
-            <Stream controls
-              src={this.props.song.url}
-              height="720"
-              width="1280"
-              allowfullscreen="true" />
+            <ReactPlayer 
+            url='https://www.youtube.com/watch?v=LXb3EKWsInQ' 
+            controls={true}
+            
+            />
 
           </div>
         </CardContent>
