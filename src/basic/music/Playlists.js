@@ -7,8 +7,6 @@ export default class Playlists extends Component {
     super(props);
 
     this.state = {};
-
-
   }
 
 
