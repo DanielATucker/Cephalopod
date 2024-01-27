@@ -22,7 +22,7 @@ export default class Playlists extends Component {
           }
         }}
       >
-        {JSON.stringify(song.Name)}
+        {song.Name}
       </Button>
     </div></li>);
 
