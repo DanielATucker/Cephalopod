@@ -13,7 +13,7 @@ export default class Playlists extends Component {
 
 
   render() {
-    const songsList = Object.values(this.props.playlist).map((song) => <div class="row">
+    const songsList = Object.values(this.props.playlist).map((song) => <li key={song.Name}>      <div class="row">
       <Button
         onClick={() => {
           if (this.state) {
@@ -23,7 +23,7 @@ export default class Playlists extends Component {
       >
         {JSON.stringify(song.Name)}
       </Button>
-    </div>);
+    </div></li>);
 
 
     return (
