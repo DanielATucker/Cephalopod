@@ -13,7 +13,17 @@ export default class Playlists extends Component {
 
 
   render() {
-    const songsList = Object.values(this.props.playlist).map((song) => <li key={song.Name}>{song.Name}</li>);
+    const songsList = Object.values(this.props.playlist).map((song) => <div class="row">
+      <Button
+        onClick={() => {
+          if (this.state) {
+            this.props.returnSong(song);
+          }
+        }}
+      >
+        {JSON.stringify(song.Name)}
+      </Button>
+    </div>);
 
 
     return (
@@ -25,7 +35,7 @@ export default class Playlists extends Component {
             <Card>
               <CardContent>
                 <p>
-                  {songsList}
+                  {songsListy}
                 </p>
               </CardContent>
             </Card>
