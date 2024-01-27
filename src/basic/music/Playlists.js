@@ -22,7 +22,7 @@ export default class Playlists extends Component {
         {song.Name}
         <iframe
           src={`https://customer-8dwfpc3bffzxtifb.cloudflarestream.com/${song.url}/thumbnails/thumbnail.jpg?time=1s&height=270`}
-          style="border: none; position: absolute; top: 0; left: 0; height: 100%; width: 100%;"
+          style={{ border: none, position: absolute, top: 0, left: 0, height: 100 %, width: 100 %}}
         ></iframe>
 
       </Button>
