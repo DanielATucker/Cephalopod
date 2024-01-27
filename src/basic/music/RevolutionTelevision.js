@@ -23,7 +23,7 @@ export default class RevolutionTelevision extends Component {
 
             <h3>{this.props.song.Name}</h3>
             <ReactPlayer
-              url={`https://customer-ba23880fbe114d86ebe685cad62bf9e2.cloudflarestream.com/${song.url}/manifest/video.m3u8`}
+              url={`https://customer-ba23880fbe114d86ebe685cad62bf9e2.cloudflarestream.com/${this.props.song.url}/manifest/video.m3u8`}
               controls={true}
 
             />
