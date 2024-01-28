@@ -13,20 +13,22 @@ export class Education extends Component {
         <Card variant="outlined">
           <CardContent>
             <div className="page-header">
-              <h3 className="page-title"> Education </h3>
               <nav aria-label="breadcrumb">
                 <ol className="breadcrumb">
                   <li className="breadcrumb-item">
                     <a href="!#" onClick={(event) => event.preventDefault()}>
-                      Education
+                      Home
                     </a>
                   </li>
                   <li className="breadcrumb-item active" aria-current="page">
-                    Home
+                    Education
                   </li>
                 </ol>
               </nav>
             </div>
+            
+            <h3 className="page-title"> Education </h3>
+
 
             <Card variant="outlined">
               <CardContent>

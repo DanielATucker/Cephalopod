@@ -42,7 +42,22 @@ export default class Music extends Component {
       <div class="row">
         <Card>
           <CardContent>
-            <h4>Leftism Through Music</h4>
+            <div className="page-header">
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <a href="!#" onClick={(event) => event.preventDefault()}>
+                      Home
+                    </a>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    Leftism Through Music
+                  </li>
+                </ol>
+              </nav>
+            </div>
+
+            <h3 className="page-title">Leftism Through Music</h3>
 
             <p>
               80+ leftist songs
