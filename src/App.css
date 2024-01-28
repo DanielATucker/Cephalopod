@@ -43,10 +43,6 @@
   padding-top: 60;
 }
 
-.playlist{
-  display: block;
-}
 .songCard{
-  display: block;
   max-width: 250px;
 }
