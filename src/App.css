@@ -40,6 +40,7 @@
 }
 
 .RevolutionTelevision{
-  position: relative;
-  display:inline-block;
+  position:fixed;
+  top: 250px; 
+  left: 50;
 }
