@@ -176,20 +176,25 @@ export default class Layout extends React.Component {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <div class="container">
-          {this.renderTopBar()}
 
-          <div class="col-sm-3">
-            <SideBar
-              getComponent={this.getComponent}
-              is_loggedin={this.state.is_loggedin}
-              admin_created={this.props.admin_created}
-              is_admin={this.state.is_admin}
-            />
+          <div class="row">
+
+            {this.renderTopBar()}
+
+            <div class="col-sm-3">
+              <SideBar
+                getComponent={this.getComponent}
+                is_loggedin={this.state.is_loggedin}
+                admin_created={this.props.admin_created}
+                is_admin={this.state.is_admin}
+              />
+            </div>
+
+            <div class="col">{this.renderComponent()}</div>
+
+            {this.renderBottomBar()}
           </div>
 
-          <div class="col">{this.renderComponent()}</div>
-
-          {this.renderBottomBar()}
         </div>
       </ThemeProvider>
     );
