@@ -104,7 +104,7 @@ export default class Layout extends React.Component {
     } else if (this.state.component === "AdminDashboard") {
       return <AdminDashboard username={this.state.username} />;
     } else if (this.state.component === "Music") {
-      return <Music/>;
+      return <Music />;
     }
   };
 
@@ -125,7 +125,7 @@ export default class Layout extends React.Component {
       this.setState({ component: "Resources" });
     } else if (component === "AdminDashboard") {
       this.setState({ component: "AdminDashboard" });
-    }else if (component === "Music") {
+    } else if (component === "Music") {
       this.setState({ component: "Music" });
     }
   };
@@ -139,7 +139,7 @@ export default class Layout extends React.Component {
       this.setState({ BottomBarComponent: "RSS" });
     } else if (component === "Journal") {
       this.setState({ BottomBarComponent: "Journal" });
-    } 
+    }
   };
 
   admin_created = () => {
@@ -176,24 +176,20 @@ export default class Layout extends React.Component {
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
         <div class="container">
-          <div class="row" style={{ paddingTop: 20 }}>
-            {this.renderTopBar()}
+          {this.renderTopBar()}
+
+          <div class="col-sm-3">
+            <SideBar
+              getComponent={this.getComponent}
+              is_loggedin={this.state.is_loggedin}
+              admin_created={this.props.admin_created}
+              is_admin={this.state.is_admin}
+            />
           </div>
 
-          <div class="row" style={{ marginLeft: 0 }}>
-            <div class="col-sm-3" style={{ marginLeft: 0 }}>
-              <SideBar
-                getComponent={this.getComponent}
-                is_loggedin={this.state.is_loggedin}
-                admin_created={this.props.admin_created}
-                is_admin={this.state.is_admin}
-              />
-            </div>
+          <div class="col">{this.renderComponent()}</div>
 
-            <div class="col">{this.renderComponent()}</div>
-          </div>
-
-          <div class="row bottombar">{this.renderBottomBar()}</div>
+          {this.renderBottomBar()}
         </div>
       </ThemeProvider>
     );
