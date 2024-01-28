@@ -28,7 +28,7 @@
   background-color: #121212;
   text-align: center;
   padding-top: 60;
-  position: sticky;
+  position: relative;
 }
 .sidebarWrapper {
   height: 100%;
@@ -40,5 +40,5 @@
 }
 
 .RevolutionTelevision{
-  position: sticky;
+  position: relative;
 }
