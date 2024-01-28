@@ -29,6 +29,7 @@
   text-align: center;
   padding-top: 60;
   position: relative;
+  max-width: fit-content;
 }
 .sidebarWrapper {
   height: 100%;
