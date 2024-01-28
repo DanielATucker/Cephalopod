@@ -12,7 +12,7 @@ export default class RevolutionTelevision extends Component {
 
   render() {
     return (
-      <div class="row">
+      <div class="row RevolutionTelevision">
         <Card>
           <CardContent>
             <h1> Revolution Television</h1>

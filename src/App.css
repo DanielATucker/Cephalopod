@@ -28,7 +28,7 @@
   background-color: #121212;
   text-align: center;
   padding-top: 60;
-  position: fixed;
+  position: sticky;
 }
 .sidebarWrapper {
   height: 100%;
@@ -37,4 +37,8 @@
 
 .songCard{
   max-width: 250px;
+}
+
+.RevolutionTelevision{
+  position: sticky;
 }
