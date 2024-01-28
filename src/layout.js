@@ -177,7 +177,7 @@ export default class Layout extends React.Component {
         <CssBaseline />
         <div class="container">
 
-          <div class="row">
+          <div class="row-main">
 
             {this.renderTopBar()}
 

@@ -39,7 +39,7 @@ export default class Music extends Component {
 
   render() {
     return (
-      <>
+      <div class="row">
         <Card>
           <CardContent>
             <h4>Leftism Through Music</h4>
@@ -52,14 +52,14 @@ export default class Music extends Component {
           </CardContent>
         </Card>
 
-        <div class="col-xs">
+        <div class="col">
           <Playlists playlist={this.state.playlist} returnSong={this.returnSong} />
         </div>
 
-        <div class="col-sm">
+        <div class="col">
           <RevolutionTelevision song={this.state.song} />
         </div>
-      </>
+      </div>
     );
   }
 }
