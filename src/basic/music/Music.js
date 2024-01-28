@@ -14,7 +14,7 @@ export default class Music extends Component {
     this.state = {
       token: "47c51e41d6b1efbed0461761dcf01747",
       playlist: {},
-      song: { Name: "Loading", url: "Loading" }
+      song: { Name: "Select a song", url: "Loading" }
     };
 
     this.getEndpoints();
