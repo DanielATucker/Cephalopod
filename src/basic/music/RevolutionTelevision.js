@@ -12,18 +12,20 @@ export default class RevolutionTelevision extends Component {
 
   render() {
     return (
-      <Card>
-        <CardContent>
-          <h1> Revolution Television</h1>
+      <div class="row">
+        <Card>
+          <CardContent>
+            <h1> Revolution Television</h1>
 
-          <h3>{this.props.song.Name}</h3>
-          <ReactPlayer
-            url={`https://customer-8dwfpc3bffzxtifb.cloudflarestream.com/${this.props.song.url}/manifest/video.m3u8`}
-            controls={true}
-            width="150px"
-          />
-        </CardContent>
-      </Card>
+            <h3>{this.props.song.Name}</h3>
+            <ReactPlayer
+              url={`https://customer-8dwfpc3bffzxtifb.cloudflarestream.com/${this.props.song.url}/manifest/video.m3u8`}
+              controls={true}
+              width="150px"
+            />
+          </CardContent>
+        </Card>
+      </div>
     );
   }
 }

@@ -30,7 +30,7 @@ export default class Playlists extends Component {
 
 
     return (
-      <>
+      <div class="row">
         <Card>
           <CardContent>
             <h1>Playlist</h1>
@@ -44,7 +44,7 @@ export default class Playlists extends Component {
             </Card>
           </CardContent>
         </Card>
-      </>
+      </div>
     );
   }
 }
