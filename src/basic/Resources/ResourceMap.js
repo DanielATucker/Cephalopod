@@ -64,8 +64,22 @@ export default class ResourceMap extends React.Component {
     return (
       <Card variant="outlined">
         <CardContent>
-          <h3> Resource Map</h3>
-          <br />
+        <div className="page-header">
+              <nav aria-label="breadcrumb">
+                <ol className="breadcrumb">
+                  <li className="breadcrumb-item">
+                    <a href="!#" onClick={(event) => event.preventDefault()}>
+                      Home
+                    </a>
+                  </li>
+                  <li className="breadcrumb-item active" aria-current="page">
+                    Resource map
+                  </li>
+                </ol>
+              </nav>
+            </div>
+            
+            <h3 className="page-title"> Resource Map </h3>
 
           <Card variant="outlined">
             <CardContent>
