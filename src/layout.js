@@ -180,8 +180,8 @@ export default class Layout extends React.Component {
             {this.renderTopBar()}
           </div>
 
-          <div class="row main" style={{ margin: 0 }}>
-            <div class="col-sm-3" style={{ margin: 0 }}>
+          <div class="row" style={{ marginLeft: 0 }}>
+            <div class="col-sm-3" style={{ marginLeft: 0 }}>
               <SideBar
                 getComponent={this.getComponent}
                 is_loggedin={this.state.is_loggedin}
