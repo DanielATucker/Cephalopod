@@ -52,14 +52,13 @@ export default class Music extends Component {
           </CardContent>
         </Card>
 
-        <div class="col-xs playlist">
+        <div class="col-xs">
           <Playlists playlist={this.state.playlist} returnSong={this.returnSong} />
         </div>
-        
+
         <div class="col-sm">
           <RevolutionTelevision song={this.state.song} />
         </div>
-
       </>
     );
   }

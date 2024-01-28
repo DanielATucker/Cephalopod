@@ -194,7 +194,6 @@ export default class Layout extends React.Component {
 
             {this.renderBottomBar()}
           </div>
-
         </div>
       </ThemeProvider>
     );
