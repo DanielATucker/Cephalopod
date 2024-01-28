@@ -77,34 +77,47 @@ export default class Layout extends React.Component {
 
   renderComponent = () => {
     if (this.state.component === "Home") {
-      return <Home />;
+      return <div class="row">
+        <Home /> </div>;
     } else if (this.state.component === "Education") {
-      return <Education />;
+      return <div class="row">
+        <Education /> </div>;
     } else if (this.state.component === "SignUp") {
       return (
-        <SignUpForm
-          setIs_loggedin={this.setIs_loggedin}
-          setUsername={this.setUsername}
-        />
+        <div class="row">
+
+          <SignUpForm
+            setIs_loggedin={this.setIs_loggedin}
+            setUsername={this.setUsername}
+          />
+        </div>
       );
     } else if (this.state.component === "LogIn") {
       return (
-        <Login
-          setIs_loggedin={this.setIs_loggedin}
-          setUsername={this.setUsername}
-          setIs_admin={this.setIs_admin}
-        />
+        <div class="row">
+
+          <Login
+            setIs_loggedin={this.setIs_loggedin}
+            setUsername={this.setUsername}
+            setIs_admin={this.setIs_admin}
+          />
+        </div>
       );
     } else if (this.state.component === "RegisterAdmin") {
-      return <Register_Admin admin_created={this.admin_created} />;
+      return <div class="row">
+        <Register_Admin admin_created={this.admin_created} /> </div>;
     } else if (this.state.component === "Resources") {
-      return <ResourceMap />;
+      return <div class="row">
+        <ResourceMap /> </div>;
     } else if (this.state.component === "Dashboard") {
-      return <Dashboard username={this.state.username} />;
+      return <div class="row">
+        <Dashboard username={this.state.username} /> </div>;
     } else if (this.state.component === "AdminDashboard") {
-      return <AdminDashboard username={this.state.username} />;
+      return <div class="row">
+        <AdminDashboard username={this.state.username} /> </div>;
     } else if (this.state.component === "Music") {
-      return <Music />;
+      return <div class="row">
+        <Music /> </div>;
     }
   };
 
@@ -192,7 +205,6 @@ export default class Layout extends React.Component {
 
             <div class="col">
               <div class="row">
-
                 {this.renderComponent()}
               </div>
             </div>
