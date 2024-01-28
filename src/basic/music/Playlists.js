@@ -20,6 +20,7 @@ export default class Playlists extends Component {
         }}
       >
         {song.Name}
+        </br>
         <img
           src={`https://customer-8dwfpc3bffzxtifb.cloudflarestream.com/${song.url}/thumbnails/thumbnail.jpg?time=1s&height=100`}
         >
