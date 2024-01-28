@@ -77,47 +77,34 @@ export default class Layout extends React.Component {
 
   renderComponent = () => {
     if (this.state.component === "Home") {
-      return <div class="row">
-        <Home /> </div>;
+      return <Home />;
     } else if (this.state.component === "Education") {
-      return <div class="row">
-        <Education /> </div>;
+      return <Education />;
     } else if (this.state.component === "SignUp") {
       return (
-        <div class="row">
-
-          <SignUpForm
-            setIs_loggedin={this.setIs_loggedin}
-            setUsername={this.setUsername}
-          />
-        </div>
+        <SignUpForm
+          setIs_loggedin={this.setIs_loggedin}
+          setUsername={this.setUsername}
+        />
       );
     } else if (this.state.component === "LogIn") {
       return (
-        <div class="row">
-
-          <Login
-            setIs_loggedin={this.setIs_loggedin}
-            setUsername={this.setUsername}
-            setIs_admin={this.setIs_admin}
-          />
-        </div>
+        <Login
+          setIs_loggedin={this.setIs_loggedin}
+          setUsername={this.setUsername}
+          setIs_admin={this.setIs_admin}
+        />
       );
     } else if (this.state.component === "RegisterAdmin") {
-      return <div class="row">
-        <Register_Admin admin_created={this.admin_created} /> </div>;
+      return <Register_Admin admin_created={this.admin_created} />;
     } else if (this.state.component === "Resources") {
-      return <div class="row">
-        <ResourceMap /> </div>;
+      return <ResourceMap />;
     } else if (this.state.component === "Dashboard") {
-      return <div class="row">
-        <Dashboard username={this.state.username} /> </div>;
+      return <Dashboard username={this.state.username} />;
     } else if (this.state.component === "AdminDashboard") {
-      return <div class="row">
-        <AdminDashboard username={this.state.username} /> </div>;
+      return <AdminDashboard username={this.state.username} />;
     } else if (this.state.component === "Music") {
-      return <div class="row">
-        <Music /> </div>;
+      return <Music />;
     }
   };
 
