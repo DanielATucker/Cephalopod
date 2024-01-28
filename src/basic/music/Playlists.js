@@ -11,7 +11,7 @@ export default class Playlists extends Component {
 
 
   render() {
-    const songsList = Object.values(this.props.playlist).map((song) => <li key={song.Name}>
+    const songsList = Object.values(this.props.playlist).map((song) => <li key={song.Name} class="songCard">
       <Button
         onClick={() => {
           if (this.state) {

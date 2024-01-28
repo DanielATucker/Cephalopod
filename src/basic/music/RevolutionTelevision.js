@@ -20,6 +20,7 @@ export default class RevolutionTelevision extends Component {
           <ReactPlayer
             url={`https://customer-8dwfpc3bffzxtifb.cloudflarestream.com/${this.props.song.url}/manifest/video.m3u8`}
             controls={true}
+            width="150"
           />
         </CardContent>
       </Card>

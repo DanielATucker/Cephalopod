@@ -46,3 +46,7 @@
 .playlist{
   display: block;
 }
+.songCard{
+  display: block;
+  max-width: 300;
+}
