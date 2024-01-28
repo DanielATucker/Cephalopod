@@ -54,28 +54,31 @@ export class AdminDashboard extends Component {
     ));
 
     return (
-      <div>
-        <Card variant="outlined">
-          <CardContent>
-            <h1> Admin Dashboard</h1>
+      <div class="row">
 
-            <Card>
-              <CardContent>
-                <h2> Admin Profile</h2>
-                <p> Username: {this.props.username}</p>
-              </CardContent>
-            </Card>
+        <div>
+          <Card variant="outlined">
+            <CardContent>
+              <h1> Admin Dashboard</h1>
 
-            <Card>
-              <CardContent>
-                <h2> User Profiles</h2>
-                <div class="container-fluid">
-                  <div class="row">{profiles}</div>
-                </div>
-              </CardContent>
-            </Card>
-          </CardContent>
-        </Card>
+              <Card>
+                <CardContent>
+                  <h2> Admin Profile</h2>
+                  <p> Username: {this.props.username}</p>
+                </CardContent>
+              </Card>
+
+              <Card>
+                <CardContent>
+                  <h2> User Profiles</h2>
+                  <div class="container-fluid">
+                    <div class="row">{profiles}</div>
+                  </div>
+                </CardContent>
+              </Card>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     );
   }
