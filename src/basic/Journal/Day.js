@@ -104,8 +104,32 @@ export default class Day extends Component {
             data: [
               {
                 type: "line",
-                toolTipContent: "Week",
-                dataPoints: MoodChartData.Anxiety,
+                axisYType: "secondary",
+                name: "Anxiety",
+                showInLegend: true,
+                dataPoints: [
+                MoodChartData.Anxiety],
+              },
+              {
+                type: "line",
+                axisYType: "secondary",
+                name: "Depression",                showInLegend: true,
+                dataPoints: [
+                MoodChartData.Depression],
+              },
+              {
+                type: "line",
+                axisYType: "secondary",
+                name: "Mood",                showInLegend: true,
+                dataPoints: [
+                MoodChartData.Mood],
+              },
+              {
+                type: "line",
+                axisYType: "secondary",
+                name: "Energy",                showInLegend: true,
+                dataPoints: [
+                MoodChartData.Energy],
               },
             ],
           };
