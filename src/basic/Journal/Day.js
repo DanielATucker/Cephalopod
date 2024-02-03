@@ -75,6 +75,13 @@ export default class Day extends Component {
                 let pointName = Object.keys(entry)[pointNameVal];
 
                 console.log(`PointName: ${pointName}`);
+
+                if (pointName === "x") {
+                  console.log(`Entry: ${JSON.stringify(entry, null, 2)}`);
+                  entry.x = new Date(entry.x);
+
+                  console.log(`Final Entry: ${JSON.stringify(entry, null, 2)}`);
+                }
               });
             });
             MoodChartData[moodName] = mood;
