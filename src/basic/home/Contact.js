@@ -27,26 +27,6 @@ export class Contact extends Component {
                         </CardContent>
                       </Card>
                     </div>
-                    <div className="row-centerd">
-                      <Card variant="outlined">
-                        <CardContent>
-                          <p className="font-weight-bold">Coverage</p>
-
-                          <div className="row">
-                            <div className="col">
-                              <p>USA</p>
-                            </div>
-                            <div className="col">
-                              <p>Europe</p>
-                            </div>
-
-                            <div className="col">
-                              <p>Australia</p>
-                            </div>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </div>
                   </CardContent>
                 </Card>
       </>

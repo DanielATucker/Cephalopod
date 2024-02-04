@@ -16,8 +16,6 @@ export class Social_media extends Component {
 
             <br />
 
-            <div style={{ textAlign: "center" }}>Positions</div>
-
             <div className="row">
               <div className="col">
                 <Card variant="outlined">
