@@ -30,7 +30,7 @@ export default class MoodSelector extends Component {
     console.log(`Submit ${JSON.stringify(data, null, 2)}`);
 
     axios
-      .post(`https://${process.env.host}/moodchart/in`, {
+      .post(`http://${process.env.host}/moodchart/in`, {
         data: data,
         withCredentials: true
       })

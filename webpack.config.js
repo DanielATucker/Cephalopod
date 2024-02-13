@@ -63,6 +63,8 @@ module.exports = {
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, "build"),
+    },client: {
+      overlay: false,
     },
     port: 5000,
   },

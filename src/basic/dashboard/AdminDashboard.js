@@ -20,7 +20,7 @@ export class AdminDashboard extends Component {
 
   getUserProfiles = () => {
     axios
-      .get(`https://${process.env.host}/admin/user_profiles`, {
+      .get(`http://${process.env.host}/admin/user_profiles`, {
         withCredentials: true,
       })
       .then((result) => {

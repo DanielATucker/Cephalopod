@@ -24,7 +24,7 @@ export default class Music extends Component {
     let playlist = {};
 
     axios
-      .get(`https://${process.env.host}/music/getEndpoints`, {
+      .get(`http://${process.env.host}/music/getEndpoints`, {
         withCredentials: true,
       }).then((data) => {
         console.log(`DATA: ${JSON.stringify(data.data, null, 2)}`);

@@ -51,7 +51,7 @@ export default class Day extends Component {
 
   getMoodChart = () => {
     axios
-      .put(`https://${process.env.host}/moodchart/out`, { withCredentials: true })
+      .put(`http://${process.env.host}/moodchart/out`, { withCredentials: true })
       .then((result) => {
         console.log(`MoodChartOut update: ${JSON.stringify(result.data)}`);
 

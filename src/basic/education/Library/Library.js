@@ -20,7 +20,7 @@ class Library extends Component {
 
   async getData() {
     await axios
-      .get(`https://${process.env.host}/library/all`)
+      .get(`http://${process.env.host}/library/all`)
       .then((returned) => {
         console.log(returned);
 

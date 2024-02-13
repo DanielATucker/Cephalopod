@@ -28,7 +28,7 @@ export class Register_Admin extends Component {
 
       axios
         .put(
-          `https://${process.env.host}/system/register_admin`,
+          `http://${process.env.host}/system/register_admin`,
           {
             password: password,
             email: email,
