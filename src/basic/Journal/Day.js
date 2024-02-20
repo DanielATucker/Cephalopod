@@ -5,6 +5,7 @@ import { Card, CardContent } from "@mui/material";
 import MoodChart from "./MoodChart.js";
 import MoodSelector from "./MoodSelector.js";
 import axios from "axios";
+import Tasks from "./Tasks/Tasks.js";
 
 axios.defaults.withCredentials = true;
 
@@ -46,6 +47,10 @@ export default class Day extends Component {
           },
         ],
       },
+      tasks: {
+        newTaskName: "",
+      },
+      taskList: {},
     };
   }
 
@@ -108,28 +113,28 @@ export default class Day extends Component {
                 name: "Anxiety",
                 showInLegend: true,
                 dataPoints: [
-                MoodChartData.Anxiety],
+                  MoodChartData.Anxiety],
               },
               {
                 type: "line",
                 axisYType: "secondary",
-                name: "Depression",                showInLegend: true,
+                name: "Depression", showInLegend: true,
                 dataPoints: [
-                MoodChartData.Depression],
+                  MoodChartData.Depression],
               },
               {
                 type: "line",
                 axisYType: "secondary",
-                name: "Mood",                showInLegend: true,
+                name: "Mood", showInLegend: true,
                 dataPoints: [
-                MoodChartData.Mood],
+                  MoodChartData.Mood],
               },
               {
                 type: "line",
                 axisYType: "secondary",
-                name: "Energy",                showInLegend: true,
+                name: "Energy", showInLegend: true,
                 dataPoints: [
-                MoodChartData.Energy],
+                  MoodChartData.Energy],
               },
             ],
           };
@@ -149,6 +154,27 @@ export default class Day extends Component {
       });
   };
 
+  newTaskNameChange = (TaskName) => {
+    this.setState({ tasks: { newTaskName: TaskName } });
+  };
+
+  submit = () => {
+    console.log(`Submit: ${JSON.stringify(this.props.tasks, null, 2)}`);
+    axios
+      .put(`http://${process.env.host}/Tasks/in`, {
+        task: this.props.tasks.newTaskName,
+      }, { withCredentials: true })
+      .then((result) => {
+        console.log(`Result: ${JSON.stringify(result.data, null, 2)}`);
+
+        this.setTaskList(result.data);
+      });
+  };
+
+  setTaskList = (taskList) => {
+    this.setState({ taskList: taskList });
+  };
+
   render() {
     return (
       <>
@@ -157,6 +183,7 @@ export default class Day extends Component {
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
             <MoodSelector getMoodChart={this.getMoodChart} />
             <MoodChart getMoodChart={this.getMoodChart} options={this.state.options} />
+            <Tasks day={this.props.day} tasks={this.state.tasks} newTaskNameChange={this.newTaskNameChange} taskList={this.state.taskList} setTaskList={this.setTaskList} />
           </CardContent>
         </Card>
       </>

@@ -30,6 +30,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.13.6",
     "@mui/styled-engine-sc": "^5.12.0",
+    "@mui/x-tree-view": "^6.17.0",
     "@open-wc/webpack-import-meta-loader": "^0.4.7",
     "@popperjs/core": "^2.11.8",
     "@react-three/drei": "^9.80.9",
