@@ -8,13 +8,24 @@ import Sync from "./sync/Sync.js";
 import Kanban1 from "./kanban/kanban.js";
 
 import Account from "../account/Account.js";
+import PersGPS from "./GPS/PersGPS.js";
+import { Cartesian3, Cartesian4 } from "cesium";
 
 
 export class Dashboard extends Component {
   constructor(props) {
     super(props);
-    
-    this.state = {};
+
+    this.state = {
+      live: {
+        time: null,
+        latitude: null,
+        longitude: null,
+        altitude: null,
+        altitude: null,
+        position: null,
+      }
+    };
   };
 
 
@@ -30,10 +41,29 @@ export class Dashboard extends Component {
       );
     }
   };
-  
+
+  LiveData = (data) => {
+    this.setState({
+      live: {
+        time: data.time,
+        latitude: data.lat,
+        longitude: data.lon,
+        altitude: data.alt,
+        position: Cartesian3.fromDegrees(data.lon, data.lat)
+      }
+    });
+
+    console.log(`Latitude: ${data.lat} Longitude: ${data.lon}`)
+  };
+
   render() {
-    return(
-      <Account username={this.props.username}/>
+    return (
+      <>
+        <Account username={this.props.username} />
+        <PersGPS username={this.props.username}
+          LiveData={this.LiveData}
+          live={this.state.live} />
+      </>
     )
   }
 }

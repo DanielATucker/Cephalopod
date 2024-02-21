@@ -79,6 +79,7 @@
     "react-vis": "^1.12.1",
     "resium": "^1.17.1",
     "smart-webcomponents-react": "^16.0.1",
+    "socket.io-client": "^4.7.4",
     "styled-components": "^6.0.7",
     "three": "^0.156.0",
     "typescript": "^5.2.2",
