@@ -61,7 +61,7 @@ export default class Layout extends React.Component {
 
   renderBottomBar = () => {
     if (this.state.is_loggedin === true) {
-      return <BottomBar BottomBarComponent={this.state.BottomBarComponent} />;
+      return <BottomBar BottomBarComponent={this.state.BottomBarComponent} username={this.state.username} />;
     }
   };
 

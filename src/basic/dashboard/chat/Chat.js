@@ -10,6 +10,8 @@ import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Card, CardContent } from "@mui/material";
 import axios from "axios";
 
+import { io } from "socket.io-client";
+
 import Contacts from "../contacts/contacts.js";
 
 import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
@@ -41,8 +43,25 @@ export default class Chat extends Component {
       contacts: {},
       allUsers: {},
       usersBack: {},
+      historicalData: {},
     };
   }
+
+  InitSocketIO = () => {
+    const socket = io(`http://${process.env.host}`, { resource: 'nodejs' });
+
+    socket.on("connect", () => {
+      console.log(`Socket Connected`);
+
+      socket.emit("get_historical_messages", this.props.username);
+    })
+
+    socket.on("historical_messages", (data) => {
+      console.log(`Historical Data: ${JSON.stringify(data, null, 2)}`);
+
+      this.setState({ historicalData: data });
+    })
+  };
 
   getAllUsers = (data) => {
     let usersOut = {};
@@ -174,6 +193,7 @@ export default class Chat extends Component {
 
   componentDidMount() {
     this.getMessages();
+    this.InitSocketIO();
   }
 
   render() {

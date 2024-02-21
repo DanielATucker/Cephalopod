@@ -15,7 +15,7 @@ export default class BottomBar extends React.Component {
     if (this.props.BottomBarComponent === "Music") {
       return <Music />;
     } else if (this.props.BottomBarComponent === "Messages") {
-      return <Chat />;
+      return <Chat username={this.props.username} />;
     } else if (this.props.BottomBarComponent === "RSS") {
       return <RSS />;
     } else if (this.props.BottomBarComponent === "Notifications") {

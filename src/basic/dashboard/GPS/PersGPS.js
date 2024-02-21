@@ -18,7 +18,7 @@ export default class PersGPS extends React.Component {
     };
   }
   InitSocket = () => {
-    const socket = io("http://localhost:5001", { resource: 'nodejs' });
+    const socket = io(`http://${process.env.host}`, { resource: 'nodejs' });
 
     socket.on("connect", () => {
       console.log("Connected to server");
