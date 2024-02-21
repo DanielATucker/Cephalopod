@@ -1468,6 +1468,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/polyfill@npm:^7.8.7":
+  version: 7.12.1
+  resolution: "@babel/polyfill@npm:7.12.1"
+  dependencies:
+    core-js: ^2.6.5
+    regenerator-runtime: ^0.13.4
+  checksum: 3f59a9d85a41b390b044a1be13e11ae6d8efbfcf4e07217964585c7cef337b828eecfc5e164083227189146d2b6efc1affae8f59c831438eb40b848ab6fe5f39
+  languageName: node
+  linkType: hard
+
 "@babel/preset-env@npm:^7.11.0, @babel/preset-env@npm:^7.12.1, @babel/preset-env@npm:^7.16.4, @babel/preset-env@npm:^7.22.10":
   version: 7.23.8
   resolution: "@babel/preset-env@npm:7.23.8"
@@ -1732,6 +1742,32 @@ __metadata:
     "@cesium/engine": "npm:^6.2.0"
     nosleep.js: "npm:^0.12.0"
   checksum: a0e5e5eaa36a6e10d533c85c564922a12fd124fc354b8bc30e3d3d2e6192cb13d73bf3d869b7f2aeb768c7fd2572be1dd4050a7eff99322225f0d7b923947ee1
+  languageName: node
+  linkType: hard
+
+"@chatscope/chat-ui-kit-react@npm:^1.10.1":
+  version: 1.10.1
+  resolution: "@chatscope/chat-ui-kit-react@npm:1.10.1"
+  dependencies:
+    "@chatscope/chat-ui-kit-styles": ^1.2.0
+    "@fortawesome/fontawesome-free": ^5.12.1
+    "@fortawesome/fontawesome-svg-core": ^1.2.26
+    "@fortawesome/free-solid-svg-icons": ^5.12.0
+    "@fortawesome/react-fontawesome": ^0.1.8
+    classnames: ^2.2.6
+    prop-types: ^15.7.2
+  peerDependencies:
+    prop-types: ^15.7.2
+    react: ^16.12.0 || ^17.0.0 || ^18.2.0
+    react-dom: ^16.12.0 || ^17.0.0 || ^18.2.0
+  checksum: 66bd88819375bedd54015d6fe8efa438c7373ff1f0107f713802fadbb82c4a4916a6e0dae41370083a566e335120f89f731f2da48d1f773becc52b10d60c82b2
+  languageName: node
+  linkType: hard
+
+"@chatscope/chat-ui-kit-styles@npm:^1.2.0, @chatscope/chat-ui-kit-styles@npm:^1.4.0":
+  version: 1.4.0
+  resolution: "@chatscope/chat-ui-kit-styles@npm:1.4.0"
+  checksum: f43fc7f07cf1dd457f27fe54c2bd887d31a2fe88a6f5d489d3a8d73e22bced337ae2a02ee2ce9851dd828ac01add5db02b14eca195e4e9d644f7d88398070ce7
   languageName: node
   linkType: hard
 
@@ -2185,6 +2221,50 @@ __metadata:
   version: 0.2.1
   resolution: "@floating-ui/utils@npm:0.2.1"
   checksum: 9ed4380653c7c217cd6f66ae51f20fdce433730dbc77f95b5abfb5a808f5fdb029c6ae249b4e0490a816f2453aa6e586d9a873cd157fdba4690f65628efc6e06
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-common-types@npm:^0.2.36":
+  version: 0.2.36
+  resolution: "@fortawesome/fontawesome-common-types@npm:0.2.36"
+  checksum: d604ac51da0b1597127fde70c64157b70ead6af7f2643ab7dfca268ef99d4ed0b4cc823afba206362422a622e389828408bec573df802bf4f02b118d0fa18dc8
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-free@npm:^5.12.1":
+  version: 5.15.4
+  resolution: "@fortawesome/fontawesome-free@npm:5.15.4"
+  checksum: 32281c3df4075290d9a96dfc22f72fadb3da7055d4117e48d34046b8c98032a55fa260ae351b0af5d6f6fb57a2f5d79a4abe52af456da35195f7cb7dda27b4a2
+  languageName: node
+  linkType: hard
+
+"@fortawesome/fontawesome-svg-core@npm:^1.2.26":
+  version: 1.2.36
+  resolution: "@fortawesome/fontawesome-svg-core@npm:1.2.36"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": ^0.2.36
+  checksum: 3011d8c1452b5df52a62eaee8b1ec925b9fdfabcc170fd6da5eaac7cfdef56258b9292ddd06c30f03a6a8ed6faa886565211f2e469fee3c9831c32f93e9383d8
+  languageName: node
+  linkType: hard
+
+"@fortawesome/free-solid-svg-icons@npm:^5.12.0":
+  version: 5.15.4
+  resolution: "@fortawesome/free-solid-svg-icons@npm:5.15.4"
+  dependencies:
+    "@fortawesome/fontawesome-common-types": ^0.2.36
+  checksum: eb037b703827ee37af3387a964afc7a190ff42a674ef46f4a6c295b634a38e849741eca78306b6423eaf3062d6ab1e7372aac5be2aec06f0fd9e8bd8110efcf9
+  languageName: node
+  linkType: hard
+
+"@fortawesome/react-fontawesome@npm:^0.1.8":
+  version: 0.1.19
+  resolution: "@fortawesome/react-fontawesome@npm:0.1.19"
+  dependencies:
+    prop-types: ^15.8.1
+  peerDependencies:
+    "@fortawesome/fontawesome-svg-core": ~1 || ~6
+    react: ">=16.x"
+  checksum: 77dbe1d5fa156a2ff4aa069d6c11f0ba1fcf43df72c9f03f1eec353d23798513a1f2773957a2bc3107fb8dc79fa606999ed91bf21659745bcc166abc4072819e
   languageName: node
   linkType: hard
 
@@ -6617,7 +6697,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"classnames@npm:^2.3.2":
+"classnames@npm:^2.2.6, classnames@npm:^2.3.2":
   version: 2.5.1
   resolution: "classnames@npm:2.5.1"
   checksum: da424a8a6f3a96a2e87d01a432ba19315503294ac7e025f9fece656db6b6a0f7b5003bb1fbb51cbb0d9624d964f1b9bb35a51c73af9b2434c7b292c42231c1e5
@@ -7040,6 +7120,13 @@ __metadata:
   version: 3.35.1
   resolution: "core-js-pure@npm:3.35.1"
   checksum: 2fb360757c403b1487e746bb3648c7f0be45c196640552767f4e2a55a962411a33093cd8babf5e0416de7f4c38d1b05bbaf576c0a3bf2d6565935bab749d3fb5
+  languageName: node
+  linkType: hard
+
+"core-js@npm:^2.6.5":
+  version: 2.6.12
+  resolution: "core-js@npm:2.6.12"
+  checksum: 44fa9934a85f8c78d61e0c8b7b22436330471ffe59ec5076fe7f324d6e8cf7f824b14b1c81ca73608b13bdb0fef035bd820989bf059767ad6fa13123bb8bd016
   languageName: node
   linkType: hard
 
@@ -12120,6 +12207,8 @@ __metadata:
     "@canvasjs/charts": ^3.7.27
     "@canvasjs/react-charts": ^1.0.0
     "@canvasjs/stockcharts": ^1.7.28
+    "@chatscope/chat-ui-kit-react": ^1.10.1
+    "@chatscope/chat-ui-kit-styles": ^1.4.0
     "@cloudflare/stream-react": ^1.9.1
     "@emotion/react": ^11.11.1
     "@emotion/styled": ^11.11.0
@@ -12172,6 +12261,7 @@ __metadata:
     react-folder-tree: ^5.1.1
     react-fusioncharts: ^4.0.0
     react-helmet: ^6.1.0
+    react-js-search: ^0.3.0
     react-jvectormap: ^0.0.16
     react-player: ^2.14.1
     react-pro-sidebar: ^1.1.0-alpha.1
@@ -12182,6 +12272,7 @@ __metadata:
     resium: ^1.17.1
     smart-webcomponents-react: ^16.0.1
     socket.io-client: ^4.7.4
+    strftime: ^0.10.2
     style-loader: ^3.3.3
     styled-components: ^6.0.7
     symlink-dir: ^5.2.0
@@ -15645,6 +15736,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-js-search@npm:^0.3.0":
+  version: 0.3.0
+  resolution: "react-js-search@npm:0.3.0"
+  dependencies:
+    "@babel/polyfill": ^7.8.7
+    react: ^16.0.0
+  peerDependencies:
+    react: ^16.0.0
+  checksum: eebddea3ee6ea75d2ab8cb86855beedac15f14465ff5af4f083213c56979a8190fb69d7b483e622908ddedf4b73f1ff49e009c39c003e495c854dfc39322e091
+  languageName: node
+  linkType: hard
+
 "react-jvectormap@npm:^0.0.16":
   version: 0.0.16
   resolution: "react-jvectormap@npm:0.0.16"
@@ -15891,6 +15994,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react@npm:^16.0.0":
+  version: 16.14.0
+  resolution: "react@npm:16.14.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    object-assign: ^4.1.1
+    prop-types: ^15.6.2
+  checksum: 8484f3ecb13414526f2a7412190575fc134da785c02695eb92bb6028c930bfe1c238d7be2a125088fec663cc7cda0a3623373c46807cf2c281f49c34b79881ac
+  languageName: node
+  linkType: hard
+
 "react@npm:^17.0.1":
   version: 17.0.2
   resolution: "react@npm:17.0.2"
@@ -16108,7 +16222,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"regenerator-runtime@npm:^0.13.7, regenerator-runtime@npm:^0.13.9":
+"regenerator-runtime@npm:^0.13.4, regenerator-runtime@npm:^0.13.7, regenerator-runtime@npm:^0.13.9":
   version: 0.13.11
   resolution: "regenerator-runtime@npm:0.13.11"
   checksum: 27481628d22a1c4e3ff551096a683b424242a216fee44685467307f14d58020af1e19660bf2e26064de946bad7eff28950eae9f8209d55723e2d9351e632bbb4
@@ -17253,6 +17367,13 @@ __metadata:
   dependencies:
     internal-slot: "npm:^1.0.4"
   checksum: d04173690b2efa40e24ab70e5e51a3ff31d56d699550cfad084104ab3381390daccb36652b25755e420245f3b0737de66c1879eaa2a8d4fc0a78f9bf892fcb42
+  languageName: node
+  linkType: hard
+
+"strftime@npm:^0.10.2":
+  version: 0.10.2
+  resolution: "strftime@npm:0.10.2"
+  checksum: c31cbffa2d895f5c7fa881ed3b0a74aaf87ef0e7e5e869a6c515dbfd78c2ad4391e41a89b437226d671067e32fbdffa1f80fe15317a69ab84a06b674acef6eac
   languageName: node
   linkType: hard
 
