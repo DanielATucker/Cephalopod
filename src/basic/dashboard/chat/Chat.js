@@ -34,9 +34,27 @@ export default class Chat extends Component {
     super(props);
 
     this.state = {
-      conversations: {},
+      conversations: [
+        {
+          "conversationName": "ConversationName",
+          "avatarLink": "",
+          "lastSenderName": "",
+          "info": "",
+          "unreadCnt": 0,
+          "unreadDot": "",
+          "lastActivityTime": "",
+          "messages": [{
+            message: "Your first message",
+            sentTime: "Now",
+            sender: "You",
+            avatarLink: "",
+            type: "text",
+            direction: "incomming",
+            imageContent: "",
+          }]
+        }
+      ],
       activeChat: null,
-      activeMessages: {},
       showChat: true,
       showDiscussions: false,
       showContacts: false,
@@ -59,9 +77,20 @@ export default class Chat extends Component {
     socket.on("historical_messages", (data) => {
       console.log(`Historical Data: ${JSON.stringify(data, null, 2)}`);
 
-      this.setState({ historicalData: data });
-    })
-  };
+      let conversations = [];
+
+      new Promise((resolve, reject) => {
+        Object.values(data).forEach((conversation) => {
+          conversations.push(conversation);
+          resolve();
+        })
+      }).then(() => {
+        this.setState({
+          conversations: conversations
+        })
+      });
+    });
+  }
 
   getAllUsers = (data) => {
     let usersOut = {};
@@ -140,25 +169,10 @@ export default class Chat extends Component {
     }
   };
 
-  getMessages = () => {
-    axios
-      .put(
-        `http://${process.env.host}/messages/get_messages`,
-      )
-      .then((result) => {
-        console.log(`Axios update: ${JSON.stringify(result.data, null, 2)}`);
-        this.setState({ conversations: result.data });
-      })
-      .catch((err) => {
-        console.log(`Error: ${err}`);
-      });
-  };
-
   renderChat = () => {
     if (this.state.activeChat !== null) {
-      let activeChatName = this.state.activeChat;
 
-      let messages = Object.values(this.props.activeMessages).map((message) => (
+      let messages = Object.values(this.state.activeChat.messages).map((message) => (
         <>
           <Message
             model={{
@@ -166,16 +180,16 @@ export default class Chat extends Component {
               sentTime: message.sentTime,
               sender: message.sender,
             }}
-          />
+          ><Avatar src={message.avatarLink} name={message.sender} /></Message>
         </>
       ));
 
       return (
         <ChatContainer>
           <ConversationHeader>
-            <ConversationHeader.Content>
-              <Avatar src={JSON.stringify(this.props.avatarLink)} />
-            </ConversationHeader.Content>
+
+            <p>{JSON.stringify(this.state.activeChat.conversationName)}</p>
+
           </ConversationHeader>
 
           <MessageList>{messages} </MessageList>
@@ -185,34 +199,66 @@ export default class Chat extends Component {
     }
   };
 
-  setActiveChat = (conversation) => {
-    this.props.getActiveMessages(conversation.messages);
-    this.props.getAvatarLink(conversation.avatarLink);
-    this.setState({ activeChat: conversation.conversationName });
+  setActiveChat = (conversationName) => {
+    for (let conversation of this.state.conversations) {
+      if (conversation.conversationName === conversationName) {
+        this.setState({ activeChat: conversation });
+
+
+      }
+    }
   };
 
   componentDidMount() {
-    this.getMessages();
     this.InitSocketIO();
   }
 
   render() {
-    let conversations = Object.values(this.state.conversations).map(
+    let conversations = this.state.conversations.map(
       (conversation) => (
         <Conversation
-          name={conversation.name}
+          name={conversation.conversationName}
           lastSenderName={conversation.lastSenderName}
           info={conversation.info}
           unreadCnt={conversation.unreadCnt}
           unreadDot={conversation.unreadDot}
           lastActivityTime={conversation.lastActivityTime}
-          onClick={() => this.setActiveChat(conversation)}
+          onClick={() => this.setActiveChat(conversation.conversationName)}
         >
           {" "}
           <Avatar src={conversation.avatarLink} />
         </Conversation>
       )
     );
+    
+    if (this.state.conversations !== null) {
+      let conversations = this.state.conversations.map(
+        (conversation) => (
+          <Conversation
+            name={conversation.conversationName}
+            lastSenderName={conversation.lastSenderName}
+            info={conversation.info}
+            unreadCnt={conversation.unreadCnt}
+            unreadDot={conversation.unreadDot}
+            lastActivityTime={conversation.lastActivityTime}
+            onClick={() => this.setActiveChat(conversation.conversationName)}
+          >
+            {" "}
+            <Avatar src={conversation.avatarLink} />
+          </Conversation>
+        )
+      );
+    } else {
+      let conversations = (
+        <div class="col grid-margin ">
+          <div class="card">
+            <div class="card-body">
+              <h3> No Messages </h3>
+            </div>
+          </div>
+        </div>
+      )
+    }
 
     return (
       <>
@@ -259,6 +305,23 @@ export default class Chat extends Component {
             </Menu>
           </Sidebar>
         </div>
+
+        <div class="row">
+          {this.state.showContacts && (
+            <Contacts
+              username={this.props.username}
+              allUsers={this.state.allUsers}
+              usersBack={this.state.usersBack}
+              contacts={this.state.contacts}
+              getReturnedUsers={this.getReturnedUsers}
+              clearUsers={this.clearUsers}
+              getAllContacts={this.getAllContacts}
+              getAllUsers={this.getAllUsers}
+              setActiveChat={this.setActiveChat}
+            />
+          )}
+        </div>
+
         <div class="row">
           {this.state.showChat && (
             <Card variant="outlined">
@@ -296,20 +359,6 @@ export default class Chat extends Component {
               </div>
             </div>
           )}{" "}
-        </div>
-        <div class="row">
-          {this.state.showContacts && (
-            <Contacts
-              username={this.props.username}
-              allUsers={this.state.allUsers}
-              usersBack={this.state.usersBack}
-              contacts={this.state.contacts}
-              getReturnedUsers={this.getReturnedUsers}
-              clearUsers={this.clearUsers}
-              getAllContacts={this.getAllContacts}
-              getAllUsers={this.getAllUsers}
-            />
-          )}
         </div>
       </>
     );

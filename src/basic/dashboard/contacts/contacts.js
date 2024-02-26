@@ -85,6 +85,7 @@ export class Contacts extends Component {
                 console.log(`Error: ${err}`);
             });
     };
+    
 
     componentDidMount() {
         this.getContacts();
@@ -100,7 +101,9 @@ export class Contacts extends Component {
             <Card>
                 <CardContent>
                     <h4> {contact.username}</h4>
-                    <Button> Message</Button>
+                    <Button
+                        onClick={this.props.setActiveChat(contact.username)}
+                    > Message</Button>
                 </CardContent>
             </Card>
         ));
