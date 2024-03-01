@@ -16,7 +16,7 @@ export default class Tasks extends Component {
 
   componentDidMount() {
     axios
-      .get(`http://${process.env.host}/Tasks/out`, { withCredentials: true })
+      .get(`https://${process.env.host}/Tasks/out`, { withCredentials: true })
       .then((result) => {
         console.log(`Result: ${JSON.stringify(result.data, null, 2)}`);
         this.props.setTaskList(result.data);

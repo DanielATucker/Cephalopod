@@ -66,7 +66,7 @@ export default class Chat extends Component {
   }
 
   InitSocketIO = () => {
-    const socket = io(`http://${process.env.host}`, { resource: 'nodejs' });
+    const socket = io(`https://${process.env.host}`, { resource: 'nodejs' });
 
     socket.on("connect", () => {
       console.log(`Socket Connected`);

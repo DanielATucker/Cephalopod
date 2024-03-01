@@ -56,7 +56,7 @@ export default class Day extends Component {
 
   getMoodChart = () => {
     axios
-      .put(`http://${process.env.host}/moodchart/out`, { withCredentials: true })
+      .put(`https://${process.env.host}/moodchart/out`, { withCredentials: true })
       .then((result) => {
         console.log(`MoodChartOut update: ${JSON.stringify(result.data)}`);
 
@@ -161,7 +161,7 @@ export default class Day extends Component {
   submit = () => {
     console.log(`Submit: ${JSON.stringify(this.props.tasks, null, 2)}`);
     axios
-      .put(`http://${process.env.host}/Tasks/in`, {
+      .put(`https://${process.env.host}/Tasks/in`, {
         task: this.props.tasks.newTaskName,
       }, { withCredentials: true })
       .then((result) => {

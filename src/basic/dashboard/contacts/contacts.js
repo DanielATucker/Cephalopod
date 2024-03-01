@@ -14,7 +14,7 @@ export class Contacts extends Component {
     addContact = async (contact) => {
         await axios
             .put(
-                `http://${process.env.host}/contacts/addContact`,
+                `https://${process.env.host}/contacts/addContact`,
                 {
                     username: this.props.username,
                     contact: contact,
@@ -49,7 +49,7 @@ export class Contacts extends Component {
     getUsers = async () => {
         await axios
             .put(
-                `http://${process.env.host}/contacts/get_users`,
+                `https://${process.env.host}/contacts/get_users`,
                 {
                     username: this.props.username,
                 },
@@ -69,7 +69,7 @@ export class Contacts extends Component {
     getContacts = async () => {
         await axios
             .put(
-                `http://${process.env.host}/contacts/get_contacts`,
+                `https://${process.env.host}/contacts/get_contacts`,
                 {
                     username: this.props.username,
                 },

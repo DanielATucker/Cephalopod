@@ -144,7 +144,7 @@ export default class Layout extends React.Component {
 
   admin_created = () => {
     axios
-      .get(`http://${process.env.host}/system/admin_created`, {
+      .get(`https://${process.env.host}/system/admin_created`, {
         withCredentials: true,
       })
       .then((result) => {

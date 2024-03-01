@@ -107,7 +107,7 @@ export class Sync extends Component {
   SyncChange = (fileList) => {
     console.log(`Changes: ${JSON.stringify(fileList)}`);
 
-    axios.post(`http://${process.env.host}/sync_in/syncIn`, { fileList: fileList });
+    axios.post(`https://${process.env.host}/sync_in/syncIn`, { fileList: fileList });
   };
 
   render() {

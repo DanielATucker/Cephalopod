@@ -63,10 +63,11 @@ module.exports = {
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, "build"),
-    },client: {
+    }, client: {
       overlay: false,
     },
     port: 5000,
+    allowedHosts: "all",
   },
   module: {
     // exclude node_modules

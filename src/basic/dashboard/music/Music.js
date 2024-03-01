@@ -73,7 +73,7 @@ export default class Music extends Component {
               height="10%"
               controls
               light
-              url={`http://${process.env.host}/vidChunk?id=Fuck_the_Cistem`}
+              url={`https://${process.env.host}/vidChunk?id=Fuck_the_Cistem`}
             />
 
             <div className="row">
