@@ -100,8 +100,7 @@ export class Login extends Component {
                             console.log("Clicked!");
                             this.submit();
                           }}
-                          role="button"
-                          tabIndex={0}
+                          type="button"
                         >
                           Submit
                         </Button>
