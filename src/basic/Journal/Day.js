@@ -49,6 +49,7 @@ export default class Day extends Component {
       },
       tasks: {
         newTaskName: "",
+        newSubTaskName: "",
       },
       taskList: {},
     };
@@ -69,7 +70,7 @@ export default class Day extends Component {
 
         console.log(`MoodChartData: ${JSON.stringify(MoodChartData, null, 2)}`);
 
-        if (result.data !== "No Data") {
+        if (result.data !== "No Data" && result.data.ok) {
           Object.values(result.data).forEach((mood, moodVal) => {
             let moodName = Object.keys(MoodChartData)[moodVal];
 
@@ -158,11 +159,30 @@ export default class Day extends Component {
     this.setState({ tasks: { newTaskName: TaskName } });
   };
 
+  newSubTaskNameChange = (TaskName) => {
+    this.setState({ tasks: { newSubTaskName: TaskName } });
+  };
+
+  subTaskSubmit = (task) => {
+    console.log(`Submit: ${JSON.stringify(task, null, 2)}`);
+    axios
+      .put(`https://${process.env.host}/tasks/subTaskIn`, {
+        subTaskName: this.state.tasks.newSubTaskName,
+        parent: task
+
+      }, { withCredentials: true })
+      .then((result) => {
+        console.log(`Result: ${JSON.stringify(result, null, 2)}`);
+
+        this.setTaskList(result.data);
+      });
+  }
+
   submit = () => {
     console.log(`Submit: ${JSON.stringify(this.props.tasks, null, 2)}`);
     axios
-      .put(`https://${process.env.host}/Tasks/in`, {
-        task: this.props.tasks.newTaskName,
+      .put(`https://${process.env.host}/tasks/taskIn`, {
+        taskName: this.state.tasks.newTaskName,
       }, { withCredentials: true })
       .then((result) => {
         console.log(`Result: ${JSON.stringify(result.data, null, 2)}`);
@@ -183,7 +203,7 @@ export default class Day extends Component {
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
             <MoodSelector getMoodChart={this.getMoodChart} />
             <MoodChart getMoodChart={this.getMoodChart} options={this.state.options} />
-            <Tasks day={this.props.day} tasks={this.state.tasks} newTaskNameChange={this.newTaskNameChange} taskList={this.state.taskList} setTaskList={this.setTaskList} />
+            <Tasks day={this.props.day} tasks={this.state.tasks} newTaskNameChange={this.newTaskNameChange} taskList={this.state.taskList} setTaskList={this.setTaskList} submit={this.submit} subTaskSubmit={this.subTaskSubmit} newSubTaskNameChange={this.newSubTaskNameChange} />
           </CardContent>
         </Card>
       </>

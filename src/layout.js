@@ -23,6 +23,9 @@ import { Margin } from "@mui/icons-material";
 import Education from "./basic/Education.js";
 import BottomBar from "./BottomBar.js";
 import Music from "./basic/music/Music.js";
+import { maxWidth } from "@mui/system";
+import { Card } from "react-bootstrap";
+import { CardContent } from "@mui/material";
 
 const darkTheme = createTheme({
   palette: {
@@ -175,29 +178,33 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container">
+        <div class="container main" style={{ maxWidth: 2000 }}>
+          <Card>
+            <CardContent>
 
-          <div class="row main">
 
-            {this.renderTopBar()}
-
-            <div class="col-sm-3">
-              <SideBar
-                getComponent={this.getComponent}
-                is_loggedin={this.state.is_loggedin}
-                admin_created={this.props.admin_created}
-                is_admin={this.state.is_admin}
-              />
-            </div>
-
-            <div class="col">
               <div class="row">
-                {this.renderComponent()}
-              </div>
-            </div>
 
-            {this.renderBottomBar()}
-          </div>
+                {this.renderTopBar()}
+
+                <div class="col" style={{ maxWidth: "10%" }}>
+                  <SideBar
+                    getComponent={this.getComponent}
+                    is_loggedin={this.state.is_loggedin}
+                    admin_created={this.props.admin_created}
+                    is_admin={this.state.is_admin}
+                  />
+                </div>
+
+                <div class="col">
+                  {this.renderComponent()}
+                </div>
+
+                {this.renderBottomBar()}
+
+              </div>
+            </CardContent>
+          </Card>
         </div>
       </ThemeProvider>
     );

@@ -16,7 +16,9 @@ export default class Tasks extends Component {
 
   componentDidMount() {
     axios
-      .get(`https://${process.env.host}/Tasks/out`, { withCredentials: true })
+      .get(`https://${process.env.host}/tasks/out`, {
+        withCredentials: true
+      })
       .then((result) => {
         console.log(`Result: ${JSON.stringify(result.data, null, 2)}`);
         this.props.setTaskList(result.data);
@@ -31,6 +33,21 @@ export default class Tasks extends Component {
           nodeId={task.id}
           label={task.name}
         >
+          <Card>
+            <CardContent>
+              <Button onClick={(event) => {
+                this.props.subTaskSubmit(task);
+              }}>
+                Add Subtask
+              </Button>
+
+              <TextField
+                onChange={(event) => {
+                  this.props.newSubTaskNameChange(event.target.value);
+                }}
+              />
+            </CardContent>
+          </Card>
         </TreeItem>
       );
     });
