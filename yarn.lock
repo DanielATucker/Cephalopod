@@ -1628,6 +1628,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.20.6, @babel/runtime@npm:^7.4.2":
+  version: 7.24.0
+  resolution: "@babel/runtime@npm:7.24.0"
+  dependencies:
+    regenerator-runtime: ^0.14.0
+  checksum: 7a6a5d40fbdd68491ec183ba2e631c07415119960083b4fd76564cce3751e9acd2f12ab89575e38496fa389fa06d458732776e69ee1858e366cc3fbdb049f847
+  languageName: node
+  linkType: hard
+
 "@babel/runtime@npm:^7.23.9":
   version: 7.23.9
   resolution: "@babel/runtime@npm:7.23.9"
@@ -6652,6 +6661,13 @@ __metadata:
   peerDependencies:
     three: ">=0.126.1"
   checksum: 33d5429459e44adfab3d79f6ede984b5b7a56764a62d105178ff5f8ef45dc383a1f03b1038d77349eb23deb66838515970d4a96e85bdd2a3e44c02c801452f1a
+  languageName: node
+  linkType: hard
+
+"can-use-dom@npm:^0.1.0":
+  version: 0.1.0
+  resolution: "can-use-dom@npm:0.1.0"
+  checksum: 488fc94c40f2fcce46ebd41abf17ef0449acf0d6b145116036cd592a8e977e5729918d4b3b7c642ce7b1f5b83d330ade39a172cf6b6ef91093785991a868b308
   languageName: node
   linkType: hard
 
@@ -12401,6 +12417,8 @@ __metadata:
     react-device-detect: ^2.2.3
     react-dom: ^18.2.0
     react-dropzone: ^14.2.3
+    react-facebook: ^9.0.12
+    react-facebook-w: ^8.0.4
     react-folder-tree: ^5.1.1
     react-fusioncharts: ^4.0.0
     react-helmet: ^6.1.0
@@ -15803,6 +15821,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-facebook-w@npm:^8.0.4":
+  version: 8.0.4
+  resolution: "react-facebook-w@npm:8.0.4"
+  dependencies:
+    "@babel/runtime": ^7.4.2
+    can-use-dom: ^0.1.0
+    react-spinner-children: ^1.0.8
+  peerDependencies:
+    react: ">= 16.8.0"
+  checksum: 402dfd065e425812778364df9d04a962405ab3ee6e75b6e63a084b4a37d3a53995afeb429413129b0fd79042d588183b7a60a76a3bd0f1cfbf4a452b60a2d350
+  languageName: node
+  linkType: hard
+
+"react-facebook@npm:^9.0.12":
+  version: 9.0.12
+  resolution: "react-facebook@npm:9.0.12"
+  dependencies:
+    "@babel/runtime": ^7.20.6
+  peerDependencies:
+    react: ">= 16"
+  checksum: b97c0f8f18d79d1173f944bed707f7b47fe01efaf37aee90bab5c6da8ad0f8015f51e7d7094c03cda38de8819269e825d835a74cef754fb4c22b34344f48a310
+  languageName: node
+  linkType: hard
+
 "react-fast-compare@npm:^3.0.1, react-fast-compare@npm:^3.1.1":
   version: 3.2.2
   resolution: "react-fast-compare@npm:3.2.2"
@@ -16079,6 +16121,18 @@ __metadata:
   peerDependencies:
     react: ^16.3.0 || ^17.0.0 || ^18.0.0
   checksum: c5eb1f42b464fb093bca59aaae0f1b2060373a2aaff95275b8781493628cdbbb6acdd6014e7883782c65c361f35a30f28cc515d68a1263ddb39cbbc47110be53
+  languageName: node
+  linkType: hard
+
+"react-spinner-children@npm:^1.0.8":
+  version: 1.0.8
+  resolution: "react-spinner-children@npm:1.0.8"
+  dependencies:
+    prop-types: ^15.6.0
+    spin.js: ^2.3.2
+  peerDependencies:
+    react: 15.x || 16.x
+  checksum: 6697b98566e522866077c5336d34d17ae212a7b7c1ecc02c5e77828c2b582eaff5f3fa1f6866b43521475788e2f6af9965bad32221f59bbee566c9d29449126f
   languageName: node
   linkType: hard
 
@@ -17400,6 +17454,13 @@ __metadata:
     select-hose: "npm:^2.0.0"
     spdy-transport: "npm:^3.0.0"
   checksum: 2c739d0ff6f56ad36d2d754d0261d5ec358457bea7cbf77b1b05b0c6464f2ce65b85f196305f50b7bd9120723eb94bae9933466f28e67e5cd8cde4e27f1d75f8
+  languageName: node
+  linkType: hard
+
+"spin.js@npm:^2.3.2":
+  version: 2.3.2
+  resolution: "spin.js@npm:2.3.2"
+  checksum: e064bec3568190de3c94ec1ecc09a5a03470e86402bfbdc48da4c0e524fba42142f36ed6336bdb3549014237b993316acb182242b5028b5ce3bc74fc095b2260
   languageName: node
   linkType: hard
 

@@ -16,7 +16,7 @@ import React, { useEffect } from "react";
 import SideBar from "./SideBar.js";
 import axios from "axios";
 import ResourceMap from "./basic/Resources/ResourceMap.js";
-import AdminDashboard from "./basic/dashboard/AdminDashboard.js";
+import AdminDashboard from "./basic/dashboard/AdminDashboard/AdminDashboard.js";
 import TopBar from "./Topbar.js";
 import Dashboard from "./basic/dashboard/Dashboard.js";
 import { Margin } from "@mui/icons-material";
