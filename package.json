@@ -15,7 +15,7 @@
   "scripts": {
     "start": "set HTTPS=true&&webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",
-    "serve": "webpack --mode=production --config webpack.config.js",
+    "serve": "HTTPS=true && webpack serve --mode=production --config webpack.config.js",
     "dev": " HTTPS=true && webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
   },
   "dependencies": {
@@ -63,6 +63,7 @@
     "nodemailer": "^6.9.3",
     "os": "^0.1.2",
     "path": "^0.12.7",
+    "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-calendar": "^4.6.1",
@@ -82,6 +83,7 @@
     "react-router": "6.15.0",
     "react-router-dom": "6.15.0",
     "react-scripts": "^5.0.1",
+    "react-simple-code-editor": "^0.13.1",
     "react-vis": "^1.12.1",
     "resium": "^1.17.1",
     "smart-webcomponents-react": "^16.0.1",
@@ -109,7 +111,7 @@
     "prettier": "^3.0.2",
     "style-loader": "^3.3.3",
     "symlink-dir": "^5.2.0",
-    "webpack": "^5.88.2",
+    "webpack": "^5.90.3",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },

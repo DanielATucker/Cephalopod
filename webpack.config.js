@@ -8,6 +8,9 @@ const cesiumWorkers = "../Build/Cesium/Workers";
 const CopywebpackPlugin = require("copy-webpack-plugin");
 const Visualizer = require("webpack-visualizer-plugin2");
 const Dotenv = require('dotenv-webpack');
+const fs = require("fs");
+
+
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -68,6 +71,10 @@ module.exports = {
     },
     port: 5000,
     allowedHosts: "all",
+    https: {
+      key: fs.readFileSync(".ssl/home.tail5cd89.ts.net.key"),
+      cert: fs.readFileSync(".ssl/home.tail5cd89.ts.net.crt"),
+    },
   },
   module: {
     // exclude node_modules

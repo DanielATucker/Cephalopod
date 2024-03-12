@@ -70,7 +70,7 @@ export default class Layout extends React.Component {
 
   renderTopBar = () => {
     if (this.state.is_loggedin === true) {
-      return <TopBar getBottomComponent={this.getBottomComponent} />;
+      return <TopBar getBottomComponent={this.getBottomComponent}/>;
     }
   };
 

@@ -57,7 +57,7 @@ export default class Tasks extends Component {
   render() {
     return (
       <>
-        <Card>
+        <Card variant="outlined">
           <CardContent>
             <h1>Tasks</h1>
 

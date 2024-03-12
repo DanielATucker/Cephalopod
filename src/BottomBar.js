@@ -21,7 +21,7 @@ export default class BottomBar extends React.Component {
     } else if (this.props.BottomBarComponent === "Notifications") {
       return <h1> Notifications</h1>;
     } else if (this.props.BottomBarComponent === "Journal") {
-      return <Journal />;
+      return <Journal username={this.props.username} />;
     }
   };
 

@@ -31,7 +31,7 @@ export default class Journal extends Component {
 
           <br />
 
-          <Day day={this.state.dateSelected} />
+          <Day day={this.state.dateSelected} username={this.props.username} />
         </CardContent>
       </Card>
     );

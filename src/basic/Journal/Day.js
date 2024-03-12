@@ -6,6 +6,8 @@ import MoodChart from "./MoodChart.js";
 import MoodSelector from "./MoodSelector.js";
 import axios from "axios";
 import Tasks from "./Tasks/Tasks.js";
+import TextArea from "./TextArea/TextArea.js";
+import strftime from "strftime";
 
 axios.defaults.withCredentials = true;
 
@@ -52,7 +54,17 @@ export default class Day extends Component {
         newSubTaskName: "",
       },
       taskList: {},
+      entry: {},
     };
+  }
+
+  updateDailyEntry = (entry, socket) => {
+    this.setState({ entry: entry });
+
+    socket.emit("TextArea_DailyEntry", {
+      entry: entry,
+      date: strftime("%y%m%d"),
+    });
   }
 
   getMoodChart = () => {
@@ -203,6 +215,8 @@ export default class Day extends Component {
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
             <MoodSelector getMoodChart={this.getMoodChart} />
             <MoodChart getMoodChart={this.getMoodChart} options={this.state.options} />
+            <TextArea entry={this.state.entry} updateDailyEntry={this.updateDailyEntry} day={this.props.day} getMoodChart={this.getMoodChart} username={this.props.username} />
+
             <Tasks day={this.props.day} tasks={this.state.tasks} newTaskNameChange={this.newTaskNameChange} taskList={this.state.taskList} setTaskList={this.setTaskList} submit={this.submit} subTaskSubmit={this.subTaskSubmit} newSubTaskNameChange={this.newSubTaskNameChange} />
           </CardContent>
         </Card>
