@@ -16,6 +16,7 @@ export default class Journal extends Component {
 
   onDateChange = (data) => {
     console.log(`Date Data: ${data}`);
+    this.setState({ dateSelected: data });
   };
 
   render() {

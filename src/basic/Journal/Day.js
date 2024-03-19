@@ -20,6 +20,7 @@ var dateOptions = {
   hour12: false,
 };
 
+
 export default class Day extends Component {
   constructor(props) {
     super(props);
@@ -54,18 +55,21 @@ export default class Day extends Component {
         newSubTaskName: "",
       },
       taskList: {},
-      entry: {},
+      entry: "",
     };
   }
 
-  updateDailyEntry = (entry, socket) => {
-    this.setState({ entry: entry });
+  updateEntry = (entry, socket) => {
+    if ((entry !== this.state.entry && entry !== "Not Initalized")) {
+      this.setState({ entry: entry })
 
-    socket.emit("TextArea_DailyEntry", {
-      entry: entry,
-      date: strftime("%y%m%d"),
-    });
+      socket.emit("TextArea_Entry", ({
+        entry: entry,
+        date: strftime("%y%m%d", this.props.day)
+      }));
+    }
   }
+
 
   getMoodChart = () => {
     axios
@@ -215,7 +219,7 @@ export default class Day extends Component {
             <h1>Day {this.props.day.toLocaleDateString(dateOptions)}</h1>
             <MoodSelector getMoodChart={this.getMoodChart} />
             <MoodChart getMoodChart={this.getMoodChart} options={this.state.options} />
-            <TextArea entry={this.state.entry} updateDailyEntry={this.updateDailyEntry} day={this.props.day} getMoodChart={this.getMoodChart} username={this.props.username} />
+            <TextArea entry={this.state.entry} updateEntry={this.updateEntry} day={this.props.day} getMoodChart={this.getMoodChart} username={this.props.username} />
 
             <Tasks day={this.props.day} tasks={this.state.tasks} newTaskNameChange={this.newTaskNameChange} taskList={this.state.taskList} setTaskList={this.setTaskList} submit={this.submit} subTaskSubmit={this.subTaskSubmit} newSubTaskNameChange={this.newSubTaskNameChange} />
           </CardContent>
