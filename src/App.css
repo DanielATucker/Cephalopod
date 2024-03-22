@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+}
+
+.main {
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.sidebar {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #121212;
+  text-align: center;
+  padding-top: 60;
+  position: relative;
+  max-width: fit-content;
+}
+.sidebarWrapper {
+  height: 100%;
+  padding-top: 60;
+}
+
+.songCard{
+  max-width: 250px;
+}
+
+.RevolutionTelevision{
+  position: fixed;
+  z-index: 1;
+  align-self: center;
+}
