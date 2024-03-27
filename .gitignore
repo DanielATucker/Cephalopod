@@ -21,8 +21,8 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-
-*/Revolution
-*/logs
-/database/*
-ports.txt
+/package-lock.json
+/ssl
+ssl/LMG_cert.pem
+ssl/LMG_key.pem
+WebpackStatistics.html
