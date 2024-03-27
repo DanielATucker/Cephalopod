@@ -20,7 +20,7 @@ export default class SundaySocial extends Component {
 
             <h3>Revolution Television</h3>
             <ReactPlayer
-              url={process.env.socialHost}
+              url={`https://home.tail5cd89.ts.net:8445/live/SundaySocial.flv`}
               controls={true}
               width="500px"
               height="500px"
