@@ -44,6 +44,7 @@ const darkTheme = createTheme({
           borderRadius: 2,
           position: "relative",
           zIndex: 0,
+          backgroundColor: "black"
         },
       },
     },
@@ -183,11 +184,9 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container main" style={{ maxWidth: 2000 }}>
+        <div class="container">
           <Card>
             <CardContent>
-
-
               <div class="row">
 
                 {this.renderTopBar()}

@@ -27,7 +27,9 @@ export default class BottomBar extends React.Component {
 
   render() {
     return (
-      <div class="row">{this.renderBottomComponent()}</div>
+      <>
+        {this.renderBottomComponent()}
+      </>
     );
   }
 }
