@@ -26,6 +26,7 @@ import Music from "./basic/music/Music.js";
 import { maxWidth } from "@mui/system";
 import { Card } from "react-bootstrap";
 import { CardContent } from "@mui/material";
+import SundaySocial from "./basic/dashboard/SundaySocial/SundaySocial.js";
 
 const darkTheme = createTheme({
   palette: {
@@ -70,7 +71,7 @@ export default class Layout extends React.Component {
 
   renderTopBar = () => {
     if (this.state.is_loggedin === true) {
-      return <TopBar getBottomComponent={this.getBottomComponent}/>;
+      return <TopBar getBottomComponent={this.getBottomComponent} />;
     }
   };
 
@@ -108,6 +109,8 @@ export default class Layout extends React.Component {
       return <AdminDashboard username={this.state.username} />;
     } else if (this.state.component === "Music") {
       return <Music />;
+    } else if (this.state.component === "SundaySocial") {
+      return <SundaySocial />;
     }
   };
 
@@ -130,6 +133,8 @@ export default class Layout extends React.Component {
       this.setState({ component: "AdminDashboard" });
     } else if (component === "Music") {
       this.setState({ component: "Music" });
+    } else if (component === "SundaySocial") {
+      this.setState({ component: "SundaySocial" });
     }
   };
 

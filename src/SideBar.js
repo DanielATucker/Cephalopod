@@ -132,7 +132,9 @@ export default class SideBar extends React.Component {
             >
               Music
             </Button>
-          </div><div className="row ">
+          </div>
+
+          <div className="row ">
             <Button
               onClick={() => {
                 if (this.state) {
@@ -147,6 +149,18 @@ export default class SideBar extends React.Component {
           {this.renderAccount()}
           {this.renderAdminDashboard()}
           {this.renderCreateAdmin()}
+
+          <div class="row ">
+            <Button
+              onClick={() => {
+                if (this.state) {
+                  this.returnComponent("SundaySocial");
+                }
+              }}
+            >
+              Sunday Social
+            </Button>
+          </div>
         </CardContent>
       </Card>
     );
