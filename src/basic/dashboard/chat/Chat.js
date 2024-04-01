@@ -201,8 +201,6 @@ export default class Chat extends Component {
     for (let conversation of this.state.conversations) {
       if (conversation.conversationName === conversationName) {
         this.setState({ activeChat: conversation });
-
-
       }
     }
   };
@@ -261,29 +259,10 @@ export default class Chat extends Component {
     return (
       <Card variant="outlined">
         <CardContent>
-          <div class="col">
+          <div class="row">
+
             <Sidebar style={{ height: "50vh" }}>
               <Menu>
-                <MenuItem
-                  icon={<MenuOutlinedIcon />}
-                  onClick={() => {
-                    this.collapseSidebar();
-                  }}
-                  style={{ textAlign: "center" }}
-                >
-                  Discussions & Chat
-                </MenuItem>
-
-                <MenuItem
-                  icon={<HomeOutlinedIcon />}
-                  onClick={() => {
-                    this.showDiscussions();
-                  }}
-                >
-                  Discussions
-                </MenuItem>
-                <MenuItem icon={<ReceiptOutlinedIcon />}>New Discussion</MenuItem>
-
                 <MenuItem
                   icon={<PeopleOutlinedIcon />}
                   onClick={() => {
@@ -303,9 +282,7 @@ export default class Chat extends Component {
                 </MenuItem>
               </Menu>
             </Sidebar>
-          </div>
 
-          <div class="col">
             {this.state.showContacts && (
               <Contacts
                 username={this.props.username}
@@ -319,46 +296,27 @@ export default class Chat extends Component {
                 setActiveChat={this.setActiveChat}
               />
             )}
-          </div>
 
-          <div class="col">
             {this.state.showChat && (
               <Card variant="outlined">
                 <CardContent>
-                  <div style={{ height: "500px" }}>
-                    <MainContainer>
-                      <div class="col-6">
-                        <br />
+                  <MainContainer>
+                    <div class="col-6">
+                      <br />
 
-                        <div class="col">
-                          <h4> Chat </h4>
-                        </div>
-
-                        <div class="col">
-                          <div class="col">
-                            <ConversationList>{conversations}</ConversationList>
-                          </div>
-                        </div>
+                      <div class="col">
+                        <h4> Chat </h4>
                       </div>
-                      <div class="col">{this.renderChat()}</div>
-                    </MainContainer>
-                  </div>
+
+                      <div class="col">
+                        <ConversationList>{conversations}</ConversationList>
+                      </div>
+                    </div>
+                    {this.renderChat()}
+                  </MainContainer>
                 </CardContent>
               </Card>
-            )}{" "}
-          </div>{" "}
-
-          <div class="col">
-            {this.state.showDiscussions && (
-              <div class="col grid-margin ">
-                <div class="card">
-                  <div class="card-body">
-                    <h3> End of Discussions </h3>
-                    <p> Ask a question or post a new topic to discuss </p>
-                  </div>
-                </div>
-              </div>
-            )}{" "}
+            )}
           </div>
         </CardContent>
       </Card>

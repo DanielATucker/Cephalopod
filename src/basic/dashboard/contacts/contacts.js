@@ -85,7 +85,7 @@ export class Contacts extends Component {
                 console.log(`Error: ${err}`);
             });
     };
-    
+
 
     componentDidMount() {
         this.getContacts();
@@ -128,16 +128,15 @@ export class Contacts extends Component {
         );
 
         return (
-            <>
-                <div class="col">
+            <Card>
+                <CardContent>
                     <Card>
                         <CardContent>
                             <h1>Contacts</h1>
                             {contacts}
                         </CardContent>
                     </Card>
-                </div>
-                <div class="col">
+
                     <Card>
                         <CardContent>
                             <h1> Add New Contact</h1>
@@ -150,8 +149,8 @@ export class Contacts extends Component {
                             {returnedContacts}
                         </CardContent>
                     </Card>
-                </div>
-            </>
+                </CardContent>
+            </Card>
         );
     }
 }
