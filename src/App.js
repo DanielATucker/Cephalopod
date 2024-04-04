@@ -17,10 +17,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <Layout
-        admin_created={this.state.admin_created}
-        setadmin_created={this.setadmin_created}
-      />
+      <>
+        <Layout
+          admin_created={this.state.admin_created}
+          setadmin_created={this.setadmin_created}
+        />
+
+      </>
     );
   }
 }

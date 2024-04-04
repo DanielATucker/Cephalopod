@@ -31,17 +31,33 @@
   position: relative;
   max-width: fit-content;
 }
+
 .sidebarWrapper {
   height: 100%;
   padding-top: 60;
 }
 
-.songCard{
+.songCard {
   max-width: 250px;
 }
 
-.RevolutionTelevision{
+.RevolutionTelevision {
   position: fixed;
   z-index: 1;
   align-self: center;
+}
+
+.PMSDiscordCol {
+  width: 20;
+  padding: 2;
+  height: 200;
+}
+
+.tro {
+  border-color: red;
+  border-width: 1px;
+  padding-top: 10px;
+  padding-bottom: 15px;
+  padding-left: 30px;
+  padding-right: 40px;
 }

@@ -10,7 +10,6 @@ const Visualizer = require("webpack-visualizer-plugin2");
 const Dotenv = require('dotenv-webpack');
 const fs = require("fs");
 
-
 module.exports = {
   entry: "./src/index.js",
   output: {
@@ -88,9 +87,8 @@ module.exports = {
           cacheDirectory: true,
         },
       },
-
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: ["style-loader", "css-loader"],
       },
     ],

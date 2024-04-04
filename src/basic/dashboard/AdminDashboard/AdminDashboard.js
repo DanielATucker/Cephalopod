@@ -9,15 +9,15 @@ import Kanban1 from "../kanban/kanban.js";
 import { Card, CardContent } from "@mui/material";
 import axios from "axios";
 import Socials from "./Socials/Socials.js";
+import PersonnelManagementSoftware from "./PMS/PMS.js";
 
 export class AdminDashboard extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      userProfiles: [],
       socials: null,
-      NewSocialName: null,
+      newSocialName: null,
       socialSearchResult: null,
     };
   }
@@ -50,43 +50,9 @@ export class AdminDashboard extends Component {
       });
   }
 
-  getUserProfiles = () => {
-    axios
-      .get(`https://${process.env.host}/admin/user_profiles`, {
-        withCredentials: true,
-      })
-      .then((result) => {
-        this.setState({ userProfiles: result.data.userProfiles });
-      })
-      .catch((err) => {
-        console.log(`Error: ${err}`);
-      });
-  };
-
-  componentDidMount() {
-    this.getUserProfiles();
-  }
-
   render() {
-    let profiles = Object.values(this.state.userProfiles).map((user) => (
-      <div className="col">
-        <Card variant="outlined">
-          <CardContent>
-            <h3> {user.username} </h3>
-            <br />
-
-            <p> Is Admin: {user.is_admin}</p>
-            <p> Account Created: {user.registerTime}</p>
-            <p> Email: {user.email}</p>
-            <p> Tasks: {JSON.stringify(user.tasks, null, 2)}</p>
-            <p> Files: {JSON.stringify(user.files, null, 2)}</p>
-          </CardContent>
-        </Card>
-      </div>
-    ));
-
     return (
-      <div class="row">
+      <div class="col">
 
         <div>
           <Card variant="outlined">
@@ -100,6 +66,8 @@ export class AdminDashboard extends Component {
                 </CardContent>
               </Card>
 
+              <PersonnelManagementSoftware />
+
               <Card>
                 <CardContent>
                   <Socials socials={this.state.socials}
@@ -109,15 +77,6 @@ export class AdminDashboard extends Component {
                     newSocialName={this.state.newSocialName}
                     socialSearchResult={this.state.socialSearchResult}
                   />
-                </CardContent>
-              </Card>
-
-              <Card>
-                <CardContent>
-                  <h2> User Profiles</h2>
-                  <div class="container-fluid">
-                    <div class="row">{profiles}</div>
-                  </div>
                 </CardContent>
               </Card>
             </CardContent>
