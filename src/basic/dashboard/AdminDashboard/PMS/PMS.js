@@ -36,7 +36,7 @@ export default class PersonnelManagementSoftware extends Component {
       <div className="col">
         <Card>
           <CardContent>
-            <h1>PersonnelManagementSoftware</h1>
+            <h1>Personnel Management Software</h1>
 
             <PMSDiscord />
 

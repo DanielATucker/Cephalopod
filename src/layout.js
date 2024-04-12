@@ -28,28 +28,7 @@ import { Card } from "react-bootstrap";
 import { CardContent } from "@mui/material";
 import SundaySocial from "./basic/dashboard/SundaySocial/SundaySocial.js";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "dark",
-    primary: red,
-  },
-  components: {
-    // Name of the component
-    MuiCard: {
-      styleOverrides: {
-        // Name of the slot
-        root: {
-          // Some CSS
-          borderColor: "red",
-          borderRadius: 2,
-          position: "relative",
-          zIndex: 0,
-          backgroundColor: "black"
-        },
-      },
-    },
-  },
-});
+import { darkTheme } from "./Theme.js";
 
 export default class Layout extends React.Component {
   constructor(props) {

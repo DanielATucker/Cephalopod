@@ -48,16 +48,10 @@
 }
 
 .PMSDiscordCol {
-  width: 20;
-  padding: 2;
-  height: 200;
-}
-
-.tro {
   border-color: red;
   border-width: 1px;
-  padding-top: 10px;
-  padding-bottom: 15px;
-  padding-left: 30px;
-  padding-right: 40px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 13px;
+  width: 110px;
 }
