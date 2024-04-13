@@ -30,6 +30,9 @@ import SundaySocial from "./basic/dashboard/SundaySocial/SundaySocial.js";
 
 import { darkTheme } from "./Theme.js";
 
+import queryString from 'query-string';
+import { useLocation } from 'react-router-dom';
+
 export default class Layout extends React.Component {
   constructor(props) {
     super(props);
@@ -37,10 +40,11 @@ export default class Layout extends React.Component {
     this.state = {
       is_loggedin: "Not initalized",
       username: "Not initalized",
-      component: "Home",
       is_admin: null,
+      component: "Home",
       BottomBarComponent: null,
     };
+
   }
 
   renderBottomBar = () => {
@@ -157,6 +161,17 @@ export default class Layout extends React.Component {
 
   componentDidMount() {
     this.admin_created();
+    const loc = document.location;
+
+    let location = loc.pathname.replace("/", "")
+
+    if (location === "") {
+      location = "Home"
+    }
+
+    this.setState({
+      component: location
+    })
   }
 
   render() {
