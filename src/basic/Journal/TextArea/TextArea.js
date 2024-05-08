@@ -16,7 +16,7 @@ export default class TextArea extends Component {
   constructor(props) {
     super(props);
 
-    this.socket = io("wss://home.tail5cd89.ts.net:5001", {
+    this.socket = io("wss://home.tail5cd89.ts.net:5501", {
       withCredentials: true
     })
 

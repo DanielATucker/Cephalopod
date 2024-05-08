@@ -93,9 +93,6 @@ export class Contacts extends Component {
     }
 
     render() {
-        console.log(`UsersBack: ${JSON.stringify(this.props.usersBack, null, 2)}`);
-
-        console.log(`Contacts: ${JSON.stringify(this.props.contacts, null, 2)}`);
 
         let contacts = Object.values(this.props.contacts).map((contact) => (
             <Card>
@@ -128,29 +125,31 @@ export class Contacts extends Component {
         );
 
         return (
-            <Card>
-                <CardContent>
-                    <Card>
-                        <CardContent>
-                            <h1>Contacts</h1>
-                            {contacts}
-                        </CardContent>
-                    </Card>
+            <div class="col">
+                <Card>
+                    <CardContent>
+                        <Card>
+                            <CardContent>
+                                <h1>Contacts</h1>
+                                {contacts}
+                            </CardContent>
+                        </Card>
 
-                    <Card>
-                        <CardContent>
-                            <h1> Add New Contact</h1>
-                            <SearchBar
-                                placeHolderText={"Find a contact"}
-                                onSearchTextChange={(term, hits) => {
-                                    this.returnedContacts(term);
-                                }}
-                            />
-                            {returnedContacts}
-                        </CardContent>
-                    </Card>
-                </CardContent>
-            </Card>
+                        <Card>
+                            <CardContent>
+                                <h1> Add New Contact</h1>
+                                <SearchBar
+                                    placeHolderText={"Find a contact"}
+                                    onSearchTextChange={(term, hits) => {
+                                        this.returnedContacts(term);
+                                    }}
+                                />
+                                {returnedContacts}
+                            </CardContent>
+                        </Card>
+                    </CardContent>
+                </Card>
+            </div>
         );
     }
 }

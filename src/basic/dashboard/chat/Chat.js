@@ -23,6 +23,7 @@ import {
   ConversationHeader,
   Avatar,
 } from "@chatscope/chat-ui-kit-react";
+import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
 
 export default class Chat extends Component {
@@ -62,7 +63,9 @@ export default class Chat extends Component {
   }
 
   InitSocketIO = () => {
-    const socket = io(`https://${process.env.host}`, { resource: 'nodejs' });
+    const socket = io(`https://${process.env.host}`, {
+      withCredentials: true
+    },~ { resource: 'nodejs' });
 
     socket.on("connect", () => {
       console.log(`Socket Connected`);
@@ -168,6 +171,8 @@ export default class Chat extends Component {
   renderChat = () => {
     if (this.state.activeChat !== null) {
 
+      console.log(`ActiveChat Activated`)
+
       let messages = Object.values(this.state.activeChat.messages).map((message) => (
         <>
           <Message
@@ -182,16 +187,17 @@ export default class Chat extends Component {
 
       return (
         <div class="col">
+
           <ChatContainer>
             <ConversationHeader>
-
               <p>{JSON.stringify(this.state.activeChat.conversationName)}</p>
-
             </ConversationHeader>
 
             <MessageList>{messages} </MessageList>
+
             <MessageInput placeholder="Type message here" />
           </ChatContainer>
+
         </div>
       );
     }
@@ -212,6 +218,7 @@ export default class Chat extends Component {
   render() {
     let conversations = this.state.conversations.map(
       (conversation) => (
+
         <Conversation
           name={conversation.conversationName}
           lastSenderName={conversation.lastSenderName}
@@ -221,9 +228,9 @@ export default class Chat extends Component {
           lastActivityTime={conversation.lastActivityTime}
           onClick={() => this.setActiveChat(conversation.conversationName)}
         >
-          {" "}
           <Avatar src={conversation.avatarLink} />
         </Conversation>
+
       )
     );
 
@@ -239,7 +246,6 @@ export default class Chat extends Component {
             lastActivityTime={conversation.lastActivityTime}
             onClick={() => this.setActiveChat(conversation.conversationName)}
           >
-            {" "}
             <Avatar src={conversation.avatarLink} />
           </Conversation>
         )
@@ -260,28 +266,52 @@ export default class Chat extends Component {
       <Card variant="outlined">
         <CardContent>
           <div class="row">
+            <div class="col-sm-2" >
+              <Card variant="outlined" style={{ height: 160 }}>
+                <CardContent>
+                  <Menu>
+                    <MenuItem
+                      icon={<PeopleOutlinedIcon />}
+                      onClick={() => {
+                        this.showChat();
+                      }}
+                    >
+                      Chats
+                    </MenuItem>
 
-            <Sidebar style={{ height: "50vh" }}>
-              <Menu>
-                <MenuItem
-                  icon={<PeopleOutlinedIcon />}
-                  onClick={() => {
-                    this.showChat();
-                  }}
-                >
-                  Chat
-                </MenuItem>
+                    <MenuItem
+                      icon={<ContactsOutlinedIcon />}
+                      onClick={() => {
+                        this.showContacts();
+                      }}
+                    >
+                      Contacts
+                    </MenuItem>
+                  </Menu>
+                </CardContent>
+              </Card>
+            </div>
 
-                <MenuItem
-                  icon={<ContactsOutlinedIcon />}
-                  onClick={() => {
-                    this.showContacts();
-                  }}
-                >
-                  Contacts
-                </MenuItem>
-              </Menu>
-            </Sidebar>
+            <div class="col">
+              {this.state.showChat && (
+                <div class="row">
+
+                  <MainContainer>
+
+                    <div class="col-sm-3">
+                      <ConversationList>{conversations}</ConversationList>
+                    </div>
+
+                    <div class="col">
+                      {this.renderChat()}
+                    </div>
+
+                  </MainContainer>
+                </div>
+
+
+              )}
+            </div>
 
             {this.state.showContacts && (
               <Contacts
@@ -297,29 +327,9 @@ export default class Chat extends Component {
               />
             )}
 
-            {this.state.showChat && (
-              <Card variant="outlined">
-                <CardContent>
-                  <MainContainer>
-                    <div class="col-6">
-                      <br />
-
-                      <div class="col">
-                        <h4> Chat </h4>
-                      </div>
-
-                      <div class="col">
-                        <ConversationList>{conversations}</ConversationList>
-                      </div>
-                    </div>
-                    {this.renderChat()}
-                  </MainContainer>
-                </CardContent>
-              </Card>
-            )}
           </div>
         </CardContent>
-      </Card>
+      </Card >
     );
   }
 }
