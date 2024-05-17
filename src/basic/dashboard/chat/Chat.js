@@ -31,26 +31,7 @@ export default class Chat extends Component {
     super(props);
 
     this.state = {
-      conversations: [
-        {
-          "conversationName": "ConversationName",
-          "avatarLink": "",
-          "lastSenderName": "",
-          "info": "",
-          "unreadCnt": 0,
-          "unreadDot": "",
-          "lastActivityTime": "",
-          "messages": [{
-            message: "Your first message",
-            sentTime: "Now",
-            sender: "You",
-            avatarLink: "",
-            type: "text",
-            direction: "incomming",
-            imageContent: "",
-          }]
-        }
-      ],
+      conversations: [],
       activeChat: null,
       showChat: true,
       showDiscussions: false,
@@ -60,35 +41,44 @@ export default class Chat extends Component {
       usersBack: {},
       historicalData: {},
     };
+
+    this.InitSocketIO = this.InitSocketIO.bind(this)
   }
 
   InitSocketIO = () => {
-    const socket = io(`https://${process.env.host}`, {
+    this.socket = io(`https://${process.env.host}`, {
       withCredentials: true
-    },~ { resource: 'nodejs' });
+    }, { resource: 'nodejs' });
 
-    socket.on("connect", () => {
+    this.socket.on("connect", () => {
       console.log(`Socket Connected`);
 
-      socket.emit("get_historical_messages", this.props.username);
+      this.socket.emit("get_historical_messages", this.props.username);
     })
 
-    socket.on("historical_messages", (data) => {
-      console.log(`Historical Data: ${JSON.stringify(data, null, 2)}`);
+    this.socket.on("historical_messages", (data) => {
+      this.setState({ conversations: data });
 
-      let conversations = [];
+      if (this.state.activeChat !== null) {
+        this.SetActiveConversation(this.state.activeChat.conversationName);
+      }
 
-      new Promise((resolve, reject) => {
-        Object.values(data).forEach((conversation) => {
-          conversations.push(conversation);
-          resolve();
-        })
-      }).then(() => {
-        this.setState({
-          conversations: conversations
-        })
-      });
+      for (let conversation of data) {
+        this.socket.emit("joinConversation", conversation.conversationName);
+      }
     });
+
+    this.socket.on("refreshMessages", (() => {
+      this.socket.emit("get_historical_messages", this.props.username);
+    }))
+  }
+
+  SetActiveConversation = (conversationName) => {
+    this.state.conversations.forEach((conversation) => {
+      if (conversation.conversationName === conversationName) {
+        this.setState({ activeChat: conversation })
+      }
+    })
   }
 
   getAllUsers = (data) => {
@@ -168,18 +158,30 @@ export default class Chat extends Component {
     }
   };
 
+  send = (message) => {
+    let recieversRaw = this.state.activeChat.conversationName.split("__")
+
+    let recievers = recieversRaw.splice(recieversRaw.indexOf(this.props.username), 1);
+
+    let Message = {
+      message: message,
+      conversationName: this.state.activeChat.conversationName,
+      recievers: recievers
+    };
+
+    this.socket.emit("sendMessage", Message);
+  }
+
   renderChat = () => {
     if (this.state.activeChat !== null) {
-
-      console.log(`ActiveChat Activated`)
-
-      let messages = Object.values(this.state.activeChat.messages).map((message) => (
+      let messages = this.state.activeChat.messages.map((message) => (
         <>
           <Message
             model={{
               message: message.message,
               sentTime: message.sentTime,
               sender: message.sender,
+              direction: message.direction
             }}
           ><Avatar src={message.avatarLink} name={message.sender} /></Message>
         </>
@@ -195,19 +197,14 @@ export default class Chat extends Component {
 
             <MessageList>{messages} </MessageList>
 
-            <MessageInput placeholder="Type message here" />
+            <MessageInput
+              placeholder="Type message here"
+              onSend={this.send}
+            />
           </ChatContainer>
 
         </div>
       );
-    }
-  };
-
-  setActiveChat = (conversationName) => {
-    for (let conversation of this.state.conversations) {
-      if (conversation.conversationName === conversationName) {
-        this.setState({ activeChat: conversation });
-      }
     }
   };
 
@@ -226,7 +223,9 @@ export default class Chat extends Component {
           unreadCnt={conversation.unreadCnt}
           unreadDot={conversation.unreadDot}
           lastActivityTime={conversation.lastActivityTime}
-          onClick={() => this.setActiveChat(conversation.conversationName)}
+          onClick={() => {
+            this.setState({ activeChat: conversation });
+          }}
         >
           <Avatar src={conversation.avatarLink} />
         </Conversation>
@@ -323,7 +322,7 @@ export default class Chat extends Component {
                 clearUsers={this.clearUsers}
                 getAllContacts={this.getAllContacts}
                 getAllUsers={this.getAllUsers}
-                setActiveChat={this.setActiveChat}
+                setActiveChat={this.SetActiveConversation}
               />
             )}
 
