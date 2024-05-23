@@ -99,8 +99,11 @@ export class Contacts extends Component {
                 <CardContent>
                     <h4> {contact.username}</h4>
                     <Button
-                        onClick={this.props.setActiveChat(contact.username)}
-                    > Message</Button>
+                        onClick={() => {
+                            this.props.NewConversation(contact.username)
+                        }}
+                    > Message
+                    </Button>
                 </CardContent>
             </Card>
         ));

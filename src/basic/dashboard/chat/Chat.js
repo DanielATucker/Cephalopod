@@ -208,6 +208,15 @@ export default class Chat extends Component {
     }
   };
 
+  NewConversation = (username) => {
+    this.socket.emit("NewConversation", this.props.username, username);
+
+    console.log(`Conversations: ${JSON.stringify(this.state.conversations, null, 2)}`)
+  }
+
+
+
+
   componentDidMount() {
     this.InitSocketIO();
   }
@@ -291,6 +300,23 @@ export default class Chat extends Component {
               </Card>
             </div>
 
+            {this.state.showContacts && (
+              <Contacts
+                username={this.props.username}
+                allUsers={this.state.allUsers}
+                usersBack={this.state.usersBack}
+                contacts={this.state.contacts}
+                getReturnedUsers={this.getReturnedUsers}
+                clearUsers={this.clearUsers}
+                getAllContacts={this.getAllContacts}
+                getAllUsers={this.getAllUsers}
+                NewConversation={this.NewConversation}
+              />
+            )}
+
+          </div>
+
+          <div class="row">
             <div class="col">
               {this.state.showChat && (
                 <div class="row">
@@ -307,25 +333,8 @@ export default class Chat extends Component {
 
                   </MainContainer>
                 </div>
-
-
               )}
             </div>
-
-            {this.state.showContacts && (
-              <Contacts
-                username={this.props.username}
-                allUsers={this.state.allUsers}
-                usersBack={this.state.usersBack}
-                contacts={this.state.contacts}
-                getReturnedUsers={this.getReturnedUsers}
-                clearUsers={this.clearUsers}
-                getAllContacts={this.getAllContacts}
-                getAllUsers={this.getAllUsers}
-                setActiveChat={this.SetActiveConversation}
-              />
-            )}
-
           </div>
         </CardContent>
       </Card >
