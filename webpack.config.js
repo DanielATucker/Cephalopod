@@ -68,7 +68,7 @@ module.exports = {
     }, client: {
       overlay: false,
     },
-    port: 5500,
+    port: 5000,
     allowedHosts: "all",
     https: {
       key: fs.readFileSync(".ssl/home.tail5cd89.ts.net.key"),

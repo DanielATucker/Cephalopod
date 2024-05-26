@@ -70,7 +70,7 @@ export default class AdminStickers extends Component {
       console.log(`StickerUrl: ${stickerUrl}`);
       console.log(`Data: ${JSON.stringify(this.state.stickerCampaigns[stickerUrl], null, 2)}`)
 
-      let imgSrc = `https://home.tail5cd89.ts.net:5501/AdminStickers/${stickerUrl}`;
+      let imgSrc = `https://home.tail5cd89.ts.net:5001/AdminStickers/${stickerUrl}`;
       let stickerName = stickerUrl.split('.')[0];
 
 
