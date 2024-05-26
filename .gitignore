@@ -26,3 +26,4 @@ yarn-error.log*
 ssl/LMG_cert.pem
 ssl/LMG_key.pem
 WebpackStatistics.html
+.env
