@@ -28,3 +28,4 @@ ssl/LMG_key.pem
 WebpackStatistics.html
 node_modules
 .yarn
+.ssl

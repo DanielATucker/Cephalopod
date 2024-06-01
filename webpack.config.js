@@ -62,7 +62,6 @@ module.exports = {
     new Dotenv(),
   ],
   devServer: {
-    server: 'https',
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, "build"),
@@ -72,8 +71,8 @@ module.exports = {
     port: 5500,
     allowedHosts: "all",
     https: {
-      key: fs.readFileSync(".ssl/home.tail5cd89.ts.net.key"),
-      cert: fs.readFileSync(".ssl/home.tail5cd89.ts.net.crt"),
+      key: fs.readFileSync(".ssl/Key.key"),
+      cert: fs.readFileSync(".ssl/Cert.crt"),
     },
   },
   module: {
