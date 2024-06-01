@@ -44,7 +44,7 @@ export class Login extends Component {
       }).then((resolve, reject) => {
         const socket = io(`https://${process.env.host}`, {
           withCredentials: true
-        }, { resource: 'nodejs' });
+        });
 
         socket.on("connect", () => {
           console.log(`Socket Connected`);

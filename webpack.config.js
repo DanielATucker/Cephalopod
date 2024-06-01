@@ -14,7 +14,7 @@ module.exports = {
   entry: "./src/index.js",
   output: {
     filename: "[name].js",
-    chunkFilename: "[name].chunk.js",
+    chunkFilename: "[name].[contenthash].chunk.js",
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
     sourcePrefix: "",
@@ -62,13 +62,14 @@ module.exports = {
     new Dotenv(),
   ],
   devServer: {
+    server: 'https',
     historyApiFallback: true,
     static: {
       directory: path.join(__dirname, "build"),
     }, client: {
       overlay: false,
     },
-    port: 5000,
+    port: 5500,
     allowedHosts: "all",
     https: {
       key: fs.readFileSync(".ssl/home.tail5cd89.ts.net.key"),

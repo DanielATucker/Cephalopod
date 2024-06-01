@@ -15,7 +15,7 @@
   "scripts": {
     "start": "set HTTPS=true&&webpack --config webpack.config.js",
     "build": "webpack --mode=production --config webpack.config.js",
-    "serve": "HTTPS=true && webpack serve --mode=production --config webpack.config.js",
+    "serve": "webpack serve --mode=production --config webpack.config.js",
     "dev": " HTTPS=true && webpack-dev-server --mode=production --node-env=production --config webpack.config.js"
   },
   "dependencies": {
