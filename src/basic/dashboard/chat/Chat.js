@@ -51,8 +51,6 @@ export default class Chat extends Component {
     }, { resource: 'nodejs' });
 
     this.socket.on("connect", () => {
-      console.log(`Socket Connected`);
-
       this.socket.emit("get_historical_messages", this.props.username);
     })
 
@@ -84,9 +82,6 @@ export default class Chat extends Component {
   getAllUsers = (data) => {
     let usersOut = {};
 
-    console.log(`Get All: ${JSON.stringify(this.state.allUsers)}`);
-    console.log(`Data: ${JSON.stringify(data, null, 2)}`);
-
     Object.values(data).forEach((user) => {
       if (!JSON.stringify(this.state.contacts).includes(user.username)) {
         usersOut[user.username] = user;
@@ -94,9 +89,6 @@ export default class Chat extends Component {
     });
 
     this.setState({ allUsers: usersOut });
-    console.log(
-      `ALLusers after: ${JSON.stringify(this.state.allUsers, null, 2)}`
-    );
   };
 
   getAllContacts = (data) => {
@@ -113,7 +105,6 @@ export default class Chat extends Component {
     usersNow[user.username] = user;
 
     this.setState({ usersBack: usersNow });
-    console.log(`AllUsers: ${JSON.stringify(this.state.usersBack)}`);
   };
 
   showContacts = () => {
@@ -159,9 +150,11 @@ export default class Chat extends Component {
   };
 
   send = (message) => {
-    let recieversRaw = this.state.activeChat.conversationName.split("__")
+    let recieversRaw = this.state.activeChat.conversationName.split("__");
 
-    let recievers = recieversRaw.splice(recieversRaw.indexOf(this.props.username), 1);
+    const recievers = recieversRaw.filter((item) => {
+      return item !== this.props.username;
+    })
 
     let Message = {
       message: message,
@@ -188,34 +181,25 @@ export default class Chat extends Component {
       ));
 
       return (
-        <div class="col">
+        <ChatContainer>
+          <ConversationHeader>
+            <p>{JSON.stringify(this.state.activeChat.conversationName)}</p>
+          </ConversationHeader>
 
-          <ChatContainer>
-            <ConversationHeader>
-              <p>{JSON.stringify(this.state.activeChat.conversationName)}</p>
-            </ConversationHeader>
+          <MessageList>{messages} </MessageList>
 
-            <MessageList>{messages} </MessageList>
-
-            <MessageInput
-              placeholder="Type message here"
-              onSend={this.send}
-            />
-          </ChatContainer>
-
-        </div>
+          <MessageInput
+            placeholder="Type message here"
+            onSend={this.send}
+          />
+        </ChatContainer>
       );
     }
   };
 
   NewConversation = (username) => {
     this.socket.emit("NewConversation", this.props.username, username);
-
-    console.log(`Conversations: ${JSON.stringify(this.state.conversations, null, 2)}`)
   }
-
-
-
 
   componentDidMount() {
     this.InitSocketIO();
@@ -314,27 +298,17 @@ export default class Chat extends Component {
               />
             )}
 
-          </div>
-
-          <div class="row">
-            <div class="col">
-              {this.state.showChat && (
-                <div class="row">
-
-                  <MainContainer>
-
-                    <div class="col-sm-3">
-                      <ConversationList>{conversations}</ConversationList>
-                    </div>
-
-                    <div class="col">
-                      {this.renderChat()}
-                    </div>
-
-                  </MainContainer>
+            {this.state.showChat && (
+              <MainContainer>
+                <div class="col-sm-5">
+                  <ConversationList>{conversations}</ConversationList>
                 </div>
-              )}
-            </div>
+
+                <div class="col">
+                  {this.renderChat()}
+                </div>
+              </MainContainer>
+            )}
           </div>
         </CardContent>
       </Card >

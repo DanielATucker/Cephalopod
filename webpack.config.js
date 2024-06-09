@@ -13,8 +13,8 @@ const fs = require("fs");
 module.exports = {
   entry: "./src/index.js",
   output: {
-    filename: "[name].js",
-    chunkFilename: "[name].[contenthash].chunk.js",
+    filename: "[name].[contenthash].js",
+    chunkFilename: "[name].chunk.js",
     path: path.resolve(__dirname, "build"),
     publicPath: "/",
     sourcePrefix: "",

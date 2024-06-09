@@ -1,9 +1,6 @@
 import { Card, CardContent, List } from "@mui/material";
 import React, { Component } from "react";
 
-import FolderTree from "react-folder-tree";
-import "react-folder-tree/dist/style.css";
-import styles from "./treeBrowser.module.css";
 
 import axios from "axios";
 
