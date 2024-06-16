@@ -22,6 +22,8 @@ import {
   Conversation,
   ConversationHeader,
   Avatar,
+  VideoCallButton,
+  InfoButton,
 } from "@chatscope/chat-ui-kit-react";
 import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 
@@ -40,6 +42,8 @@ export default class Chat extends Component {
       allUsers: {},
       usersBack: {},
       historicalData: {},
+      showVideoChat: false,
+      videoChatURL: ""
     };
 
     this.InitSocketIO = this.InitSocketIO.bind(this)
@@ -69,6 +73,13 @@ export default class Chat extends Component {
     this.socket.on("refreshMessages", (() => {
       this.socket.emit("get_historical_messages", this.props.username);
     }))
+
+    this.socket.on("StartVideoChatURL", (URL) => {
+      this.setState({
+        showVideoChat: true,
+        videoChatURL: URL
+      })
+    })
   }
 
   SetActiveConversation = (conversationName) => {
@@ -165,6 +176,15 @@ export default class Chat extends Component {
     this.socket.emit("sendMessage", Message);
   }
 
+  StartVideoChat = () => {
+    console.log("Start Video Chat");
+    this.socket.emit("StartVideoChat", {
+      conversationName: this.state.activeChat.conversationName,
+      caller: this.props.username,
+      recievers: this.state.activeChat.conversationName.split("__").filter((item) => { return item !== this.props.username })
+    });
+  }
+
   renderChat = () => {
     if (this.state.activeChat !== null) {
       let messages = this.state.activeChat.messages.map((message) => (
@@ -183,7 +203,14 @@ export default class Chat extends Component {
       return (
         <ChatContainer>
           <ConversationHeader>
-            <p>{JSON.stringify(this.state.activeChat.conversationName)}</p>
+            <ConversationHeader.Actions>
+              <VideoCallButton
+                onClick={() => {
+                  this.StartVideoChat();
+                }}
+              />
+              <InfoButton />
+            </ConversationHeader.Actions>
           </ConversationHeader>
 
           <MessageList>{messages} </MessageList>
@@ -310,6 +337,17 @@ export default class Chat extends Component {
               </MainContainer>
             )}
           </div>
+
+          {this.state.showVideoChat && (
+            <div className="row">
+              <iframe
+                allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
+                src={this.state.videoChatURL}
+
+                style={{ height: 720, width: 576, border: 0 }}
+              ></iframe>
+            </div>
+          )}
         </CardContent>
       </Card >
     );
