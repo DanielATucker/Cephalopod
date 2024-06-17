@@ -26,7 +26,7 @@ import Music from "./basic/music/Music.js";
 import { maxWidth } from "@mui/system";
 import { Card } from "react-bootstrap";
 import { CardContent } from "@mui/material";
-import SundaySocial from "./basic/dashboard/SundaySocial/SundaySocial.js";
+import SundaySocial from "./basic/SundaySocial/SundaySocial.js";
 
 import { darkTheme } from "./Theme.js";
 

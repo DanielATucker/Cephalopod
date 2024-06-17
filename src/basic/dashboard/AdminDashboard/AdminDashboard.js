@@ -10,6 +10,7 @@ import { Card, CardContent } from "@mui/material";
 import axios from "axios";
 import Socials from "./Socials/Socials.js";
 import PersonnelManagementSoftware from "./PMS/PMS.js";
+import SundaySocialAdmin from "./SundaySocialAdmin/SundaySocialAdmin.js";
 
 export class AdminDashboard extends Component {
   constructor(props) {
@@ -65,6 +66,10 @@ export class AdminDashboard extends Component {
                   <p> Username: {this.props.username}</p>
                 </CardContent>
               </Card>
+
+              <br />
+
+              <SundaySocialAdmin />
 
               <PersonnelManagementSoftware />
 

@@ -11,13 +11,11 @@ export default class Template extends Component {
 
   render() {
     return (
-      <>
-        <Card>
-          <CardContent>
-            <h1>Template</h1>
-          </CardContent>
-        </Card>
-      </>
+      <Card>
+        <CardContent>
+          <h1>Template</h1>
+        </CardContent>
+      </Card>
     );
   }
 }

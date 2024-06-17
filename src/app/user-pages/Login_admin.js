@@ -38,7 +38,7 @@ export class LoginAdmin extends Component {
   };
 
   async doesUserExist() {
-    let is_loggedin = await fetch(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/is_loggedin`, {credentials: "include"}, {
+    let is_loggedin = await fetch(`https://${process.env.REACT_APP_host}/system/is_loggedin`, {credentials: "include"}, {
       method: 'GET',
       mode: 'cors',  
       headers: {
@@ -62,7 +62,7 @@ export class LoginAdmin extends Component {
 
     console.log(`username: ${this.state.username}`);
 
-    fetch(`https://${process.env.REACT_APP_host}:${process.env.REACT_APP_port}/system/login_admin`, {
+    fetch(`https://${process.env.REACT_APP_host}/system/login_admin`, {
       method: 'POST',
       mode: 'cors',
       headers: {

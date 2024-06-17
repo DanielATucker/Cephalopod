@@ -1,34 +1,13 @@
 import React, { Component } from "react";
 
-import { Sidebar, Menu, MenuItem } from "react-pro-sidebar";
-import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
-import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
-import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
-import ReceiptOutlinedIcon from "@mui/icons-material/ReceiptOutlined";
-import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import { Card, CardContent } from "@mui/material";
+
+import { Avatar, ChatContainer, Conversation, ConversationHeader, ConversationList, MainContainer, Message, MessageList } from "@chatscope/chat-ui-kit-react";
 
 import { io } from "socket.io-client";
 
-import Contacts from "../contacts/contacts.js";
 
-import {
-  MainContainer,
-  ChatContainer,
-  MessageList,
-  Message,
-  MessageInput,
-  ConversationList,
-  Conversation,
-  ConversationHeader,
-  Avatar,
-  VideoCallButton,
-  InfoButton,
-} from "@chatscope/chat-ui-kit-react";
-import styles from '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
-
-
-export default class Chat extends Component {
+export default class SundaySocialChat extends Component {
   constructor(props) {
     super(props);
 
@@ -38,9 +17,6 @@ export default class Chat extends Component {
       showChat: true,
       showDiscussions: false,
       showContacts: false,
-      contacts: {},
-      allUsers: {},
-      usersBack: {},
       historicalData: {},
       showVideoChat: false,
       videoChatURL: ""
@@ -55,10 +31,10 @@ export default class Chat extends Component {
     }, { resource: 'nodejs' });
 
     this.socket.on("connect", () => {
-      this.socket.emit("get_historical_messages", this.props.username);
+      this.socket.emit("get_historical_SS_Messages", this.props.username);
     })
 
-    this.socket.on("historical_messages", (data) => {
+    this.socket.on("historical_SS_messages", (data) => {
       this.setState({ conversations: data });
 
       if (this.state.activeChat !== null) {
@@ -66,15 +42,15 @@ export default class Chat extends Component {
       }
 
       for (let conversation of data) {
-        this.socket.emit("joinConversation", conversation.conversationName);
+        this.socket.emit("join_SS_Conversation", conversation.conversationName);
       }
     });
 
-    this.socket.on("refreshMessages", (() => {
-      this.socket.emit("get_historical_messages", this.props.username);
+    this.socket.on("refresh_SS_Messages", (() => {
+      this.socket.emit("get_historical_SS_messages", this.props.username);
     }))
 
-    this.socket.on("StartVideoChatURL", (URL) => {
+    this.socket.on("Start_SS_VideoChatURL", (URL) => {
       this.setState({
         showVideoChat: true,
         videoChatURL: URL
@@ -89,40 +65,6 @@ export default class Chat extends Component {
       }
     })
   }
-
-  getAllUsers = (data) => {
-    let usersOut = {};
-
-    Object.values(data).forEach((user) => {
-      if (!JSON.stringify(this.state.contacts).includes(user.username)) {
-        usersOut[user.username] = user;
-      }
-    });
-
-    this.setState({ allUsers: usersOut });
-  };
-
-  getAllContacts = (data) => {
-    this.setState({ contacts: data });
-  };
-
-  clearUsers = () => {
-    this.setState({ usersBack: {} });
-  };
-
-  getReturnedUsers = (user) => {
-    let usersNow = this.state.usersBack;
-
-    usersNow[user.username] = user;
-
-    this.setState({ usersBack: usersNow });
-  };
-
-  showContacts = () => {
-    this.setState({
-      showContacts: !this.state.showContacts,
-    });
-  };
 
   showDiscussions = () => {
     this.setState({
@@ -140,25 +82,6 @@ export default class Chat extends Component {
     this.setState({
       showMessages: !this.state.showMessages,
     });
-  };
-  
-  renderSidebar = () => {
-    {
-      this.state.showDiscussions && (
-        <div class="col grid-margin ">
-          <div class="card">
-            <div class="card-body">
-              <h3> End of Discussions </h3>
-              <p> Ask a question or post a new topic to discuss </p>
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-    {
-      this.state.showMessages && this.Messages();
-    }
   };
 
   send = (message) => {
@@ -283,48 +206,12 @@ export default class Chat extends Component {
     }
 
     return (
-      <Card variant="outlined">
+      <Card>
         <CardContent>
-          <div class="row">
-            <div class="col-sm-2" >
-              <Card variant="outlined" style={{ height: 160 }}>
-                <CardContent>
-                  <Menu>
-                    <MenuItem
-                      icon={<PeopleOutlinedIcon />}
-                      onClick={() => {
-                        this.showChat();
-                      }}
-                    >
-                      Chats
-                    </MenuItem>
+          <div class="col-5">
+            Chats
 
-                    <MenuItem
-                      icon={<ContactsOutlinedIcon />}
-                      onClick={() => {
-                        this.showContacts();
-                      }}
-                    >
-                      Contacts
-                    </MenuItem>
-                  </Menu>
-                </CardContent>
-              </Card>
-            </div>
-
-            {this.state.showContacts && (
-              <Contacts
-                username={this.props.username}
-                allUsers={this.state.allUsers}
-                usersBack={this.state.usersBack}
-                contacts={this.state.contacts}
-                getReturnedUsers={this.getReturnedUsers}
-                clearUsers={this.clearUsers}
-                getAllContacts={this.getAllContacts}
-                getAllUsers={this.getAllUsers}
-                NewConversation={this.NewConversation}
-              />
-            )}
+            <br />
 
             {this.state.showChat && (
               <MainContainer>
@@ -338,19 +225,8 @@ export default class Chat extends Component {
               </MainContainer>
             )}
           </div>
-
-          {this.state.showVideoChat && (
-            <div className="row">
-              <iframe
-                allow="camera; microphone; display-capture; fullscreen; clipboard-read; clipboard-write; autoplay"
-                src={this.state.videoChatURL}
-
-                style={{ height: 720, width: 576, border: 0 }}
-              ></iframe>
-            </div>
-          )}
         </CardContent>
-      </Card >
+      </Card>
     );
   }
 }
