@@ -11,6 +11,7 @@ import axios from "axios";
 import Socials from "./Socials/Socials.js";
 import PersonnelManagementSoftware from "./PMS/PMS.js";
 import SundaySocialAdmin from "./SundaySocialAdmin/SundaySocialAdmin.js";
+import Wade from "./Wade/Wade.js";
 
 export class AdminDashboard extends Component {
   constructor(props) {
@@ -70,6 +71,8 @@ export class AdminDashboard extends Component {
               <br />
 
               <SundaySocialAdmin />
+
+              <Wade />
 
               <PersonnelManagementSoftware />
 
