@@ -142,7 +142,7 @@ export default class AdminStickers extends Component {
                   <th>Sticker Name</th>
                   <th>Sticker Image</th>
                   <th>Activated</th>
-                  <th>Chapaigns</th>
+                  <th>Champaigns</th>
 
                 </tr>
               </thead>
