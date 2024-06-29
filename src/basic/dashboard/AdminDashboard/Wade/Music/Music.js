@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-import { Card, CardContent, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
+import { Button, Card, CardContent, Checkbox, FormControlLabel, FormGroup } from "@mui/material";
 import axios from "axios";
+import { Collapse } from "react-bootstrap";
 
 export default class Music extends Component {
   constructor(props) {
@@ -12,6 +13,7 @@ export default class Music extends Component {
       songs: {},
       isActive: null,
       isActiveSongs: null,
+      Vault1CollapseAll: false,
     };
   }
 
@@ -30,11 +32,17 @@ export default class Music extends Component {
               let childNameArray = childNameMp3[0].split(" - ");
               let childName = childNameArray[1];
 
+              let path = folder.children[i].path;
+
+              let songPath = path.split("Vault-1")[1];
+              let art = songPath.replace("Music", "AlbumArt");
+
               let songs = this.state.songs;
 
               songs[childName] = {
                 name: childName,
-                path: folder.children[i].path,
+                path: path,
+                art: art
               }
 
               this.setState({ songs: songs })
@@ -73,12 +81,28 @@ export default class Music extends Component {
   render() {
     let Songs = Object.keys(this.state.songs).map((song) => {
 
+      console.log(`Song ${JSON.stringify(song, null, 2)}`)
+
       if (this.state.isActive !== null) {
         return (
           <tr>
-
-            <td>
-              {this.state.songs[song].name}
+            <td style={{ maxWidth: 300 }}>
+              <br />
+              <div class="row">
+                <div class="col" style={{ maxWidth: 82 }}>
+                  <img
+                    src={`${process.env.broadcast}${this.state.songs[song].art}.jpeg`}
+                    alt="Album Art"
+                    style={{
+                      height: 80,
+                      width: 80,
+                    }}
+                  />
+                </div>
+                <div class="col">
+                  {this.state.songs[song].name}
+                </div>
+              </div>
             </td>
             <td>
               <FormGroup>
@@ -120,12 +144,23 @@ export default class Music extends Component {
 
           <div class="table-responsive">
             <h1> Vault 1 </h1>
-            <table class="table" border="1px">
-              <th> Song Name</th>
-              <th> Is Active </th>
 
-              {Songs}
-            </table>
+            <Button variant="contained" onClick={() => {
+              this.setState({ Vault1CollapseAll: !this.state.Vault1CollapseAll })
+            }}>
+              Show Full Vault
+            </Button>
+            <br />
+            <br />
+
+            <Collapse in={this.state.Vault1CollapseAll}>
+              <table class="table" border="1px">
+                <th> Song Name</th>
+                <th> Is Active </th>
+
+                {Songs}
+              </table>
+            </Collapse>
           </div>
 
         </CardContent>

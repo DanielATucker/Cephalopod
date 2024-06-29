@@ -178,14 +178,14 @@ export default class Layout extends React.Component {
     return (
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <div class="container">
+        <div class="container" style={{ maxWidth: 1980 }}>
           <Card>
             <CardContent>
               <div class="row">
 
                 {this.renderTopBar()}
 
-                <div class="col" style={{ maxWidth: "10%" }}>
+                <div class="col" style={{ maxWidth: "15%" }}>
                   <SideBar
                     getComponent={this.getComponent}
                     is_loggedin={this.state.is_loggedin}
