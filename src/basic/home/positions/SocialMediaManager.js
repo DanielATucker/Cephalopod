@@ -2,42 +2,36 @@ import React, { Component } from "react";
 
 import { Card, CardContent } from "@mui/material";
 
-
-export class LMG_memes extends Component {
+export default class SocialMediaManager extends Component {
   render() {
     return (
       <>
         <Card>
           <CardContent>
-            <div style={{ textAlign: "center" }}>
-              <h4>LMG - Memes</h4>
-            </div>
-
-            <div style={{ textAlign: "center" }}>
-              A facebook page for sharing leftist propaganda
-            </div>
-
-            <br />
-
-            <div style={{ textAlign: "center" }}>Positions</div>
-
             <div className="row">
               <div className="col">
                 <Card variant="outlined">
                   <CardContent>
                     <div style={{ textAlign: "center" }}>
-                      <h4>Meme Distributer</h4>
+                      <h4>Social Media Manager</h4>
                     </div>
+
                     <div style={{ textAlign: "center" }}>
-                      Share Leftist Memes on a dedicated Facebook page <br />
+                      Build and refine the online presence of
+                      LeftistMediaGroup.org
+                      <br />
                     </div>
 
                     <div style={{ textAlign: "left" }}>
                       <br />
+
                       Preferred skills:
                       <ul>
-                        <li>Experience with Facebook</li>
-                        <li>Preferred - Experience with Facebook Pages</li>
+                        <li>
+                          Facebook, Instagram, Reddit, Media Trends, Brand
+                          Building, or social media managing interest or
+                          experience
+                        </li>
                       </ul>
                     </div>
                   </CardContent>
@@ -51,4 +45,3 @@ export class LMG_memes extends Component {
   }
 }
 
-export default LMG_memes;

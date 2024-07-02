@@ -1,5 +1,5 @@
 import React from "react";
-import Music from "./basic/home/Music";
+import Music from "./basic/home/projects/Music";
 import Chat from "./basic/dashboard/chat/Chat";
 import RSS from "./basic/dashboard/RSS/RSS";
 import Journal from "./basic/Journal/Journal";

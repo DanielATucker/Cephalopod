@@ -182,9 +182,10 @@ export default class Layout extends React.Component {
           <Card>
             <CardContent>
               <div class="row">
-
                 {this.renderTopBar()}
+              </div>
 
+              <div class="row">
                 <div class="col" style={{ maxWidth: "15%" }}>
                   <SideBar
                     getComponent={this.getComponent}
@@ -197,9 +198,9 @@ export default class Layout extends React.Component {
                 <div class="col">
                   {this.renderComponent()}
                 </div>
-
+              </div>
+              <div class="row">
                 {this.renderBottomBar()}
-
               </div>
             </CardContent>
           </Card>
